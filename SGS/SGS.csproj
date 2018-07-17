@@ -33,9 +33,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data, Version=6.10.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.6.10.7\lib\net452\MySql.Data.dll</HintPath>
     </Reference>
@@ -59,8 +64,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controle\c_ConexaoMySql.cs" />
+    <Compile Include="Controle\c_Corretor.cs" />
+    <Compile Include="Controle\c_Usuario.cs" />
+    <Compile Include="dbsgsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbsgsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\m_Corretor.cs" />
+    <Compile Include="Modelo\m_Usuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Visao\v_Corretor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\v_Corretor.Designer.cs">
+      <DependentUpon>v_Corretor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visao\v_Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,9 +98,23 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Visao\v_Corretor.resx">
+      <DependentUpon>v_Corretor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_Principal.resx">
       <DependentUpon>v_Principal.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="dbsgsDataSet.xsc">
+      <DependentUpon>dbsgsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="dbsgsDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dbsgsDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dbsgsDataSet.xss">
+      <DependentUpon>dbsgsDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -94,9 +129,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controle\" />
-    <Folder Include="Modelo\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

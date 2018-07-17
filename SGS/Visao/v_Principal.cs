@@ -16,5 +16,11 @@ namespace SGS.Visao
         {
             InitializeComponent();
         }
+
+        private void bbiCorretor_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            v_Corretor v_corretor = new v_Corretor();
+            v_corretor.ShowDialog();
+        }
     }
 }

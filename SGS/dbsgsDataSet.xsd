@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dbsgsDataSet" targetNamespace="http://tempuri.org/dbsgsDataSet.xsd" xmlns:mstns="http://tempuri.org/dbsgsDataSet.xsd" xmlns="http://tempuri.org/dbsgsDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="dbsgsConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="dbsgsConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SGS.Properties.Settings.GlobalReference.Default.dbsgsConnectionString" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="corretorTableAdapter" GeneratorDataComponentClassName="corretorTableAdapter" Name="corretor" UserDataComponentName="corretorTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="dbsgsConnectionString (Settings)" DbObjectName="dbsgs.corretor" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `idcorretor`, `nome`, `cpf`, `email`, `telefone` FROM `corretor`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="usuarioTableAdapter" GeneratorDataComponentClassName="usuarioTableAdapter" Name="usuario" UserDataComponentName="usuarioTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="dbsgsConnectionString (Settings)" DbObjectName="dbsgs.usuario" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `idusuario`, `nome`, `login`, `senha`, `permissao` FROM `usuario`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dbsgsDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="dbsgsDataSet" msprop:Generator_UserDSName="dbsgsDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="corretor" msprop:Generator_TableClassName="corretorDataTable" msprop:Generator_TableVarName="tablecorretor" msprop:Generator_TablePropName="corretor" msprop:Generator_RowDeletingName="corretorRowDeleting" msprop:Generator_RowChangingName="corretorRowChanging" msprop:Generator_RowEvHandlerName="corretorRowChangeEventHandler" msprop:Generator_RowDeletedName="corretorRowDeleted" msprop:Generator_UserTableName="corretor" msprop:Generator_RowChangedName="corretorRowChanged" msprop:Generator_RowEvArgName="corretorRowChangeEvent" msprop:Generator_RowClassName="corretorRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="usuario" msprop:Generator_TableClassName="usuarioDataTable" msprop:Generator_TableVarName="tableusuario" msprop:Generator_TablePropName="usuario" msprop:Generator_RowDeletingName="usuarioRowDeleting" msprop:Generator_RowChangingName="usuarioRowChanging" msprop:Generator_RowEvHandlerName="usuarioRowChangeEventHandler" msprop:Generator_RowDeletedName="usuarioRowDeleted" msprop:Generator_UserTableName="usuario" msprop:Generator_RowChangedName="usuarioRowChanged" msprop:Generator_RowEvArgName="usuarioRowChangeEvent" msprop:Generator_RowClassName="usuarioRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
