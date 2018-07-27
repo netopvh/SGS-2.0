@@ -6,21 +6,16 @@ using System.Threading.Tasks;
 
 namespace SGS.Modelo
 {
-    public class m_Corretor
+    public class m_Loteamento
     {
-        public int idcorretor { get; set; }
+        public int idloteamento { get; set; }
         public string nome { get; set; }
-        public string cpf { get; set; }
-        public string email { get; set; }
-        public string telefone { get; set; }
+        public string obra { get; set; }
+        public string empresa { get; set; }
         public int status { get; set; }
+        public DateTime datacad { get; set; }
         public string usuariocad { get; set; }
 
-
-        public m_Corretor()
-        {
-
-        }
 
     }
 }

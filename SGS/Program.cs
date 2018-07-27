@@ -16,7 +16,7 @@ namespace SGS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Visao.v_Principal());
+            Application.Run(new Visao.v_Pendencias());
         }
     }
 }

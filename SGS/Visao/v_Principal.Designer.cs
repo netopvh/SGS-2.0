@@ -45,10 +45,13 @@
             this.bbiImpressoraTermica = new DevExpress.XtraBars.BarButtonItem();
             this.bbiEmpresaLicenca = new DevExpress.XtraBars.BarButtonItem();
             this.bbiVisitaStand = new DevExpress.XtraBars.BarButtonItem();
+            this.bsiUsuario = new DevExpress.XtraBars.BarStaticItem();
+            this.bbiLoteamento = new DevExpress.XtraBars.BarButtonItem();
             this.rbpAtendimento = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpCadastros = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpContratos = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -60,6 +63,7 @@
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.usuarioTableAdapter1 = new SGS.dbsgsDataSetTableAdapters.usuarioTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControlPrincipal)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,9 +86,11 @@
             this.bbiEmail,
             this.bbiImpressoraTermica,
             this.bbiEmpresaLicenca,
-            this.bbiVisitaStand});
+            this.bbiVisitaStand,
+            this.bsiUsuario,
+            this.bbiLoteamento});
             this.ribbonControlPrincipal.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControlPrincipal.MaxItemId = 18;
+            this.ribbonControlPrincipal.MaxItemId = 21;
             this.ribbonControlPrincipal.Name = "ribbonControlPrincipal";
             this.ribbonControlPrincipal.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpAtendimento,
@@ -96,6 +102,7 @@
             this.ribbonControlPrincipal.Size = new System.Drawing.Size(800, 146);
             this.ribbonControlPrincipal.StatusBar = this.ribbonStatusBar1;
             this.ribbonControlPrincipal.Toolbar.ShowCustomizeItem = false;
+            this.ribbonControlPrincipal.Click += new System.EventHandler(this.ribbonControlPrincipal_Click);
             // 
             // bbiContrato
             // 
@@ -121,6 +128,7 @@
             this.bbiUsuario.Caption = "Usuário";
             this.bbiUsuario.Id = 5;
             this.bbiUsuario.Name = "bbiUsuario";
+            this.bbiUsuario.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiUsuario_ItemClick);
             // 
             // bbiFechamentoCaixa
             // 
@@ -151,6 +159,7 @@
             this.bbiPendencias.Caption = "Pendencias";
             this.bbiPendencias.Id = 10;
             this.bbiPendencias.Name = "bbiPendencias";
+            this.bbiPendencias.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPendencias_ItemClick);
             // 
             // bbiFazerBackup
             // 
@@ -181,12 +190,26 @@
             this.bbiEmpresaLicenca.Caption = "Empresa/Licença";
             this.bbiEmpresaLicenca.Id = 15;
             this.bbiEmpresaLicenca.Name = "bbiEmpresaLicenca";
+            this.bbiEmpresaLicenca.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEmpresaLicenca_ItemClick);
             // 
             // bbiVisitaStand
             // 
             this.bbiVisitaStand.Caption = "Visitas no Stand";
             this.bbiVisitaStand.Id = 17;
             this.bbiVisitaStand.Name = "bbiVisitaStand";
+            // 
+            // bsiUsuario
+            // 
+            this.bsiUsuario.Caption = "Usuário:";
+            this.bsiUsuario.Id = 19;
+            this.bsiUsuario.Name = "bsiUsuario";
+            // 
+            // bbiLoteamento
+            // 
+            this.bbiLoteamento.Caption = "Loteamento";
+            this.bbiLoteamento.Id = 20;
+            this.bbiLoteamento.Name = "bbiLoteamento";
+            this.bbiLoteamento.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiLoteamento_ItemClick);
             // 
             // rbpAtendimento
             // 
@@ -204,7 +227,8 @@
             // rbpCadastros
             // 
             this.rbpCadastros.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
+            this.ribbonPageGroup1,
+            this.ribbonPageGroup9});
             this.rbpCadastros.Name = "rbpCadastros";
             this.rbpCadastros.Text = "Cadastros";
             // 
@@ -216,6 +240,14 @@
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.ShowCaptionButton = false;
             this.ribbonPageGroup1.Text = "Pessoas";
+            // 
+            // ribbonPageGroup9
+            // 
+            this.ribbonPageGroup9.AllowTextClipping = false;
+            this.ribbonPageGroup9.ItemLinks.Add(this.bbiLoteamento);
+            this.ribbonPageGroup9.Name = "ribbonPageGroup9";
+            this.ribbonPageGroup9.ShowCaptionButton = false;
+            this.ribbonPageGroup9.Text = "Empreendimento";
             // 
             // rbpContratos
             // 
@@ -297,6 +329,7 @@
             // 
             // ribbonStatusBar1
             // 
+            this.ribbonStatusBar1.ItemLinks.Add(this.bsiUsuario);
             this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 429);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControlPrincipal;
@@ -305,6 +338,10 @@
             // defaultLookAndFeel1
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2016 Colorful";
+            // 
+            // usuarioTableAdapter1
+            // 
+            this.usuarioTableAdapter1.ClearBeforeFill = true;
             // 
             // v_Principal
             // 
@@ -319,6 +356,8 @@
             this.StatusBar = this.ribbonStatusBar1;
             this.Text = "SGS 2.0";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.v_Principal_FormClosed);
+            this.Load += new System.EventHandler(this.v_Principal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControlPrincipal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -358,5 +397,9 @@
         private DevExpress.XtraBars.BarButtonItem bbiVisitaStand;
         private DevExpress.XtraBars.Ribbon.RibbonPage rbpAtendimento;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
+        private DevExpress.XtraBars.BarStaticItem bsiUsuario;
+        private dbsgsDataSetTableAdapters.usuarioTableAdapter usuarioTableAdapter1;
+        private DevExpress.XtraBars.BarButtonItem bbiLoteamento;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
     }
 }

@@ -16,13 +16,25 @@ namespace SGS.Visao
     {
         c_Corretor c_corretor;
         m_Corretor m_corretor;
-        bool alterarCad;
+        bool _alterarCad;
+        string _usuariocad;
+        int _permissao;
         public v_Corretor()
         {
             InitializeComponent();
 
             this.c_corretor = new c_Corretor();
             this.m_corretor = new m_Corretor();
+        }
+        public v_Corretor(string UsuarioCad,int Permissao)
+        {
+            InitializeComponent();
+
+            this.c_corretor = new c_Corretor();
+            this.m_corretor = new m_Corretor();
+            _usuariocad = UsuarioCad;
+            _permissao = Permissao;
+           
         }
         private void LimparCampos()
         {
@@ -35,13 +47,14 @@ namespace SGS.Visao
             m_corretor.email = null;
             m_corretor.telefone = null;
             
+            
         }
         private void funcao(string funcao)
         {
             switch (funcao)
             {
                 case "novocorretor":
-                    alterarCad = false;
+                    _alterarCad = false;
                     LimparCampos();
                     gbxNovoCorretor.Enabled = true;
                     tabFormControl.SelectedPage = tabFormPageNovoCorretor;
@@ -52,6 +65,7 @@ namespace SGS.Visao
                 case "cancelarnovo":
                     LimparCampos();
                     gbxNovoCorretor.Enabled = false;
+                    
                     tabFormControl.SelectedPage = tabFormPageCorretores;
                     break;
                 case "excluir":
@@ -59,17 +73,26 @@ namespace SGS.Visao
                     m_corretor.idcorretor = (int)gdvCorretores.GetRowCellValue(gdvCorretores.GetSelectedRows()[0],gdvCorretores.Columns[0]);
                     c_corretor.ExcluirCorretor(m_corretor);
                     MessageBox.Show("Excluido com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
                     this.corretorTableAdapter.Fill(this.dbsgsDataSet.corretor);
                     break;
                 case "alterar":
-                    alterarCad = true;
+                    _alterarCad = true;
                     gbxNovoCorretor.Enabled = true;
                     m_corretor.idcorretor = (int)gdvCorretores.GetRowCellValue(gdvCorretores.GetSelectedRows()[0], gdvCorretores.Columns[0]);
                     txtNome.Text = (string)gdvCorretores.GetRowCellValue(gdvCorretores.GetSelectedRows()[0], gdvCorretores.Columns[1]);
                     txtCPF.Text = (string)gdvCorretores.GetRowCellValue(gdvCorretores.GetSelectedRows()[0], gdvCorretores.Columns[2]);
                     txtTelefone.Text = (string)gdvCorretores.GetRowCellValue(gdvCorretores.GetSelectedRows()[0], gdvCorretores.Columns[3]);
                     txtEmail.Text = (string)gdvCorretores.GetRowCellValue(gdvCorretores.GetSelectedRows()[0], gdvCorretores.Columns[4]);
-
+                    if ((int)gdvCorretores.GetRowCellValue(gdvCorretores.GetSelectedRows()[0], gdvCorretores.Columns[5]) == 1)
+                    {
+                        rbtAtivo.Checked = true;
+                    }
+                    else if ((int)gdvCorretores.GetRowCellValue(gdvCorretores.GetSelectedRows()[0], gdvCorretores.Columns[5]) == 0)
+                    {
+                        rbtInativo.Checked = true;
+                    }
+                    Permissao();
                     tabFormControl.SelectedPage = tabFormPageNovoCorretor;
                     break;
                 case "salvar":
@@ -77,13 +100,23 @@ namespace SGS.Visao
                     m_corretor.cpf = txtCPF.Text.Replace("-", "");
                     m_corretor.email = txtEmail.Text;
                     m_corretor.telefone = txtTelefone.Text;
+                    m_corretor.usuariocad = _usuariocad;
+                    //status = 1 e ativo e status = 0 e inativo;
+                    if (rbtAtivo.Checked == true)
+                    {
+                        m_corretor.status = 1;
+                    }
+                    else if (rbtInativo.Checked == true)
+                    {
+                        m_corretor.status = 0;
+                    }
 
-                    if (alterarCad == true)
+                    if (_alterarCad == true)
                     {
                         c_corretor.AlterarCorretor(m_corretor);
                         MessageBox.Show("Alterado com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    else if (alterarCad == false)
+                    else if (_alterarCad == false)
                     {
                         c_corretor.NovoCorretor(m_corretor);
                         MessageBox.Show("Salvo com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -92,7 +125,6 @@ namespace SGS.Visao
                     LimparCampos();
                     gbxNovoCorretor.Enabled = false;
                     this.corretorTableAdapter.Fill(this.dbsgsDataSet.corretor);
-                    
                     tabFormControl.SelectedPage = tabFormPageCorretores;
 
                     break;
@@ -115,6 +147,10 @@ namespace SGS.Visao
                     funcao("excluir");
                 }
             }
+            else
+            {
+                MessageBox.Show("Você precisa selecionar um registro no grid!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
@@ -126,6 +162,10 @@ namespace SGS.Visao
                     
                     funcao("alterar");
                 }
+            }
+            else
+            {
+                MessageBox.Show("Você precisa selecionar um registro no grid!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -145,32 +185,65 @@ namespace SGS.Visao
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (alterarCad == true)
+            if (txtNome.Text != string.Empty && txtCPF.Text != string.Empty)
             {
-                if (MessageBox.Show("Deseja salvar as alterações do cadastro do Corretor?", "SGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (_alterarCad == true)
                 {
-                    funcao("salvar");
+                    if (MessageBox.Show("Deseja salvar as alterações do cadastro do Corretor?", "SGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        funcao("salvar");
+                    }
+                }
+                else if (_alterarCad == false)
+                {
+                    if (MessageBox.Show("Deseja salvar cadastro do novo Corretor?", "SGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        funcao("salvar");
+                    }
                 }
             }
-            else if (alterarCad == false)
+            else
             {
-                if (MessageBox.Show("Deseja salvar cadastro do novo Corretor?", "SGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    funcao("salvar");
-                }
+                MessageBox.Show("Verifique se todos os campos foram preenchidos!...", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+            
             
             
         }
-
+        private void Permissao()
+        {
+            switch (_permissao)
+            {
+                case 1:
+                    btnExcluir.Enabled = false;
+                    break;
+                case 2:
+                    btnExcluir.Enabled = true;
+                    break;
+                default:
+                    break;
+            }
+            
+        }
         private void v_Corretor_Load(object sender, EventArgs e)
         {
-            alterarCad = false;
+            _alterarCad = false;
             CancelButton = btnVoltar;
             gbxNovoCorretor.Enabled = false;
             tabFormControl.SelectedPage = tabFormPageCorretores;
+            Permissao();
             // TODO: esta linha de código carrega dados na tabela 'dbsgsDataSet.corretor'. Você pode movê-la ou removê-la conforme necessário.
             this.corretorTableAdapter.Fill(this.dbsgsDataSet.corretor);
+
+        }
+
+        private void tabFormControl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void corretorBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
 
         }
     }

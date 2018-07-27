@@ -12,7 +12,8 @@ namespace SGS.Modelo
         public string nome { get; set; }
         public string login { get; set; }
         public string senha { get; set; }
-        public string permissao { get; set; }
+        public int status { get; set; }
+        public int fk_permissao_usuario { get; set; }
 
         public m_Usuario()
         {
