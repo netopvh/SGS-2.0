@@ -40,6 +40,10 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gdvPendencias = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumnCodigo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnFk_empreendimento_pendencias = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnEmpreendimento = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnFk_corretor_pendencias = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnCorretor = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnQuadra = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnLote = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnCliente = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -51,8 +55,6 @@
             this.gridColumnDataCadastro = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnDataCadPendencia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnUsuarioCad = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnFk_corretor_pendencias = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnFk_empreendimento_pendencias = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tabFormPageNovaPendencia = new DevExpress.XtraBars.TabFormPage();
             this.tabFormContentContainer2 = new DevExpress.XtraBars.TabFormContentContainer();
             this.btnSalvar = new DevExpress.XtraEditors.SimpleButton();
@@ -81,8 +83,6 @@
             this.cbxEmpreendimento = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
-            this.gridColumnCorretor = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnEmpreendimento = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tabFormControl1)).BeginInit();
             this.tabFormContentContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlTodasPendencias)).BeginInit();
@@ -232,6 +232,36 @@
             this.gridColumnCodigo.Visible = true;
             this.gridColumnCodigo.VisibleIndex = 0;
             // 
+            // gridColumnFk_empreendimento_pendencias
+            // 
+            this.gridColumnFk_empreendimento_pendencias.Caption = "fk_empreendimento_pendencias";
+            this.gridColumnFk_empreendimento_pendencias.FieldName = "fk_empreendimento_pendencias";
+            this.gridColumnFk_empreendimento_pendencias.Name = "gridColumnFk_empreendimento_pendencias";
+            this.gridColumnFk_empreendimento_pendencias.Visible = true;
+            this.gridColumnFk_empreendimento_pendencias.VisibleIndex = 13;
+            // 
+            // gridColumnEmpreendimento
+            // 
+            this.gridColumnEmpreendimento.Caption = "Empreendimento";
+            this.gridColumnEmpreendimento.Name = "gridColumnEmpreendimento";
+            this.gridColumnEmpreendimento.Visible = true;
+            this.gridColumnEmpreendimento.VisibleIndex = 15;
+            // 
+            // gridColumnFk_corretor_pendencias
+            // 
+            this.gridColumnFk_corretor_pendencias.Caption = "fk_corretor_pendencias";
+            this.gridColumnFk_corretor_pendencias.FieldName = "fk_corretor_pendencias";
+            this.gridColumnFk_corretor_pendencias.Name = "gridColumnFk_corretor_pendencias";
+            this.gridColumnFk_corretor_pendencias.Visible = true;
+            this.gridColumnFk_corretor_pendencias.VisibleIndex = 12;
+            // 
+            // gridColumnCorretor
+            // 
+            this.gridColumnCorretor.Caption = "Corretor";
+            this.gridColumnCorretor.Name = "gridColumnCorretor";
+            this.gridColumnCorretor.Visible = true;
+            this.gridColumnCorretor.VisibleIndex = 14;
+            // 
             // gridColumnQuadra
             // 
             this.gridColumnQuadra.Caption = "QD";
@@ -319,22 +349,6 @@
             this.gridColumnUsuarioCad.Name = "gridColumnUsuarioCad";
             this.gridColumnUsuarioCad.Visible = true;
             this.gridColumnUsuarioCad.VisibleIndex = 11;
-            // 
-            // gridColumnFk_corretor_pendencias
-            // 
-            this.gridColumnFk_corretor_pendencias.Caption = "fk_corretor_pendencias";
-            this.gridColumnFk_corretor_pendencias.FieldName = "fk_corretor_pendencias";
-            this.gridColumnFk_corretor_pendencias.Name = "gridColumnFk_corretor_pendencias";
-            this.gridColumnFk_corretor_pendencias.Visible = true;
-            this.gridColumnFk_corretor_pendencias.VisibleIndex = 12;
-            // 
-            // gridColumnFk_empreendimento_pendencias
-            // 
-            this.gridColumnFk_empreendimento_pendencias.Caption = "fk_empreendimento_pendencias";
-            this.gridColumnFk_empreendimento_pendencias.FieldName = "fk_empreendimento_pendencias";
-            this.gridColumnFk_empreendimento_pendencias.Name = "gridColumnFk_empreendimento_pendencias";
-            this.gridColumnFk_empreendimento_pendencias.Visible = true;
-            this.gridColumnFk_empreendimento_pendencias.VisibleIndex = 13;
             // 
             // tabFormPageNovaPendencia
             // 
@@ -587,21 +601,7 @@
             // 
             // defaultLookAndFeel1
             // 
-            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2013 Light Gray";
-            // 
-            // gridColumnCorretor
-            // 
-            this.gridColumnCorretor.Caption = "Corretor";
-            this.gridColumnCorretor.Name = "gridColumnCorretor";
-            this.gridColumnCorretor.Visible = true;
-            this.gridColumnCorretor.VisibleIndex = 14;
-            // 
-            // gridColumnEmpreendimento
-            // 
-            this.gridColumnEmpreendimento.Caption = "Empreendimento";
-            this.gridColumnEmpreendimento.Name = "gridColumnEmpreendimento";
-            this.gridColumnEmpreendimento.Visible = true;
-            this.gridColumnEmpreendimento.VisibleIndex = 15;
+            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2013";
             // 
             // v_Pendencias
             // 

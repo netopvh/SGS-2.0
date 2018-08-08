@@ -166,12 +166,14 @@
             this.bbiFazerBackup.Caption = "Fazer Backup";
             this.bbiFazerBackup.Id = 11;
             this.bbiFazerBackup.Name = "bbiFazerBackup";
+            this.bbiFazerBackup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiFazerBackup_ItemClick);
             // 
             // bbiRestaurarBackup
             // 
             this.bbiRestaurarBackup.Caption = "Restaurar Backup";
             this.bbiRestaurarBackup.Id = 12;
             this.bbiRestaurarBackup.Name = "bbiRestaurarBackup";
+            this.bbiRestaurarBackup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRestaurarBackup_ItemClick);
             // 
             // bbiEmail
             // 

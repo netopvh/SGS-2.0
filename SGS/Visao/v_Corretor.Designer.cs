@@ -93,7 +93,7 @@
             this.tabFormControl.Name = "tabFormControl";
             this.tabFormControl.Pages.Add(this.tabFormPageCorretores);
             this.tabFormControl.Pages.Add(this.tabFormPageNovoCorretor);
-            this.tabFormControl.SelectedPage = this.tabFormPageCorretores;
+            this.tabFormControl.SelectedPage = this.tabFormPageNovoCorretor;
             this.tabFormControl.ShowAddPageButton = false;
             this.tabFormControl.ShowTabCloseButtons = false;
             this.tabFormControl.Size = new System.Drawing.Size(598, 55);
@@ -280,9 +280,7 @@
             // 
             // tabFormContentContainer2
             // 
-            this.tabFormContentContainer2.Controls.Add(this.btnSalvar);
             this.tabFormContentContainer2.Controls.Add(this.gbxNovoCorretor);
-            this.tabFormContentContainer2.Controls.Add(this.btnCancelar);
             this.tabFormContentContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabFormContentContainer2.Location = new System.Drawing.Point(0, 55);
             this.tabFormContentContainer2.Name = "tabFormContentContainer2";
@@ -291,7 +289,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(439, 248);
+            this.btnSalvar.Location = new System.Drawing.Point(437, 246);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 2;
@@ -300,8 +298,10 @@
             // 
             // gbxNovoCorretor
             // 
+            this.gbxNovoCorretor.Controls.Add(this.btnSalvar);
             this.gbxNovoCorretor.Controls.Add(this.gbxStatus);
             this.gbxNovoCorretor.Controls.Add(this.txtTelefone);
+            this.gbxNovoCorretor.Controls.Add(this.btnCancelar);
             this.gbxNovoCorretor.Controls.Add(this.labelControl4);
             this.gbxNovoCorretor.Controls.Add(this.txtEmail);
             this.gbxNovoCorretor.Controls.Add(this.labelControl3);
@@ -309,9 +309,10 @@
             this.gbxNovoCorretor.Controls.Add(this.labelControl2);
             this.gbxNovoCorretor.Controls.Add(this.txtNome);
             this.gbxNovoCorretor.Controls.Add(this.labelControl1);
+            this.gbxNovoCorretor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbxNovoCorretor.Location = new System.Drawing.Point(0, 0);
             this.gbxNovoCorretor.Name = "gbxNovoCorretor";
-            this.gbxNovoCorretor.Size = new System.Drawing.Size(598, 242);
+            this.gbxNovoCorretor.Size = new System.Drawing.Size(598, 274);
             this.gbxNovoCorretor.TabIndex = 1;
             this.gbxNovoCorretor.Text = "Dados";
             // 
@@ -418,7 +419,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(520, 248);
+            this.btnCancelar.Location = new System.Drawing.Point(518, 246);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 0;
@@ -438,7 +439,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(598, 329);
-            this.Controls.Add(this.tabFormContentContainer1);
+            this.Controls.Add(this.tabFormContentContainer2);
             this.Controls.Add(this.tabFormControl);
             this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Glow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

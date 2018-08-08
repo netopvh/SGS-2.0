@@ -23,6 +23,9 @@ namespace SGS.Visao
         c_Corretor c_corretor;
         m_Corretor m_corretor;
 
+        string _usuariocad;
+        int _permissao;
+
         public v_Pendencias()
         {
             this.c_loteamento = new c_Loteamento();
@@ -42,6 +45,9 @@ namespace SGS.Visao
             this.c_pendencias = new c_Pendencias();
             this.m_pendendcias = new m_Pendencias();
             InitializeComponent();
+            _usuariocad = Usuario;
+            _permissao = Permissao;
+            
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)

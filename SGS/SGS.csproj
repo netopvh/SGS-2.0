@@ -47,6 +47,9 @@
     <Reference Include="MySql.Data, Version=6.10.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.6.10.7\lib\net452\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="MySqlBackup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySqlBackup.1.0.1\lib\MySqlBackup.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -91,6 +94,12 @@
     <Compile Include="Modelo\m_Usuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Visao\v_Backup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\v_Backup.Designer.cs">
+      <DependentUpon>v_Backup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visao\v_Corretor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +136,12 @@
     <Compile Include="Visao\v_Principal.Designer.cs">
       <DependentUpon>v_Principal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visao\v_RestaurarBackup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\v_RestaurarBackup.designer.cs">
+      <DependentUpon>v_RestaurarBackup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visao\v_Usuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +158,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Visao\v_Backup.resx">
+      <DependentUpon>v_Backup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_Corretor.resx">
       <DependentUpon>v_Corretor.cs</DependentUpon>
     </EmbeddedResource>
@@ -160,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_Principal.resx">
       <DependentUpon>v_Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\v_RestaurarBackup.resx">
+      <DependentUpon>v_RestaurarBackup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_Usuario.resx">
       <DependentUpon>v_Usuario.cs</DependentUpon>

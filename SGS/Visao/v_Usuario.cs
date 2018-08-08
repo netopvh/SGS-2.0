@@ -103,7 +103,7 @@ namespace SGS.Visao
                     }
                     /*
                      *ID 1 = administrador lv5
-                     *ID 2 = cosultar lv 1
+                     *ID 2 = consultar lv 1
                      *ID 3 = cadastro lv 2
                      *ID 4 = operacional lv 3
                      *ID 5 = financeiro lv 4 

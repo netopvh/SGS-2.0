@@ -273,8 +273,6 @@
             // 
             // tabFormContentContainer2
             // 
-            this.tabFormContentContainer2.Controls.Add(this.btnSalvar);
-            this.tabFormContentContainer2.Controls.Add(this.btnCancelar);
             this.tabFormContentContainer2.Controls.Add(this.gbxNovoUsuario);
             this.tabFormContentContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabFormContentContainer2.Location = new System.Drawing.Point(0, 55);
@@ -284,7 +282,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(351, 292);
+            this.btnSalvar.Location = new System.Drawing.Point(350, 297);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 2;
@@ -293,7 +291,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(432, 292);
+            this.btnCancelar.Location = new System.Drawing.Point(430, 297);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 1;
@@ -302,15 +300,18 @@
             // 
             // gbxNovoUsuario
             // 
+            this.gbxNovoUsuario.Controls.Add(this.btnSalvar);
             this.gbxNovoUsuario.Controls.Add(this.groupControl2);
+            this.gbxNovoUsuario.Controls.Add(this.btnCancelar);
             this.gbxNovoUsuario.Controls.Add(this.groupControl1);
             this.gbxNovoUsuario.Controls.Add(this.txtLogin);
             this.gbxNovoUsuario.Controls.Add(this.labelControl2);
             this.gbxNovoUsuario.Controls.Add(this.txtNome);
             this.gbxNovoUsuario.Controls.Add(this.labelControl1);
+            this.gbxNovoUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbxNovoUsuario.Location = new System.Drawing.Point(0, 0);
             this.gbxNovoUsuario.Name = "gbxNovoUsuario";
-            this.gbxNovoUsuario.Size = new System.Drawing.Size(510, 286);
+            this.gbxNovoUsuario.Size = new System.Drawing.Size(510, 325);
             this.gbxNovoUsuario.TabIndex = 0;
             this.gbxNovoUsuario.Text = "Dados";
             // 

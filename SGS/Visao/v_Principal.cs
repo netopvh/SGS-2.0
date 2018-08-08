@@ -22,6 +22,10 @@ namespace SGS.Visao
         v_Pendencias v_pendencias;
         v_EmpresaLicenca v_empresalicenca;
         v_Loteamento v_empreendimento;
+        v_Backup v_backup;
+        v_RestaurarBackup v_restaurarBackup;
+
+
         public v_Principal()
         {
             InitializeComponent();
@@ -37,8 +41,10 @@ namespace SGS.Visao
             this.v_pendencias = new v_Pendencias(_usuario,_permissao);
             this.v_empresalicenca = new v_EmpresaLicenca(false,true);
             this.v_empreendimento = new v_Loteamento(_usuario,_permissao);
-            
-           
+            this.v_backup = new v_Backup();
+            this.v_restaurarBackup = new v_RestaurarBackup();
+
+
         }
 
         private void bbiCorretor_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -86,6 +92,16 @@ namespace SGS.Visao
         private void bbiLoteamento_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             v_empreendimento.ShowDialog();
+        }
+
+        private void bbiFazerBackup_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            v_backup.ShowDialog();
+        }
+
+        private void bbiRestaurarBackup_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            v_restaurarBackup.ShowDialog();
         }
     }
 }
