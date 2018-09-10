@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SGS.Modelo
 {
-    public class m_Distribuicaocontratos
+    public struct m_Distribuicaocontratos
     {
         public int iddistribuicaocontratos { get; set; }
         public string numerocontrato { get; set; }

@@ -7,9 +7,10 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using SGS.Enum;
 namespace SGS.Visao
 {
     public partial class v_Corretor : DevExpress.XtraBars.TabForm
@@ -104,11 +105,11 @@ namespace SGS.Visao
                     //status = 1 e ativo e status = 0 e inativo;
                     if (rbtAtivo.Checked == true)
                     {
-                        m_corretor.status = 1;
+                        m_corretor.status = (int)e_Status.Ativo;
                     }
                     else if (rbtInativo.Checked == true)
                     {
-                        m_corretor.status = 0;
+                        m_corretor.status = (int)e_Status.Inativo;
                     }
 
                     if (_alterarCad == true)
@@ -245,6 +246,29 @@ namespace SGS.Visao
         private void corretorBindingSource_CurrentChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtCPF_EditValueChanged(object sender, EventArgs e)
+        {
+               
+        }
+
+        private void txtCPF_Leave(object sender, EventArgs e)
+        {
+            if (txtCPF.Text != string.Empty)
+            {
+                c_ValidarCPF.ValidarCPF(txtCPF);
+            }
+            
+        }
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            if (txtEmail.Text != string.Empty)
+            {
+                c_ValidarEmail.ValidarEmail(txtEmail);
+            }
+            
         }
     }
 }

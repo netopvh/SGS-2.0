@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SGS.Modelo
 {
-    public class m_Loteamento
+    public struct m_Loteamento
     {
         public int idloteamento { get; set; }
         public string nome { get; set; }

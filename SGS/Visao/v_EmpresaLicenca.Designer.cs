@@ -41,6 +41,7 @@
             this.txtKey1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtKey2 = new System.Windows.Forms.TextBox();
+            this.btnSair = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,7 +64,7 @@
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(298, 335);
+            this.btnRegistrar.Location = new System.Drawing.Point(217, 335);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(75, 23);
             this.btnRegistrar.TabIndex = 0;
@@ -111,7 +112,7 @@
             // 
             // btnLogo
             // 
-            this.btnLogo.Location = new System.Drawing.Point(217, 335);
+            this.btnLogo.Location = new System.Drawing.Point(136, 335);
             this.btnLogo.Name = "btnLogo";
             this.btnLogo.Size = new System.Drawing.Size(75, 23);
             this.btnLogo.TabIndex = 0;
@@ -158,11 +159,23 @@
             this.txtKey2.TabIndex = 0;
             this.txtKey2.TabStop = false;
             // 
+            // btnSair
+            // 
+            this.btnSair.Location = new System.Drawing.Point(298, 335);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(75, 23);
+            this.btnSair.TabIndex = 11;
+            this.btnSair.TabStop = false;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
             // v_EmpresaLicenca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(385, 368);
+            this.Controls.Add(this.btnSair);
             this.Controls.Add(this.txtKey2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtKey1);
@@ -202,5 +215,6 @@
         private System.Windows.Forms.TextBox txtKey1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtKey2;
+        private System.Windows.Forms.Button btnSair;
     }
 }

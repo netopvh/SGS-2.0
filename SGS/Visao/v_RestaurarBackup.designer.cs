@@ -172,7 +172,7 @@
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.gbxLocalArquivo);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "v_RestaurarBackup";

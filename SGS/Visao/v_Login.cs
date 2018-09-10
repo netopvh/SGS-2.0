@@ -61,6 +61,7 @@ namespace SGS.Visao
 
         private void v_Login_Load(object sender, EventArgs e)
         {
+            CreateUpdateInfo();
             _senhapadrao = "masterkey@";
             _licenca = _licenca = c_empresalicenca.AutenticarLicencaMD5();
             _key1 = c_empresalicenca.AutenticarKey1();
@@ -124,16 +125,17 @@ namespace SGS.Visao
         private bool DataLicenca()
         {
             bool Resultado = false;
-            DateTime data1, data2;
-            if (DateTime.TryParse(_datainicial,out data1).Equals(true) && DateTime.TryParse(_datafinal,out data2).Equals(true))
+            DateTime data1, data2,data3 = DateTime.Now;
+            
+            if (DateTime.TryParse(_datainicial,out data1).Equals(true) && DateTime.TryParse(_datafinal, out data2).Equals(true))
             {
-                if (data1 < data2)
+                if (data3 > data2)
                 {
-                    Resultado = true;
+                    Resultado = false;
                 }
                 else
                 {
-                    Resultado = false;
+                    Resultado = true;
                 }
             }
             else
@@ -159,6 +161,34 @@ namespace SGS.Visao
         private void tabFormControl1_Click(object sender, EventArgs e)
         {
 
+        }
+        private void CreateUpdateInfo()
+        {
+            //Esse método lhe ajudará a criar o arquivo info.txt.
+            //Cada vez que você criar uma atualização para seu aplicativo você deverá alterar a versão nas Propriedades
+            //Então execute este método para criar o arquivo Info.txt
+
+            /*
+            System.Windows.Forms.OpenFileDialog appDialog = new System.Windows.Forms.OpenFileDialog();
+            appDialog.Filter = "Aplicações (*.exe)|*.exe";
+            appDialog.CheckFileExists = true;
+            if (appDialog.ShowDialog() != System.Windows.Forms.DialogResult.OK) return;
+            string appFile = appDialog.FileName;
+
+            System.Windows.Forms.SaveFileDialog infoDialog = new System.Windows.Forms.SaveFileDialog();
+            infoDialog.Filter = "TXT (*.txt)|*.txt";
+            if (infoDialog.ShowDialog() != System.Windows.Forms.DialogResult.OK) return;
+            string infoFile = infoDialog.FileName;
+            */
+            string appFile = @"C:/SGS/SGS.exe";
+            string infoFile = @"C:/SGS/SGS_VersãoInfo.txt";
+
+            System.Reflection.Assembly assembly = System.Reflection.Assembly.LoadFrom(appFile);
+            Version assemblyVersion = assembly.GetName().Version;
+
+            System.IO.StreamWriter sw = new System.IO.StreamWriter(infoFile, false);
+            sw.Write("Versão do sistema nesta pasta é:" + assemblyVersion.ToString() + ". Para atualizar bastar entrar no sistema, na aba Sistema e procurar por atualizações!");
+            sw.Close();
         }
     }
 }

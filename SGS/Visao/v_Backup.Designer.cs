@@ -194,7 +194,7 @@
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.gbxLocal);
             this.Controls.Add(this.btnBackup);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "v_Backup";

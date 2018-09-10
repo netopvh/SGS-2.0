@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,18 @@ namespace SGS.Controle
 {
     public class c_Loteamento
     {
+        public DataTable CarregarLoteamento()
+        {
+            MySqlConnection conexao = c_ConexaoMySql.GetConexao();
+            MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = "select idloteamento,nome from loteamento;";
+            MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
+            DataTable dataTable = new DataTable();
+            dataTable.Load(reader);
+            return dataTable;
+
+        }
         public void NovoLoteamento(m_Loteamento m_loteamento)
         {
             MySqlConnection conexao = c_ConexaoMySql.GetConexao();

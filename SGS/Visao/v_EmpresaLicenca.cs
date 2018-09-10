@@ -82,12 +82,20 @@ namespace SGS.Visao
 
         private void v_EmpresaLicenca_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            if (_AtualizarEmpresaLicenca == true)
+            {
+
+            }
+            else
+            {
+                Application.Exit();
+            }
+            
         }
 
         private void v_EmpresaLicenca_Load(object sender, EventArgs e)
         {
-           
+            CancelButton = btnSair;
                         
         }
 
@@ -176,6 +184,18 @@ namespace SGS.Visao
                 byte[] bArray = new byte[stream.Length];
                 stream.Read(bArray, 0, System.Convert.ToInt32(stream.Length));
                 return bArray;
+            }
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            if (_AtualizarEmpresaLicenca == true)
+            {
+                this.Close();
+            }
+            else
+            {
+                Application.Exit();
             }
         }
     }

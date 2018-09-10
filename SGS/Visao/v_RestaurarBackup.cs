@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace SGS.Visao
 {
-    public partial class v_RestaurarBackup : Form
+    public partial class v_RestaurarBackup : DevExpress.XtraEditors.XtraForm
     {
         string Arquivo;
         public v_RestaurarBackup()

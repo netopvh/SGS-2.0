@@ -15,7 +15,7 @@ using System.IO;
 
 namespace SGS.Visao
 {
-    public partial class v_Backup : Form
+    public partial class v_Backup : DevExpress.XtraEditors.XtraForm
     {
         string localPadrao = (ConfigurationManager.AppSettings["Local"]);
         

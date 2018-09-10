@@ -6,18 +6,14 @@ using System.Threading.Tasks;
 
 namespace SGS.Modelo
 {
-    public class m_Permissao
+    public struct m_Permissao
     {
         public int idpermissao { get; set; }
         public string nome { get; set; }
         public int nivel { get; set; }
 
 
-        public m_Permissao()
-        {
-
-        }
-
+        
 
 
     }

@@ -47,6 +47,8 @@
             this.bbiVisitaStand = new DevExpress.XtraBars.BarButtonItem();
             this.bsiUsuario = new DevExpress.XtraBars.BarStaticItem();
             this.bbiLoteamento = new DevExpress.XtraBars.BarButtonItem();
+            this.bsiVersao = new DevExpress.XtraBars.BarStaticItem();
+            this.bbiVerificarAtualizacao = new DevExpress.XtraBars.BarButtonItem();
             this.rbpAtendimento = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpCadastros = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -61,6 +63,7 @@
             this.rbpSistema = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.usuarioTableAdapter1 = new SGS.dbsgsDataSetTableAdapters.usuarioTableAdapter();
@@ -88,9 +91,11 @@
             this.bbiEmpresaLicenca,
             this.bbiVisitaStand,
             this.bsiUsuario,
-            this.bbiLoteamento});
+            this.bbiLoteamento,
+            this.bsiVersao,
+            this.bbiVerificarAtualizacao});
             this.ribbonControlPrincipal.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControlPrincipal.MaxItemId = 21;
+            this.ribbonControlPrincipal.MaxItemId = 23;
             this.ribbonControlPrincipal.Name = "ribbonControlPrincipal";
             this.ribbonControlPrincipal.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpAtendimento,
@@ -186,6 +191,7 @@
             this.bbiImpressoraTermica.Caption = "Impressora Termica";
             this.bbiImpressoraTermica.Id = 14;
             this.bbiImpressoraTermica.Name = "bbiImpressoraTermica";
+            this.bbiImpressoraTermica.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiImpressoraTermica_ItemClick);
             // 
             // bbiEmpresaLicenca
             // 
@@ -213,6 +219,21 @@
             this.bbiLoteamento.Name = "bbiLoteamento";
             this.bbiLoteamento.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiLoteamento_ItemClick);
             // 
+            // bsiVersao
+            // 
+            this.bsiVersao.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.bsiVersao.Caption = "Versão:";
+            this.bsiVersao.Id = 21;
+            this.bsiVersao.Name = "bsiVersao";
+            this.bsiVersao.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bsiVersao_ItemClick);
+            // 
+            // bbiVerificarAtualizacao
+            // 
+            this.bbiVerificarAtualizacao.Caption = "Verificar Atualizações";
+            this.bbiVerificarAtualizacao.Id = 22;
+            this.bbiVerificarAtualizacao.Name = "bbiVerificarAtualizacao";
+            this.bbiVerificarAtualizacao.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiVerificarAtualizacao_ItemClick);
+            // 
             // rbpAtendimento
             // 
             this.rbpAtendimento.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -224,6 +245,7 @@
             // 
             this.ribbonPageGroup8.ItemLinks.Add(this.bbiVisitaStand);
             this.ribbonPageGroup8.Name = "ribbonPageGroup8";
+            this.ribbonPageGroup8.ShowCaptionButton = false;
             this.ribbonPageGroup8.Text = "Atendimento";
             // 
             // rbpCadastros
@@ -306,7 +328,8 @@
             // 
             this.rbpSistema.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup5,
-            this.ribbonPageGroup7});
+            this.ribbonPageGroup7,
+            this.ribbonPageGroup10});
             this.rbpSistema.Name = "rbpSistema";
             this.rbpSistema.Text = "Sistema";
             // 
@@ -329,9 +352,17 @@
             this.ribbonPageGroup7.ShowCaptionButton = false;
             this.ribbonPageGroup7.Text = "Backup";
             // 
+            // ribbonPageGroup10
+            // 
+            this.ribbonPageGroup10.ItemLinks.Add(this.bbiVerificarAtualizacao);
+            this.ribbonPageGroup10.Name = "ribbonPageGroup10";
+            this.ribbonPageGroup10.ShowCaptionButton = false;
+            this.ribbonPageGroup10.Text = "Update";
+            // 
             // ribbonStatusBar1
             // 
             this.ribbonStatusBar1.ItemLinks.Add(this.bsiUsuario);
+            this.ribbonStatusBar1.ItemLinks.Add(this.bsiVersao);
             this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 429);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControlPrincipal;
@@ -403,5 +434,8 @@
         private dbsgsDataSetTableAdapters.usuarioTableAdapter usuarioTableAdapter1;
         private DevExpress.XtraBars.BarButtonItem bbiLoteamento;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
+        private DevExpress.XtraBars.BarStaticItem bsiVersao;
+        private DevExpress.XtraBars.BarButtonItem bbiVerificarAtualizacao;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
     }
 }

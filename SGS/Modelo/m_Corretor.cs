@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace SGS.Modelo
 {
-    public class m_Corretor
+    //Struct usa menas memoria
+    public struct m_Corretor
     {
         public int idcorretor { get; set; }
         public string nome { get; set; }
@@ -17,10 +18,7 @@ namespace SGS.Modelo
         public string usuariocad { get; set; }
 
 
-        public m_Corretor()
-        {
-
-        }
+        
 
     }
 }

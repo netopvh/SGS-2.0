@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -80,11 +83,15 @@
     <Compile Include="Controle\c_Pendencias.cs" />
     <Compile Include="Controle\c_Permissao.cs" />
     <Compile Include="Controle\c_Usuario.cs" />
+    <Compile Include="Controle\c_ValidarCPF.cs" />
+    <Compile Include="Controle\c_ValidarEmail.cs" />
     <Compile Include="dbsgsDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dbsgsDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Enum\e_Status.cs" />
+    <Compile Include="Enum\e_StatusPendencia.cs" />
     <Compile Include="Modelo\m_Corretor.cs" />
     <Compile Include="Modelo\m_Distribuicaocontratos.cs" />
     <Compile Include="Modelo\m_EmpresaLicenca.cs" />
@@ -92,8 +99,15 @@
     <Compile Include="Modelo\m_Pendencias.cs" />
     <Compile Include="Modelo\m_Permissao.cs" />
     <Compile Include="Modelo\m_Usuario.cs" />
+    <Compile Include="MP2032.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Visao\v_AtualizarSistema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\v_AtualizarSistema.Designer.cs">
+      <DependentUpon>v_AtualizarSistema.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visao\v_Backup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +125,12 @@
     </Compile>
     <Compile Include="Visao\v_EmpresaLicenca.Designer.cs">
       <DependentUpon>v_EmpresaLicenca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\v_ImpressoraTermica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\v_ImpressoraTermica.Designer.cs">
+      <DependentUpon>v_ImpressoraTermica.cs</DependentUpon>
     </Compile>
     <Compile Include="Visao\v_Login.cs">
       <SubType>Form</SubType>
@@ -158,6 +178,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Visao\v_AtualizarSistema.resx">
+      <DependentUpon>v_AtualizarSistema.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_Backup.resx">
       <DependentUpon>v_Backup.cs</DependentUpon>
     </EmbeddedResource>
@@ -166,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_EmpresaLicenca.resx">
       <DependentUpon>v_EmpresaLicenca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\v_ImpressoraTermica.resx">
+      <DependentUpon>v_ImpressoraTermica.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_Login.resx">
       <DependentUpon>v_Login.cs</DependentUpon>
@@ -185,6 +211,7 @@
     <EmbeddedResource Include="Visao\v_Usuario.resx">
       <DependentUpon>v_Usuario.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.manifest" />
     <None Include="dbsgsDataSet.xsc">
       <DependentUpon>dbsgsDataSet.xsd</DependentUpon>
     </None>
@@ -210,6 +237,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

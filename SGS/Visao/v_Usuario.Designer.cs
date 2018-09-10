@@ -40,18 +40,18 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dbsgsDataSet = new SGS.dbsgsDataSet();
-            this.gdvUsuarios = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumnIdusuario = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnNome = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnLogin = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnSenha = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnStatus = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnPermissao = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gdvUsuarios = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
+            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridColumnIdusuario = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridColumnNome = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridColumnLogin = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridColumnSenha = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridColumnStatus = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridColumnPermissao = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.tabFormPageNovoUsuario = new DevExpress.XtraBars.TabFormPage();
             this.tabFormContentContainer2 = new DevExpress.XtraBars.TabFormContentContainer();
-            this.btnSalvar = new DevExpress.XtraEditors.SimpleButton();
-            this.btnCancelar = new DevExpress.XtraEditors.SimpleButton();
             this.gbxNovoUsuario = new DevExpress.XtraEditors.GroupControl();
+            this.btnSalvar = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.cbxPermissao = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
@@ -60,6 +60,7 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.txtSenha = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.btnCancelar = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.rbtInativo = new System.Windows.Forms.RadioButton();
             this.rbtAtivo = new System.Windows.Forms.RadioButton();
@@ -99,7 +100,7 @@
             this.tabFormControl1.Name = "tabFormControl1";
             this.tabFormControl1.Pages.Add(this.tabFormPageUsuarios);
             this.tabFormControl1.Pages.Add(this.tabFormPageNovoUsuario);
-            this.tabFormControl1.SelectedPage = this.tabFormPageNovoUsuario;
+            this.tabFormControl1.SelectedPage = this.tabFormPageUsuarios;
             this.tabFormControl1.ShowAddPageButton = false;
             this.tabFormControl1.ShowTabCloseButtons = false;
             this.tabFormControl1.Size = new System.Drawing.Size(510, 55);
@@ -194,7 +195,9 @@
             // 
             // gdvUsuarios
             // 
-            this.gdvUsuarios.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gdvUsuarios.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
+            this.gridBand1});
+            this.gdvUsuarios.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
             this.gridColumnIdusuario,
             this.gridColumnNome,
             this.gridColumnLogin,
@@ -208,8 +211,22 @@
             this.gdvUsuarios.OptionsPrint.PrintDetails = true;
             this.gdvUsuarios.OptionsPrint.PrintFilterInfo = true;
             this.gdvUsuarios.OptionsPrint.PrintGroupFooter = false;
+            this.gdvUsuarios.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
             this.gdvUsuarios.OptionsView.ShowFooter = true;
             this.gdvUsuarios.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridBand1
+            // 
+            this.gridBand1.Caption = "Todos os Usuários estão no Grid.";
+            this.gridBand1.Columns.Add(this.gridColumnIdusuario);
+            this.gridBand1.Columns.Add(this.gridColumnNome);
+            this.gridBand1.Columns.Add(this.gridColumnLogin);
+            this.gridBand1.Columns.Add(this.gridColumnSenha);
+            this.gridBand1.Columns.Add(this.gridColumnStatus);
+            this.gridBand1.Columns.Add(this.gridColumnPermissao);
+            this.gridBand1.Name = "gridBand1";
+            this.gridBand1.VisibleIndex = 0;
+            this.gridBand1.Width = 757;
             // 
             // gridColumnIdusuario
             // 
@@ -217,8 +234,7 @@
             this.gridColumnIdusuario.FieldName = "idusuario";
             this.gridColumnIdusuario.Name = "gridColumnIdusuario";
             this.gridColumnIdusuario.Visible = true;
-            this.gridColumnIdusuario.VisibleIndex = 0;
-            this.gridColumnIdusuario.Width = 61;
+            this.gridColumnIdusuario.Width = 57;
             // 
             // gridColumnNome
             // 
@@ -226,8 +242,7 @@
             this.gridColumnNome.FieldName = "nome";
             this.gridColumnNome.Name = "gridColumnNome";
             this.gridColumnNome.Visible = true;
-            this.gridColumnNome.VisibleIndex = 1;
-            this.gridColumnNome.Width = 132;
+            this.gridColumnNome.Width = 204;
             // 
             // gridColumnLogin
             // 
@@ -235,8 +250,7 @@
             this.gridColumnLogin.FieldName = "login";
             this.gridColumnLogin.Name = "gridColumnLogin";
             this.gridColumnLogin.Visible = true;
-            this.gridColumnLogin.VisibleIndex = 2;
-            this.gridColumnLogin.Width = 88;
+            this.gridColumnLogin.Width = 85;
             // 
             // gridColumnSenha
             // 
@@ -244,8 +258,7 @@
             this.gridColumnSenha.FieldName = "senha";
             this.gridColumnSenha.Name = "gridColumnSenha";
             this.gridColumnSenha.Visible = true;
-            this.gridColumnSenha.VisibleIndex = 3;
-            this.gridColumnSenha.Width = 195;
+            this.gridColumnSenha.Width = 216;
             // 
             // gridColumnStatus
             // 
@@ -253,8 +266,7 @@
             this.gridColumnStatus.FieldName = "status";
             this.gridColumnStatus.Name = "gridColumnStatus";
             this.gridColumnStatus.Visible = true;
-            this.gridColumnStatus.VisibleIndex = 4;
-            this.gridColumnStatus.Width = 107;
+            this.gridColumnStatus.Width = 77;
             // 
             // gridColumnPermissao
             // 
@@ -262,8 +274,7 @@
             this.gridColumnPermissao.FieldName = "fk_permissao_usuario";
             this.gridColumnPermissao.Name = "gridColumnPermissao";
             this.gridColumnPermissao.Visible = true;
-            this.gridColumnPermissao.VisibleIndex = 5;
-            this.gridColumnPermissao.Width = 106;
+            this.gridColumnPermissao.Width = 118;
             // 
             // tabFormPageNovoUsuario
             // 
@@ -279,24 +290,6 @@
             this.tabFormContentContainer2.Name = "tabFormContentContainer2";
             this.tabFormContentContainer2.Size = new System.Drawing.Size(510, 325);
             this.tabFormContentContainer2.TabIndex = 2;
-            // 
-            // btnSalvar
-            // 
-            this.btnSalvar.Location = new System.Drawing.Point(350, 297);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 2;
-            this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(430, 297);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 1;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // gbxNovoUsuario
             // 
@@ -314,6 +307,15 @@
             this.gbxNovoUsuario.Size = new System.Drawing.Size(510, 325);
             this.gbxNovoUsuario.TabIndex = 0;
             this.gbxNovoUsuario.Text = "Dados";
+            // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Location = new System.Drawing.Point(350, 297);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvar.TabIndex = 2;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // groupControl2
             // 
@@ -397,6 +399,15 @@
             this.labelControl3.TabIndex = 8;
             this.labelControl3.Text = "Senha:";
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(430, 297);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 1;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // groupControl1
             // 
             this.groupControl1.Controls.Add(this.rbtInativo);
@@ -474,7 +485,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(510, 380);
-            this.Controls.Add(this.tabFormContentContainer2);
+            this.Controls.Add(this.tabFormContentContainer1);
             this.Controls.Add(this.tabFormControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -527,16 +538,9 @@
         private DevExpress.XtraEditors.SimpleButton btnCancelar;
         private DevExpress.XtraEditors.GroupControl gbxNovoUsuario;
         private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gdvUsuarios;
         private dbsgsDataSet dbsgsDataSet;
         private System.Windows.Forms.BindingSource usuarioBindingSource;
         private dbsgsDataSetTableAdapters.usuarioTableAdapter usuarioTableAdapter;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnIdusuario;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnNome;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnLogin;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnSenha;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnStatus;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnPermissao;
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.XtraEditors.ComboBoxEdit cbxPermissao;
         private DevExpress.XtraEditors.LabelControl labelControl5;
@@ -552,5 +556,13 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.TextEdit txtNome;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView gdvUsuarios;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumnIdusuario;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumnNome;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumnLogin;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumnSenha;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumnStatus;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumnPermissao;
     }
 }
