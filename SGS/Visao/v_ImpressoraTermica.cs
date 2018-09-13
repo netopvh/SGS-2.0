@@ -50,7 +50,7 @@ namespace SGS.Visao
                      Minimal – Salva apenas as propriedades modificadas desde que os valores sejam diferentes dos valores contidos no arquivo de configuração.
                      Full – Salva todas as propriedades. 
                     */
-                    config.Save(ConfigurationSaveMode.Full);
+                    config.Save(ConfigurationSaveMode.Modified);
                     ConfigurationManager.RefreshSection("appSettings");
                     MessageBox.Show("Configurações da impressora Térmica salvas com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();

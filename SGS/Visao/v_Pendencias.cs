@@ -11,6 +11,7 @@ using SGS.Modelo;
 using SGS.Controle;
 using SGS.Enum;
 using DevExpress.XtraEditors.Controls;
+using System.Configuration;
 
 namespace SGS.Visao
 {
@@ -23,7 +24,7 @@ namespace SGS.Visao
         m_Loteamento m_loteamento;
         c_Corretor c_corretor;
         m_Corretor m_corretor;
-
+        int iRetorno = 0; //Variável para retorno das chamadas
         string _usuariocad;
         int _permissao;
         bool _alterarCad;
@@ -60,6 +61,7 @@ namespace SGS.Visao
             txtPendencia.Text = string.Empty;
             txtQuadra.Text = string.Empty;
             txtVenda.Text = string.Empty;
+            
             LookUpEditLoteamento.Text = string.Empty;
             LookUpEditCorretor.Text = string.Empty;
             LookUpEditCorretor.EditValue = -1;
@@ -74,12 +76,16 @@ namespace SGS.Visao
                     LimparCampos();
                     tabFormControl1.SelectedPage = tabFormPageNovaPendencia;
                     gbxNovaPendencia.Enabled = true;
+                    btnCancelar.Enabled = true;
+                    btnSalvar.Enabled = true;
                     dteDataCadPendencia.EditValue = DateTime.Now;
 
                     break;
                 case "cancelarnovo":
                     LimparCampos();
                     gbxNovaPendencia.Enabled = false;
+                    btnSalvar.Enabled = false;
+                    btnCancelar.Enabled = false;
                     tabFormControl1.SelectedPage = tabFormPagePendencias;
 
                     break;
@@ -101,12 +107,14 @@ namespace SGS.Visao
                     txtVenda.Text = (string)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[8]);
                     txtNumeroContrato.Text = (string)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[9]);
                     txtPendencia.Text = (string)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[10]);
-                    dteDataVenda.EditValue = (string)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[12]).ToString().Replace("00:00:00","");
-                    dteDataCadastroVenda.EditValue = (string)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[13]).ToString().Replace("00:00:00", "");
-                    dteDataCadPendencia.EditValue = (string)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[14]).ToString().Replace("00:00:00", "");
+                    dtpDataVenda.Value = Convert.ToDateTime(gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[12]).ToString());
+                    dtpDataCad.Value = Convert.ToDateTime(gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[13]).ToString());
+                    dteDataCadPendencia.EditValue = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[14]).ToString();
                     _usuariocad = (string)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[15]);
                     tabFormControl1.SelectedPage = tabFormPageNovaPendencia;
                     gbxNovaPendencia.Enabled = true;
+                    btnCancelar.Enabled = true;
+                    btnSalvar.Enabled = true;
 
                     break;
                 case "devolvido":
@@ -134,8 +142,8 @@ namespace SGS.Visao
                     m_pendencias.numerocontrato = txtNumeroContrato.Text;
                     m_pendencias.pendencia = txtPendencia.Text;
                     m_pendencias.usuariocad = _usuariocad;
-                    m_pendencias.datacadastro = Convert.ToDateTime(dteDataCadastroVenda.Text.ToString().Replace("00:00:00", ""));
-                    m_pendencias.datavenda = Convert.ToDateTime(dteDataVenda.Text.ToString().Replace("00:00:00", ""));
+                    m_pendencias.datacadastro = Convert.ToDateTime(dtpDataCad.Value.ToShortDateString());
+                    m_pendencias.datavenda = Convert.ToDateTime(dtpDataVenda.Value.ToShortDateString());
                     m_pendencias.datacadpendencia = Convert.ToDateTime(dteDataCadPendencia.Text);
                     m_pendencias.venda = txtVenda.Text;
                     m_pendencias.fk_corretor_pendencias = (int)LookUpEditCorretor.EditValue;
@@ -157,6 +165,8 @@ namespace SGS.Visao
 
                     LimparCampos();
                     gbxNovaPendencia.Enabled = false;
+                    btnSalvar.Enabled = false;
+                    btnCancelar.Enabled = false;
                     this.pendencias_cor_lote_TableAdapter.Fill(this.dbsgsDataSet.pendencias_corretor_loteamento);
                     tabFormControl1.SelectedPage = tabFormPagePendencias;
                     break;
@@ -171,9 +181,32 @@ namespace SGS.Visao
             {
                 case 1:
                     btnExcluir.Enabled = false;
+                    btnNovo.Enabled = false;
+                    btnAlterar.Enabled = false;
+                    btnDevolver.Enabled = false;
+                    btnEntregarPendencia.Enabled = false;
+                    
                     break;
                 case 2:
-                    btnExcluir.Enabled = true;
+                    btnExcluir.Enabled = false;
+                    btnNovo.Enabled = true;
+                    btnAlterar.Enabled = false;
+                    btnDevolver.Enabled = true;
+                    btnEntregarPendencia.Enabled = true;
+                    break;
+                case 3:
+                    btnExcluir.Enabled = false;
+                    btnNovo.Enabled = true;
+                    btnAlterar.Enabled = true;
+                    btnDevolver.Enabled = true;
+                    btnEntregarPendencia.Enabled = true;
+                    break;
+                case 4:
+                    btnExcluir.Enabled = false;
+                    btnNovo.Enabled = true;
+                    btnAlterar.Enabled = true;
+                    btnDevolver.Enabled = true;
+                    btnEntregarPendencia.Enabled = true;
                     break;
                 default:
                     break;
@@ -188,32 +221,48 @@ namespace SGS.Visao
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            if (gdvPendencias.SelectedRowsCount == 1)
+            try
             {
-                if (MessageBox.Show("Deseja excluir a pendência selecionada?", "SGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (gdvPendencias.SelectedRowsCount == 1)
                 {
-                    funcao("excluir");
+                    if (MessageBox.Show("Deseja excluir a pendência selecionada?", "SGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        funcao("excluir");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Você precisa selecionar um registro no grid!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            else
+            catch (System.IndexOutOfRangeException)
             {
-                MessageBox.Show("Você precisa selecionar um registro no grid!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Não à index selecionado", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            if (gdvPendencias.SelectedRowsCount == 1)
+            try
             {
-                if (MessageBox.Show("Deseja alterar os dados da Pendência selecionada?", "SGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (gdvPendencias.SelectedRowsCount == 1)
                 {
-                    funcao("alterar");
+                    if (MessageBox.Show("Deseja alterar os dados da Pendência selecionada?", "SGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        funcao("alterar");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Você precisa selecionar um registro no grid!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            else
+            catch (System.IndexOutOfRangeException)
             {
-                MessageBox.Show("Você precisa selecionar um registro no grid!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Não à index selecionado", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -232,7 +281,7 @@ namespace SGS.Visao
             txtLote.Properties.MaxLength = 3;
             txtVenda.Properties.MaxLength = 10;
             txtNumeroContrato.Properties.MaxLength = 10;
-            txtPendencia.MaxLength = 150;
+            txtPendencia.Properties.MaxLength = 150;
             // TODO: esta linha de código carrega dados na tabela 'dbsgsDataSet.pendencias_corretor_loteamento'. Você pode movê-la ou removê-la conforme necessário.
             this.pendencias_cor_lote_TableAdapter.Fill(this.dbsgsDataSet.pendencias_corretor_loteamento);
 
@@ -244,8 +293,12 @@ namespace SGS.Visao
             CancelButton = btnVoltar;
             LimparCampos();
             gbxNovaPendencia.Enabled = false;
+            btnCancelar.Enabled = false;
+            btnSalvar.Enabled = false;
             tabFormControl1.SelectedPage = tabFormPagePendencias;
             Permissao();
+            gdvPendencias.BestFitColumns();
+            
         }
 
         private void tabFormContentContainer1_Click(object sender, EventArgs e)
@@ -290,23 +343,31 @@ namespace SGS.Visao
 
         private void btnDevolver_Click(object sender, EventArgs e)
         {
-            if (gdvPendencias.SelectedRowsCount == 1 && (int)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[11]) == 1)
+            try
             {
-                if (MessageBox.Show("Deseja da baixar nesse contrato pendênte como devolvido?", "SGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (gdvPendencias.SelectedRowsCount == 1 && (int)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[11]) == 1)
                 {
-                    funcao("devolvido");
+                    if (MessageBox.Show("Deseja da baixar nesse contrato pendênte como devolvido?", "SGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        funcao("devolvido");
+                    }
+                }
+                else if ((int)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[11]) == 2)
+                {
+                    string DataDevolucao = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[16]).ToString();
+                    MessageBox.Show("Contrato pendênte já devolvido para o stand no dia:" + DataDevolucao + "Hr...", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else if ((int)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[11]) == 0)
+                {
+
+                    MessageBox.Show("Contrato deve ser entregue primeiro para o Corretor resolver a pendência no botão (Corretor)!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
-            else if ((int)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[11]) == 2)
+            catch (System.IndexOutOfRangeException)
             {
-                string DataDevolucao = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[16]).ToString();
-                MessageBox.Show("Contrato pendênte já devolvido para o stand no dia:"+DataDevolucao+"Hr...", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Não à index selecionado", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if ((int)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[11]) == 0)
-            {
-                
-                MessageBox.Show("Contrato deve ser entregue primeiro para o Corretor resolver a pendência no botão (Corretor)!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            
 
         }
 
@@ -340,7 +401,65 @@ namespace SGS.Visao
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-
+            if (gdvPendencias.SelectedRowsCount == 1)
+            {
+                string status = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[11]).ToString();
+                string NumeroPendencia = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[0]).ToString();
+                string Corretor = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[4]).ToString();
+                string Loteamento = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[2]).ToString();;
+                string Qd = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[5]).ToString();;
+                string Lt = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[6]).ToString();
+                string Venda = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[8]).ToString();
+                string NumeroContrato = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[9]).ToString();
+                string DataVenda = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[12]).ToString().Replace("00:00:00","");
+                string DataCadVenda = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[13]).ToString().Replace("00:00:00", "");
+                string DataCadPendencia = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[14]).ToString();
+                string UsuarioCad = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[15]).ToString();
+                string Pendencia = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[10]).ToString();
+                string Assinatura = "";
+                switch (status)
+                {
+                    case "0": status = "0 - A Resolver";
+                        Assinatura = "Pendência Cadastrada no sistema!";
+                        break;
+                    case "1": status = "1 - Corretor";
+                        Assinatura = "Ao assinar esse protocolo o contrato pendênte que lhe foi entregue e de sua responsabilidade resolver a pendência e devolver a pendência resolvida para o Escritório Administrativo.";
+                        break;
+                    case "2": status = "2 - Resolvido";
+                        Assinatura = "Ao assinar esse protocolo confirmo que recebi o contrato pendênte que foi entregue ao corretor!";
+                        break;
+                    default:
+                        break;
+                }
+                
+                string Impressao =
+                    
+                "****************** PROTOCOLO *******************\n" +
+                    "\n" +
+                    "STATUS: (" + status+")\n"+
+                    "Data Cadastro da Pendência: " + DataCadPendencia+"\n"+
+                    "Pendência Número: " + NumeroPendencia+"\n" +
+                    "Corretor: " + Corretor + "\n" +
+                    "Loteamento: " + Loteamento + "\n"+
+                    "Qd: " + Qd + " - Lt: "+ Lt +"\n"+
+                    "Venda: "+ Venda + " - Número Contrato: "+ NumeroContrato + "\n" +
+                    "Data Venda: "+ DataVenda +"Data Cad.: "+DataCadVenda+"\n"+
+                    "Pendência: "+Pendencia+"\n"+
+                    "\n" +
+                    "Usuário Cad: " + UsuarioCad +"\n"+
+                    "Emissão: " +DateTime.Now+"Hrs."+"\n"+
+                    "************************************************"+
+                    "\n"+
+                    "Assinatura:"+"\n\n\n"+
+                    "________________________________________________"+"\n"+
+                    Assinatura;
+                string Porta = (ConfigurationManager.AppSettings["Porta"]);
+                iRetorno = MP2032.IniciaPorta(Porta);
+                // \n - quebra de linha e \r retorno de impressão (comandos da impressora)
+                iRetorno = MP2032.FormataTX("\r\n\r\n"+ Impressao + "\r\n\r\n",2,0,0,0,1);//ao ser clicado, imprime 
+                iRetorno = MP2032.AcionaGuilhotina(1);//chama a função da DLL(Corte Total)
+            }
+            
         }
 
         private void gdvPendencias_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
@@ -355,24 +474,36 @@ namespace SGS.Visao
 
         private void btnEntregarPendencia_Click(object sender, EventArgs e)
         {
-            if (gdvPendencias.SelectedRowsCount == 1 && (int)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[11]) == 0)
+            try
             {
-                if (MessageBox.Show("Deseja entregar esse contrato para o Corretor resolver a pendência?", "SGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (gdvPendencias.SelectedRowsCount == 1 && (int)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[11]) == 0)
                 {
-                    funcao("entregar");
+                    if (MessageBox.Show("Deseja entregar esse contrato para o Corretor resolver a pendência?", "SGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        funcao("entregar");
+                    }
+                }
+
+                else if ((int)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[11]) == 1)
+                {
+                    string DataEntregue = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[17]).ToString();
+                    MessageBox.Show("Contrato pendênte entregue para o corretor resolver a pendência no dia:" + DataEntregue + "Hr...", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else if ((int)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[11]) == 2)
+                {
+                    string DataDevolucao = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[16]).ToString();
+                    MessageBox.Show("Contrato pendênte já devolvido para o stand no dia:" + DataDevolucao + "Hr...", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+
                 }
             }
+            catch (System.IndexOutOfRangeException)
+            {
+                MessageBox.Show("Não à index selecionado", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             
-            else if ((int)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[11]) == 1)
-            {
-                string DataEntregue = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[17]).ToString();
-                MessageBox.Show("Contrato pendênte entregue para o corretor resolver a pendência no dia:" + DataEntregue + "Hr...", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            else if ((int)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[11]) == 2)
-            {
-                string DataDevolucao = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[16]).ToString();
-                MessageBox.Show("Contrato pendênte já devolvido para o stand no dia:" + DataDevolucao + "Hr...", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
 
         }
     }

@@ -49,6 +49,7 @@
             this.bbiLoteamento = new DevExpress.XtraBars.BarButtonItem();
             this.bsiVersao = new DevExpress.XtraBars.BarStaticItem();
             this.bbiVerificarAtualizacao = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiFTP = new DevExpress.XtraBars.BarButtonItem();
             this.rbpAtendimento = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpCadastros = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -93,9 +94,10 @@
             this.bsiUsuario,
             this.bbiLoteamento,
             this.bsiVersao,
-            this.bbiVerificarAtualizacao});
+            this.bbiVerificarAtualizacao,
+            this.bbiFTP});
             this.ribbonControlPrincipal.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControlPrincipal.MaxItemId = 23;
+            this.ribbonControlPrincipal.MaxItemId = 24;
             this.ribbonControlPrincipal.Name = "ribbonControlPrincipal";
             this.ribbonControlPrincipal.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpAtendimento,
@@ -114,12 +116,14 @@
             this.bbiContrato.Caption = "Contrato";
             this.bbiContrato.Id = 2;
             this.bbiContrato.Name = "bbiContrato";
+            this.bbiContrato.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiContrato_ItemClick);
             // 
             // bbiFolhaAvulso
             // 
             this.bbiFolhaAvulso.Caption = "Folha Avulso";
             this.bbiFolhaAvulso.Id = 3;
             this.bbiFolhaAvulso.Name = "bbiFolhaAvulso";
+            this.bbiFolhaAvulso.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiFolhaAvulso_ItemClick);
             // 
             // bbiCorretor
             // 
@@ -140,24 +144,28 @@
             this.bbiFechamentoCaixa.Caption = "Fechamento de Caixa";
             this.bbiFechamentoCaixa.Id = 6;
             this.bbiFechamentoCaixa.Name = "bbiFechamentoCaixa";
+            this.bbiFechamentoCaixa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiFechamentoCaixa_ItemClick);
             // 
             // bbiFluxoCaixa
             // 
             this.bbiFluxoCaixa.Caption = "Fluxo de Caixa";
             this.bbiFluxoCaixa.Id = 7;
             this.bbiFluxoCaixa.Name = "bbiFluxoCaixa";
+            this.bbiFluxoCaixa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiFluxoCaixa_ItemClick);
             // 
             // bbiAreceber
             // 
             this.bbiAreceber.Caption = "A Receber";
             this.bbiAreceber.Id = 8;
             this.bbiAreceber.Name = "bbiAreceber";
+            this.bbiAreceber.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAreceber_ItemClick);
             // 
             // bbiAPagar
             // 
             this.bbiAPagar.Caption = "A Pagar";
             this.bbiAPagar.Id = 9;
             this.bbiAPagar.Name = "bbiAPagar";
+            this.bbiAPagar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAPagar_ItemClick);
             // 
             // bbiPendencias
             // 
@@ -185,6 +193,7 @@
             this.bbiEmail.Caption = "E-mail";
             this.bbiEmail.Id = 13;
             this.bbiEmail.Name = "bbiEmail";
+            this.bbiEmail.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEmail_ItemClick);
             // 
             // bbiImpressoraTermica
             // 
@@ -205,6 +214,7 @@
             this.bbiVisitaStand.Caption = "Visitas no Stand";
             this.bbiVisitaStand.Id = 17;
             this.bbiVisitaStand.Name = "bbiVisitaStand";
+            this.bbiVisitaStand.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiVisitaStand_ItemClick);
             // 
             // bsiUsuario
             // 
@@ -233,6 +243,13 @@
             this.bbiVerificarAtualizacao.Id = 22;
             this.bbiVerificarAtualizacao.Name = "bbiVerificarAtualizacao";
             this.bbiVerificarAtualizacao.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiVerificarAtualizacao_ItemClick);
+            // 
+            // bbiFTP
+            // 
+            this.bbiFTP.Caption = "FTP";
+            this.bbiFTP.Id = 23;
+            this.bbiFTP.Name = "bbiFTP";
+            this.bbiFTP.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiFTP_ItemClick);
             // 
             // rbpAtendimento
             // 
@@ -355,6 +372,7 @@
             // ribbonPageGroup10
             // 
             this.ribbonPageGroup10.ItemLinks.Add(this.bbiVerificarAtualizacao);
+            this.ribbonPageGroup10.ItemLinks.Add(this.bbiFTP);
             this.ribbonPageGroup10.Name = "ribbonPageGroup10";
             this.ribbonPageGroup10.ShowCaptionButton = false;
             this.ribbonPageGroup10.Text = "Update";
@@ -437,5 +455,6 @@
         private DevExpress.XtraBars.BarStaticItem bsiVersao;
         private DevExpress.XtraBars.BarButtonItem bbiVerificarAtualizacao;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
+        private DevExpress.XtraBars.BarButtonItem bbiFTP;
     }
 }

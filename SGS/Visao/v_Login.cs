@@ -19,11 +19,12 @@ namespace SGS.Visao
         c_GerarMD5 c_md5;
         c_EncryptorDecrypt c_encryptordecrypt;
         v_EmpresaLicenca v_empresalicenca;
+        c_Permissao c_permissao;
         private string _senhapadrao,_datainicial,_datafinal;
         private string _key1 = "";
         private string _key2 = "";
         private string _licenca = "";
-
+        private int _permissao;
         public v_Login()
         {
             InitializeComponent();
@@ -32,7 +33,7 @@ namespace SGS.Visao
             c_md5 = new c_GerarMD5();
             v_empresalicenca = new v_EmpresaLicenca();
             c_encryptordecrypt = new c_EncryptorDecrypt();
-            
+            c_permissao = new c_Permissao();
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -42,12 +43,13 @@ namespace SGS.Visao
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            
             string _senhasuporte = (string)DateTime.Now.Day.ToString();
             if (txtUsuario.Text != string.Empty && txtSenha.Text != string.Empty)
             {
                 if (c_usuario.AutenticarUsuario(txtUsuario.Text, txtSenha.Text) || txtUsuario.Text == "SUPORTE" && txtSenha.Text == _senhasuporte+"masterkey@")
                 {
-                    v_Principal v_principal = new v_Principal(txtUsuario.Text);
+                    v_Principal v_principal = new v_Principal(txtUsuario.Text,_permissao);
                     v_principal.Show();
                     this.Hide();
                 }
@@ -72,7 +74,7 @@ namespace SGS.Visao
             CancelButton = btnSair;
             VerificarLicenca();
             LogoEmpresa();
-            
+            _permissao = c_permissao.AutenticarPermissao(txtUsuario.Text);
         }
        
         private void LogoEmpresa()
@@ -140,7 +142,7 @@ namespace SGS.Visao
             }
             else
             {
-                MessageBox.Show("Data(s) da licença em um formato inválido!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Data(s) da licença em um formato inválido!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
             }
             return Resultado;

@@ -217,9 +217,23 @@ namespace SGS.Visao
             {
                 case 1:
                     btnExcluir.Enabled = false;
+                    btnAlterar.Enabled = false;
+                    btnNovo.Enabled = false;
                     break;
                 case 2:
-                    btnExcluir.Enabled = true;
+                    btnExcluir.Enabled = false;
+                    btnAlterar.Enabled = false;
+                    btnNovo.Enabled = false;
+                    break;
+                case 3:
+                    btnExcluir.Enabled = false;
+                    btnAlterar.Enabled = false;
+                    btnNovo.Enabled = false;
+                    break;
+                case 4:
+                    btnExcluir.Enabled = false;
+                    btnAlterar.Enabled = true;
+                    btnNovo.Enabled = true;
                     break;
                 default:
                     break;

@@ -76,6 +76,7 @@
     <Compile Include="Controle\c_ConexaoMySql.cs" />
     <Compile Include="Controle\c_Corretor.cs" />
     <Compile Include="Controle\c_Distribuicaocontratos.cs" />
+    <Compile Include="Controle\c_Ftpconfig.cs" />
     <Compile Include="Controle\c_Loteamento.cs" />
     <Compile Include="Controle\c_EncryptorDecrypt.cs" />
     <Compile Include="Controle\c_GerarMD5.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Modelo\m_Corretor.cs" />
     <Compile Include="Modelo\m_Distribuicaocontratos.cs" />
     <Compile Include="Modelo\m_EmpresaLicenca.cs" />
+    <Compile Include="Modelo\m_Ftpconfig.cs" />
     <Compile Include="Modelo\m_Loteamento.cs" />
     <Compile Include="Modelo\m_Pendencias.cs" />
     <Compile Include="Modelo\m_Permissao.cs" />
@@ -125,6 +127,12 @@
     </Compile>
     <Compile Include="Visao\v_EmpresaLicenca.Designer.cs">
       <DependentUpon>v_EmpresaLicenca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\v_FtpConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\v_FtpConfig.Designer.cs">
+      <DependentUpon>v_FtpConfig.cs</DependentUpon>
     </Compile>
     <Compile Include="Visao\v_ImpressoraTermica.cs">
       <SubType>Form</SubType>
@@ -189,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_EmpresaLicenca.resx">
       <DependentUpon>v_EmpresaLicenca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\v_FtpConfig.resx">
+      <DependentUpon>v_FtpConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_ImpressoraTermica.resx">
       <DependentUpon>v_ImpressoraTermica.cs</DependentUpon>

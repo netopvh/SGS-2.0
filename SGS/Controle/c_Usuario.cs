@@ -66,7 +66,7 @@ namespace SGS.Controle
             MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
             comando.CommandType = System.Data.CommandType.Text;
             comando.CommandText =
-                "update usuario set nome = @nome,login = @login,senha = @senha, status = @status,fk_permissao_usuario = @fk_permissao_usuario where idusuario = @idusuario;";
+                "update usuario set nome = @nome,login = @login,senha = md5(@senha), status = @status,fk_permissao_usuario = @fk_permissao_usuario where idusuario = @idusuario;";
             comando.Parameters.Add(new MySqlParameter("@idusuario", m_usuario.idusuario));
             comando.Parameters.Add(new MySqlParameter("@nome", m_usuario.nome));
             comando.Parameters.Add(new MySqlParameter("@login", m_usuario.login));

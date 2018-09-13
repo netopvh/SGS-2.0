@@ -3,6 +3,7 @@ using SGS.Controle;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -19,7 +20,6 @@ namespace SGS.Visao
         int _permissao;
 
         v_AtualizarSistema v_atualizarSistema;
-
         v_Corretor v_corretor;
         v_Usuario v_usuario;
         c_Permissao c_permissao;
@@ -30,13 +30,13 @@ namespace SGS.Visao
         v_Backup v_backup;
         v_RestaurarBackup v_restaurarBackup;
         v_ImpressoraTermica v_impressoTermica;
-
+        v_FtpConfig v_ftpConfig;
         public v_Principal()
         {
             InitializeComponent();
             
         }
-        public v_Principal(string Usuario)
+        public v_Principal(string Usuario,int Permissao)
         {
             InitializeComponent();
             _usuario = Usuario;
@@ -51,6 +51,55 @@ namespace SGS.Visao
             this.v_restaurarBackup = new v_RestaurarBackup();
             this.v_impressoTermica = new v_ImpressoraTermica();
             this.v_atualizarSistema = new v_AtualizarSistema();
+            this.v_ftpConfig = new v_FtpConfig();
+            Permissao = _permissao;
+        }
+        private void Permissao()
+        {
+            switch (_permissao)
+            {
+                case 1:
+                    bbiAPagar.Enabled = false;
+                    bbiAreceber.Enabled = false;
+                    bbiEmail.Enabled = false;
+                    bbiFechamentoCaixa.Enabled = false;
+                    bbiFluxoCaixa.Enabled = false;
+                    bbiFTP.Enabled = false;
+                    bbiRestaurarBackup.Enabled = false;
+                    
+                    break;
+                case 2:
+                    bbiAPagar.Enabled = false;
+                    bbiAreceber.Enabled = false;
+                    bbiEmail.Enabled = false;
+                    bbiFechamentoCaixa.Enabled = false;
+                    bbiFluxoCaixa.Enabled = false;
+                    bbiFTP.Enabled = false;
+                    bbiRestaurarBackup.Enabled = false;
+                    break;
+                case 3:
+                    bbiAPagar.Enabled = false;
+                    bbiAreceber.Enabled = false;
+                    bbiEmail.Enabled = false;
+                    bbiFechamentoCaixa.Enabled = false;
+                    bbiFluxoCaixa.Enabled = false;
+                    bbiFTP.Enabled = false;
+                    bbiRestaurarBackup.Enabled = false;
+                    break;
+                case 4:
+                    bbiAPagar.Enabled = false;
+                    bbiAreceber.Enabled = false;
+                    bbiEmail.Enabled = false;
+                    bbiFechamentoCaixa.Enabled = false;
+                    bbiFluxoCaixa.Enabled = false;
+                    bbiFTP.Enabled = false;
+                    bbiRestaurarBackup.Enabled = false;
+                    break;
+                    
+                default:
+                    break;
+            }
+
         }
 
         private void bbiCorretor_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -83,7 +132,8 @@ namespace SGS.Visao
             //LogoEmpresa();
             VersaoAssembly();
             _permissao = c_permissao.AutenticarPermissao(_usuario);
-            bsiUsuario.Caption = "Usuário:" + _usuario + " Permissão:(Nivel:" + _permissao + ")";
+            var StringConexao = ConfigurationManager.ConnectionStrings["SGS.Properties.Settings.dbsgsConnectionString"].ToString();
+            bsiUsuario.Caption = "Usuário:" + _usuario + " Permissão:(Nivel:" + _permissao + ") | "+ StringConexao.Replace(";Port=3307;user id=root;password=masterkey;persistsecurityinfo=True;database=dbsgs", "");
             Permissao();   
         }
         private void VersaoAssembly()
@@ -100,10 +150,7 @@ namespace SGS.Visao
         {
             Application.Exit();
         }
-        private void Permissao()
-        {
-            
-        }
+        
 
         private void bbiPendencias_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -143,6 +190,51 @@ namespace SGS.Visao
         private void bbiVerificarAtualizacao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             v_atualizarSistema.ShowDialog();
+        }
+
+        private void bbiFTP_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            v_ftpConfig.ShowDialog();
+        }
+
+        private void bbiVisitaStand_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            MessageBox.Show("Em Desenvolvimento","SGS",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+        }
+
+        private void bbiContrato_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            MessageBox.Show("Em Desenvolvimento", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void bbiFolhaAvulso_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            MessageBox.Show("Em Desenvolvimento", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void bbiEmail_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            MessageBox.Show("Em Desenvolvimento", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void bbiAreceber_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            MessageBox.Show("Em Desenvolvimento", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void bbiAPagar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            MessageBox.Show("Em Desenvolvimento", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void bbiFechamentoCaixa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            MessageBox.Show("Em Desenvolvimento", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void bbiFluxoCaixa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            MessageBox.Show("Em Desenvolvimento", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
     }
 }

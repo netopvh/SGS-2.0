@@ -15,11 +15,13 @@ namespace SGS.Visao
     public partial class v_RestaurarBackup : DevExpress.XtraEditors.XtraForm
     {
         string Arquivo;
+        
         public v_RestaurarBackup()
         {
             InitializeComponent();
             lblProgresso.Visible = false;
         }
+        
 
         private void v_RestaurarBackup_Load(object sender, EventArgs e)
         {

@@ -49,6 +49,8 @@
             this.pendenciascorretorloteamentoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dbsgsDataSet = new SGS.dbsgsDataSet();
             this.gdvPendencias = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
+            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridColumnDataEntregaCorretor = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumnCodigo = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.repositoryItemMemoEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.gridColumnFk_empreendimento_pendencias = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -72,7 +74,9 @@
             this.btnSalvar = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancelar = new DevExpress.XtraEditors.SimpleButton();
             this.gbxNovaPendencia = new DevExpress.XtraEditors.GroupControl();
-            this.dteDataVenda = new DevExpress.XtraEditors.DateEdit();
+            this.txtPendencia = new DevExpress.XtraEditors.TextEdit();
+            this.dtpDataCad = new System.Windows.Forms.DateTimePicker();
+            this.dtpDataVenda = new System.Windows.Forms.DateTimePicker();
             this.dteDataCadPendencia = new DevExpress.XtraEditors.TextEdit();
             this.LookUpEditCorretor = new DevExpress.XtraEditors.LookUpEdit();
             this.corretorBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -80,11 +84,9 @@
             this.loteamentoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.txtPendencia = new System.Windows.Forms.RichTextBox();
             this.txtCliente = new DevExpress.XtraEditors.TextEdit();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.dteDataCadastroVenda = new DevExpress.XtraEditors.DateEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
@@ -103,8 +105,6 @@
             this.corretorTableAdapter = new SGS.dbsgsDataSetTableAdapters.corretorTableAdapter();
             this.pendencias_cor_lote_TableAdapter = new SGS.dbsgsDataSetTableAdapters.pendencias_cor_lote_TableAdapter();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.gridColumnDataEntregaCorretor = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabFormControl1)).BeginInit();
             this.tabFormContentContainer1.SuspendLayout();
@@ -119,16 +119,13 @@
             this.tabFormContentContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxNovaPendencia)).BeginInit();
             this.gbxNovaPendencia.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dteDataVenda.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteDataVenda.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPendencia.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteDataCadPendencia.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpEditCorretor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.corretorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpEditLoteamento.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loteamentoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCliente.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteDataCadastroVenda.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteDataCadastroVenda.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroContrato.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtVenda.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLote.Properties)).BeginInit();
@@ -349,6 +346,8 @@
             gridFormatRule1.Rule = formatConditionRule3ColorScale1;
             this.gdvPendencias.FormatRules.Add(gridFormatRule1);
             this.gdvPendencias.GridControl = this.gridControl1;
+            this.gdvPendencias.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "idpendencias", null, "Total: {0}")});
             this.gdvPendencias.Name = "gdvPendencias";
             this.gdvPendencias.OptionsBehavior.Editable = false;
             this.gdvPendencias.OptionsPrint.EnableAppearanceEvenRow = true;
@@ -359,6 +358,47 @@
             this.gdvPendencias.OptionsPrint.PrintGroupFooter = false;
             this.gdvPendencias.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
             this.gdvPendencias.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gdvPendencias_CustomColumnDisplayText);
+            // 
+            // gridBand1
+            // 
+            this.gridBand1.Caption = "Todas as pendências estão no Grid, para filtra as informações basta clica na colu" +
+    "na!";
+            this.gridBand1.Columns.Add(this.gridColumnStatus);
+            this.gridBand1.Columns.Add(this.gridColumnDataEntregaCorretor);
+            this.gridBand1.Columns.Add(this.gridColumnCodigo);
+            this.gridBand1.Columns.Add(this.gridColumnFk_empreendimento_pendencias);
+            this.gridBand1.Columns.Add(this.gridColumnEmpreendimento);
+            this.gridBand1.Columns.Add(this.gridColumnFk_corretor_pendencias);
+            this.gridBand1.Columns.Add(this.gridColumnCorretor);
+            this.gridBand1.Columns.Add(this.gridColumnQuadra);
+            this.gridBand1.Columns.Add(this.gridColumnLote);
+            this.gridBand1.Columns.Add(this.gridColumnCliente);
+            this.gridBand1.Columns.Add(this.gridColumnVenda);
+            this.gridBand1.Columns.Add(this.gridColumnNumeroContrato);
+            this.gridBand1.Columns.Add(this.gridColumnDataDevolucao);
+            this.gridBand1.Columns.Add(this.gridColumnPendencia);
+            this.gridBand1.Columns.Add(this.gridColumnDataVenda);
+            this.gridBand1.Columns.Add(this.gridColumnDataCadastro);
+            this.gridBand1.Columns.Add(this.gridColumnDataCadPendencia);
+            this.gridBand1.Columns.Add(this.gridColumnUsuarioCad);
+            this.gridBand1.Name = "gridBand1";
+            this.gridBand1.VisibleIndex = 0;
+            this.gridBand1.Width = 1468;
+            // 
+            // gridColumnDataEntregaCorretor
+            // 
+            this.gridColumnDataEntregaCorretor.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumnDataEntregaCorretor.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnDataEntregaCorretor.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnDataEntregaCorretor.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnDataEntregaCorretor.Caption = "Data Entrega";
+            this.gridColumnDataEntregaCorretor.DisplayFormat.FormatString = "g";
+            this.gridColumnDataEntregaCorretor.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.gridColumnDataEntregaCorretor.FieldName = "dataentregacorretor";
+            this.gridColumnDataEntregaCorretor.GroupFormat.FormatString = "g";
+            this.gridColumnDataEntregaCorretor.GroupFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.gridColumnDataEntregaCorretor.Name = "gridColumnDataEntregaCorretor";
+            this.gridColumnDataEntregaCorretor.Visible = true;
             // 
             // gridColumnCodigo
             // 
@@ -492,7 +532,11 @@
             this.gridColumnDataDevolucao.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnDataDevolucao.Caption = "Data Devolução";
             this.gridColumnDataDevolucao.ColumnEdit = this.repositoryItemMemoEdit1;
+            this.gridColumnDataDevolucao.DisplayFormat.FormatString = "g";
+            this.gridColumnDataDevolucao.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.gridColumnDataDevolucao.FieldName = "datadevolucao";
+            this.gridColumnDataDevolucao.GroupFormat.FormatString = "g";
+            this.gridColumnDataDevolucao.GroupFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.gridColumnDataDevolucao.Name = "gridColumnDataDevolucao";
             this.gridColumnDataDevolucao.Visible = true;
             // 
@@ -515,8 +559,11 @@
             this.gridColumnDataVenda.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnDataVenda.Caption = "Data Venda";
             this.gridColumnDataVenda.ColumnEdit = this.repositoryItemMemoEdit1;
+            this.gridColumnDataVenda.DisplayFormat.FormatString = "d";
+            this.gridColumnDataVenda.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.gridColumnDataVenda.FieldName = "datavenda";
             this.gridColumnDataVenda.Name = "gridColumnDataVenda";
+            this.gridColumnDataVenda.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
             this.gridColumnDataVenda.Visible = true;
             this.gridColumnDataVenda.Width = 66;
             // 
@@ -528,6 +575,8 @@
             this.gridColumnDataCadastro.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnDataCadastro.Caption = "Data Cadastro";
             this.gridColumnDataCadastro.ColumnEdit = this.repositoryItemMemoEdit1;
+            this.gridColumnDataCadastro.DisplayFormat.FormatString = "d";
+            this.gridColumnDataCadastro.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.gridColumnDataCadastro.FieldName = "datacadastro";
             this.gridColumnDataCadastro.Name = "gridColumnDataCadastro";
             this.gridColumnDataCadastro.Visible = true;
@@ -542,6 +591,8 @@
             this.gridColumnDataCadPendencia.Caption = "Data Cad. Pendência";
             this.gridColumnDataCadPendencia.ColumnEdit = this.repositoryItemMemoEdit1;
             this.gridColumnDataCadPendencia.FieldName = "datacadpendencia";
+            this.gridColumnDataCadPendencia.GroupFormat.FormatString = "g";
+            this.gridColumnDataCadPendencia.GroupFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.gridColumnDataCadPendencia.Name = "gridColumnDataCadPendencia";
             this.gridColumnDataCadPendencia.Visible = true;
             this.gridColumnDataCadPendencia.Width = 67;
@@ -596,17 +647,17 @@
             // 
             // gbxNovaPendencia
             // 
-            this.gbxNovaPendencia.Controls.Add(this.dteDataVenda);
+            this.gbxNovaPendencia.Controls.Add(this.txtPendencia);
+            this.gbxNovaPendencia.Controls.Add(this.dtpDataCad);
+            this.gbxNovaPendencia.Controls.Add(this.dtpDataVenda);
             this.gbxNovaPendencia.Controls.Add(this.dteDataCadPendencia);
             this.gbxNovaPendencia.Controls.Add(this.LookUpEditCorretor);
             this.gbxNovaPendencia.Controls.Add(this.LookUpEditLoteamento);
             this.gbxNovaPendencia.Controls.Add(this.labelControl11);
             this.gbxNovaPendencia.Controls.Add(this.labelControl10);
-            this.gbxNovaPendencia.Controls.Add(this.txtPendencia);
             this.gbxNovaPendencia.Controls.Add(this.txtCliente);
             this.gbxNovaPendencia.Controls.Add(this.labelControl9);
             this.gbxNovaPendencia.Controls.Add(this.labelControl8);
-            this.gbxNovaPendencia.Controls.Add(this.dteDataCadastroVenda);
             this.gbxNovaPendencia.Controls.Add(this.labelControl7);
             this.gbxNovaPendencia.Controls.Add(this.labelControl6);
             this.gbxNovaPendencia.Controls.Add(this.labelControl5);
@@ -624,24 +675,34 @@
             this.gbxNovaPendencia.TabIndex = 0;
             this.gbxNovaPendencia.Text = "Dados da Pendência";
             // 
-            // dteDataVenda
+            // txtPendencia
             // 
-            this.dteDataVenda.EditValue = null;
-            this.dteDataVenda.Location = new System.Drawing.Point(436, 88);
-            this.dteDataVenda.Name = "dteDataVenda";
-            this.dteDataVenda.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dteDataVenda.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dteDataVenda.Properties.Mask.BeepOnError = true;
-            this.dteDataVenda.Properties.MaxValue = new System.DateTime(9999, 12, 31, 0, 0, 0, 0);
-            this.dteDataVenda.Size = new System.Drawing.Size(158, 20);
-            this.dteDataVenda.TabIndex = 8;
+            this.txtPendencia.Location = new System.Drawing.Point(12, 133);
+            this.txtPendencia.Name = "txtPendencia";
+            this.txtPendencia.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtPendencia.Size = new System.Drawing.Size(960, 20);
+            this.txtPendencia.TabIndex = 11;
+            // 
+            // dtpDataCad
+            // 
+            this.dtpDataCad.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDataCad.Location = new System.Drawing.Point(539, 87);
+            this.dtpDataCad.Name = "dtpDataCad";
+            this.dtpDataCad.Size = new System.Drawing.Size(97, 21);
+            this.dtpDataCad.TabIndex = 9;
+            // 
+            // dtpDataVenda
+            // 
+            this.dtpDataVenda.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDataVenda.Location = new System.Drawing.Point(436, 87);
+            this.dtpDataVenda.Name = "dtpDataVenda";
+            this.dtpDataVenda.Size = new System.Drawing.Size(97, 21);
+            this.dtpDataVenda.TabIndex = 8;
             // 
             // dteDataCadPendencia
             // 
             this.dteDataCadPendencia.Enabled = false;
-            this.dteDataCadPendencia.Location = new System.Drawing.Point(764, 88);
+            this.dteDataCadPendencia.Location = new System.Drawing.Point(642, 88);
             this.dteDataCadPendencia.Name = "dteDataCadPendencia";
             this.dteDataCadPendencia.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.dteDataCadPendencia.Size = new System.Drawing.Size(158, 20);
@@ -686,7 +747,7 @@
             // 
             // labelControl11
             // 
-            this.labelControl11.Location = new System.Drawing.Point(764, 69);
+            this.labelControl11.Location = new System.Drawing.Point(642, 69);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(105, 13);
             this.labelControl11.TabIndex = 22;
@@ -699,14 +760,6 @@
             this.labelControl10.Size = new System.Drawing.Size(109, 13);
             this.labelControl10.TabIndex = 20;
             this.labelControl10.Text = "Resumo da Pendência:";
-            // 
-            // txtPendencia
-            // 
-            this.txtPendencia.Location = new System.Drawing.Point(12, 133);
-            this.txtPendencia.Name = "txtPendencia";
-            this.txtPendencia.Size = new System.Drawing.Size(960, 94);
-            this.txtPendencia.TabIndex = 11;
-            this.txtPendencia.Text = "";
             // 
             // txtCliente
             // 
@@ -732,23 +785,9 @@
             this.labelControl8.TabIndex = 14;
             this.labelControl8.Text = "Corretor:";
             // 
-            // dteDataCadastroVenda
-            // 
-            this.dteDataCadastroVenda.EditValue = null;
-            this.dteDataCadastroVenda.Location = new System.Drawing.Point(600, 88);
-            this.dteDataCadastroVenda.Name = "dteDataCadastroVenda";
-            this.dteDataCadastroVenda.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dteDataCadastroVenda.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dteDataCadastroVenda.Properties.Mask.BeepOnError = true;
-            this.dteDataCadastroVenda.Properties.MaxValue = new System.DateTime(9999, 12, 31, 0, 0, 0, 0);
-            this.dteDataCadastroVenda.Size = new System.Drawing.Size(158, 20);
-            this.dteDataCadastroVenda.TabIndex = 9;
-            // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(600, 69);
+            this.labelControl7.Location = new System.Drawing.Point(539, 69);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(74, 13);
             this.labelControl7.TabIndex = 12;
@@ -859,43 +898,6 @@
             // 
             this.pendencias_cor_lote_TableAdapter.ClearBeforeFill = true;
             // 
-            // gridColumnDataEntregaCorretor
-            // 
-            this.gridColumnDataEntregaCorretor.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumnDataEntregaCorretor.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumnDataEntregaCorretor.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumnDataEntregaCorretor.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumnDataEntregaCorretor.Caption = "Data Entrega";
-            this.gridColumnDataEntregaCorretor.FieldName = "dataentregacorretor";
-            this.gridColumnDataEntregaCorretor.Name = "gridColumnDataEntregaCorretor";
-            this.gridColumnDataEntregaCorretor.Visible = true;
-            // 
-            // gridBand1
-            // 
-            this.gridBand1.Caption = "Todas as pendências estão no Grid, para filtra as informações basta clica na colu" +
-    "na!";
-            this.gridBand1.Columns.Add(this.gridColumnStatus);
-            this.gridBand1.Columns.Add(this.gridColumnDataEntregaCorretor);
-            this.gridBand1.Columns.Add(this.gridColumnCodigo);
-            this.gridBand1.Columns.Add(this.gridColumnFk_empreendimento_pendencias);
-            this.gridBand1.Columns.Add(this.gridColumnEmpreendimento);
-            this.gridBand1.Columns.Add(this.gridColumnFk_corretor_pendencias);
-            this.gridBand1.Columns.Add(this.gridColumnCorretor);
-            this.gridBand1.Columns.Add(this.gridColumnQuadra);
-            this.gridBand1.Columns.Add(this.gridColumnLote);
-            this.gridBand1.Columns.Add(this.gridColumnCliente);
-            this.gridBand1.Columns.Add(this.gridColumnVenda);
-            this.gridBand1.Columns.Add(this.gridColumnNumeroContrato);
-            this.gridBand1.Columns.Add(this.gridColumnDataDevolucao);
-            this.gridBand1.Columns.Add(this.gridColumnPendencia);
-            this.gridBand1.Columns.Add(this.gridColumnDataVenda);
-            this.gridBand1.Columns.Add(this.gridColumnDataCadastro);
-            this.gridBand1.Columns.Add(this.gridColumnDataCadPendencia);
-            this.gridBand1.Columns.Add(this.gridColumnUsuarioCad);
-            this.gridBand1.Name = "gridBand1";
-            this.gridBand1.VisibleIndex = 0;
-            this.gridBand1.Width = 1468;
-            // 
             // v_Pendencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -926,16 +928,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbxNovaPendencia)).EndInit();
             this.gbxNovaPendencia.ResumeLayout(false);
             this.gbxNovaPendencia.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dteDataVenda.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteDataVenda.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPendencia.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteDataCadPendencia.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpEditCorretor.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.corretorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpEditLoteamento.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loteamentoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCliente.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteDataCadastroVenda.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteDataCadastroVenda.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroContrato.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtVenda.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLote.Properties)).EndInit();
@@ -972,10 +971,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl6;
-        private DevExpress.XtraEditors.DateEdit dteDataCadastroVenda;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.LabelControl labelControl10;
-        private System.Windows.Forms.RichTextBox txtPendencia;
         private DevExpress.XtraEditors.TextEdit txtCliente;
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraEditors.LabelControl labelControl8;
@@ -1013,7 +1010,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumnDataDevolucao;
         private DevExpress.XtraEditors.SimpleButton btnDevolver;
         private DevExpress.XtraEditors.TextEdit dteDataCadPendencia;
-        private DevExpress.XtraEditors.DateEdit dteDataVenda;
         private DevExpress.XtraEditors.SimpleButton btnImprimir;
         private DevExpress.XtraEditors.SimpleButton btnExportar;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
@@ -1021,5 +1017,8 @@
         private DevExpress.XtraEditors.SimpleButton btnEntregarPendencia;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumnDataEntregaCorretor;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
+        private System.Windows.Forms.DateTimePicker dtpDataCad;
+        private System.Windows.Forms.DateTimePicker dtpDataVenda;
+        private DevExpress.XtraEditors.TextEdit txtPendencia;
     }
 }
