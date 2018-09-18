@@ -72,7 +72,7 @@
             this.txtLocalArquivo.Enabled = false;
             this.txtLocalArquivo.Location = new System.Drawing.Point(58, 19);
             this.txtLocalArquivo.Name = "txtLocalArquivo";
-            this.txtLocalArquivo.Size = new System.Drawing.Size(355, 20);
+            this.txtLocalArquivo.Size = new System.Drawing.Size(355, 21);
             this.txtLocalArquivo.TabIndex = 8;
             // 
             // lblArquivo
@@ -80,7 +80,7 @@
             this.lblArquivo.AutoSize = true;
             this.lblArquivo.Location = new System.Drawing.Point(6, 22);
             this.lblArquivo.Name = "lblArquivo";
-            this.lblArquivo.Size = new System.Drawing.Size(46, 13);
+            this.lblArquivo.Size = new System.Drawing.Size(48, 13);
             this.lblArquivo.TabIndex = 7;
             this.lblArquivo.Text = "Arquivo:";
             // 
@@ -105,7 +105,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(9, 110);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.Size = new System.Drawing.Size(59, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "Progresso:";
             // 
@@ -176,6 +176,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "v_RestaurarBackup";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Restaurar Backup";
             this.Load += new System.EventHandler(this.v_RestaurarBackup_Load);

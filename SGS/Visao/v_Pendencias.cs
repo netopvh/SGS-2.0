@@ -297,7 +297,7 @@ namespace SGS.Visao
             btnSalvar.Enabled = false;
             tabFormControl1.SelectedPage = tabFormPagePendencias;
             Permissao();
-            gdvPendencias.BestFitColumns();
+            gdvPendencias.BestFitColumns(true);
             
         }
 

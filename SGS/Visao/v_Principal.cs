@@ -31,6 +31,7 @@ namespace SGS.Visao
         v_RestaurarBackup v_restaurarBackup;
         v_ImpressoraTermica v_impressoTermica;
         v_FtpConfig v_ftpConfig;
+        v_VisitasStand v_visitasStand;
         public v_Principal()
         {
             InitializeComponent();
@@ -52,6 +53,7 @@ namespace SGS.Visao
             this.v_impressoTermica = new v_ImpressoraTermica();
             this.v_atualizarSistema = new v_AtualizarSistema();
             this.v_ftpConfig = new v_FtpConfig();
+            this.v_visitasStand = new v_VisitasStand(_permissao, _usuario);
             Permissao = _permissao;
         }
         private void Permissao()
@@ -199,7 +201,7 @@ namespace SGS.Visao
 
         private void bbiVisitaStand_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            MessageBox.Show("Em Desenvolvimento","SGS",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+            v_visitasStand.ShowDialog();
         }
 
         private void bbiContrato_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

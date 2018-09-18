@@ -106,7 +106,7 @@
             this.rbpFinanceiro,
             this.rbpSistema});
             this.ribbonControlPrincipal.ShowToolbarCustomizeItem = false;
-            this.ribbonControlPrincipal.Size = new System.Drawing.Size(800, 146);
+            this.ribbonControlPrincipal.Size = new System.Drawing.Size(800, 147);
             this.ribbonControlPrincipal.StatusBar = this.ribbonStatusBar1;
             this.ribbonControlPrincipal.Toolbar.ShowCustomizeItem = false;
             this.ribbonControlPrincipal.Click += new System.EventHandler(this.ribbonControlPrincipal_Click);
@@ -381,14 +381,14 @@
             // 
             this.ribbonStatusBar1.ItemLinks.Add(this.bsiUsuario);
             this.ribbonStatusBar1.ItemLinks.Add(this.bsiVersao);
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 429);
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 427);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControlPrincipal;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(800, 21);
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(800, 23);
             // 
             // defaultLookAndFeel1
             // 
-            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2016 Colorful";
+            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2013";
             // 
             // usuarioTableAdapter1
             // 

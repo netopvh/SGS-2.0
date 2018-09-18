@@ -179,10 +179,10 @@
             // 
             this.gridControl1.DataSource = this.usuarioBindingSource;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(2, 21);
+            this.gridControl1.Location = new System.Drawing.Point(2, 20);
             this.gridControl1.MainView = this.gdvUsuarios;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(504, 187);
+            this.gridControl1.Size = new System.Drawing.Size(504, 188);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gdvUsuarios});
@@ -317,7 +317,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(342, 220);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 2;
+            this.btnSalvar.TabIndex = 6;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
@@ -348,7 +348,7 @@
             this.lookUpEditPermissao.Properties.NullText = "";
             this.lookUpEditPermissao.Properties.ValueMember = "idpermissao";
             this.lookUpEditPermissao.Size = new System.Drawing.Size(265, 20);
-            this.lookUpEditPermissao.TabIndex = 13;
+            this.lookUpEditPermissao.TabIndex = 5;
             // 
             // permissaoBindingSource
             // 
@@ -379,7 +379,7 @@
             this.txtConfirmaSenha.Name = "txtConfirmaSenha";
             this.txtConfirmaSenha.Properties.UseSystemPasswordChar = true;
             this.txtConfirmaSenha.Size = new System.Drawing.Size(265, 20);
-            this.txtConfirmaSenha.TabIndex = 10;
+            this.txtConfirmaSenha.TabIndex = 4;
             this.txtConfirmaSenha.Leave += new System.EventHandler(this.txtConfirmaSenha_Leave);
             // 
             // labelControl4
@@ -396,7 +396,7 @@
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Properties.UseSystemPasswordChar = true;
             this.txtSenha.Size = new System.Drawing.Size(265, 20);
-            this.txtSenha.TabIndex = 8;
+            this.txtSenha.TabIndex = 3;
             this.txtSenha.Leave += new System.EventHandler(this.txtSenha_Leave);
             // 
             // labelControl3
@@ -412,7 +412,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(423, 220);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 1;
+            this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -454,7 +454,7 @@
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtLogin.Size = new System.Drawing.Size(185, 20);
-            this.txtLogin.TabIndex = 3;
+            this.txtLogin.TabIndex = 2;
             // 
             // labelControl2
             // 
@@ -502,6 +502,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "v_Usuario";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TabFormControl = this.tabFormControl1;
             this.Text = "Usuários";

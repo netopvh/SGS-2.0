@@ -61,7 +61,7 @@ namespace SGS.Controle
                     
                 }
 
-                catch (System.Security.Cryptography.CryptographicException SenhaEx)
+                catch (System.Security.Cryptography.CryptographicException)
                 {
                     MessageBox.Show("As Keys cadastradas não são validas!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return "";

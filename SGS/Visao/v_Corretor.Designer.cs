@@ -40,6 +40,15 @@
             this.gcCorretores = new DevExpress.XtraGrid.GridControl();
             this.corretorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dbsgsDataSet = new SGS.dbsgsDataSet();
+            this.gdvCorretores = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
+            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridColumnCodigo = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridColumnNome = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridColumnCPF = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridColumnTelefone = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridColumnEmail = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridColumnStatus = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridColumnUsuarioCad = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.tabFormPageNovoCorretor = new DevExpress.XtraBars.TabFormPage();
             this.tabFormContentContainer2 = new DevExpress.XtraBars.TabFormContentContainer();
             this.gbxNovoCorretor = new DevExpress.XtraEditors.GroupControl();
@@ -58,15 +67,6 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.corretorTableAdapter = new SGS.dbsgsDataSetTableAdapters.corretorTableAdapter();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
-            this.gdvCorretores = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
-            this.gridColumnCodigo = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridColumnNome = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridColumnCPF = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridColumnTelefone = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridColumnEmail = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridColumnStatus = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridColumnUsuarioCad = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             ((System.ComponentModel.ISupportInitialize)(this.tabFormControl)).BeginInit();
             this.tabFormContentContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxCorretores)).BeginInit();
@@ -74,6 +74,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcCorretores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.corretorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbsgsDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gdvCorretores)).BeginInit();
             this.tabFormContentContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxNovoCorretor)).BeginInit();
             this.gbxNovoCorretor.SuspendLayout();
@@ -83,7 +84,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCPF.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNome.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gdvCorretores)).BeginInit();
             this.SuspendLayout();
             // 
             // tabFormControl
@@ -189,6 +189,93 @@
             // 
             this.dbsgsDataSet.DataSetName = "dbsgsDataSet";
             this.dbsgsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // gdvCorretores
+            // 
+            this.gdvCorretores.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
+            this.gridBand1});
+            this.gdvCorretores.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
+            this.gridColumnCodigo,
+            this.gridColumnNome,
+            this.gridColumnCPF,
+            this.gridColumnTelefone,
+            this.gridColumnEmail,
+            this.gridColumnStatus,
+            this.gridColumnUsuarioCad});
+            this.gdvCorretores.GridControl = this.gcCorretores;
+            this.gdvCorretores.Name = "gdvCorretores";
+            this.gdvCorretores.OptionsBehavior.Editable = false;
+            this.gdvCorretores.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // gridBand1
+            // 
+            this.gridBand1.Caption = "Todos os corretores estão no Grid.";
+            this.gridBand1.Columns.Add(this.gridColumnCodigo);
+            this.gridBand1.Columns.Add(this.gridColumnNome);
+            this.gridBand1.Columns.Add(this.gridColumnCPF);
+            this.gridBand1.Columns.Add(this.gridColumnTelefone);
+            this.gridBand1.Columns.Add(this.gridColumnEmail);
+            this.gridBand1.Columns.Add(this.gridColumnStatus);
+            this.gridBand1.Columns.Add(this.gridColumnUsuarioCad);
+            this.gridBand1.Name = "gridBand1";
+            this.gridBand1.VisibleIndex = 0;
+            this.gridBand1.Width = 866;
+            // 
+            // gridColumnCodigo
+            // 
+            this.gridColumnCodigo.Caption = "Código";
+            this.gridColumnCodigo.FieldName = "idcorretor";
+            this.gridColumnCodigo.Name = "gridColumnCodigo";
+            this.gridColumnCodigo.Visible = true;
+            this.gridColumnCodigo.Width = 72;
+            // 
+            // gridColumnNome
+            // 
+            this.gridColumnNome.Caption = "Nome";
+            this.gridColumnNome.FieldName = "nome";
+            this.gridColumnNome.Name = "gridColumnNome";
+            this.gridColumnNome.Visible = true;
+            this.gridColumnNome.Width = 238;
+            // 
+            // gridColumnCPF
+            // 
+            this.gridColumnCPF.Caption = "CPF";
+            this.gridColumnCPF.FieldName = "cpf";
+            this.gridColumnCPF.Name = "gridColumnCPF";
+            this.gridColumnCPF.Visible = true;
+            this.gridColumnCPF.Width = 106;
+            // 
+            // gridColumnTelefone
+            // 
+            this.gridColumnTelefone.Caption = "Telefone";
+            this.gridColumnTelefone.FieldName = "telefone";
+            this.gridColumnTelefone.Name = "gridColumnTelefone";
+            this.gridColumnTelefone.Visible = true;
+            this.gridColumnTelefone.Width = 100;
+            // 
+            // gridColumnEmail
+            // 
+            this.gridColumnEmail.Caption = "E-mail";
+            this.gridColumnEmail.FieldName = "email";
+            this.gridColumnEmail.Name = "gridColumnEmail";
+            this.gridColumnEmail.Visible = true;
+            this.gridColumnEmail.Width = 215;
+            // 
+            // gridColumnStatus
+            // 
+            this.gridColumnStatus.Caption = "Status";
+            this.gridColumnStatus.FieldName = "status";
+            this.gridColumnStatus.Name = "gridColumnStatus";
+            this.gridColumnStatus.Visible = true;
+            this.gridColumnStatus.Width = 53;
+            // 
+            // gridColumnUsuarioCad
+            // 
+            this.gridColumnUsuarioCad.Caption = "Usuário Cad.";
+            this.gridColumnUsuarioCad.FieldName = "usuariocad";
+            this.gridColumnUsuarioCad.Name = "gridColumnUsuarioCad";
+            this.gridColumnUsuarioCad.Visible = true;
+            this.gridColumnUsuarioCad.Width = 82;
             // 
             // tabFormPageNovoCorretor
             // 
@@ -355,93 +442,6 @@
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2013";
             // 
-            // gdvCorretores
-            // 
-            this.gdvCorretores.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
-            this.gridBand1});
-            this.gdvCorretores.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
-            this.gridColumnCodigo,
-            this.gridColumnNome,
-            this.gridColumnCPF,
-            this.gridColumnTelefone,
-            this.gridColumnEmail,
-            this.gridColumnStatus,
-            this.gridColumnUsuarioCad});
-            this.gdvCorretores.GridControl = this.gcCorretores;
-            this.gdvCorretores.Name = "gdvCorretores";
-            this.gdvCorretores.OptionsBehavior.Editable = false;
-            this.gdvCorretores.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // gridColumnCodigo
-            // 
-            this.gridColumnCodigo.Caption = "Código";
-            this.gridColumnCodigo.FieldName = "idcorretor";
-            this.gridColumnCodigo.Name = "gridColumnCodigo";
-            this.gridColumnCodigo.Visible = true;
-            this.gridColumnCodigo.Width = 72;
-            // 
-            // gridColumnNome
-            // 
-            this.gridColumnNome.Caption = "Nome";
-            this.gridColumnNome.FieldName = "nome";
-            this.gridColumnNome.Name = "gridColumnNome";
-            this.gridColumnNome.Visible = true;
-            this.gridColumnNome.Width = 238;
-            // 
-            // gridColumnCPF
-            // 
-            this.gridColumnCPF.Caption = "CPF";
-            this.gridColumnCPF.FieldName = "cpf";
-            this.gridColumnCPF.Name = "gridColumnCPF";
-            this.gridColumnCPF.Visible = true;
-            this.gridColumnCPF.Width = 106;
-            // 
-            // gridColumnTelefone
-            // 
-            this.gridColumnTelefone.Caption = "Telefone";
-            this.gridColumnTelefone.FieldName = "telefone";
-            this.gridColumnTelefone.Name = "gridColumnTelefone";
-            this.gridColumnTelefone.Visible = true;
-            this.gridColumnTelefone.Width = 100;
-            // 
-            // gridColumnEmail
-            // 
-            this.gridColumnEmail.Caption = "E-mail";
-            this.gridColumnEmail.FieldName = "email";
-            this.gridColumnEmail.Name = "gridColumnEmail";
-            this.gridColumnEmail.Visible = true;
-            this.gridColumnEmail.Width = 215;
-            // 
-            // gridColumnStatus
-            // 
-            this.gridColumnStatus.Caption = "Status";
-            this.gridColumnStatus.FieldName = "status";
-            this.gridColumnStatus.Name = "gridColumnStatus";
-            this.gridColumnStatus.Visible = true;
-            this.gridColumnStatus.Width = 53;
-            // 
-            // gridColumnUsuarioCad
-            // 
-            this.gridColumnUsuarioCad.Caption = "Usuário Cad.";
-            this.gridColumnUsuarioCad.FieldName = "usuariocad";
-            this.gridColumnUsuarioCad.Name = "gridColumnUsuarioCad";
-            this.gridColumnUsuarioCad.Visible = true;
-            this.gridColumnUsuarioCad.Width = 82;
-            // 
-            // gridBand1
-            // 
-            this.gridBand1.Caption = "Todos os corretores estão no Grid.";
-            this.gridBand1.Columns.Add(this.gridColumnCodigo);
-            this.gridBand1.Columns.Add(this.gridColumnNome);
-            this.gridBand1.Columns.Add(this.gridColumnCPF);
-            this.gridBand1.Columns.Add(this.gridColumnTelefone);
-            this.gridBand1.Columns.Add(this.gridColumnEmail);
-            this.gridBand1.Columns.Add(this.gridColumnStatus);
-            this.gridBand1.Columns.Add(this.gridColumnUsuarioCad);
-            this.gridBand1.Name = "gridBand1";
-            this.gridBand1.VisibleIndex = 0;
-            this.gridBand1.Width = 866;
-            // 
             // v_Corretor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -453,6 +453,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "v_Corretor";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TabFormControl = this.tabFormControl;
@@ -465,6 +466,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcCorretores)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.corretorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbsgsDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gdvCorretores)).EndInit();
             this.tabFormContentContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gbxNovoCorretor)).EndInit();
             this.gbxNovoCorretor.ResumeLayout(false);
@@ -476,7 +478,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCPF.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNome.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gdvCorretores)).EndInit();
             this.ResumeLayout(false);
 
         }

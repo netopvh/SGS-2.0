@@ -50,7 +50,7 @@
             this.rbtLocalEscolhido.AutoSize = true;
             this.rbtLocalEscolhido.Location = new System.Drawing.Point(8, 19);
             this.rbtLocalEscolhido.Name = "rbtLocalEscolhido";
-            this.rbtLocalEscolhido.Size = new System.Drawing.Size(205, 17);
+            this.rbtLocalEscolhido.Size = new System.Drawing.Size(204, 17);
             this.rbtLocalEscolhido.TabIndex = 0;
             this.rbtLocalEscolhido.TabStop = true;
             this.rbtLocalEscolhido.Text = "Escolhe o local para efetuar o backup";
@@ -85,7 +85,7 @@
             this.lblLocal.AutoSize = true;
             this.lblLocal.Location = new System.Drawing.Point(6, 68);
             this.lblLocal.Name = "lblLocal";
-            this.lblLocal.Size = new System.Drawing.Size(73, 13);
+            this.lblLocal.Size = new System.Drawing.Size(72, 13);
             this.lblLocal.TabIndex = 2;
             this.lblLocal.Text = "Local Padrão:";
             // 
@@ -94,7 +94,7 @@
             this.cbxFechaSistema.AutoSize = true;
             this.cbxFechaSistema.Location = new System.Drawing.Point(9, 110);
             this.cbxFechaSistema.Name = "cbxFechaSistema";
-            this.cbxFechaSistema.Size = new System.Drawing.Size(169, 17);
+            this.cbxFechaSistema.Size = new System.Drawing.Size(166, 17);
             this.cbxFechaSistema.TabIndex = 4;
             this.cbxFechaSistema.Text = "Fecha o sistema após Backup";
             this.cbxFechaSistema.UseVisualStyleBackColor = true;
@@ -104,7 +104,7 @@
             this.rbtLocalPadrao.AutoSize = true;
             this.rbtLocalPadrao.Location = new System.Drawing.Point(8, 42);
             this.rbtLocalPadrao.Name = "rbtLocalPadrao";
-            this.rbtLocalPadrao.Size = new System.Drawing.Size(184, 17);
+            this.rbtLocalPadrao.Size = new System.Drawing.Size(183, 17);
             this.rbtLocalPadrao.TabIndex = 1;
             this.rbtLocalPadrao.TabStop = true;
             this.rbtLocalPadrao.Text = "Efetuar o Backup no local padrão";
@@ -131,7 +131,7 @@
             this.v.AutoSize = true;
             this.v.Location = new System.Drawing.Point(9, 160);
             this.v.Name = "v";
-            this.v.Size = new System.Drawing.Size(57, 13);
+            this.v.Size = new System.Drawing.Size(59, 13);
             this.v.TabIndex = 4;
             this.v.Text = "Progresso:";
             // 
@@ -198,6 +198,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "v_Backup";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Efetuar Backup";
             this.Load += new System.EventHandler(this.v_Backup_Load);

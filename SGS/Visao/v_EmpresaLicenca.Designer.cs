@@ -190,6 +190,7 @@
             this.Controls.Add(this.txtKeyMD5);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "v_EmpresaLicenca";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Empresa/Licença para uso do sistema.";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.v_EmpresaLicenca_FormClosed);

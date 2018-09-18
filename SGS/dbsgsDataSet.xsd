@@ -119,6 +119,76 @@
             <Mappings />
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="atendimentoTableAdapter" GeneratorDataComponentClassName="atendimentoTableAdapter" Name="atendimento" UserDataComponentName="atendimentoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="dbsgsConnectionString (Settings)" DbObjectName="dbsgs.atendimento" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT `idatendimento`, `nomeCliente`, `telefone`, `atendimentoAnterior`, `identificador`, `localizou`, `comprou`, `cidadeUF`, `corretorAtual`, `empreendimento`, `dataAtendimento`, `dataCompra`, `usuariocad` FROM `atendimento`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="cidadeTableAdapter" GeneratorDataComponentClassName="cidadeTableAdapter" Name="cidade" UserDataComponentName="cidadeTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="dbsgsConnectionString (Settings)" DbObjectName="dbsgs.cidade" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `idcidade`, `nomeCidade`, `fk_cidadeEstado` FROM `cidade`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="estadoTableAdapter" GeneratorDataComponentClassName="estadoTableAdapter" Name="estado" UserDataComponentName="estadoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="dbsgsConnectionString (Settings)" DbObjectName="dbsgs.estado" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `idestado`, `nomeEstado`, `uf` FROM `estado`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ftpconfigTableAdapter" GeneratorDataComponentClassName="ftpconfigTableAdapter" Name="ftpconfig" UserDataComponentName="ftpconfigTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="dbsgsConnectionString (Settings)" DbObjectName="dbsgs.ftpconfig" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `idftpconfig`, `remotoversao`, `remotosetup`, `localsetuparquivo`, `usuarioftp`, `senhaftp` FROM `ftpconfig`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Cidade_EstadoTableAdapter" GeneratorDataComponentClassName="Cidade_EstadoTableAdapter" Name="Cidade_Estado" UserDataComponentName="Cidade_EstadoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="dbsgsConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select concat(cidade.nomecidade, ' - ' , estado.uf)as 'CidadeEstado' from cidade inner join estado on cidade.fk_cidadeestado = estado.idestado order by cidade.nomecidade;</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -127,35 +197,55 @@
   <xs:element name="dbsgsDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="dbsgsDataSet" msprop:Generator_UserDSName="dbsgsDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="corretor" msprop:Generator_TableClassName="corretorDataTable" msprop:Generator_TableVarName="tablecorretor" msprop:Generator_TablePropName="corretor" msprop:Generator_RowDeletingName="corretorRowDeleting" msprop:Generator_RowChangingName="corretorRowChanging" msprop:Generator_RowEvHandlerName="corretorRowChangeEventHandler" msprop:Generator_RowDeletedName="corretorRowDeleted" msprop:Generator_UserTableName="corretor" msprop:Generator_RowChangedName="corretorRowChanged" msprop:Generator_RowEvArgName="corretorRowChangeEvent" msprop:Generator_RowClassName="corretorRow">
+        <xs:element name="corretor" msprop:Generator_TableClassName="corretorDataTable" msprop:Generator_TableVarName="tablecorretor" msprop:Generator_RowChangedName="corretorRowChanged" msprop:Generator_TablePropName="corretor" msprop:Generator_RowDeletingName="corretorRowDeleting" msprop:Generator_RowChangingName="corretorRowChanging" msprop:Generator_RowEvHandlerName="corretorRowChangeEventHandler" msprop:Generator_RowDeletedName="corretorRowDeleted" msprop:Generator_RowClassName="corretorRow" msprop:Generator_UserTableName="corretor" msprop:Generator_RowEvArgName="corretorRowChangeEvent">
           <xs:complexType>
           </xs:complexType>
         </xs:element>
-        <xs:element name="usuario" msprop:Generator_TableClassName="usuarioDataTable" msprop:Generator_TableVarName="tableusuario" msprop:Generator_TablePropName="usuario" msprop:Generator_RowDeletingName="usuarioRowDeleting" msprop:Generator_RowChangingName="usuarioRowChanging" msprop:Generator_RowEvHandlerName="usuarioRowChangeEventHandler" msprop:Generator_RowDeletedName="usuarioRowDeleted" msprop:Generator_UserTableName="usuario" msprop:Generator_RowChangedName="usuarioRowChanged" msprop:Generator_RowEvArgName="usuarioRowChangeEvent" msprop:Generator_RowClassName="usuarioRow">
+        <xs:element name="usuario" msprop:Generator_TableClassName="usuarioDataTable" msprop:Generator_TableVarName="tableusuario" msprop:Generator_RowChangedName="usuarioRowChanged" msprop:Generator_TablePropName="usuario" msprop:Generator_RowDeletingName="usuarioRowDeleting" msprop:Generator_RowChangingName="usuarioRowChanging" msprop:Generator_RowEvHandlerName="usuarioRowChangeEventHandler" msprop:Generator_RowDeletedName="usuarioRowDeleted" msprop:Generator_RowClassName="usuarioRow" msprop:Generator_UserTableName="usuario" msprop:Generator_RowEvArgName="usuarioRowChangeEvent">
           <xs:complexType>
           </xs:complexType>
         </xs:element>
-        <xs:element name="distribuicaocontratos" msprop:Generator_TableClassName="distribuicaocontratosDataTable" msprop:Generator_TableVarName="tabledistribuicaocontratos" msprop:Generator_RowChangedName="distribuicaocontratosRowChanged" msprop:Generator_TablePropName="distribuicaocontratos" msprop:Generator_RowDeletingName="distribuicaocontratosRowDeleting" msprop:Generator_RowChangingName="distribuicaocontratosRowChanging" msprop:Generator_RowEvHandlerName="distribuicaocontratosRowChangeEventHandler" msprop:Generator_RowDeletedName="distribuicaocontratosRowDeleted" msprop:Generator_RowClassName="distribuicaocontratosRow" msprop:Generator_UserTableName="distribuicaocontratos" msprop:Generator_RowEvArgName="distribuicaocontratosRowChangeEvent">
+        <xs:element name="distribuicaocontratos" msprop:Generator_TableClassName="distribuicaocontratosDataTable" msprop:Generator_TableVarName="tabledistribuicaocontratos" msprop:Generator_TablePropName="distribuicaocontratos" msprop:Generator_RowDeletingName="distribuicaocontratosRowDeleting" msprop:Generator_RowChangingName="distribuicaocontratosRowChanging" msprop:Generator_RowEvHandlerName="distribuicaocontratosRowChangeEventHandler" msprop:Generator_RowDeletedName="distribuicaocontratosRowDeleted" msprop:Generator_UserTableName="distribuicaocontratos" msprop:Generator_RowChangedName="distribuicaocontratosRowChanged" msprop:Generator_RowEvArgName="distribuicaocontratosRowChangeEvent" msprop:Generator_RowClassName="distribuicaocontratosRow">
           <xs:complexType>
           </xs:complexType>
         </xs:element>
-        <xs:element name="empresalicenca" msprop:Generator_TableClassName="empresalicencaDataTable" msprop:Generator_TableVarName="tableempresalicenca" msprop:Generator_RowChangedName="empresalicencaRowChanged" msprop:Generator_TablePropName="empresalicenca" msprop:Generator_RowDeletingName="empresalicencaRowDeleting" msprop:Generator_RowChangingName="empresalicencaRowChanging" msprop:Generator_RowEvHandlerName="empresalicencaRowChangeEventHandler" msprop:Generator_RowDeletedName="empresalicencaRowDeleted" msprop:Generator_RowClassName="empresalicencaRow" msprop:Generator_UserTableName="empresalicenca" msprop:Generator_RowEvArgName="empresalicencaRowChangeEvent">
+        <xs:element name="empresalicenca" msprop:Generator_TableClassName="empresalicencaDataTable" msprop:Generator_TableVarName="tableempresalicenca" msprop:Generator_TablePropName="empresalicenca" msprop:Generator_RowDeletingName="empresalicencaRowDeleting" msprop:Generator_RowChangingName="empresalicencaRowChanging" msprop:Generator_RowEvHandlerName="empresalicencaRowChangeEventHandler" msprop:Generator_RowDeletedName="empresalicencaRowDeleted" msprop:Generator_UserTableName="empresalicenca" msprop:Generator_RowChangedName="empresalicencaRowChanged" msprop:Generator_RowEvArgName="empresalicencaRowChangeEvent" msprop:Generator_RowClassName="empresalicencaRow">
           <xs:complexType>
           </xs:complexType>
         </xs:element>
-        <xs:element name="pendencias" msprop:Generator_TableClassName="pendenciasDataTable" msprop:Generator_TableVarName="tablependencias" msprop:Generator_RowChangedName="pendenciasRowChanged" msprop:Generator_TablePropName="pendencias" msprop:Generator_RowDeletingName="pendenciasRowDeleting" msprop:Generator_RowChangingName="pendenciasRowChanging" msprop:Generator_RowEvHandlerName="pendenciasRowChangeEventHandler" msprop:Generator_RowDeletedName="pendenciasRowDeleted" msprop:Generator_RowClassName="pendenciasRow" msprop:Generator_UserTableName="pendencias" msprop:Generator_RowEvArgName="pendenciasRowChangeEvent">
+        <xs:element name="pendencias" msprop:Generator_TableClassName="pendenciasDataTable" msprop:Generator_TableVarName="tablependencias" msprop:Generator_TablePropName="pendencias" msprop:Generator_RowDeletingName="pendenciasRowDeleting" msprop:Generator_RowChangingName="pendenciasRowChanging" msprop:Generator_RowEvHandlerName="pendenciasRowChangeEventHandler" msprop:Generator_RowDeletedName="pendenciasRowDeleted" msprop:Generator_UserTableName="pendencias" msprop:Generator_RowChangedName="pendenciasRowChanged" msprop:Generator_RowEvArgName="pendenciasRowChangeEvent" msprop:Generator_RowClassName="pendenciasRow">
           <xs:complexType>
           </xs:complexType>
         </xs:element>
-        <xs:element name="permissao" msprop:Generator_TableClassName="permissaoDataTable" msprop:Generator_TableVarName="tablepermissao" msprop:Generator_RowChangedName="permissaoRowChanged" msprop:Generator_TablePropName="permissao" msprop:Generator_RowDeletingName="permissaoRowDeleting" msprop:Generator_RowChangingName="permissaoRowChanging" msprop:Generator_RowEvHandlerName="permissaoRowChangeEventHandler" msprop:Generator_RowDeletedName="permissaoRowDeleted" msprop:Generator_RowClassName="permissaoRow" msprop:Generator_UserTableName="permissao" msprop:Generator_RowEvArgName="permissaoRowChangeEvent">
+        <xs:element name="permissao" msprop:Generator_TableClassName="permissaoDataTable" msprop:Generator_TableVarName="tablepermissao" msprop:Generator_TablePropName="permissao" msprop:Generator_RowDeletingName="permissaoRowDeleting" msprop:Generator_RowChangingName="permissaoRowChanging" msprop:Generator_RowEvHandlerName="permissaoRowChangeEventHandler" msprop:Generator_RowDeletedName="permissaoRowDeleted" msprop:Generator_UserTableName="permissao" msprop:Generator_RowChangedName="permissaoRowChanged" msprop:Generator_RowEvArgName="permissaoRowChangeEvent" msprop:Generator_RowClassName="permissaoRow">
           <xs:complexType>
           </xs:complexType>
         </xs:element>
-        <xs:element name="loteamento" msprop:Generator_TableClassName="loteamentoDataTable" msprop:Generator_TableVarName="tableloteamento" msprop:Generator_RowChangedName="loteamentoRowChanged" msprop:Generator_TablePropName="loteamento" msprop:Generator_RowDeletingName="loteamentoRowDeleting" msprop:Generator_RowChangingName="loteamentoRowChanging" msprop:Generator_RowEvHandlerName="loteamentoRowChangeEventHandler" msprop:Generator_RowDeletedName="loteamentoRowDeleted" msprop:Generator_RowClassName="loteamentoRow" msprop:Generator_UserTableName="loteamento" msprop:Generator_RowEvArgName="loteamentoRowChangeEvent">
+        <xs:element name="loteamento" msprop:Generator_TableClassName="loteamentoDataTable" msprop:Generator_TableVarName="tableloteamento" msprop:Generator_TablePropName="loteamento" msprop:Generator_RowDeletingName="loteamentoRowDeleting" msprop:Generator_RowChangingName="loteamentoRowChanging" msprop:Generator_RowEvHandlerName="loteamentoRowChangeEventHandler" msprop:Generator_RowDeletedName="loteamentoRowDeleted" msprop:Generator_UserTableName="loteamento" msprop:Generator_RowChangedName="loteamentoRowChanged" msprop:Generator_RowEvArgName="loteamentoRowChangeEvent" msprop:Generator_RowClassName="loteamentoRow">
           <xs:complexType>
           </xs:complexType>
         </xs:element>
-        <xs:element name="pendencias_corretor_loteamento" msprop:Generator_TableClassName="pendencias_corretor_loteamentoDataTable" msprop:Generator_TableVarName="tablependencias_corretor_loteamento" msprop:Generator_TablePropName="pendencias_corretor_loteamento" msprop:Generator_RowDeletingName="pendencias_corretor_loteamentoRowDeleting" msprop:Generator_RowChangingName="pendencias_corretor_loteamentoRowChanging" msprop:Generator_RowEvHandlerName="pendencias_corretor_loteamentoRowChangeEventHandler" msprop:Generator_RowDeletedName="pendencias_corretor_loteamentoRowDeleted" msprop:Generator_UserTableName="pendencias_corretor_loteamento" msprop:Generator_RowChangedName="pendencias_corretor_loteamentoRowChanged" msprop:Generator_RowEvArgName="pendencias_corretor_loteamentoRowChangeEvent" msprop:Generator_RowClassName="pendencias_corretor_loteamentoRow">
+        <xs:element name="pendencias_corretor_loteamento" msprop:Generator_TableClassName="pendencias_corretor_loteamentoDataTable" msprop:Generator_TableVarName="tablependencias_corretor_loteamento" msprop:Generator_RowChangedName="pendencias_corretor_loteamentoRowChanged" msprop:Generator_TablePropName="pendencias_corretor_loteamento" msprop:Generator_RowDeletingName="pendencias_corretor_loteamentoRowDeleting" msprop:Generator_RowChangingName="pendencias_corretor_loteamentoRowChanging" msprop:Generator_RowEvHandlerName="pendencias_corretor_loteamentoRowChangeEventHandler" msprop:Generator_RowDeletedName="pendencias_corretor_loteamentoRowDeleted" msprop:Generator_RowClassName="pendencias_corretor_loteamentoRow" msprop:Generator_UserTableName="pendencias_corretor_loteamento" msprop:Generator_RowEvArgName="pendencias_corretor_loteamentoRowChangeEvent">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="atendimento" msprop:Generator_TableClassName="atendimentoDataTable" msprop:Generator_TableVarName="tableatendimento" msprop:Generator_TablePropName="atendimento" msprop:Generator_RowDeletingName="atendimentoRowDeleting" msprop:Generator_RowChangingName="atendimentoRowChanging" msprop:Generator_RowEvHandlerName="atendimentoRowChangeEventHandler" msprop:Generator_RowDeletedName="atendimentoRowDeleted" msprop:Generator_UserTableName="atendimento" msprop:Generator_RowChangedName="atendimentoRowChanged" msprop:Generator_RowEvArgName="atendimentoRowChangeEvent" msprop:Generator_RowClassName="atendimentoRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="cidade" msprop:Generator_TableClassName="cidadeDataTable" msprop:Generator_TableVarName="tablecidade" msprop:Generator_TablePropName="cidade" msprop:Generator_RowDeletingName="cidadeRowDeleting" msprop:Generator_RowChangingName="cidadeRowChanging" msprop:Generator_RowEvHandlerName="cidadeRowChangeEventHandler" msprop:Generator_RowDeletedName="cidadeRowDeleted" msprop:Generator_UserTableName="cidade" msprop:Generator_RowChangedName="cidadeRowChanged" msprop:Generator_RowEvArgName="cidadeRowChangeEvent" msprop:Generator_RowClassName="cidadeRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="estado" msprop:Generator_TableClassName="estadoDataTable" msprop:Generator_TableVarName="tableestado" msprop:Generator_TablePropName="estado" msprop:Generator_RowDeletingName="estadoRowDeleting" msprop:Generator_RowChangingName="estadoRowChanging" msprop:Generator_RowEvHandlerName="estadoRowChangeEventHandler" msprop:Generator_RowDeletedName="estadoRowDeleted" msprop:Generator_UserTableName="estado" msprop:Generator_RowChangedName="estadoRowChanged" msprop:Generator_RowEvArgName="estadoRowChangeEvent" msprop:Generator_RowClassName="estadoRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ftpconfig" msprop:Generator_TableClassName="ftpconfigDataTable" msprop:Generator_TableVarName="tableftpconfig" msprop:Generator_TablePropName="ftpconfig" msprop:Generator_RowDeletingName="ftpconfigRowDeleting" msprop:Generator_RowChangingName="ftpconfigRowChanging" msprop:Generator_RowEvHandlerName="ftpconfigRowChangeEventHandler" msprop:Generator_RowDeletedName="ftpconfigRowDeleted" msprop:Generator_UserTableName="ftpconfig" msprop:Generator_RowChangedName="ftpconfigRowChanged" msprop:Generator_RowEvArgName="ftpconfigRowChangeEvent" msprop:Generator_RowClassName="ftpconfigRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Cidade_Estado" msprop:Generator_TableClassName="Cidade_EstadoDataTable" msprop:Generator_TableVarName="tableCidade_Estado" msprop:Generator_RowChangedName="Cidade_EstadoRowChanged" msprop:Generator_TablePropName="Cidade_Estado" msprop:Generator_RowDeletingName="Cidade_EstadoRowDeleting" msprop:Generator_RowChangingName="Cidade_EstadoRowChanging" msprop:Generator_RowEvHandlerName="Cidade_EstadoRowChangeEventHandler" msprop:Generator_RowDeletedName="Cidade_EstadoRowDeleted" msprop:Generator_RowClassName="Cidade_EstadoRow" msprop:Generator_UserTableName="Cidade_Estado" msprop:Generator_RowEvArgName="Cidade_EstadoRowChangeEvent">
           <xs:complexType>
           </xs:complexType>
         </xs:element>

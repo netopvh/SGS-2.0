@@ -258,6 +258,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.Name = "v_ImpressoraTermica";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configurações da Impressora Térmica";
             this.Load += new System.EventHandler(this.v_ImpressoraTermica_Load);
