@@ -148,37 +148,40 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Image = global::SGS.Properties.Resources.Cancelar32x32;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCancelar.Location = new System.Drawing.Point(259, 205);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 35);
+            this.btnCancelar.Size = new System.Drawing.Size(75, 50);
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnVoltar
             // 
-            this.btnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVoltar.Image = global::SGS.Properties.Resources.VoltasOffice32x32;
+            this.btnVoltar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnVoltar.Location = new System.Drawing.Point(340, 205);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(75, 35);
+            this.btnVoltar.Size = new System.Drawing.Size(75, 50);
             this.btnVoltar.TabIndex = 3;
             this.btnVoltar.Text = "Voltar";
-            this.btnVoltar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnVoltar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // btnBackup
             // 
-            this.btnBackup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBackup.Image = global::SGS.Properties.Resources.backup32x32;
+            this.btnBackup.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnBackup.Location = new System.Drawing.Point(178, 205);
             this.btnBackup.Name = "btnBackup";
-            this.btnBackup.Size = new System.Drawing.Size(75, 35);
+            this.btnBackup.Size = new System.Drawing.Size(75, 50);
             this.btnBackup.TabIndex = 1;
             this.btnBackup.Text = "Backup";
-            this.btnBackup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBackup.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBackup.UseVisualStyleBackColor = true;
             this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
             // 
@@ -186,7 +189,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(427, 243);
+            this.ClientSize = new System.Drawing.Size(427, 264);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.lblProgresso);
             this.Controls.Add(this.v);

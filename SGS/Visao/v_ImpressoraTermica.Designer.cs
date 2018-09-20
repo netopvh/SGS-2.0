@@ -216,31 +216,40 @@
             // 
             // btnImprimirTextoSimples
             // 
+            this.btnImprimirTextoSimples.Image = global::SGS.Properties.Resources.Imprimir_24x24;
+            this.btnImprimirTextoSimples.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnImprimirTextoSimples.Location = new System.Drawing.Point(338, 173);
             this.btnImprimirTextoSimples.Name = "btnImprimirTextoSimples";
-            this.btnImprimirTextoSimples.Size = new System.Drawing.Size(89, 23);
+            this.btnImprimirTextoSimples.Size = new System.Drawing.Size(89, 44);
             this.btnImprimirTextoSimples.TabIndex = 3;
             this.btnImprimirTextoSimples.Text = "Imprimir";
+            this.btnImprimirTextoSimples.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnImprimirTextoSimples.UseVisualStyleBackColor = true;
             this.btnImprimirTextoSimples.Click += new System.EventHandler(this.btnImprimirTextoSimples_Click);
             // 
             // btnSalvar
             // 
+            this.btnSalvar.Image = global::SGS.Properties.Resources.Salvar24x24;
+            this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnSalvar.Location = new System.Drawing.Point(433, 173);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(89, 23);
+            this.btnSalvar.Size = new System.Drawing.Size(89, 44);
             this.btnSalvar.TabIndex = 4;
             this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnSair
             // 
+            this.btnSair.Image = global::SGS.Properties.Resources.VoltasOffice24x24;
+            this.btnSair.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnSair.Location = new System.Drawing.Point(528, 173);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(89, 23);
+            this.btnSair.Size = new System.Drawing.Size(89, 44);
             this.btnSair.TabIndex = 5;
             this.btnSair.Text = "Sair";
+            this.btnSair.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
@@ -248,7 +257,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(628, 203);
+            this.ClientSize = new System.Drawing.Size(628, 225);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.btnImprimirTextoSimples);

@@ -29,22 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.btnVerificar = new System.Windows.Forms.Button();
             this.lblResultado = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.btnSair = new System.Windows.Forms.Button();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.btnSair = new System.Windows.Forms.Button();
+            this.btnVerificar = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // btnVerificar
-            // 
-            this.btnVerificar.Location = new System.Drawing.Point(164, 54);
-            this.btnVerificar.Name = "btnVerificar";
-            this.btnVerificar.Size = new System.Drawing.Size(75, 23);
-            this.btnVerificar.TabIndex = 0;
-            this.btnVerificar.Text = "Verificar";
-            this.btnVerificar.UseVisualStyleBackColor = true;
-            this.btnVerificar.Click += new System.EventHandler(this.btnVerificar_Click);
             // 
             // lblResultado
             // 
@@ -63,25 +53,41 @@
             this.progressBar1.TabIndex = 0;
             this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
             // 
-            // btnSair
-            // 
-            this.btnSair.Location = new System.Drawing.Point(245, 54);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(75, 23);
-            this.btnSair.TabIndex = 3;
-            this.btnSair.Text = "Voltar";
-            this.btnSair.UseVisualStyleBackColor = true;
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
-            // 
             // defaultLookAndFeel1
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2013";
+            // 
+            // btnSair
+            // 
+            this.btnSair.Image = global::SGS.Properties.Resources.VoltasOffice24x24;
+            this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSair.Location = new System.Drawing.Point(245, 54);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(75, 36);
+            this.btnSair.TabIndex = 3;
+            this.btnSair.Text = "Voltar";
+            this.btnSair.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
+            // btnVerificar
+            // 
+            this.btnVerificar.Image = global::SGS.Properties.Resources.atualizacao24x24;
+            this.btnVerificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVerificar.Location = new System.Drawing.Point(164, 54);
+            this.btnVerificar.Name = "btnVerificar";
+            this.btnVerificar.Size = new System.Drawing.Size(75, 36);
+            this.btnVerificar.TabIndex = 0;
+            this.btnVerificar.Text = "Verificar";
+            this.btnVerificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnVerificar.UseVisualStyleBackColor = true;
+            this.btnVerificar.Click += new System.EventHandler(this.btnVerificar_Click);
             // 
             // v_AtualizarSistema
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(332, 85);
+            this.ClientSize = new System.Drawing.Size(332, 100);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.lblResultado);

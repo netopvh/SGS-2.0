@@ -11,7 +11,7 @@ namespace SGS.Controle
 {
     public class c_CidadeEstado
     {
-        public DataTable GetCidadeEstadoConcatenado()
+        public DataTable CarregarCidadesEstadosConcatenado()
         {
             MySqlConnection conexao = c_ConexaoMySql.GetConexao();
             MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);

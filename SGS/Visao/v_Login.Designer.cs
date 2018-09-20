@@ -158,7 +158,8 @@
             // 
             // btnSair
             // 
-            this.btnSair.Location = new System.Drawing.Point(176, 361);
+            this.btnSair.ImageOptions.Image = global::SGS.Properties.Resources.Sair_22x22;
+            this.btnSair.Location = new System.Drawing.Point(210, 361);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(75, 23);
             this.btnSair.TabIndex = 3;
@@ -167,7 +168,8 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(95, 361);
+            this.btnLogin.ImageOptions.Image = global::SGS.Properties.Resources.LoginSenha24x24;
+            this.btnLogin.Location = new System.Drawing.Point(129, 361);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 4;

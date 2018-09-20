@@ -10,6 +10,18 @@ namespace SGS.Controle
 {
     public class c_Loteamento
     {
+        public DataTable CarregarLoteamentos()
+        {
+            MySqlConnection conexao = c_ConexaoMySql.GetConexao();
+            MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = "select * from loteamento;";
+            MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
+            DataTable dataTable = new DataTable();
+            dataTable.Load(reader);
+            return dataTable;
+
+        }
         public DataTable CarregarLoteamento()
         {
             MySqlConnection conexao = c_ConexaoMySql.GetConexao();

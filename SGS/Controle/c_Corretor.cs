@@ -12,7 +12,18 @@ namespace SGS.Controle
 {
     public class c_Corretor
     {
+        public DataTable CarregarCorretores()
+        {
+            MySqlConnection conexao = c_ConexaoMySql.GetConexao();
+            MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = "select * from corretor;";
+            MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
+            DataTable dataTable = new DataTable();
+            dataTable.Load(reader);
+            return dataTable;
 
+        }
         public DataTable CarregarCorretor()
         {
             MySqlConnection conexao = c_ConexaoMySql.GetConexao();

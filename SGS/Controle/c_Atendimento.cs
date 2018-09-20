@@ -11,7 +11,7 @@ namespace SGS.Controle
 {
     public class c_Atendimento
     {
-        public DataTable GetAtendimento()
+        public DataTable CarregarAtendimentos()
         {
             MySqlConnection conexao = c_ConexaoMySql.GetConexao();
             MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
@@ -23,7 +23,7 @@ namespace SGS.Controle
             return dataTable;
         }
 
-        public DataTable GetAtendimento(m_Atendimento m_atendimento)
+        public DataTable CarregarAtendimentos(m_Atendimento m_atendimento)
         {
             MySqlConnection conexao = c_ConexaoMySql.GetConexao();
             MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
@@ -41,8 +41,8 @@ namespace SGS.Controle
             MySqlConnection conexao = c_ConexaoMySql.GetConexao();
             MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
             comando.CommandType = CommandType.Text;
-            comando.CommandText = "insert into atendimento(nomecliente,telefone,cidadeuf,atendimentoanterior,identificador,localizou,comprou,corretoratual,dataatendimento,datacompra,empreendimento,usuariocad) " +
-            "values(@nomecliente, @telefone, @cidadeuf, @atendimentoanterior, @identificador, @localizou, @comprou, @corretoratual, @dataatendimento, @datacompra,@empreendimento,@usuariocad); ";
+            comando.CommandText = "insert into atendimento(nomecliente,telefone,cidadeuf,atendimentoanterior,identificador,localizou,comprou,corretoratual,dataatendimento,empreendimento,usuariocad) " +
+            "values(@nomecliente, @telefone, @cidadeuf, @atendimentoanterior, @identificador, @localizou, @comprou, @corretoratual, @dataatendimento,@empreendimento,@usuariocad); ";
             comando.Parameters.Add(new MySqlParameter("@nomecliente", m_atendimento.nomeCliente));
             comando.Parameters.Add(new MySqlParameter("@telefone", m_atendimento.telefone));
             comando.Parameters.Add(new MySqlParameter("@cidadeuf", m_atendimento.cidadeUF));
@@ -53,16 +53,16 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@corretoratual", m_atendimento.corretorAtual));
             comando.Parameters.Add(new MySqlParameter("@empreendimento", m_atendimento.empreendimento));
             comando.Parameters.Add(new MySqlParameter("@dataatendimento", m_atendimento.dataAtendimento));
-            comando.Parameters.Add(new MySqlParameter("@datacompra", m_atendimento.dataCompra));
             comando.Parameters.Add(new MySqlParameter("@usuariocad", m_atendimento.usuariocad));
             comando.ExecuteNonQuery();
         }
+        
         public void AlterarAtendimento(m_Atendimento m_atendimento)
         {
             MySqlConnection conexao = c_ConexaoMySql.GetConexao();
             MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
             comando.CommandType = CommandType.Text;
-            comando.CommandText = "update atendimento set nomeCliente = @nomecliente,telefone = @telefone,cidadeuf = @cidadeuf,atendimentoAnterior = @atendimentoanterior,identificador = @identificador,localizou = @localizou,comprou = @comprou,corretorAtual = @corretoratual,dataAtendimento = @dataatendimento,dataCompra = @datacompra,empreendimento = @empreendimento, usuariocad = @usuariocad where idatendimento = @idatendimento;";
+            comando.CommandText = "update atendimento set nomeCliente = @nomecliente,telefone = @telefone,cidadeuf = @cidadeuf,atendimentoAnterior = @atendimentoanterior,identificador = @identificador,localizou = @localizou,comprou = @comprou,corretorAtual = @corretoratual,dataAtendimento = @dataatendimento,empreendimento = @empreendimento, usuariocad = @usuariocad where idatendimento = @idatendimento;";
             comando.Parameters.Add(new MySqlParameter("@idatendimento", m_atendimento.idatendimento));
             comando.Parameters.Add(new MySqlParameter("@nomecliente", m_atendimento.nomeCliente));
             comando.Parameters.Add(new MySqlParameter("@telefone", m_atendimento.telefone));
@@ -74,7 +74,6 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@corretoratual", m_atendimento.corretorAtual));
             comando.Parameters.Add(new MySqlParameter("@empreendimento", m_atendimento.empreendimento));
             comando.Parameters.Add(new MySqlParameter("@dataatendimento", m_atendimento.dataAtendimento));
-            comando.Parameters.Add(new MySqlParameter("@datacompra", m_atendimento.dataCompra));
             comando.Parameters.Add(new MySqlParameter("@usuariocad", m_atendimento.usuariocad));
             comando.ExecuteNonQuery();
         }

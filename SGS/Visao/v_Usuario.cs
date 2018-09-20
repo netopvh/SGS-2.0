@@ -16,6 +16,7 @@ namespace SGS.Visao
     {
         m_Usuario m_usuario;
         c_Usuario c_usuario;
+        c_Permissao c_permissao;
         int _Permissao;
         bool _alterarCad;
         public v_Usuario()
@@ -23,13 +24,14 @@ namespace SGS.Visao
             InitializeComponent();
             this.m_usuario = new m_Usuario();
             this.c_usuario = new c_Usuario();
-
+            this.c_permissao = new c_Permissao();
         }
         public v_Usuario(int permissao)
         {
             InitializeComponent();
             this.m_usuario = new m_Usuario();
             this.c_usuario = new c_Usuario();
+            this.c_permissao = new c_Permissao();
             _Permissao = permissao;
         }
         private void LimparCampos()
@@ -85,7 +87,7 @@ namespace SGS.Visao
                     m_usuario.idusuario = (int)gdvUsuarios.GetRowCellValue(gdvUsuarios.GetSelectedRows()[0], gdvUsuarios.Columns[0]);
                     c_usuario.ExcluirUsuario(m_usuario);
                     MessageBox.Show("Excluido com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.usuarioTableAdapter.Fill(this.dbsgsDataSet.usuario);
+                    CarregarUsuarios();
                     break;
                 case "salvar":
                     m_usuario.nome = txtNome.Text;
@@ -121,17 +123,19 @@ namespace SGS.Visao
                     {
                         c_usuario.NovoUsuario(m_usuario);
                         MessageBox.Show("Salvo com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CarregarUsuarios();
                     }
                     else if (_alterarCad == true)
                     {
                         c_usuario.AlterarUsuario(m_usuario);
                         MessageBox.Show("Alterado com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CarregarUsuarios();
                     }
                     gbxNovoUsuario.Enabled = false;
                     LimparCampos();
                     lblSenhasConfirmacao.Visible = false;
                     tabFormControl1.SelectedPage = tabFormPageUsuarios;
-                    this.usuarioTableAdapter.Fill(this.dbsgsDataSet.usuario);
+                    
 
                     break;
                 default:
@@ -258,19 +262,32 @@ namespace SGS.Visao
 
         private void v_Usuario_Load(object sender, EventArgs e)
         {
-            // TODO: esta linha de código carrega dados na tabela 'dbsgsDataSet.permissao'. Você pode movê-la ou removê-la conforme necessário.
-            this.permissaoTableAdapter.Fill(this.dbsgsDataSet.permissao);
             CancelButton = btnVoltar;
             _alterarCad = false;
             gbxNovoUsuario.Enabled = false;
             tabFormControl1.SelectedPage = tabFormPageUsuarios;
             lblSenhasConfirmacao.Visible = false;
             Permissao();
-            // TODO: esta linha de código carrega dados na tabela 'dbsgsDataSet.usuario'. Você pode movê-la ou removê-la conforme necessário.
-            this.usuarioTableAdapter.Fill(this.dbsgsDataSet.usuario);
-
+            CarregarComboboxPermissao();
+            CarregarUsuarios();
+            gdvUsuarios.BestFitColumns(true);
         }
-
+        private void CarregarUsuarios()
+        {
+            DataTable dtUsuairos = new DataTable();
+            dtUsuairos = c_usuario.CarregarUsuariosPermissao();
+            gridControl1.DataSource = dtUsuairos;
+            gdvUsuarios.RefreshData();
+        }
+        private void CarregarComboboxPermissao()
+        {
+            DataTable dtPermissao = new DataTable();
+            lookUpEditPermissao.Properties.DataSource = c_permissao.CarregarPermissao();
+            lookUpEditPermissao.Properties.DisplayMember = "nome";
+            lookUpEditPermissao.Properties.ValueMember = "idpermissao";
+            lookUpEditPermissao.ItemIndex = -1;
+            lookUpEditPermissao.Refresh();
+        }
 
         private void CheckSenha()
         {
@@ -299,6 +316,11 @@ namespace SGS.Visao
         private void txtConfirmaSenha_Leave(object sender, EventArgs e)
         {
             CheckSenha();
+        }
+
+        private void tabFormContentContainer1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

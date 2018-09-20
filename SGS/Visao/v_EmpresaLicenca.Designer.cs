@@ -30,18 +30,18 @@
         {
             this.txtKeyMD5 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnRegistrar = new System.Windows.Forms.Button();
-            this.ptbLogo = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtEmpresa = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnLogo = new System.Windows.Forms.Button();
             this.openFileDialogLogo = new System.Windows.Forms.OpenFileDialog();
             this.label4 = new System.Windows.Forms.Label();
             this.txtKey1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtKey2 = new System.Windows.Forms.TextBox();
             this.btnSair = new System.Windows.Forms.Button();
+            this.btnLogo = new System.Windows.Forms.Button();
+            this.ptbLogo = new System.Windows.Forms.PictureBox();
+            this.btnRegistrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,27 +61,6 @@
             this.label1.Size = new System.Drawing.Size(144, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Entre com a chave key MD5:";
-            // 
-            // btnRegistrar
-            // 
-            this.btnRegistrar.Location = new System.Drawing.Point(217, 335);
-            this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(75, 23);
-            this.btnRegistrar.TabIndex = 0;
-            this.btnRegistrar.TabStop = false;
-            this.btnRegistrar.Text = "Registrar";
-            this.btnRegistrar.UseVisualStyleBackColor = true;
-            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
-            // 
-            // ptbLogo
-            // 
-            this.ptbLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ptbLogo.Location = new System.Drawing.Point(12, 185);
-            this.ptbLogo.Name = "ptbLogo";
-            this.ptbLogo.Size = new System.Drawing.Size(361, 141);
-            this.ptbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbLogo.TabIndex = 4;
-            this.ptbLogo.TabStop = false;
             // 
             // label2
             // 
@@ -109,17 +88,6 @@
             this.label3.Size = new System.Drawing.Size(66, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "Logo Marca:";
-            // 
-            // btnLogo
-            // 
-            this.btnLogo.Location = new System.Drawing.Point(136, 335);
-            this.btnLogo.Name = "btnLogo";
-            this.btnLogo.Size = new System.Drawing.Size(75, 23);
-            this.btnLogo.TabIndex = 0;
-            this.btnLogo.TabStop = false;
-            this.btnLogo.Text = "Inserir Logo";
-            this.btnLogo.UseVisualStyleBackColor = true;
-            this.btnLogo.Click += new System.EventHandler(this.btnLogo_Click);
             // 
             // openFileDialogLogo
             // 
@@ -161,20 +129,61 @@
             // 
             // btnSair
             // 
+            this.btnSair.Image = global::SGS.Properties.Resources.Sair_24x24;
+            this.btnSair.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnSair.Location = new System.Drawing.Point(298, 335);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(75, 23);
+            this.btnSair.Size = new System.Drawing.Size(75, 44);
             this.btnSair.TabIndex = 11;
             this.btnSair.TabStop = false;
             this.btnSair.Text = "Sair";
+            this.btnSair.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
+            // btnLogo
+            // 
+            this.btnLogo.Image = global::SGS.Properties.Resources.Pesquisar24x24;
+            this.btnLogo.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnLogo.Location = new System.Drawing.Point(136, 335);
+            this.btnLogo.Name = "btnLogo";
+            this.btnLogo.Size = new System.Drawing.Size(75, 44);
+            this.btnLogo.TabIndex = 0;
+            this.btnLogo.TabStop = false;
+            this.btnLogo.Text = "Inserir Logo";
+            this.btnLogo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnLogo.UseVisualStyleBackColor = true;
+            this.btnLogo.Click += new System.EventHandler(this.btnLogo_Click);
+            // 
+            // ptbLogo
+            // 
+            this.ptbLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ptbLogo.Location = new System.Drawing.Point(12, 185);
+            this.ptbLogo.Name = "ptbLogo";
+            this.ptbLogo.Size = new System.Drawing.Size(361, 141);
+            this.ptbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbLogo.TabIndex = 4;
+            this.ptbLogo.TabStop = false;
+            // 
+            // btnRegistrar
+            // 
+            this.btnRegistrar.Image = global::SGS.Properties.Resources.Keys24x24;
+            this.btnRegistrar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnRegistrar.Location = new System.Drawing.Point(217, 335);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(75, 44);
+            this.btnRegistrar.TabIndex = 0;
+            this.btnRegistrar.TabStop = false;
+            this.btnRegistrar.Text = "Registrar";
+            this.btnRegistrar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // v_EmpresaLicenca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(385, 368);
+            this.ClientSize = new System.Drawing.Size(385, 388);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.txtKey2);
             this.Controls.Add(this.label5);

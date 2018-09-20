@@ -10,6 +10,17 @@ namespace SGS.Controle
 {
     public class c_Permissao
     {
+        public DataTable CarregarPermissao()
+        {
+            MySqlConnection conexao = c_ConexaoMySql.GetConexao();
+            MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
+            comando.CommandText = "select * from permissao;";
+            comando.CommandType = CommandType.Text;
+            MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
+            DataTable dataTable = new DataTable();
+            dataTable.Load(reader);
+            return dataTable;
+        }
         public int AutenticarPermissao(string login)
         {
             int resultado = 0;

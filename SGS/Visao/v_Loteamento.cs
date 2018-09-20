@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraGrid.Views.BandedGrid;
 using SGS.Controle;
 using SGS.Modelo;
 
@@ -98,8 +99,8 @@ namespace SGS.Visao
                     m_loteamento.idloteamento = (int)gridView1.GetRowCellValue(gridView1.GetSelectedRows()[0], gridView1.Columns[0]);
                     c_loteamento.ExcluirLoteamento(m_loteamento);
                     MessageBox.Show("Excluido com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    this.loteamentoTableAdapter.Fill(this.dbsgsDataSet.loteamento);
+                    CarregarLoteamentos();
+                    
                     break;
                 case "alterar":
                     _alterarCad = true;
@@ -140,16 +141,18 @@ namespace SGS.Visao
                     {
                         c_loteamento.AlterarLoteamento(m_loteamento);
                         MessageBox.Show("Alterado com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CarregarLoteamentos();
                     }
                     else if (_alterarCad == false)
                     {
                         c_loteamento.NovoLoteamento(m_loteamento);
                         MessageBox.Show("Salvo com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CarregarLoteamentos();
                     }
 
                     LimparCampos();
                     gbxNovo.Enabled = false;
-                    this.loteamentoTableAdapter.Fill(this.dbsgsDataSet.loteamento);
+                    
                     tabFormControl1.SelectedPage = tabFormPageEmp;
 
                     break;
@@ -170,9 +173,16 @@ namespace SGS.Visao
             CancelButton = btnVoltar;
             tabFormControl1.SelectedPage = tabFormPageEmp;
             Permissao();
-            // TODO: esta linha de código carrega dados na tabela 'dbsgsDataSet.loteamento'. Você pode movê-la ou removê-la conforme necessário.
-            this.loteamentoTableAdapter.Fill(this.dbsgsDataSet.loteamento);
-
+            CarregarLoteamentos();
+            gridView1.BestFitColumns(true);
+        }
+        
+        private void CarregarLoteamentos()
+        {
+            DataTable dtLoteamentos = new DataTable();
+            dtLoteamentos = c_loteamento.CarregarLoteamentos();
+            gridControl1.DataSource = dtLoteamentos;
+            gridView1.RefreshData();
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)

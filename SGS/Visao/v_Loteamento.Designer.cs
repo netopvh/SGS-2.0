@@ -38,9 +38,8 @@
             this.btnVoltar = new DevExpress.XtraEditors.SimpleButton();
             this.gbxEmp = new DevExpress.XtraEditors.GroupControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.loteamentoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dbsgsDataSet = new SGS.dbsgsDataSet();
             this.gridView1 = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
+            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -64,16 +63,12 @@
             this.rbtAtivo = new System.Windows.Forms.RadioButton();
             this.txtNome = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.loteamentoTableAdapter = new SGS.dbsgsDataSetTableAdapters.loteamentoTableAdapter();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
-            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             ((System.ComponentModel.ISupportInitialize)(this.tabFormControl1)).BeginInit();
             this.tabFormContentContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxEmp)).BeginInit();
             this.gbxEmp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loteamentoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbsgsDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.tabFormContentContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxNovo)).BeginInit();
@@ -119,41 +114,45 @@
             this.tabFormContentContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabFormContentContainer1.Location = new System.Drawing.Point(0, 55);
             this.tabFormContentContainer1.Name = "tabFormContentContainer1";
-            this.tabFormContentContainer1.Size = new System.Drawing.Size(562, 317);
+            this.tabFormContentContainer1.Size = new System.Drawing.Size(562, 341);
             this.tabFormContentContainer1.TabIndex = 1;
             // 
             // btnExcluir
             // 
+            this.btnExcluir.ImageOptions.Image = global::SGS.Properties.Resources.ExcluirRegistro24x24;
             this.btnExcluir.Location = new System.Drawing.Point(403, 291);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluir.Size = new System.Drawing.Size(75, 44);
             this.btnExcluir.TabIndex = 2;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnAlterar
             // 
+            this.btnAlterar.ImageOptions.Image = global::SGS.Properties.Resources.EditarRegistro24x24;
             this.btnAlterar.Location = new System.Drawing.Point(322, 291);
             this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(75, 23);
+            this.btnAlterar.Size = new System.Drawing.Size(75, 44);
             this.btnAlterar.TabIndex = 3;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnNovo
             // 
+            this.btnNovo.ImageOptions.Image = global::SGS.Properties.Resources.NovoRegistro24x24;
             this.btnNovo.Location = new System.Drawing.Point(241, 291);
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(75, 23);
+            this.btnNovo.Size = new System.Drawing.Size(75, 44);
             this.btnNovo.TabIndex = 4;
             this.btnNovo.Text = "Novo";
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // btnVoltar
             // 
+            this.btnVoltar.ImageOptions.Image = global::SGS.Properties.Resources.VoltasOffice24x24;
             this.btnVoltar.Location = new System.Drawing.Point(484, 291);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(75, 23);
+            this.btnVoltar.Size = new System.Drawing.Size(75, 44);
             this.btnVoltar.TabIndex = 1;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
@@ -169,7 +168,6 @@
             // 
             // gridControl1
             // 
-            this.gridControl1.DataSource = this.loteamentoBindingSource;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl1.Location = new System.Drawing.Point(2, 21);
             this.gridControl1.MainView = this.gridView1;
@@ -178,16 +176,6 @@
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            // 
-            // loteamentoBindingSource
-            // 
-            this.loteamentoBindingSource.DataMember = "loteamento";
-            this.loteamentoBindingSource.DataSource = this.dbsgsDataSet;
-            // 
-            // dbsgsDataSet
-            // 
-            this.dbsgsDataSet.DataSetName = "dbsgsDataSet";
-            this.dbsgsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gridView1
             // 
@@ -210,6 +198,20 @@
             this.gridView1.OptionsPrint.PrintGroupFooter = false;
             this.gridView1.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridBand1
+            // 
+            this.gridBand1.Caption = "Todos os Loteamentos estão no Grid.";
+            this.gridBand1.Columns.Add(this.gridColumn1);
+            this.gridBand1.Columns.Add(this.gridColumn2);
+            this.gridBand1.Columns.Add(this.gridColumn3);
+            this.gridBand1.Columns.Add(this.gridColumn4);
+            this.gridBand1.Columns.Add(this.gridColumn5);
+            this.gridBand1.Columns.Add(this.gridColumn6);
+            this.gridBand1.Columns.Add(this.gridColumn7);
+            this.gridBand1.Name = "gridBand1";
+            this.gridBand1.VisibleIndex = 0;
+            this.gridBand1.Width = 648;
             // 
             // gridColumn1
             // 
@@ -279,7 +281,7 @@
             this.tabFormContentContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabFormContentContainer2.Location = new System.Drawing.Point(0, 55);
             this.tabFormContentContainer2.Name = "tabFormContentContainer2";
-            this.tabFormContentContainer2.Size = new System.Drawing.Size(562, 317);
+            this.tabFormContentContainer2.Size = new System.Drawing.Size(562, 341);
             this.tabFormContentContainer2.TabIndex = 2;
             // 
             // gbxNovo
@@ -298,15 +300,16 @@
             this.gbxNovo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbxNovo.Location = new System.Drawing.Point(0, 0);
             this.gbxNovo.Name = "gbxNovo";
-            this.gbxNovo.Size = new System.Drawing.Size(562, 317);
+            this.gbxNovo.Size = new System.Drawing.Size(562, 341);
             this.gbxNovo.TabIndex = 0;
             this.gbxNovo.Text = "Dados";
             // 
             // btnSalvar
             // 
+            this.btnSalvar.ImageOptions.Image = global::SGS.Properties.Resources.Salvar24x24;
             this.btnSalvar.Location = new System.Drawing.Point(400, 289);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvar.Size = new System.Drawing.Size(75, 44);
             this.btnSalvar.TabIndex = 4;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -359,9 +362,10 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.ImageOptions.Image = global::SGS.Properties.Resources.VoltasOffice24x24;
             this.btnCancelar.Location = new System.Drawing.Point(481, 289);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(75, 44);
             this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -416,33 +420,15 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Nome:";
             // 
-            // loteamentoTableAdapter
-            // 
-            this.loteamentoTableAdapter.ClearBeforeFill = true;
-            // 
             // defaultLookAndFeel1
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2013";
-            // 
-            // gridBand1
-            // 
-            this.gridBand1.Caption = "Todos os Loteamentos estão no Grid.";
-            this.gridBand1.Columns.Add(this.gridColumn1);
-            this.gridBand1.Columns.Add(this.gridColumn2);
-            this.gridBand1.Columns.Add(this.gridColumn3);
-            this.gridBand1.Columns.Add(this.gridColumn4);
-            this.gridBand1.Columns.Add(this.gridColumn5);
-            this.gridBand1.Columns.Add(this.gridColumn6);
-            this.gridBand1.Columns.Add(this.gridColumn7);
-            this.gridBand1.Name = "gridBand1";
-            this.gridBand1.VisibleIndex = 0;
-            this.gridBand1.Width = 648;
             // 
             // v_Loteamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(562, 372);
+            this.ClientSize = new System.Drawing.Size(562, 396);
             this.Controls.Add(this.tabFormContentContainer1);
             this.Controls.Add(this.tabFormControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -459,8 +445,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbxEmp)).EndInit();
             this.gbxEmp.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loteamentoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbsgsDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.tabFormContentContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gbxNovo)).EndInit();
@@ -504,9 +488,7 @@
         private DevExpress.XtraEditors.TextEdit txtNome;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.SimpleButton btnSalvar;
-        private dbsgsDataSet dbsgsDataSet;
-        private System.Windows.Forms.BindingSource loteamentoBindingSource;
-        private dbsgsDataSetTableAdapters.loteamentoTableAdapter loteamentoTableAdapter;
+        
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
         private DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView gridView1;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn1;

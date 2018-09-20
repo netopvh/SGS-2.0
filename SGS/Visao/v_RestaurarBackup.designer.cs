@@ -57,10 +57,11 @@
             // 
             // btnBuscar
             // 
+            this.btnBuscar.Image = global::SGS.Properties.Resources.Pesquisar32x32;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscar.Location = new System.Drawing.Point(338, 45);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 35);
+            this.btnBuscar.Size = new System.Drawing.Size(75, 44);
             this.btnBuscar.TabIndex = 7;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -126,37 +127,40 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Image = global::SGS.Properties.Resources.Cancelar32x32;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCancelar.Location = new System.Drawing.Point(275, 155);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 35);
+            this.btnCancelar.Size = new System.Drawing.Size(75, 50);
             this.btnCancelar.TabIndex = 6;
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnRestaurar
             // 
-            this.btnRestaurar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRestaurar.Image = global::SGS.Properties.Resources.restaurarbackup32x32;
+            this.btnRestaurar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnRestaurar.Location = new System.Drawing.Point(194, 155);
             this.btnRestaurar.Name = "btnRestaurar";
-            this.btnRestaurar.Size = new System.Drawing.Size(75, 35);
+            this.btnRestaurar.Size = new System.Drawing.Size(75, 50);
             this.btnRestaurar.TabIndex = 5;
             this.btnRestaurar.Text = "Restaurar";
-            this.btnRestaurar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRestaurar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnRestaurar.UseVisualStyleBackColor = true;
             this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
             // 
             // btnVoltar
             // 
-            this.btnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVoltar.Image = global::SGS.Properties.Resources.VoltasOffice32x32;
+            this.btnVoltar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnVoltar.Location = new System.Drawing.Point(356, 155);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(75, 35);
+            this.btnVoltar.Size = new System.Drawing.Size(75, 50);
             this.btnVoltar.TabIndex = 1;
             this.btnVoltar.Text = "Voltar";
-            this.btnVoltar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnVoltar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
@@ -164,7 +168,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(442, 202);
+            this.ClientSize = new System.Drawing.Size(442, 214);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnRestaurar);
             this.Controls.Add(this.lblProgresso);

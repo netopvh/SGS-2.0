@@ -56,18 +56,29 @@ namespace SGS.Visao
         }
         private void CarregarValores()
         {
-            DataTable dt = new DataTable();
-            dt = c_ftpconfig.CarregarFtpConfig("select localsetuparquivo,remotosetup,remotoversao,usuarioftp,senhaftp from ftpconfig where idftpconfig = 1;");
-            localSetupFile = dt.Rows[0][@"localsetuparquivo"].ToString();
-            remoteSetupFile = dt.Rows[0][@"remotosetup"].ToString();
-            remoteVersionFile = dt.Rows[0][@"remotoversao"].ToString();
-            usuarioftp = dt.Rows[0]["usuarioftp"].ToString();
-            senhaftp = dt.Rows[0]["senhaftp"].ToString();
+            try
+            {
+                DataTable dt = new DataTable();
+                dt = c_ftpconfig.CarregarFtpConfig("select localsetuparquivo,remotosetup,remotoversao,usuarioftp,senhaftp from ftpconfig where idftpconfig = 1;");
+                localSetupFile = dt.Rows[0][@"localsetuparquivo"].ToString();
+                remoteSetupFile = dt.Rows[0][@"remotosetup"].ToString();
+                remoteVersionFile = dt.Rows[0][@"remotoversao"].ToString();
+                usuarioftp = dt.Rows[0]["usuarioftp"].ToString();
+                senhaftp = dt.Rows[0]["senhaftp"].ToString();
+            }
+            catch (System.IndexOutOfRangeException exOut)
+            {
+                MessageBox.Show("Não existe configuração de FTP, por favor configure o FTP antes de verificar se á atualizações!\nERROR: " + exOut.Message, "SGS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
+            
         }
         private bool CheckUpdate()
         {
-            NetworkCredential credentials = new NetworkCredential(usuarioftp, senhaftp);
-            lblResultado.Text = "Verificando...";
+            try
+            {
+                NetworkCredential credentials = new NetworkCredential(usuarioftp, senhaftp);
+                lblResultado.Text = "Verificando...";
                 wb.Credentials = credentials;
                 byte[] buffer = wb.DownloadData(remoteVersionFile); //Baixa o arquivo de info para a memória
                 System.IO.MemoryStream mem = new System.IO.MemoryStream(buffer); //Cria um Stream para o buffer
@@ -75,8 +86,13 @@ namespace SGS.Visao
                 remoteVersion = new Version(memReader.ReadToEnd()); // Lê a versão do arquivo para uma variável do tipo Versio;
                 lblResultado.Text = "Versão Disponível:" + remoteVersion + " | Versão Atual:" + localVersion;
                 return remoteVersion > localVersion; //Retorna true se a versão na internet for maior que a versão do aplicativo em execução;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "SGS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
             
-                
             
         }
 

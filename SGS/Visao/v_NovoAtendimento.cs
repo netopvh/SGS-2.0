@@ -1,5 +1,5 @@
 ﻿using SGS.Controle;
-using SGS.dbsgsDataSetTableAdapters;
+
 using SGS.Modelo;
 using System;
 using System.Collections.Generic;
@@ -52,12 +52,7 @@ namespace SGS.Visao
         private void v_NovoAtendimento_Load(object sender, EventArgs e)
         {
             
-            // TODO: esta linha de código carrega dados na tabela 'dbsgsDataSet1.Cidade_Estado'. Você pode movê-la ou removê-la conforme necessário.
-            this.cidade_EstadoTableAdapter.Fill(this.dbsgsDataSet1.Cidade_Estado);
-            // TODO: esta linha de código carrega dados na tabela 'dbsgsDataSet1.corretor'. Você pode movê-la ou removê-la conforme necessário.
-            this.corretorTableAdapter.Fill(this.dbsgsDataSet1.corretor);
-            // TODO: esta linha de código carrega dados na tabela 'dbsgsDataSet1.loteamento'. Você pode movê-la ou removê-la conforme necessário.
-            this.loteamentoTableAdapter.Fill(this.dbsgsDataSet1.loteamento);
+            
             CancelButton = btnVoltar;
             AcceptButton = btnSalvar;
             CarregarCidadeEstado();
@@ -66,7 +61,7 @@ namespace SGS.Visao
         }
         //Construtor para alterar Atendimento
         public v_NovoAtendimento(int CodigoAtendimento,string NomeCliente,string Telefone,string CidadeEstado,string CorretorAtual,
-            string CorretorAtdAnterior,string Empreendimento,string Identificador,string Indicou,DateTime DataCadastro,DateTime DataCompra,string comprou,string UsuarioCad,bool Alterar)
+            string CorretorAtdAnterior,string Empreendimento,string Identificador,string Localizou,DateTime DataCadastroAtend,string UsuarioCad,bool Alterar)
         {
             this.m_atendimento = new m_Atendimento();
             this.c_atendimento = new c_Atendimento();
@@ -75,7 +70,6 @@ namespace SGS.Visao
             this.c_cidadeEstado = new c_CidadeEstado();
             InitializeComponent();
             _usuarioCad = UsuarioCad;
-
             //Montar alteração...
             m_atendimento.idatendimento = CodigoAtendimento;
             txtNomeCliente.Text = NomeCliente;
@@ -90,53 +84,40 @@ namespace SGS.Visao
                 txtQD.Text = string.Empty;
                 txtLT.Text = string.Empty;
             }
-            
-            
-            lookUpEditCorretorAtual.Text = CorretorAtual;
-            lookUpEditCorretorAnterior.Text = CorretorAtdAnterior;
-            lookUpEditEmpreendimento.Text = Empreendimento;
-            lookUpEditCiddeUF.Text = CidadeEstado;
+            lookUpEditCorretorAtual.EditValue = CorretorAtual;
+            lookUpEditCorretorAnterior.EditValue = CorretorAtdAnterior;
+            lookUpEditEmpreendimento.EditValue = Empreendimento;
+            lookUpEditCiddeUF.EditValue = CidadeEstado;
             m_atendimento.cidadeUF = CidadeEstado;
-            if (Indicou == "Televisão")
+            if (Localizou == "Televisão")
             {
                 rbtTelevisao.Checked = true;
             }
-            else if (Indicou == "Rádio")
+            else if (Localizou == "Rádio")
             {
                 rbtRadio.Checked = true;
             }
-            else if (Indicou == "Internet")
+            else if (Localizou == "Internet")
             {
                 rbtInternet.Checked = true;
             }
-            else if (Indicou == "Carro Som")
+            else if (Localizou == "Carro Som")
             {
                 rbtCarroSom.Checked = true;
             }
-            else if (Indicou == "Fôlder")
+            else if (Localizou == "Fôlder")
             {
                 rbtFolder.Checked = true;
             }
-            else if (DataCompra != null)
-            {
-                dtpDataCompra.Value = DataCompra;
-            }
-            if (comprou == "SIM")
-            {
-                rbtComprouSim.Checked = true;
-            }
-            if (comprou == "NÃO")
-            {
-                rbtComprouNao.Checked = true;
-            }
+            
             
             else
             {
                 rbtOutros.Checked = true;
-                txtLocalizouOutros.Text = Indicou;
+                txtLocalizouOutros.Text = Localizou;
             }
 
-            dtpDataCadastro.Value = DataCadastro;
+            dtpDataCadastro.Value = DataCadastroAtend;
             AlterarAtend = Alterar;
         }
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -165,11 +146,8 @@ namespace SGS.Visao
                 m_atendimento.atendimentoAnterior = lookUpEditCorretorAnterior.Text;
                 m_atendimento.empreendimento = lookUpEditEmpreendimento.Text;
                 m_atendimento.dataAtendimento = dtpDataCadastro.Value;
-                if (rbtComprouSim.Checked == true)
-                {
-                    m_atendimento.dataCompra = dtpDataCompra.Value;
-                }
                 m_atendimento.localizou = indicacao;
+                m_atendimento.comprou = "NÃO";
                 m_atendimento.usuariocad = _usuarioCad;
                
                 if (txtQD.Text != string.Empty && txtQD.Text.Length < 3 || txtLT.Text != string.Empty && txtLT.Text.Length < 3)
@@ -244,38 +222,54 @@ namespace SGS.Visao
         
         private void CarregarCorretores()
         {
-            
-            if (AlterarAtend == true)
-            {
+            DataTable dtCorretores = new DataTable();
+            dtCorretores = c_corretor.CarregarCorretor();
+            lookUpEditCorretorAtual.Properties.DataSource = dtCorretores;
+            lookUpEditCorretorAtual.Properties.DisplayMember = "nome";
+            lookUpEditCorretorAtual.Properties.ValueMember = "idcorretor";
 
-            }
-            else
+            lookUpEditCorretorAnterior.Properties.DataSource = dtCorretores;
+            lookUpEditCorretorAnterior.Properties.DisplayMember = "nome";
+            lookUpEditCorretorAnterior.Properties.ValueMember = "idcorretor";
+
+
+            if (AlterarAtend == false)
             {
                 lookUpEditCorretorAnterior.ItemIndex = -1;
                 lookUpEditCorretorAtual.ItemIndex = -1;
+            }
+            else if(AlterarAtend == true)
+            {
+                
             }
            
         }
         private void CarregarEmpreendimentos()
         {
-            
-            if (AlterarAtend == true)
-            {
-
-            }
-            else
+            DataTable dtLoteamentos = new DataTable();
+            dtLoteamentos = c_loteamento.CarregarLoteamento();
+            lookUpEditEmpreendimento.Properties.DataSource = dtLoteamentos;
+            lookUpEditEmpreendimento.Properties.DisplayMember = "nome";
+            lookUpEditEmpreendimento.Properties.ValueMember = "idloteamento";
+            if (AlterarAtend == false)
             {
                 lookUpEditEmpreendimento.ItemIndex = -1;
+            }
+            else if(AlterarAtend == true)
+            {
+                
             }
             
         }
         private void CarregarCidadeEstado()
         {
-            
-            
+            DataTable dtCidadeEstado = new DataTable();
+            dtCidadeEstado = c_cidadeEstado.CarregarCidadesEstadosConcatenado();
+            lookUpEditCiddeUF.Properties.DataSource = dtCidadeEstado;
+            lookUpEditCiddeUF.Properties.ValueMember = "CidadeEstado";
+            lookUpEditCiddeUF.Properties.DisplayMember = "CidadeEstado";
             if (AlterarAtend == false)
             {
-                
                 lookUpEditCiddeUF.ItemIndex = -1;
             }
             else if(AlterarAtend == true)
@@ -284,19 +278,6 @@ namespace SGS.Visao
             }
         }
 
-        private void rbtComprouSim_CheckedChanged(object sender, EventArgs e)
-        {
-            m_atendimento.comprou = "SIM";
-            dtpDataCompra.Enabled = true;
-            m_atendimento.dataCompra = dtpDataCompra.Value;
-        }
-
-        private void rbtComprouNao_CheckedChanged(object sender, EventArgs e)
-        {
-            m_atendimento.comprou = "NÃO";
-            dtpDataCompra.Enabled = false;
-            //DateTime? DataNull = null;
-            //m_atendimento.dataCompra = DataNull.Value;
-        }
+        
     }
 }

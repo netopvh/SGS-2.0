@@ -32,9 +32,8 @@
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.atendimentoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dbsgsDataSet = new SGS.dbsgsDataSet();
             this.advBandedGridView1 = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
+            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.GridcolumnIdAtendimento = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.GridcolumnNomeCliente = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.GridcolumnTelefone = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -47,27 +46,23 @@
             this.GridcolumnAtendimentoAnterior = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.GridcolumnComprou = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.GridcolumnDataCompra = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.GridcolumnUsuarioCad = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.btnVoltar = new DevExpress.XtraEditors.SimpleButton();
             this.btnExcluir = new DevExpress.XtraEditors.SimpleButton();
             this.btnAlterar = new DevExpress.XtraEditors.SimpleButton();
             this.btnNovo = new DevExpress.XtraEditors.SimpleButton();
-            this.atendimentoTableAdapter = new SGS.dbsgsDataSetTableAdapters.atendimentoTableAdapter();
             this.btnExportar = new DevExpress.XtraEditors.SimpleButton();
-            this.GridcolumnUsuarioCad = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.btnComprou = new DevExpress.XtraEditors.SimpleButton();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.btnComprou = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.atendimentoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbsgsDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.advBandedGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // defaultLookAndFeel1
             // 
-            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2016 Colorful";
+            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2013";
             // 
             // groupControl1
             // 
@@ -77,31 +72,20 @@
             this.groupControl1.Controls.Add(this.gridControl1);
             this.groupControl1.Location = new System.Drawing.Point(12, 12);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(776, 282);
+            this.groupControl1.Size = new System.Drawing.Size(776, 338);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Todas os registros";
             // 
             // gridControl1
             // 
-            this.gridControl1.DataSource = this.atendimentoBindingSource;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl1.Location = new System.Drawing.Point(2, 21);
             this.gridControl1.MainView = this.advBandedGridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(772, 259);
+            this.gridControl1.Size = new System.Drawing.Size(772, 315);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.advBandedGridView1});
-            // 
-            // atendimentoBindingSource
-            // 
-            this.atendimentoBindingSource.DataMember = "atendimento";
-            this.atendimentoBindingSource.DataSource = this.dbsgsDataSet;
-            // 
-            // dbsgsDataSet
-            // 
-            this.dbsgsDataSet.DataSetName = "dbsgsDataSet";
-            this.dbsgsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // advBandedGridView1
             // 
@@ -128,6 +112,29 @@
             this.advBandedGridView1.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
             this.advBandedGridView1.OptionsView.ShowFooter = true;
             this.advBandedGridView1.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridBand1
+            // 
+            this.gridBand1.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridBand1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.gridBand1.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridBand1.Caption = "Você pode pesquisar os registros filtrando como no Excel o Grid.";
+            this.gridBand1.Columns.Add(this.GridcolumnIdAtendimento);
+            this.gridBand1.Columns.Add(this.GridcolumnNomeCliente);
+            this.gridBand1.Columns.Add(this.GridcolumnTelefone);
+            this.gridBand1.Columns.Add(this.GridcolumnLocalizou);
+            this.gridBand1.Columns.Add(this.GridcolumnCidadeUF);
+            this.gridBand1.Columns.Add(this.GridcolumnEmpreendimento);
+            this.gridBand1.Columns.Add(this.GridcolumnDataAtendimento);
+            this.gridBand1.Columns.Add(this.GridcolumnIdentificador);
+            this.gridBand1.Columns.Add(this.GridcolumnCorretorAtual);
+            this.gridBand1.Columns.Add(this.GridcolumnAtendimentoAnterior);
+            this.gridBand1.Columns.Add(this.GridcolumnComprou);
+            this.gridBand1.Columns.Add(this.GridcolumnDataCompra);
+            this.gridBand1.Columns.Add(this.GridcolumnUsuarioCad);
+            this.gridBand1.Name = "gridBand1";
+            this.gridBand1.VisibleIndex = 0;
+            this.gridBand1.Width = 1085;
             // 
             // GridcolumnIdAtendimento
             // 
@@ -296,60 +303,6 @@
             this.GridcolumnDataCompra.Visible = true;
             this.GridcolumnDataCompra.Width = 82;
             // 
-            // btnVoltar
-            // 
-            this.btnVoltar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnVoltar.Location = new System.Drawing.Point(713, 300);
-            this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(75, 23);
-            this.btnVoltar.TabIndex = 1;
-            this.btnVoltar.Text = "Voltar";
-            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
-            // 
-            // btnExcluir
-            // 
-            this.btnExcluir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExcluir.Location = new System.Drawing.Point(632, 300);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
-            this.btnExcluir.TabIndex = 2;
-            this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
-            // 
-            // btnAlterar
-            // 
-            this.btnAlterar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAlterar.Location = new System.Drawing.Point(551, 300);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(75, 23);
-            this.btnAlterar.TabIndex = 3;
-            this.btnAlterar.Text = "Alterar";
-            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
-            // 
-            // btnNovo
-            // 
-            this.btnNovo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNovo.Location = new System.Drawing.Point(470, 300);
-            this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(75, 23);
-            this.btnNovo.TabIndex = 4;
-            this.btnNovo.Text = "Novo";
-            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
-            // 
-            // atendimentoTableAdapter
-            // 
-            this.atendimentoTableAdapter.ClearBeforeFill = true;
-            // 
-            // btnExportar
-            // 
-            this.btnExportar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnExportar.Location = new System.Drawing.Point(93, 300);
-            this.btnExportar.Name = "btnExportar";
-            this.btnExportar.Size = new System.Drawing.Size(75, 23);
-            this.btnExportar.TabIndex = 5;
-            this.btnExportar.Text = "Exportar Excel";
-            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
-            // 
             // GridcolumnUsuarioCad
             // 
             this.GridcolumnUsuarioCad.Caption = "Usuário Cad.";
@@ -358,44 +311,77 @@
             this.GridcolumnUsuarioCad.Visible = true;
             this.GridcolumnUsuarioCad.Width = 32;
             // 
-            // gridBand1
+            // btnVoltar
             // 
-            this.gridBand1.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridBand1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.gridBand1.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.gridBand1.Caption = "Você pode pesquisar os registros filtrando como no Excel o Grid.";
-            this.gridBand1.Columns.Add(this.GridcolumnIdAtendimento);
-            this.gridBand1.Columns.Add(this.GridcolumnNomeCliente);
-            this.gridBand1.Columns.Add(this.GridcolumnTelefone);
-            this.gridBand1.Columns.Add(this.GridcolumnLocalizou);
-            this.gridBand1.Columns.Add(this.GridcolumnCidadeUF);
-            this.gridBand1.Columns.Add(this.GridcolumnEmpreendimento);
-            this.gridBand1.Columns.Add(this.GridcolumnDataAtendimento);
-            this.gridBand1.Columns.Add(this.GridcolumnIdentificador);
-            this.gridBand1.Columns.Add(this.GridcolumnCorretorAtual);
-            this.gridBand1.Columns.Add(this.GridcolumnAtendimentoAnterior);
-            this.gridBand1.Columns.Add(this.GridcolumnComprou);
-            this.gridBand1.Columns.Add(this.GridcolumnDataCompra);
-            this.gridBand1.Columns.Add(this.GridcolumnUsuarioCad);
-            this.gridBand1.Name = "gridBand1";
-            this.gridBand1.VisibleIndex = 0;
-            this.gridBand1.Width = 1085;
+            this.btnVoltar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnVoltar.ImageOptions.Image = global::SGS.Properties.Resources.VoltasOffice24x24;
+            this.btnVoltar.Location = new System.Drawing.Point(713, 356);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(75, 44);
+            this.btnVoltar.TabIndex = 1;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExcluir.ImageOptions.Image = global::SGS.Properties.Resources.ExcluirRegistro24x24;
+            this.btnExcluir.Location = new System.Drawing.Point(632, 356);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(75, 44);
+            this.btnExcluir.TabIndex = 2;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
+            // btnAlterar
+            // 
+            this.btnAlterar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAlterar.ImageOptions.Image = global::SGS.Properties.Resources.EditarRegistro24x24;
+            this.btnAlterar.Location = new System.Drawing.Point(551, 356);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(75, 44);
+            this.btnAlterar.TabIndex = 3;
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
+            // 
+            // btnNovo
+            // 
+            this.btnNovo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNovo.ImageOptions.Image = global::SGS.Properties.Resources.NovoRegistro24x24;
+            this.btnNovo.Location = new System.Drawing.Point(470, 356);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(75, 44);
+            this.btnNovo.TabIndex = 4;
+            this.btnNovo.Text = "Novo";
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            // 
+            // btnExportar
+            // 
+            this.btnExportar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnExportar.ImageOptions.Image = global::SGS.Properties.Resources.Excel24x24;
+            this.btnExportar.Location = new System.Drawing.Point(93, 356);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(75, 44);
+            this.btnExportar.TabIndex = 5;
+            this.btnExportar.Text = "Exportar";
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
             // 
             // btnComprou
             // 
             this.btnComprou.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnComprou.Location = new System.Drawing.Point(12, 300);
+            this.btnComprou.ImageOptions.Image = global::SGS.Properties.Resources.FechaNegocio24x24;
+            this.btnComprou.Location = new System.Drawing.Point(12, 356);
             this.btnComprou.Name = "btnComprou";
-            this.btnComprou.Size = new System.Drawing.Size(75, 23);
+            this.btnComprou.Size = new System.Drawing.Size(75, 44);
             this.btnComprou.TabIndex = 6;
             this.btnComprou.Text = "Comprou";
-            this.btnComprou.Click += new System.EventHandler(this.btnComprou_Click);
+            this.btnComprou.Click += new System.EventHandler(this.btnComprou_Click_1);
             // 
             // v_VisitasStand
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 329);
+            this.ClientSize = new System.Drawing.Size(800, 404);
             this.Controls.Add(this.btnComprou);
             this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.btnNovo);
@@ -405,14 +391,14 @@
             this.Controls.Add(this.groupControl1);
             this.Name = "v_VisitasStand";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Controle de Visitas";
             this.Load += new System.EventHandler(this.v_VisitasStand_Load);
+            this.Enter += new System.EventHandler(this.v_VisitasStand_Enter);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.atendimentoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbsgsDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.advBandedGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -427,9 +413,7 @@
         private DevExpress.XtraEditors.SimpleButton btnAlterar;
         private DevExpress.XtraEditors.SimpleButton btnNovo;
         private DevExpress.XtraGrid.GridControl gridControl1;
-        private dbsgsDataSet dbsgsDataSet;
-        private System.Windows.Forms.BindingSource atendimentoBindingSource;
-        private dbsgsDataSetTableAdapters.atendimentoTableAdapter atendimentoTableAdapter;
+        
         private DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView advBandedGridView1;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn GridcolumnIdAtendimento;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn GridcolumnNomeCliente;
@@ -446,7 +430,7 @@
         private DevExpress.XtraEditors.SimpleButton btnExportar;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn GridcolumnUsuarioCad;
-        private DevExpress.XtraEditors.SimpleButton btnComprou;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private DevExpress.XtraEditors.SimpleButton btnComprou;
     }
 }

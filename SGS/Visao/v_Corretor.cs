@@ -61,7 +61,6 @@ namespace SGS.Visao
                     tabFormControl.SelectedPage = tabFormPageNovoCorretor;
                     txtNome.Focus();
 
-
                     break;
                 case "cancelarnovo":
                     LimparCampos();
@@ -74,8 +73,8 @@ namespace SGS.Visao
                     m_corretor.idcorretor = (int)gdvCorretores.GetRowCellValue(gdvCorretores.GetSelectedRows()[0],gdvCorretores.Columns[0]);
                     c_corretor.ExcluirCorretor(m_corretor);
                     MessageBox.Show("Excluido com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CarregarCorretores();
                     
-                    this.corretorTableAdapter.Fill(this.dbsgsDataSet.corretor);
                     break;
                 case "alterar":
                     _alterarCad = true;
@@ -116,16 +115,18 @@ namespace SGS.Visao
                     {
                         c_corretor.AlterarCorretor(m_corretor);
                         MessageBox.Show("Alterado com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CarregarCorretores();
                     }
                     else if (_alterarCad == false)
                     {
                         c_corretor.NovoCorretor(m_corretor);
                         MessageBox.Show("Salvo com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CarregarCorretores();
                     }
                     
                     LimparCampos();
                     gbxNovoCorretor.Enabled = false;
-                    this.corretorTableAdapter.Fill(this.dbsgsDataSet.corretor);
+                    
                     tabFormControl.SelectedPage = tabFormPageCorretores;
 
                     break;
@@ -247,8 +248,17 @@ namespace SGS.Visao
             gbxNovoCorretor.Enabled = false;
             tabFormControl.SelectedPage = tabFormPageCorretores;
             Permissao();
-            // TODO: esta linha de código carrega dados na tabela 'dbsgsDataSet.corretor'. Você pode movê-la ou removê-la conforme necessário.
-            this.corretorTableAdapter.Fill(this.dbsgsDataSet.corretor);
+            CarregarCorretores();
+            gdvCorretores.BestFitColumns(true);
+            
+        }
+
+        private void CarregarCorretores()
+        {
+            DataTable dtCorretores = new DataTable();
+            dtCorretores = c_corretor.CarregarCorretores();
+            gdvCorretores.GridControl.DataSource = dtCorretores;
+            gdvCorretores.RefreshData();
 
         }
 

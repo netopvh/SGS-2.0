@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("SGS")]
 [assembly: AssemblyDescription("Sistema gerenciador de stand de venda.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("X-Soft - Italo Ramon.")]
+[assembly: AssemblyCompany("XP-Soft - Italo Ramon.")]
 [assembly: AssemblyProduct("SGS")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
@@ -33,7 +33,7 @@ using System.Runtime.InteropServices;
 // É possível especificar todos os valores ou usar como padrão os Números de Build e da Revisão
 // utilizando o "*" como mostrado abaixo:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.2")]
-[assembly: AssemblyFileVersion("1.0.0.2")]
+[assembly: AssemblyVersion("1.0.0.5")]
+[assembly: AssemblyFileVersion("1.0.0.5")]
 [assembly: NeutralResourcesLanguage("pt")]
 

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(v_Principal));
             this.ribbonControlPrincipal = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiContrato = new DevExpress.XtraBars.BarButtonItem();
             this.bbiFolhaAvulso = new DevExpress.XtraBars.BarButtonItem();
@@ -67,7 +68,6 @@
             this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
-            this.usuarioTableAdapter1 = new SGS.dbsgsDataSetTableAdapters.usuarioTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControlPrincipal)).BeginInit();
             this.SuspendLayout();
             // 
@@ -129,6 +129,7 @@
             // 
             this.bbiCorretor.Caption = "Corretor";
             this.bbiCorretor.Id = 4;
+            this.bbiCorretor.ImageOptions.Image = global::SGS.Properties.Resources.Corretores24x24;
             this.bbiCorretor.Name = "bbiCorretor";
             this.bbiCorretor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiCorretor_ItemClick);
             // 
@@ -136,6 +137,7 @@
             // 
             this.bbiUsuario.Caption = "Usuário";
             this.bbiUsuario.Id = 5;
+            this.bbiUsuario.ImageOptions.Image = global::SGS.Properties.Resources.Usuarios24x24;
             this.bbiUsuario.Name = "bbiUsuario";
             this.bbiUsuario.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiUsuario_ItemClick);
             // 
@@ -171,6 +173,7 @@
             // 
             this.bbiPendencias.Caption = "Pendencias";
             this.bbiPendencias.Id = 10;
+            this.bbiPendencias.ImageOptions.Image = global::SGS.Properties.Resources.ContratoPendente24x24;
             this.bbiPendencias.Name = "bbiPendencias";
             this.bbiPendencias.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPendencias_ItemClick);
             // 
@@ -178,6 +181,7 @@
             // 
             this.bbiFazerBackup.Caption = "Fazer Backup";
             this.bbiFazerBackup.Id = 11;
+            this.bbiFazerBackup.ImageOptions.Image = global::SGS.Properties.Resources.backup24x24;
             this.bbiFazerBackup.Name = "bbiFazerBackup";
             this.bbiFazerBackup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiFazerBackup_ItemClick);
             // 
@@ -185,6 +189,7 @@
             // 
             this.bbiRestaurarBackup.Caption = "Restaurar Backup";
             this.bbiRestaurarBackup.Id = 12;
+            this.bbiRestaurarBackup.ImageOptions.Image = global::SGS.Properties.Resources.restaurarbackup24x24;
             this.bbiRestaurarBackup.Name = "bbiRestaurarBackup";
             this.bbiRestaurarBackup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRestaurarBackup_ItemClick);
             // 
@@ -199,6 +204,7 @@
             // 
             this.bbiImpressoraTermica.Caption = "Impressora Termica";
             this.bbiImpressoraTermica.Id = 14;
+            this.bbiImpressoraTermica.ImageOptions.Image = global::SGS.Properties.Resources.ConfigurarImpressora24x24;
             this.bbiImpressoraTermica.Name = "bbiImpressoraTermica";
             this.bbiImpressoraTermica.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiImpressoraTermica_ItemClick);
             // 
@@ -206,6 +212,7 @@
             // 
             this.bbiEmpresaLicenca.Caption = "Empresa/Licença";
             this.bbiEmpresaLicenca.Id = 15;
+            this.bbiEmpresaLicenca.ImageOptions.Image = global::SGS.Properties.Resources.Keys24x24;
             this.bbiEmpresaLicenca.Name = "bbiEmpresaLicenca";
             this.bbiEmpresaLicenca.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEmpresaLicenca_ItemClick);
             // 
@@ -213,6 +220,7 @@
             // 
             this.bbiVisitaStand.Caption = "Visitas no Stand";
             this.bbiVisitaStand.Id = 17;
+            this.bbiVisitaStand.ImageOptions.Image = global::SGS.Properties.Resources.CartaoVisitas24x24;
             this.bbiVisitaStand.Name = "bbiVisitaStand";
             this.bbiVisitaStand.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiVisitaStand_ItemClick);
             // 
@@ -226,6 +234,7 @@
             // 
             this.bbiLoteamento.Caption = "Loteamento";
             this.bbiLoteamento.Id = 20;
+            this.bbiLoteamento.ImageOptions.Image = global::SGS.Properties.Resources.Loteamento24x24;
             this.bbiLoteamento.Name = "bbiLoteamento";
             this.bbiLoteamento.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiLoteamento_ItemClick);
             // 
@@ -241,6 +250,7 @@
             // 
             this.bbiVerificarAtualizacao.Caption = "Verificar Atualizações";
             this.bbiVerificarAtualizacao.Id = 22;
+            this.bbiVerificarAtualizacao.ImageOptions.Image = global::SGS.Properties.Resources.atualizacao24x24;
             this.bbiVerificarAtualizacao.Name = "bbiVerificarAtualizacao";
             this.bbiVerificarAtualizacao.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiVerificarAtualizacao_ItemClick);
             // 
@@ -248,6 +258,7 @@
             // 
             this.bbiFTP.Caption = "FTP";
             this.bbiFTP.Id = 23;
+            this.bbiFTP.ImageOptions.Image = global::SGS.Properties.Resources.FTP24x24;
             this.bbiFTP.Name = "bbiFTP";
             this.bbiFTP.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiFTP_ItemClick);
             // 
@@ -390,10 +401,6 @@
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2013";
             // 
-            // usuarioTableAdapter1
-            // 
-            this.usuarioTableAdapter1.ClearBeforeFill = true;
-            // 
             // v_Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -401,6 +408,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.ribbonStatusBar1);
             this.Controls.Add(this.ribbonControlPrincipal);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "v_Principal";
             this.Ribbon = this.ribbonControlPrincipal;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -449,7 +457,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage rbpAtendimento;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
         private DevExpress.XtraBars.BarStaticItem bsiUsuario;
-        private dbsgsDataSetTableAdapters.usuarioTableAdapter usuarioTableAdapter1;
+        
         private DevExpress.XtraBars.BarButtonItem bbiLoteamento;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
         private DevExpress.XtraBars.BarStaticItem bsiVersao;

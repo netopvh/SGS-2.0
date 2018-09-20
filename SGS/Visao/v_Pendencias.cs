@@ -93,7 +93,7 @@ namespace SGS.Visao
                     m_pendencias.idpendencias = (int)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[0]);
                     c_pendencias.ExcluirPendencias(m_pendencias);
                     MessageBox.Show("Excluido com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.pendencias_cor_lote_TableAdapter.Fill(this.dbsgsDataSet.pendencias_corretor_loteamento);
+                    CarregarPendencias();
 
                     break;
                 case "alterar":
@@ -124,7 +124,7 @@ namespace SGS.Visao
                     m_pendencias.usuariocad = _usuariocad;
                     c_pendencias.AlterarPendenciaParaResolvido(m_pendencias);
                     MessageBox.Show("Devolvido com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.pendencias_cor_lote_TableAdapter.Fill(this.dbsgsDataSet.pendencias_corretor_loteamento);
+                    CarregarPendencias();
                     break;
                 case "entregar":
                     m_pendencias.idpendencias = (int)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[0]);
@@ -133,7 +133,7 @@ namespace SGS.Visao
                     m_pendencias.usuariocad = _usuariocad;
                     c_pendencias.AlterarPendenciaParaCorretor(m_pendencias);
                     MessageBox.Show("Entregue com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.pendencias_cor_lote_TableAdapter.Fill(this.dbsgsDataSet.pendencias_corretor_loteamento);
+                    CarregarPendencias();
                     break;
                 case "salvar":
                     m_pendencias.nomecliente = txtCliente.Text;
@@ -154,20 +154,24 @@ namespace SGS.Visao
 
                     if (_alterarCad == true)
                     {
+                        
                         c_pendencias.AlterarPendencias(m_pendencias);
                         MessageBox.Show("Alterado com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CarregarPendencias();
                     }
                     else if (_alterarCad == false)
                     {
+                        
                         c_pendencias.NovoPendencias(m_pendencias);
                         MessageBox.Show("Salvo com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CarregarPendencias();
                     }
 
                     LimparCampos();
                     gbxNovaPendencia.Enabled = false;
                     btnSalvar.Enabled = false;
                     btnCancelar.Enabled = false;
-                    this.pendencias_cor_lote_TableAdapter.Fill(this.dbsgsDataSet.pendencias_corretor_loteamento);
+                    
                     tabFormControl1.SelectedPage = tabFormPagePendencias;
                     break;
 
@@ -282,13 +286,8 @@ namespace SGS.Visao
             txtVenda.Properties.MaxLength = 10;
             txtNumeroContrato.Properties.MaxLength = 10;
             txtPendencia.Properties.MaxLength = 150;
-            // TODO: esta linha de código carrega dados na tabela 'dbsgsDataSet.pendencias_corretor_loteamento'. Você pode movê-la ou removê-la conforme necessário.
-            this.pendencias_cor_lote_TableAdapter.Fill(this.dbsgsDataSet.pendencias_corretor_loteamento);
-
-            // TODO: esta linha de código carrega dados na tabela 'dbsgsDataSet.corretor'. Você pode movê-la ou removê-la conforme necessário.
-            this.corretorTableAdapter.Fill(this.dbsgsDataSet.corretor);
-            // TODO: esta linha de código carrega dados na tabela 'dbsgsDataSet.loteamento'. Você pode movê-la ou removê-la conforme necessário.
-            this.loteamentoTableAdapter.Fill(this.dbsgsDataSet.loteamento);
+            
+            
             _alterarCad = false;
             CancelButton = btnVoltar;
             LimparCampos();
@@ -297,10 +296,36 @@ namespace SGS.Visao
             btnSalvar.Enabled = false;
             tabFormControl1.SelectedPage = tabFormPagePendencias;
             Permissao();
+            CarregarPendencias();
             gdvPendencias.BestFitColumns(true);
-            
+            CarregarCorretores();
+            CarregarLoteamentos();
         }
-
+        private void CarregarPendencias()
+        {
+            DataTable dtPendencias = new DataTable();
+            dtPendencias = c_pendencias.CarregarPendenciaCorretorLoteamento();
+            gridControl1.DataSource = dtPendencias;
+            gdvPendencias.RefreshData();
+        }
+        private void CarregarCorretores()
+        {
+            DataTable dtCorretor = new DataTable();
+            dtCorretor = c_corretor.CarregarCorretor();
+            LookUpEditCorretor.Properties.DataSource = dtCorretor;
+            LookUpEditCorretor.Properties.DisplayMember = "nome";
+            LookUpEditCorretor.Properties.ValueMember = "idcorretor";
+            LookUpEditCorretor.ItemIndex = -1;
+        }
+        private void CarregarLoteamentos()
+        {
+            DataTable dtLoteamento = new DataTable();
+            dtLoteamento = c_loteamento.CarregarLoteamento();
+            LookUpEditLoteamento.Properties.DataSource = dtLoteamento;
+            LookUpEditLoteamento.Properties.DisplayMember = "nome";
+            LookUpEditLoteamento.Properties.ValueMember = "idloteamento";
+            LookUpEditLoteamento.ItemIndex = -1;
+        }
         private void tabFormContentContainer1_Click(object sender, EventArgs e)
         {
 

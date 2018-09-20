@@ -33,6 +33,7 @@
             this.txtNomeCliente = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lookUpEditCiddeUF = new DevExpress.XtraEditors.LookUpEdit();
+            this.cidadeEstadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label12 = new System.Windows.Forms.Label();
             this.dtpDataCadastro = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
@@ -41,14 +42,12 @@
             this.txtQD = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lookUpEditCorretorAnterior = new DevExpress.XtraEditors.LookUpEdit();
+            this.lookUpEditCorretorAtual = new DevExpress.XtraEditors.LookUpEdit();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.dtpDataCompra = new System.Windows.Forms.DateTimePicker();
-            this.label10 = new System.Windows.Forms.Label();
-            this.rbtComprouNao = new System.Windows.Forms.RadioButton();
-            this.rbtComprouSim = new System.Windows.Forms.RadioButton();
+            this.lookUpEditEmpreendimento = new DevExpress.XtraEditors.LookUpEdit();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtLT = new System.Windows.Forms.TextBox();
@@ -64,28 +63,15 @@
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
-            this.lookUpEditCorretorAtual = new DevExpress.XtraEditors.LookUpEdit();
-            this.lookUpEditCorretorAnterior = new DevExpress.XtraEditors.LookUpEdit();
-            this.lookUpEditEmpreendimento = new DevExpress.XtraEditors.LookUpEdit();
-            this.loteamentoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dbsgsDataSet1 = new SGS.dbsgsDataSet();
-            this.corretorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.loteamentoTableAdapter = new SGS.dbsgsDataSetTableAdapters.loteamentoTableAdapter();
-            this.corretorTableAdapter = new SGS.dbsgsDataSetTableAdapters.corretorTableAdapter();
-            this.cidadeEstadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cidade_EstadoTableAdapter = new SGS.dbsgsDataSetTableAdapters.Cidade_EstadoTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEditCiddeUF.Properties)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditCorretorAtual.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditCorretorAnterior.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditEmpreendimento.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loteamentoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbsgsDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.corretorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cidadeEstadoBindingSource)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditCorretorAnterior.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditCorretorAtual.Properties)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditEmpreendimento.Properties)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -134,7 +120,11 @@
             this.lookUpEditCiddeUF.Properties.NullText = "";
             this.lookUpEditCiddeUF.Properties.ValueMember = "CidadeEstado";
             this.lookUpEditCiddeUF.Size = new System.Drawing.Size(239, 20);
-            this.lookUpEditCiddeUF.TabIndex = 19;
+            this.lookUpEditCiddeUF.TabIndex = 3;
+            // 
+            // cidadeEstadoBindingSource
+            // 
+            this.cidadeEstadoBindingSource.DataMember = "Cidade_Estado";
             // 
             // label12
             // 
@@ -150,7 +140,7 @@
             this.dtpDataCadastro.Location = new System.Drawing.Point(109, 98);
             this.dtpDataCadastro.Name = "dtpDataCadastro";
             this.dtpDataCadastro.Size = new System.Drawing.Size(252, 21);
-            this.dtpDataCadastro.TabIndex = 0;
+            this.dtpDataCadastro.TabIndex = 4;
             // 
             // label4
             // 
@@ -185,7 +175,7 @@
             this.txtQD.MaxLength = 3;
             this.txtQD.Name = "txtQD";
             this.txtQD.Size = new System.Drawing.Size(65, 21);
-            this.txtQD.TabIndex = 7;
+            this.txtQD.TabIndex = 8;
             // 
             // label3
             // 
@@ -209,6 +199,32 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Corretor";
             // 
+            // lookUpEditCorretorAnterior
+            // 
+            this.lookUpEditCorretorAnterior.Location = new System.Drawing.Point(9, 72);
+            this.lookUpEditCorretorAnterior.Name = "lookUpEditCorretorAnterior";
+            this.lookUpEditCorretorAnterior.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEditCorretorAnterior.Properties.DisplayMember = "nome";
+            this.lookUpEditCorretorAnterior.Properties.DropDownRows = 5;
+            this.lookUpEditCorretorAnterior.Properties.NullText = "";
+            this.lookUpEditCorretorAnterior.Properties.ValueMember = "nome";
+            this.lookUpEditCorretorAnterior.Size = new System.Drawing.Size(352, 20);
+            this.lookUpEditCorretorAnterior.TabIndex = 6;
+            // 
+            // lookUpEditCorretorAtual
+            // 
+            this.lookUpEditCorretorAtual.Location = new System.Drawing.Point(9, 32);
+            this.lookUpEditCorretorAtual.Name = "lookUpEditCorretorAtual";
+            this.lookUpEditCorretorAtual.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEditCorretorAtual.Properties.DisplayMember = "nome";
+            this.lookUpEditCorretorAtual.Properties.DropDownRows = 5;
+            this.lookUpEditCorretorAtual.Properties.NullText = "";
+            this.lookUpEditCorretorAtual.Properties.ValueMember = "nome";
+            this.lookUpEditCorretorAtual.Size = new System.Drawing.Size(352, 20);
+            this.lookUpEditCorretorAtual.TabIndex = 5;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -230,11 +246,6 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.lookUpEditEmpreendimento);
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.dtpDataCompra);
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.rbtComprouNao);
-            this.groupBox3.Controls.Add(this.rbtComprouSim);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.txtLT);
@@ -243,60 +254,23 @@
             this.groupBox3.Controls.Add(this.txtQD);
             this.groupBox3.Location = new System.Drawing.Point(12, 253);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(376, 134);
+            this.groupBox3.Size = new System.Drawing.Size(376, 109);
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Empreendimento";
             // 
-            // label11
+            // lookUpEditEmpreendimento
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 110);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(89, 13);
-            this.label11.TabIndex = 17;
-            this.label11.Text = "Data da Compra:";
-            // 
-            // dtpDataCompra
-            // 
-            this.dtpDataCompra.Enabled = false;
-            this.dtpDataCompra.Location = new System.Drawing.Point(99, 104);
-            this.dtpDataCompra.Name = "dtpDataCompra";
-            this.dtpDataCompra.Size = new System.Drawing.Size(262, 21);
-            this.dtpDataCompra.TabIndex = 0;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(217, 62);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(91, 13);
-            this.label10.TabIndex = 15;
-            this.label10.Text = "Cliente Comprou?";
-            // 
-            // rbtComprouNao
-            // 
-            this.rbtComprouNao.AutoSize = true;
-            this.rbtComprouNao.Location = new System.Drawing.Point(268, 79);
-            this.rbtComprouNao.Name = "rbtComprouNao";
-            this.rbtComprouNao.Size = new System.Drawing.Size(44, 17);
-            this.rbtComprouNao.TabIndex = 14;
-            this.rbtComprouNao.TabStop = true;
-            this.rbtComprouNao.Text = "Não";
-            this.rbtComprouNao.UseVisualStyleBackColor = true;
-            this.rbtComprouNao.CheckedChanged += new System.EventHandler(this.rbtComprouNao_CheckedChanged);
-            // 
-            // rbtComprouSim
-            // 
-            this.rbtComprouSim.AutoSize = true;
-            this.rbtComprouSim.Location = new System.Drawing.Point(220, 79);
-            this.rbtComprouSim.Name = "rbtComprouSim";
-            this.rbtComprouSim.Size = new System.Drawing.Size(41, 17);
-            this.rbtComprouSim.TabIndex = 13;
-            this.rbtComprouSim.TabStop = true;
-            this.rbtComprouSim.Text = "Sim";
-            this.rbtComprouSim.UseVisualStyleBackColor = true;
-            this.rbtComprouSim.CheckedChanged += new System.EventHandler(this.rbtComprouSim_CheckedChanged);
+            this.lookUpEditEmpreendimento.Location = new System.Drawing.Point(9, 38);
+            this.lookUpEditEmpreendimento.Name = "lookUpEditEmpreendimento";
+            this.lookUpEditEmpreendimento.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEditEmpreendimento.Properties.DisplayMember = "nome";
+            this.lookUpEditEmpreendimento.Properties.DropDownRows = 5;
+            this.lookUpEditEmpreendimento.Properties.NullText = "";
+            this.lookUpEditEmpreendimento.Properties.ValueMember = "nome";
+            this.lookUpEditEmpreendimento.Size = new System.Drawing.Size(352, 20);
+            this.lookUpEditEmpreendimento.TabIndex = 7;
             // 
             // label9
             // 
@@ -323,7 +297,7 @@
             this.txtLT.MaxLength = 3;
             this.txtLT.Name = "txtLT";
             this.txtLT.Size = new System.Drawing.Size(65, 21);
-            this.txtLT.TabIndex = 10;
+            this.txtLT.TabIndex = 9;
             // 
             // label7
             // 
@@ -343,7 +317,7 @@
             this.groupBox4.Controls.Add(this.rbtInternet);
             this.groupBox4.Controls.Add(this.rbtRadio);
             this.groupBox4.Controls.Add(this.rbtTelevisao);
-            this.groupBox4.Location = new System.Drawing.Point(12, 393);
+            this.groupBox4.Location = new System.Drawing.Point(12, 368);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(376, 78);
             this.groupBox4.TabIndex = 8;
@@ -357,7 +331,7 @@
             this.txtLocalizouOutros.Location = new System.Drawing.Point(74, 41);
             this.txtLocalizouOutros.Name = "txtLocalizouOutros";
             this.txtLocalizouOutros.Size = new System.Drawing.Size(268, 21);
-            this.txtLocalizouOutros.TabIndex = 14;
+            this.txtLocalizouOutros.TabIndex = 16;
             // 
             // rbtOutros
             // 
@@ -365,7 +339,7 @@
             this.rbtOutros.Location = new System.Drawing.Point(9, 42);
             this.rbtOutros.Name = "rbtOutros";
             this.rbtOutros.Size = new System.Drawing.Size(62, 17);
-            this.rbtOutros.TabIndex = 13;
+            this.rbtOutros.TabIndex = 15;
             this.rbtOutros.TabStop = true;
             this.rbtOutros.Text = "Outros:";
             this.rbtOutros.UseVisualStyleBackColor = true;
@@ -377,7 +351,7 @@
             this.rbtFolder.Location = new System.Drawing.Point(288, 19);
             this.rbtFolder.Name = "rbtFolder";
             this.rbtFolder.Size = new System.Drawing.Size(55, 17);
-            this.rbtFolder.TabIndex = 12;
+            this.rbtFolder.TabIndex = 14;
             this.rbtFolder.TabStop = true;
             this.rbtFolder.Text = "Fôlder";
             this.rbtFolder.UseVisualStyleBackColor = true;
@@ -389,7 +363,7 @@
             this.rbtCarroSom.Location = new System.Drawing.Point(208, 19);
             this.rbtCarroSom.Name = "rbtCarroSom";
             this.rbtCarroSom.Size = new System.Drawing.Size(75, 17);
-            this.rbtCarroSom.TabIndex = 11;
+            this.rbtCarroSom.TabIndex = 13;
             this.rbtCarroSom.TabStop = true;
             this.rbtCarroSom.Text = "Carro Som";
             this.rbtCarroSom.UseVisualStyleBackColor = true;
@@ -401,7 +375,7 @@
             this.rbtInternet.Location = new System.Drawing.Point(141, 19);
             this.rbtInternet.Name = "rbtInternet";
             this.rbtInternet.Size = new System.Drawing.Size(65, 17);
-            this.rbtInternet.TabIndex = 10;
+            this.rbtInternet.TabIndex = 12;
             this.rbtInternet.TabStop = true;
             this.rbtInternet.Text = "Internet";
             this.rbtInternet.UseVisualStyleBackColor = true;
@@ -413,7 +387,7 @@
             this.rbtRadio.Location = new System.Drawing.Point(86, 19);
             this.rbtRadio.Name = "rbtRadio";
             this.rbtRadio.Size = new System.Drawing.Size(52, 17);
-            this.rbtRadio.TabIndex = 9;
+            this.rbtRadio.TabIndex = 11;
             this.rbtRadio.TabStop = true;
             this.rbtRadio.Text = "Rádio";
             this.rbtRadio.UseVisualStyleBackColor = true;
@@ -425,7 +399,7 @@
             this.rbtTelevisao.Location = new System.Drawing.Point(9, 19);
             this.rbtTelevisao.Name = "rbtTelevisao";
             this.rbtTelevisao.Size = new System.Drawing.Size(70, 17);
-            this.rbtTelevisao.TabIndex = 8;
+            this.rbtTelevisao.TabIndex = 10;
             this.rbtTelevisao.TabStop = true;
             this.rbtTelevisao.Text = "Televisão";
             this.rbtTelevisao.UseVisualStyleBackColor = true;
@@ -433,11 +407,12 @@
             // 
             // btnVoltar
             // 
+            this.btnVoltar.Image = global::SGS.Properties.Resources.VoltasOffice24x24;
             this.btnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVoltar.Location = new System.Drawing.Point(313, 477);
+            this.btnVoltar.Location = new System.Drawing.Point(313, 452);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(75, 35);
-            this.btnVoltar.TabIndex = 0;
+            this.btnVoltar.TabIndex = 18;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnVoltar.UseVisualStyleBackColor = true;
@@ -445,11 +420,12 @@
             // 
             // btnSalvar
             // 
+            this.btnSalvar.Image = global::SGS.Properties.Resources.Salvar24x24;
             this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalvar.Location = new System.Drawing.Point(232, 477);
+            this.btnSalvar.Location = new System.Drawing.Point(232, 452);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 35);
-            this.btnSalvar.TabIndex = 0;
+            this.btnSalvar.TabIndex = 17;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalvar.UseVisualStyleBackColor = true;
@@ -459,85 +435,11 @@
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2013";
             // 
-            // lookUpEditCorretorAtual
-            // 
-            this.lookUpEditCorretorAtual.Location = new System.Drawing.Point(9, 32);
-            this.lookUpEditCorretorAtual.Name = "lookUpEditCorretorAtual";
-            this.lookUpEditCorretorAtual.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEditCorretorAtual.Properties.DataSource = this.corretorBindingSource;
-            this.lookUpEditCorretorAtual.Properties.DisplayMember = "nome";
-            this.lookUpEditCorretorAtual.Properties.DropDownRows = 5;
-            this.lookUpEditCorretorAtual.Properties.NullText = "";
-            this.lookUpEditCorretorAtual.Properties.ValueMember = "nome";
-            this.lookUpEditCorretorAtual.Size = new System.Drawing.Size(352, 20);
-            this.lookUpEditCorretorAtual.TabIndex = 20;
-            // 
-            // lookUpEditCorretorAnterior
-            // 
-            this.lookUpEditCorretorAnterior.Location = new System.Drawing.Point(9, 72);
-            this.lookUpEditCorretorAnterior.Name = "lookUpEditCorretorAnterior";
-            this.lookUpEditCorretorAnterior.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEditCorretorAnterior.Properties.DataSource = this.corretorBindingSource;
-            this.lookUpEditCorretorAnterior.Properties.DisplayMember = "nome";
-            this.lookUpEditCorretorAnterior.Properties.DropDownRows = 5;
-            this.lookUpEditCorretorAnterior.Properties.NullText = "";
-            this.lookUpEditCorretorAnterior.Properties.ValueMember = "nome";
-            this.lookUpEditCorretorAnterior.Size = new System.Drawing.Size(352, 20);
-            this.lookUpEditCorretorAnterior.TabIndex = 21;
-            // 
-            // lookUpEditEmpreendimento
-            // 
-            this.lookUpEditEmpreendimento.Location = new System.Drawing.Point(9, 38);
-            this.lookUpEditEmpreendimento.Name = "lookUpEditEmpreendimento";
-            this.lookUpEditEmpreendimento.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEditEmpreendimento.Properties.DataSource = this.loteamentoBindingSource;
-            this.lookUpEditEmpreendimento.Properties.DisplayMember = "nome";
-            this.lookUpEditEmpreendimento.Properties.DropDownRows = 5;
-            this.lookUpEditEmpreendimento.Properties.NullText = "";
-            this.lookUpEditEmpreendimento.Properties.ValueMember = "nome";
-            this.lookUpEditEmpreendimento.Size = new System.Drawing.Size(352, 20);
-            this.lookUpEditEmpreendimento.TabIndex = 22;
-            // 
-            // loteamentoBindingSource
-            // 
-            this.loteamentoBindingSource.DataMember = "loteamento";
-            this.loteamentoBindingSource.DataSource = this.dbsgsDataSet1;
-            // 
-            // dbsgsDataSet1
-            // 
-            this.dbsgsDataSet1.DataSetName = "dbsgsDataSet";
-            this.dbsgsDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // corretorBindingSource
-            // 
-            this.corretorBindingSource.DataMember = "corretor";
-            this.corretorBindingSource.DataSource = this.dbsgsDataSet1;
-            // 
-            // loteamentoTableAdapter
-            // 
-            this.loteamentoTableAdapter.ClearBeforeFill = true;
-            // 
-            // corretorTableAdapter
-            // 
-            this.corretorTableAdapter.ClearBeforeFill = true;
-            // 
-            // cidadeEstadoBindingSource
-            // 
-            this.cidadeEstadoBindingSource.DataMember = "Cidade_Estado";
-            this.cidadeEstadoBindingSource.DataSource = this.dbsgsDataSet1;
-            // 
-            // cidade_EstadoTableAdapter
-            // 
-            this.cidade_EstadoTableAdapter.ClearBeforeFill = true;
-            // 
             // v_NovoAtendimento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(400, 524);
+            this.ClientSize = new System.Drawing.Size(400, 498);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.groupBox4);
@@ -554,19 +456,16 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEditCiddeUF.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cidadeEstadoBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditCorretorAnterior.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditCorretorAtual.Properties)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditEmpreendimento.Properties)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditCorretorAtual.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditCorretorAnterior.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditEmpreendimento.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loteamentoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbsgsDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.corretorBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cidadeEstadoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -599,24 +498,15 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtLT;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.RadioButton rbtComprouNao;
-        private System.Windows.Forms.RadioButton rbtComprouSim;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DateTimePicker dtpDataCadastro;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DateTimePicker dtpDataCompra;
         private DevExpress.XtraEditors.LookUpEdit lookUpEditCiddeUF;
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
         private DevExpress.XtraEditors.LookUpEdit lookUpEditCorretorAnterior;
         private DevExpress.XtraEditors.LookUpEdit lookUpEditCorretorAtual;
         private DevExpress.XtraEditors.LookUpEdit lookUpEditEmpreendimento;
-        private dbsgsDataSet dbsgsDataSet1;
-        private System.Windows.Forms.BindingSource loteamentoBindingSource;
-        private dbsgsDataSetTableAdapters.loteamentoTableAdapter loteamentoTableAdapter;
-        private System.Windows.Forms.BindingSource corretorBindingSource;
-        private dbsgsDataSetTableAdapters.corretorTableAdapter corretorTableAdapter;
+        
         private System.Windows.Forms.BindingSource cidadeEstadoBindingSource;
-        private dbsgsDataSetTableAdapters.Cidade_EstadoTableAdapter cidade_EstadoTableAdapter;
+        
     }
 }

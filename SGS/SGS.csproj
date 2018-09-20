@@ -64,7 +64,12 @@
     <StartupObject>
     </StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Visao\LOGOSGS.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Devart.Data, Version=5.0.2008.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
+    <Reference Include="Devart.Data.MySql, Version=8.12.1216.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.BonusSkins.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -119,9 +124,6 @@
     <Compile Include="Controle\c_Usuario.cs" />
     <Compile Include="Controle\c_ValidarCPF.cs" />
     <Compile Include="Controle\c_ValidarEmail.cs" />
-    <Compile Include="dbsgsDataSet.cs">
-      <DependentUpon>dbsgsDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Enum\e_Status.cs" />
     <Compile Include="Enum\e_StatusPendencia.cs" />
     <Compile Include="Modelo\m_Atendimento.cs" />
@@ -172,6 +174,12 @@
     </Compile>
     <Compile Include="Visao\v_ImpressoraTermica.Designer.cs">
       <DependentUpon>v_ImpressoraTermica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\v_InformarData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\v_InformarData.Designer.cs">
+      <DependentUpon>v_InformarData.cs</DependentUpon>
     </Compile>
     <Compile Include="Visao\v_Login.cs">
       <SubType>Form</SubType>
@@ -230,6 +238,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Visao\v_AtualizarSistema.resx">
       <DependentUpon>v_AtualizarSistema.cs</DependentUpon>
@@ -248,6 +257,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_ImpressoraTermica.resx">
       <DependentUpon>v_ImpressoraTermica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\v_InformarData.resx">
+      <DependentUpon>v_InformarData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_Login.resx">
       <DependentUpon>v_Login.cs</DependentUpon>
@@ -274,16 +286,6 @@
       <DependentUpon>v_VisitasStand.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
-    <None Include="dbsgsDataSet.xsc">
-      <DependentUpon>dbsgsDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="dbsgsDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="dbsgsDataSet.xss">
-      <DependentUpon>dbsgsDataSet.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -309,6 +311,107 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoginSenha24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sair 24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sair 22x22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VoltasOffice32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancelar32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\restaurarbackup32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pesquisar32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backup32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VoltasOffice24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\atualizacao24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keys24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pesquisar24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Salvar24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Copiar24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Imprimir 24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExcluirRegistro24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EditarRegistro24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NovoRegistro24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Excel24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Atencao24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OkResolvido24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CartaoVisitas16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\atualizacao16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FTP16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FTP24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backup24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\restaurarbackup24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ConfigurarImpressora24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Loteamento24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Usuarios24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Corretores24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CartaoVisitas24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FechaNegocio24x24.png" />
+    <None Include="Resources\ContratoPendente24x24.png" />
+    <Content Include="Visao\LOGOSGS.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

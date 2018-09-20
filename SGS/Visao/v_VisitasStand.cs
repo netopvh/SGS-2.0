@@ -17,14 +17,14 @@ namespace SGS.Visao
     {
         int _Permissao;
         string _UsuarioCad;
-        v_NovoAtendimento v_novoAtendimento;
+        
         m_Atendimento m_atendimento;
         c_Atendimento c_atendimento;
         public v_VisitasStand()
         {
             InitializeComponent();
             this.m_atendimento = new m_Atendimento();
-            this.v_novoAtendimento = new v_NovoAtendimento();
+            
             this.c_atendimento = new c_Atendimento();
         }
         public v_VisitasStand(int Permissao,string UsuarioCad)
@@ -33,7 +33,7 @@ namespace SGS.Visao
             _Permissao = Permissao;
             _UsuarioCad = UsuarioCad;
             this.m_atendimento = new m_Atendimento();
-            this.v_novoAtendimento = new v_NovoAtendimento(_UsuarioCad);
+            
             this.c_atendimento = new c_Atendimento();
         }
         private void funcao(string funcao)
@@ -41,21 +41,35 @@ namespace SGS.Visao
             switch (funcao)
             {
                 case "novo":
+                    v_NovoAtendimento v_novoAtendimento = new v_NovoAtendimento(_UsuarioCad);
                     v_novoAtendimento.Name = "Novo Atendimento";
                     v_novoAtendimento.ShowDialog();
                     
                     break;
                 case "alterar":
-                    v_novoAtendimento.Name = "Alterar Atendimento";
-                    v_novoAtendimento.ShowDialog();
+                    v_NovoAtendimento v_AlterarAtendimento = new v_NovoAtendimento
+                        ((int)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[0]),
+                        (string)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[1]),
+                        (string)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[2]),
+                        (string)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[7]),
+                        (string)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[8]),
+                        (string)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[3]),
+                        (string)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[9]),
+                        (string)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[4]),
+                        (string)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[5]),
+                        (DateTime)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[10]),
+                        _UsuarioCad,true);
+                    v_AlterarAtendimento.Name = "Alterar Atendimento";
+                    v_AlterarAtendimento.ShowDialog();
                     
                     break;
                 case "excluir":
                     m_atendimento.idatendimento = (int)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[0]);
                     c_atendimento.ExcluirAtendimento(m_atendimento);
                     MessageBox.Show("Excluido com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.atendimentoTableAdapter.Fill(this.dbsgsDataSet.atendimento);
+                    CarregarAtendimentos();
                     break;
+                
                 default:
                     break;
             }
@@ -95,12 +109,18 @@ namespace SGS.Visao
         private void v_VisitasStand_Load(object sender, EventArgs e)
         {
             CancelButton = btnVoltar;
-            // TODO: esta linha de código carrega dados na tabela 'dbsgsDataSet.atendimento'. Você pode movê-la ou removê-la conforme necessário.
-            this.atendimentoTableAdapter.Fill(this.dbsgsDataSet.atendimento);
             //advBandedGridView1.BestFitColumns(true);
             Permissao();
+            CarregarAtendimentos();
             BestFitBand(gridBand1);
             
+        }
+        private void CarregarAtendimentos()
+        {
+            DataTable dtAtendimentos = new DataTable();
+            dtAtendimentos = c_atendimento.CarregarAtendimentos();
+            gridControl1.DataSource = dtAtendimentos;
+            advBandedGridView1.RefreshData();
         }
         private void BestFitBand(GridBand band)
         {
@@ -157,18 +177,26 @@ namespace SGS.Visao
 
         private void btnExportar_Click(object sender, EventArgs e)
         {
-            saveFileDialog1.Title = "Salvar grid em Excel";
-            saveFileDialog1.Filter = "Excel (*.xlsx)|*.xlsx";
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            try
             {
-                string Arquivo = saveFileDialog1.FileName;
-                advBandedGridView1.ExportToXlsx(Arquivo);
-                MessageBox.Show("Exportado com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                saveFileDialog1.Title = "Salvar grid em Excel";
+                saveFileDialog1.Filter = "Excel (*.xlsx)|*.xlsx";
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    string Arquivo = saveFileDialog1.FileName;
+                    advBandedGridView1.ExportToXlsx(Arquivo);
+                    MessageBox.Show("Exportado com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Você não escolheu um caminho para salvar o arquivo...", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
-            else
+            catch (System.IndexOutOfRangeException)
             {
-                MessageBox.Show("Você não escolheu um caminho para salvar o arquivo...", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Não à index selecionado", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
         }
 
         private void btnComprou_Click(object sender, EventArgs e)
@@ -178,8 +206,40 @@ namespace SGS.Visao
                 m_atendimento.idatendimento = (int)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[0]);
                 c_atendimento.AlterarAtendimentoParaComprou(m_atendimento);
                 MessageBox.Show("Sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.atendimentoTableAdapter.Fill(this.dbsgsDataSet.atendimento);
+                
             }
+        }
+
+        private void v_VisitasStand_Enter(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnComprou_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (advBandedGridView1.SelectedRowsCount == 1)
+                {
+                    if ((string)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[6]) == "NÃO")
+                    {
+                        int CodigoAtendimento = (int)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[0]);
+
+                        v_InformarData v_InformarDataCompra = new v_InformarData(CodigoAtendimento, _UsuarioCad);
+                        v_InformarDataCompra.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Já informado que o cliente comprou o lote!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                
+            }
+            catch (System.IndexOutOfRangeException)
+            {
+                MessageBox.Show("Não à index selecionado", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
         }
     }
 }

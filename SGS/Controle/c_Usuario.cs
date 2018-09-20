@@ -10,6 +10,29 @@ namespace SGS.Controle
 {
     public class c_Usuario
     {
+        public DataTable CarregarUsuarios()
+        {
+            MySqlConnection conexao = c_ConexaoMySql.GetConexao();
+            MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
+            comando.CommandText = "select * from usuario;";
+            comando.CommandType = CommandType.Text;
+            MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
+            DataTable dataTable = new DataTable();
+            dataTable.Load(reader);
+            return dataTable;
+        }
+        public DataTable CarregarUsuariosPermissao()
+        {
+            MySqlConnection conexao = c_ConexaoMySql.GetConexao();
+            MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
+            comando.CommandText = "SELECT usuario.idusuario,usuario.nome,usuario.login,usuario.senha,usuario.`status`,usuario.fk_permissao_usuario,permissao.idpermissao,permissao.nome,permissao.nivel FROM usuario INNER JOIN permissao ON usuario.fk_permissao_usuario = permissao.idpermissao;";
+            comando.CommandType = CommandType.Text;
+            MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
+            DataTable dataTable = new DataTable();
+            dataTable.Load(reader);
+            return dataTable;
+        }
+
         public bool AutenticarUsuario(string login, string senha)
         {
             bool resultado;

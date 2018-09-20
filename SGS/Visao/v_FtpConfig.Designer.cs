@@ -41,9 +41,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtUsuarioFTP = new System.Windows.Forms.TextBox();
-            this.btnVoltar = new System.Windows.Forms.Button();
-            this.btnSalvar = new System.Windows.Forms.Button();
             this.btnCopiarExemplo = new System.Windows.Forms.Button();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.btnVoltar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -145,41 +145,50 @@
             this.txtUsuarioFTP.Size = new System.Drawing.Size(170, 21);
             this.txtUsuarioFTP.TabIndex = 7;
             // 
-            // btnVoltar
+            // btnCopiarExemplo
             // 
-            this.btnVoltar.Location = new System.Drawing.Point(300, 208);
-            this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(75, 23);
-            this.btnVoltar.TabIndex = 7;
-            this.btnVoltar.Text = "Voltar";
-            this.btnVoltar.UseVisualStyleBackColor = true;
-            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
+            this.btnCopiarExemplo.Image = global::SGS.Properties.Resources.Copiar24x24;
+            this.btnCopiarExemplo.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCopiarExemplo.Location = new System.Drawing.Point(15, 208);
+            this.btnCopiarExemplo.Name = "btnCopiarExemplo";
+            this.btnCopiarExemplo.Size = new System.Drawing.Size(103, 44);
+            this.btnCopiarExemplo.TabIndex = 9;
+            this.btnCopiarExemplo.Text = "Copiar Exemplo";
+            this.btnCopiarExemplo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCopiarExemplo.UseVisualStyleBackColor = true;
+            this.btnCopiarExemplo.Click += new System.EventHandler(this.btnCopiarExemplo_Click);
             // 
             // btnSalvar
             // 
+            this.btnSalvar.Image = global::SGS.Properties.Resources.Salvar24x24;
+            this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnSalvar.Location = new System.Drawing.Point(219, 208);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvar.Size = new System.Drawing.Size(75, 44);
             this.btnSalvar.TabIndex = 8;
             this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
-            // btnCopiarExemplo
+            // btnVoltar
             // 
-            this.btnCopiarExemplo.Location = new System.Drawing.Point(15, 208);
-            this.btnCopiarExemplo.Name = "btnCopiarExemplo";
-            this.btnCopiarExemplo.Size = new System.Drawing.Size(103, 23);
-            this.btnCopiarExemplo.TabIndex = 9;
-            this.btnCopiarExemplo.Text = "Copiar Exemplo";
-            this.btnCopiarExemplo.UseVisualStyleBackColor = true;
-            this.btnCopiarExemplo.Click += new System.EventHandler(this.btnCopiarExemplo_Click);
+            this.btnVoltar.Image = global::SGS.Properties.Resources.VoltasOffice24x24;
+            this.btnVoltar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnVoltar.Location = new System.Drawing.Point(300, 208);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(75, 44);
+            this.btnVoltar.TabIndex = 7;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // v_FtpConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(387, 240);
+            this.ClientSize = new System.Drawing.Size(387, 261);
             this.Controls.Add(this.btnCopiarExemplo);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.btnVoltar);

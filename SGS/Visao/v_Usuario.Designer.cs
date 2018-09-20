@@ -38,8 +38,6 @@
             this.btnVoltar = new DevExpress.XtraEditors.SimpleButton();
             this.gbxUsuarios = new DevExpress.XtraEditors.GroupControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dbsgsDataSet = new SGS.dbsgsDataSet();
             this.gdvUsuarios = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
             this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumnIdusuario = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -54,7 +52,6 @@
             this.btnSalvar = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.lookUpEditPermissao = new DevExpress.XtraEditors.LookUpEdit();
-            this.permissaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.lblSenhasConfirmacao = new DevExpress.XtraEditors.LabelControl();
             this.txtConfirmaSenha = new DevExpress.XtraEditors.TextEdit();
@@ -70,15 +67,11 @@
             this.txtNome = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
-            this.usuarioTableAdapter = new SGS.dbsgsDataSetTableAdapters.usuarioTableAdapter();
-            this.permissaoTableAdapter = new SGS.dbsgsDataSetTableAdapters.permissaoTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.tabFormControl1)).BeginInit();
             this.tabFormContentContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxUsuarios)).BeginInit();
             this.gbxUsuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbsgsDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gdvUsuarios)).BeginInit();
             this.tabFormContentContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxNovoUsuario)).BeginInit();
@@ -86,7 +79,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEditPermissao.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.permissaoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConfirmaSenha.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSenha.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -127,41 +119,46 @@
             this.tabFormContentContainer1.Controls.Add(this.gbxUsuarios);
             this.tabFormContentContainer1.Location = new System.Drawing.Point(0, 55);
             this.tabFormContentContainer1.Name = "tabFormContentContainer1";
-            this.tabFormContentContainer1.Size = new System.Drawing.Size(508, 251);
+            this.tabFormContentContainer1.Size = new System.Drawing.Size(508, 272);
             this.tabFormContentContainer1.TabIndex = 1;
+            this.tabFormContentContainer1.Click += new System.EventHandler(this.tabFormContentContainer1_Click);
             // 
             // btnNovo
             // 
+            this.btnNovo.ImageOptions.Image = global::SGS.Properties.Resources.NovoRegistro24x24;
             this.btnNovo.Location = new System.Drawing.Point(188, 223);
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(75, 23);
+            this.btnNovo.Size = new System.Drawing.Size(75, 44);
             this.btnNovo.TabIndex = 4;
             this.btnNovo.Text = "Novo";
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // btnAlterar
             // 
+            this.btnAlterar.ImageOptions.Image = global::SGS.Properties.Resources.EditarRegistro24x24;
             this.btnAlterar.Location = new System.Drawing.Point(269, 223);
             this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(75, 23);
+            this.btnAlterar.Size = new System.Drawing.Size(75, 44);
             this.btnAlterar.TabIndex = 3;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnExcluir
             // 
+            this.btnExcluir.ImageOptions.Image = global::SGS.Properties.Resources.ExcluirRegistro24x24;
             this.btnExcluir.Location = new System.Drawing.Point(349, 223);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluir.Size = new System.Drawing.Size(75, 44);
             this.btnExcluir.TabIndex = 2;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnVoltar
             // 
+            this.btnVoltar.ImageOptions.Image = global::SGS.Properties.Resources.VoltasOffice24x24;
             this.btnVoltar.Location = new System.Drawing.Point(430, 223);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(75, 23);
+            this.btnVoltar.Size = new System.Drawing.Size(75, 44);
             this.btnVoltar.TabIndex = 1;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
@@ -177,25 +174,14 @@
             // 
             // gridControl1
             // 
-            this.gridControl1.DataSource = this.usuarioBindingSource;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(2, 20);
+            this.gridControl1.Location = new System.Drawing.Point(2, 21);
             this.gridControl1.MainView = this.gdvUsuarios;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(504, 188);
+            this.gridControl1.Size = new System.Drawing.Size(504, 187);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gdvUsuarios});
-            // 
-            // usuarioBindingSource
-            // 
-            this.usuarioBindingSource.DataMember = "usuario";
-            this.usuarioBindingSource.DataSource = this.dbsgsDataSet;
-            // 
-            // dbsgsDataSet
-            // 
-            this.dbsgsDataSet.DataSetName = "dbsgsDataSet";
-            this.dbsgsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gdvUsuarios
             // 
@@ -275,7 +261,7 @@
             // gridColumnPermissao
             // 
             this.gridColumnPermissao.Caption = "Permissão Nvl.";
-            this.gridColumnPermissao.FieldName = "fk_permissao_usuario";
+            this.gridColumnPermissao.FieldName = "nivel";
             this.gridColumnPermissao.Name = "gridColumnPermissao";
             this.gridColumnPermissao.Visible = true;
             this.gridColumnPermissao.Width = 118;
@@ -292,7 +278,7 @@
             this.tabFormContentContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabFormContentContainer2.Location = new System.Drawing.Point(0, 55);
             this.tabFormContentContainer2.Name = "tabFormContentContainer2";
-            this.tabFormContentContainer2.Size = new System.Drawing.Size(508, 251);
+            this.tabFormContentContainer2.Size = new System.Drawing.Size(508, 272);
             this.tabFormContentContainer2.TabIndex = 2;
             // 
             // gbxNovoUsuario
@@ -308,15 +294,16 @@
             this.gbxNovoUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbxNovoUsuario.Location = new System.Drawing.Point(0, 0);
             this.gbxNovoUsuario.Name = "gbxNovoUsuario";
-            this.gbxNovoUsuario.Size = new System.Drawing.Size(508, 251);
+            this.gbxNovoUsuario.Size = new System.Drawing.Size(508, 272);
             this.gbxNovoUsuario.TabIndex = 0;
             this.gbxNovoUsuario.Text = "Dados";
             // 
             // btnSalvar
             // 
+            this.btnSalvar.ImageOptions.Image = global::SGS.Properties.Resources.Salvar24x24;
             this.btnSalvar.Location = new System.Drawing.Point(342, 220);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvar.Size = new System.Drawing.Size(75, 44);
             this.btnSalvar.TabIndex = 6;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -342,18 +329,12 @@
             this.lookUpEditPermissao.Name = "lookUpEditPermissao";
             this.lookUpEditPermissao.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEditPermissao.Properties.DataSource = this.permissaoBindingSource;
             this.lookUpEditPermissao.Properties.DisplayMember = "nome";
             this.lookUpEditPermissao.Properties.DropDownRows = 5;
             this.lookUpEditPermissao.Properties.NullText = "";
             this.lookUpEditPermissao.Properties.ValueMember = "idpermissao";
             this.lookUpEditPermissao.Size = new System.Drawing.Size(265, 20);
             this.lookUpEditPermissao.TabIndex = 5;
-            // 
-            // permissaoBindingSource
-            // 
-            this.permissaoBindingSource.DataMember = "permissao";
-            this.permissaoBindingSource.DataSource = this.dbsgsDataSet;
             // 
             // labelControl5
             // 
@@ -409,9 +390,10 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.ImageOptions.Image = global::SGS.Properties.Resources.VoltasOffice24x24;
             this.btnCancelar.Location = new System.Drawing.Point(423, 220);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(75, 44);
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -432,7 +414,7 @@
             this.rbtInativo.Location = new System.Drawing.Point(5, 60);
             this.rbtInativo.Name = "rbtInativo";
             this.rbtInativo.Size = new System.Drawing.Size(59, 17);
-            this.rbtInativo.TabIndex = 6;
+            this.rbtInativo.TabIndex = 0;
             this.rbtInativo.Text = "Inativo";
             this.rbtInativo.UseVisualStyleBackColor = true;
             // 
@@ -443,7 +425,7 @@
             this.rbtAtivo.Location = new System.Drawing.Point(5, 24);
             this.rbtAtivo.Name = "rbtAtivo";
             this.rbtAtivo.Size = new System.Drawing.Size(50, 17);
-            this.rbtAtivo.TabIndex = 5;
+            this.rbtAtivo.TabIndex = 0;
             this.rbtAtivo.TabStop = true;
             this.rbtAtivo.Text = "Ativo";
             this.rbtAtivo.UseVisualStyleBackColor = true;
@@ -484,19 +466,11 @@
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2016 Colorful";
             // 
-            // usuarioTableAdapter
-            // 
-            this.usuarioTableAdapter.ClearBeforeFill = true;
-            // 
-            // permissaoTableAdapter
-            // 
-            this.permissaoTableAdapter.ClearBeforeFill = true;
-            // 
             // v_Usuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(508, 306);
+            this.ClientSize = new System.Drawing.Size(508, 327);
             this.Controls.Add(this.tabFormContentContainer2);
             this.Controls.Add(this.tabFormControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -513,8 +487,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbxUsuarios)).EndInit();
             this.gbxUsuarios.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbsgsDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gdvUsuarios)).EndInit();
             this.tabFormContentContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gbxNovoUsuario)).EndInit();
@@ -524,7 +496,6 @@
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEditPermissao.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.permissaoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConfirmaSenha.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSenha.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
@@ -553,9 +524,7 @@
         private DevExpress.XtraEditors.SimpleButton btnCancelar;
         private DevExpress.XtraEditors.GroupControl gbxNovoUsuario;
         private DevExpress.XtraGrid.GridControl gridControl1;
-        private dbsgsDataSet dbsgsDataSet;
-        private System.Windows.Forms.BindingSource usuarioBindingSource;
-        private dbsgsDataSetTableAdapters.usuarioTableAdapter usuarioTableAdapter;
+        
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl lblSenhasConfirmacao;
@@ -579,7 +548,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumnStatus;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumnPermissao;
         private DevExpress.XtraEditors.LookUpEdit lookUpEditPermissao;
-        private System.Windows.Forms.BindingSource permissaoBindingSource;
-        private dbsgsDataSetTableAdapters.permissaoTableAdapter permissaoTableAdapter;
+        
     }
 }

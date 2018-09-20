@@ -30,7 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
-            DevExpress.XtraEditors.FormatConditionRule3ColorScale formatConditionRule3ColorScale1 = new DevExpress.XtraEditors.FormatConditionRule3ColorScale();
+            DevExpress.XtraEditors.FormatConditionRuleIconSet formatConditionRuleIconSet1 = new DevExpress.XtraEditors.FormatConditionRuleIconSet();
+            DevExpress.XtraEditors.FormatConditionIconSet formatConditionIconSet1 = new DevExpress.XtraEditors.FormatConditionIconSet();
+            DevExpress.XtraEditors.FormatConditionIconSetIcon formatConditionIconSetIcon1 = new DevExpress.XtraEditors.FormatConditionIconSetIcon();
+            DevExpress.XtraEditors.FormatConditionIconSetIcon formatConditionIconSetIcon2 = new DevExpress.XtraEditors.FormatConditionIconSetIcon();
+            DevExpress.XtraEditors.FormatConditionIconSetIcon formatConditionIconSetIcon3 = new DevExpress.XtraEditors.FormatConditionIconSetIcon();
             this.gridColumnStatus = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.repositoryItemMemoEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.tabFormControl1 = new DevExpress.XtraBars.TabFormControl();
@@ -46,8 +50,6 @@
             this.btnVoltar = new DevExpress.XtraEditors.SimpleButton();
             this.groupControlTodasPendencias = new DevExpress.XtraEditors.GroupControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.pendenciascorretorloteamentoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dbsgsDataSet = new SGS.dbsgsDataSet();
             this.gdvPendencias = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
             this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumnDataEntregaCorretor = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -81,7 +83,6 @@
             this.LookUpEditCorretor = new DevExpress.XtraEditors.LookUpEdit();
             this.corretorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.LookUpEditLoteamento = new DevExpress.XtraEditors.LookUpEdit();
-            this.loteamentoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.txtCliente = new DevExpress.XtraEditors.TextEdit();
@@ -98,12 +99,7 @@
             this.txtQuadra = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.pendenciasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
-            this.pendenciasTableAdapter = new SGS.dbsgsDataSetTableAdapters.pendenciasTableAdapter();
-            this.loteamentoTableAdapter = new SGS.dbsgsDataSetTableAdapters.loteamentoTableAdapter();
-            this.corretorTableAdapter = new SGS.dbsgsDataSetTableAdapters.corretorTableAdapter();
-            this.pendencias_cor_lote_TableAdapter = new SGS.dbsgsDataSetTableAdapters.pendencias_cor_lote_TableAdapter();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabFormControl1)).BeginInit();
@@ -111,8 +107,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControlTodasPendencias)).BeginInit();
             this.groupControlTodasPendencias.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pendenciascorretorloteamentoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbsgsDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gdvPendencias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit2)).BeginInit();
@@ -124,13 +118,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.LookUpEditCorretor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.corretorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpEditLoteamento.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loteamentoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCliente.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroContrato.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtVenda.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLote.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQuadra.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pendenciasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gridColumnStatus
@@ -189,78 +181,86 @@
             this.tabFormContentContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabFormContentContainer1.Location = new System.Drawing.Point(0, 55);
             this.tabFormContentContainer1.Name = "tabFormContentContainer1";
-            this.tabFormContentContainer1.Size = new System.Drawing.Size(985, 390);
+            this.tabFormContentContainer1.Size = new System.Drawing.Size(985, 411);
             this.tabFormContentContainer1.TabIndex = 1;
             this.tabFormContentContainer1.Click += new System.EventHandler(this.tabFormContentContainer1_Click);
             // 
             // btnEntregarPendencia
             // 
+            this.btnEntregarPendencia.ImageOptions.Image = global::SGS.Properties.Resources.Atencao24x24;
             this.btnEntregarPendencia.Location = new System.Drawing.Point(84, 361);
             this.btnEntregarPendencia.Name = "btnEntregarPendencia";
-            this.btnEntregarPendencia.Size = new System.Drawing.Size(75, 23);
+            this.btnEntregarPendencia.Size = new System.Drawing.Size(75, 44);
             this.btnEntregarPendencia.TabIndex = 8;
             this.btnEntregarPendencia.Text = "Corretor";
             this.btnEntregarPendencia.Click += new System.EventHandler(this.btnEntregarPendencia_Click);
             // 
             // btnImprimir
             // 
+            this.btnImprimir.ImageOptions.Image = global::SGS.Properties.Resources.Imprimir_24x24;
             this.btnImprimir.Location = new System.Drawing.Point(246, 361);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(75, 23);
+            this.btnImprimir.Size = new System.Drawing.Size(75, 44);
             this.btnImprimir.TabIndex = 7;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // btnExportar
             // 
+            this.btnExportar.ImageOptions.Image = global::SGS.Properties.Resources.Excel24x24;
             this.btnExportar.Location = new System.Drawing.Point(165, 361);
             this.btnExportar.Name = "btnExportar";
-            this.btnExportar.Size = new System.Drawing.Size(75, 23);
+            this.btnExportar.Size = new System.Drawing.Size(75, 44);
             this.btnExportar.TabIndex = 6;
-            this.btnExportar.Text = "Exportar Excel";
+            this.btnExportar.Text = "Exportar";
             this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
             // 
             // btnDevolver
             // 
+            this.btnDevolver.ImageOptions.Image = global::SGS.Properties.Resources.OkResolvido24x24;
             this.btnDevolver.Location = new System.Drawing.Point(3, 361);
             this.btnDevolver.Name = "btnDevolver";
-            this.btnDevolver.Size = new System.Drawing.Size(75, 23);
+            this.btnDevolver.Size = new System.Drawing.Size(75, 44);
             this.btnDevolver.TabIndex = 5;
             this.btnDevolver.Text = "Resolvido";
             this.btnDevolver.Click += new System.EventHandler(this.btnDevolver_Click);
             // 
             // btnExcluir
             // 
+            this.btnExcluir.ImageOptions.Image = global::SGS.Properties.Resources.ExcluirRegistro24x24;
             this.btnExcluir.Location = new System.Drawing.Point(826, 361);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluir.Size = new System.Drawing.Size(75, 44);
             this.btnExcluir.TabIndex = 4;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnAlterar
             // 
+            this.btnAlterar.ImageOptions.Image = global::SGS.Properties.Resources.EditarRegistro24x24;
             this.btnAlterar.Location = new System.Drawing.Point(745, 361);
             this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(75, 23);
+            this.btnAlterar.Size = new System.Drawing.Size(75, 44);
             this.btnAlterar.TabIndex = 3;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnNovo
             // 
+            this.btnNovo.ImageOptions.Image = global::SGS.Properties.Resources.NovoRegistro24x24;
             this.btnNovo.Location = new System.Drawing.Point(664, 361);
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(75, 23);
+            this.btnNovo.Size = new System.Drawing.Size(75, 44);
             this.btnNovo.TabIndex = 2;
             this.btnNovo.Text = "Novo";
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // btnVoltar
             // 
+            this.btnVoltar.ImageOptions.Image = global::SGS.Properties.Resources.VoltasOffice24x24;
             this.btnVoltar.Location = new System.Drawing.Point(907, 361);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(75, 23);
+            this.btnVoltar.Size = new System.Drawing.Size(75, 44);
             this.btnVoltar.TabIndex = 1;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
@@ -276,7 +276,6 @@
             // 
             // gridControl1
             // 
-            this.gridControl1.DataSource = this.pendenciascorretorloteamentoBindingSource;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl1.Location = new System.Drawing.Point(2, 21);
             this.gridControl1.MainView = this.gdvPendencias;
@@ -289,16 +288,6 @@
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gdvPendencias});
-            // 
-            // pendenciascorretorloteamentoBindingSource
-            // 
-            this.pendenciascorretorloteamentoBindingSource.DataMember = "pendencias_corretor_loteamento";
-            this.pendenciascorretorloteamentoBindingSource.DataSource = this.dbsgsDataSet;
-            // 
-            // dbsgsDataSet
-            // 
-            this.dbsgsDataSet.DataSetName = "dbsgsDataSet";
-            this.dbsgsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gdvPendencias
             // 
@@ -326,24 +315,30 @@
             gridFormatRule1.Column = this.gridColumnStatus;
             gridFormatRule1.ColumnApplyTo = this.gridColumnStatus;
             gridFormatRule1.Name = "FormatStatusCor";
-            formatConditionRule3ColorScale1.AutomaticType = DevExpress.XtraEditors.FormatConditionAutomaticType.ValueBased;
-            formatConditionRule3ColorScale1.Maximum = new decimal(new int[] {
+            formatConditionIconSet1.CategoryName = "Symbols";
+            formatConditionIconSetIcon1.PredefinedName = "Symbols23_1.png";
+            formatConditionIconSetIcon1.Value = new decimal(new int[] {
             2,
             0,
             0,
             0});
-            formatConditionRule3ColorScale1.MaximumColor = System.Drawing.Color.Green;
-            formatConditionRule3ColorScale1.MaximumType = DevExpress.XtraEditors.FormatConditionValueType.Number;
-            formatConditionRule3ColorScale1.Middle = new decimal(new int[] {
+            formatConditionIconSetIcon1.ValueComparison = DevExpress.XtraEditors.FormatConditionComparisonType.GreaterOrEqual;
+            formatConditionIconSetIcon2.PredefinedName = "Symbols23_2.png";
+            formatConditionIconSetIcon2.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            formatConditionRule3ColorScale1.MiddleColor = System.Drawing.Color.Yellow;
-            formatConditionRule3ColorScale1.MiddleType = DevExpress.XtraEditors.FormatConditionValueType.Number;
-            formatConditionRule3ColorScale1.MinimumColor = System.Drawing.Color.Red;
-            formatConditionRule3ColorScale1.MinimumType = DevExpress.XtraEditors.FormatConditionValueType.Number;
-            gridFormatRule1.Rule = formatConditionRule3ColorScale1;
+            formatConditionIconSetIcon2.ValueComparison = DevExpress.XtraEditors.FormatConditionComparisonType.GreaterOrEqual;
+            formatConditionIconSetIcon3.PredefinedName = "Symbols23_3.png";
+            formatConditionIconSetIcon3.ValueComparison = DevExpress.XtraEditors.FormatConditionComparisonType.GreaterOrEqual;
+            formatConditionIconSet1.Icons.Add(formatConditionIconSetIcon1);
+            formatConditionIconSet1.Icons.Add(formatConditionIconSetIcon2);
+            formatConditionIconSet1.Icons.Add(formatConditionIconSetIcon3);
+            formatConditionIconSet1.Name = "Symbols3Circled";
+            formatConditionIconSet1.ValueType = DevExpress.XtraEditors.FormatConditionValueType.Number;
+            formatConditionRuleIconSet1.IconSet = formatConditionIconSet1;
+            gridFormatRule1.Rule = formatConditionRuleIconSet1;
             this.gdvPendencias.FormatRules.Add(gridFormatRule1);
             this.gdvPendencias.GridControl = this.gridControl1;
             this.gdvPendencias.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
@@ -624,23 +619,25 @@
             this.tabFormContentContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabFormContentContainer2.Location = new System.Drawing.Point(0, 55);
             this.tabFormContentContainer2.Name = "tabFormContentContainer2";
-            this.tabFormContentContainer2.Size = new System.Drawing.Size(985, 390);
+            this.tabFormContentContainer2.Size = new System.Drawing.Size(985, 411);
             this.tabFormContentContainer2.TabIndex = 2;
             // 
             // btnSalvar
             // 
+            this.btnSalvar.ImageOptions.Image = global::SGS.Properties.Resources.Salvar24x24;
             this.btnSalvar.Location = new System.Drawing.Point(826, 363);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvar.Size = new System.Drawing.Size(75, 44);
             this.btnSalvar.TabIndex = 12;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnCancelar
             // 
+            this.btnCancelar.ImageOptions.Image = global::SGS.Properties.Resources.VoltasOffice24x24;
             this.btnCancelar.Location = new System.Drawing.Point(907, 363);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(75, 44);
             this.btnCancelar.TabIndex = 13;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -724,7 +721,6 @@
             // corretorBindingSource
             // 
             this.corretorBindingSource.DataMember = "corretor";
-            this.corretorBindingSource.DataSource = this.dbsgsDataSet;
             // 
             // LookUpEditLoteamento
             // 
@@ -732,18 +728,11 @@
             this.LookUpEditLoteamento.Name = "LookUpEditLoteamento";
             this.LookUpEditLoteamento.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.LookUpEditLoteamento.Properties.DataSource = this.loteamentoBindingSource;
             this.LookUpEditLoteamento.Properties.DisplayMember = "nome";
             this.LookUpEditLoteamento.Properties.NullText = "";
             this.LookUpEditLoteamento.Properties.ValueMember = "idloteamento";
             this.LookUpEditLoteamento.Size = new System.Drawing.Size(316, 20);
             this.LookUpEditLoteamento.TabIndex = 1;
-            // 
-            // loteamentoBindingSource
-            // 
-            this.loteamentoBindingSource.DataMember = "loteamento";
-            this.loteamentoBindingSource.DataSource = this.dbsgsDataSet;
-            this.loteamentoBindingSource.CurrentChanged += new System.EventHandler(this.loteamentoBindingSource_CurrentChanged);
             // 
             // labelControl11
             // 
@@ -873,36 +862,15 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Empreendimento:";
             // 
-            // pendenciasBindingSource
-            // 
-            this.pendenciasBindingSource.DataMember = "pendencias";
-            this.pendenciasBindingSource.DataSource = this.dbsgsDataSet;
-            // 
             // defaultLookAndFeel1
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2016 Colorful";
-            // 
-            // pendenciasTableAdapter
-            // 
-            this.pendenciasTableAdapter.ClearBeforeFill = true;
-            // 
-            // loteamentoTableAdapter
-            // 
-            this.loteamentoTableAdapter.ClearBeforeFill = true;
-            // 
-            // corretorTableAdapter
-            // 
-            this.corretorTableAdapter.ClearBeforeFill = true;
-            // 
-            // pendencias_cor_lote_TableAdapter
-            // 
-            this.pendencias_cor_lote_TableAdapter.ClearBeforeFill = true;
             // 
             // v_Pendencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(985, 445);
+            this.ClientSize = new System.Drawing.Size(985, 466);
             this.Controls.Add(this.tabFormContentContainer1);
             this.Controls.Add(this.tabFormControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -920,8 +888,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControlTodasPendencias)).EndInit();
             this.groupControlTodasPendencias.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pendenciascorretorloteamentoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbsgsDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gdvPendencias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit2)).EndInit();
@@ -934,13 +900,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.LookUpEditCorretor.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.corretorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpEditLoteamento.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loteamentoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCliente.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroContrato.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtVenda.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLote.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQuadra.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pendenciasBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -978,17 +942,12 @@
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.LabelControl labelControl11;
-        private dbsgsDataSet dbsgsDataSet;
-        private System.Windows.Forms.BindingSource pendenciasBindingSource;
-        private dbsgsDataSetTableAdapters.pendenciasTableAdapter pendenciasTableAdapter;
+        
         private DevExpress.XtraEditors.LookUpEdit LookUpEditCorretor;
         private DevExpress.XtraEditors.LookUpEdit LookUpEditLoteamento;
-        private System.Windows.Forms.BindingSource loteamentoBindingSource;
-        private dbsgsDataSetTableAdapters.loteamentoTableAdapter loteamentoTableAdapter;
+        
         private System.Windows.Forms.BindingSource corretorBindingSource;
-        private dbsgsDataSetTableAdapters.corretorTableAdapter corretorTableAdapter;
-        private System.Windows.Forms.BindingSource pendenciascorretorloteamentoBindingSource;
-        private dbsgsDataSetTableAdapters.pendencias_cor_lote_TableAdapter pendencias_cor_lote_TableAdapter;
+        
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit1;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit2;
         private DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView gdvPendencias;

@@ -38,8 +38,6 @@
             this.btnVoltar = new DevExpress.XtraEditors.SimpleButton();
             this.gbxCorretores = new DevExpress.XtraEditors.GroupControl();
             this.gcCorretores = new DevExpress.XtraGrid.GridControl();
-            this.corretorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dbsgsDataSet = new SGS.dbsgsDataSet();
             this.gdvCorretores = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
             this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumnCodigo = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -65,15 +63,12 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtNome = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.corretorTableAdapter = new SGS.dbsgsDataSetTableAdapters.corretorTableAdapter();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tabFormControl)).BeginInit();
             this.tabFormContentContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxCorretores)).BeginInit();
             this.gbxCorretores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcCorretores)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.corretorBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbsgsDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gdvCorretores)).BeginInit();
             this.tabFormContentContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxNovoCorretor)).BeginInit();
@@ -94,7 +89,7 @@
             this.tabFormControl.Name = "tabFormControl";
             this.tabFormControl.Pages.Add(this.tabFormPageCorretores);
             this.tabFormControl.Pages.Add(this.tabFormPageNovoCorretor);
-            this.tabFormControl.SelectedPage = this.tabFormPageCorretores;
+            this.tabFormControl.SelectedPage = this.tabFormPageNovoCorretor;
             this.tabFormControl.ShowAddPageButton = false;
             this.tabFormControl.ShowTabCloseButtons = false;
             this.tabFormControl.Size = new System.Drawing.Size(598, 55);
@@ -119,41 +114,45 @@
             this.tabFormContentContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabFormContentContainer1.Location = new System.Drawing.Point(0, 55);
             this.tabFormContentContainer1.Name = "tabFormContentContainer1";
-            this.tabFormContentContainer1.Size = new System.Drawing.Size(598, 274);
+            this.tabFormContentContainer1.Size = new System.Drawing.Size(598, 298);
             this.tabFormContentContainer1.TabIndex = 1;
             // 
             // btnNovo
             // 
+            this.btnNovo.ImageOptions.Image = global::SGS.Properties.Resources.NovoRegistro24x24;
             this.btnNovo.Location = new System.Drawing.Point(277, 248);
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(75, 23);
+            this.btnNovo.Size = new System.Drawing.Size(75, 44);
             this.btnNovo.TabIndex = 4;
             this.btnNovo.Text = "Novo";
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // btnAlterar
             // 
+            this.btnAlterar.ImageOptions.Image = global::SGS.Properties.Resources.EditarRegistro24x24;
             this.btnAlterar.Location = new System.Drawing.Point(358, 248);
             this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(75, 23);
+            this.btnAlterar.Size = new System.Drawing.Size(75, 44);
             this.btnAlterar.TabIndex = 3;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnExcluir
             // 
+            this.btnExcluir.ImageOptions.Image = global::SGS.Properties.Resources.ExcluirRegistro24x24;
             this.btnExcluir.Location = new System.Drawing.Point(439, 248);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluir.Size = new System.Drawing.Size(75, 44);
             this.btnExcluir.TabIndex = 2;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnVoltar
             // 
+            this.btnVoltar.ImageOptions.Image = global::SGS.Properties.Resources.VoltasOffice24x24;
             this.btnVoltar.Location = new System.Drawing.Point(520, 248);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(75, 23);
+            this.btnVoltar.Size = new System.Drawing.Size(75, 44);
             this.btnVoltar.TabIndex = 1;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
@@ -169,7 +168,6 @@
             // 
             // gcCorretores
             // 
-            this.gcCorretores.DataSource = this.corretorBindingSource;
             this.gcCorretores.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcCorretores.Location = new System.Drawing.Point(2, 21);
             this.gcCorretores.MainView = this.gdvCorretores;
@@ -178,17 +176,6 @@
             this.gcCorretores.TabIndex = 0;
             this.gcCorretores.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gdvCorretores});
-            // 
-            // corretorBindingSource
-            // 
-            this.corretorBindingSource.DataMember = "corretor";
-            this.corretorBindingSource.DataSource = this.dbsgsDataSet;
-            this.corretorBindingSource.CurrentChanged += new System.EventHandler(this.corretorBindingSource_CurrentChanged);
-            // 
-            // dbsgsDataSet
-            // 
-            this.dbsgsDataSet.DataSetName = "dbsgsDataSet";
-            this.dbsgsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gdvCorretores
             // 
@@ -289,7 +276,7 @@
             this.tabFormContentContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabFormContentContainer2.Location = new System.Drawing.Point(0, 55);
             this.tabFormContentContainer2.Name = "tabFormContentContainer2";
-            this.tabFormContentContainer2.Size = new System.Drawing.Size(598, 274);
+            this.tabFormContentContainer2.Size = new System.Drawing.Size(598, 298);
             this.tabFormContentContainer2.TabIndex = 2;
             // 
             // gbxNovoCorretor
@@ -308,15 +295,16 @@
             this.gbxNovoCorretor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbxNovoCorretor.Location = new System.Drawing.Point(0, 0);
             this.gbxNovoCorretor.Name = "gbxNovoCorretor";
-            this.gbxNovoCorretor.Size = new System.Drawing.Size(598, 274);
+            this.gbxNovoCorretor.Size = new System.Drawing.Size(598, 298);
             this.gbxNovoCorretor.TabIndex = 1;
             this.gbxNovoCorretor.Text = "Dados";
             // 
             // btnSalvar
             // 
+            this.btnSalvar.ImageOptions.Image = global::SGS.Properties.Resources.Salvar24x24;
             this.btnSalvar.Location = new System.Drawing.Point(437, 246);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvar.Size = new System.Drawing.Size(75, 44);
             this.btnSalvar.TabIndex = 5;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -365,9 +353,10 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.ImageOptions.Image = global::SGS.Properties.Resources.VoltasOffice24x24;
             this.btnCancelar.Location = new System.Drawing.Point(518, 246);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(75, 44);
             this.btnCancelar.TabIndex = 6;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -434,10 +423,6 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Nome:";
             // 
-            // corretorTableAdapter
-            // 
-            this.corretorTableAdapter.ClearBeforeFill = true;
-            // 
             // defaultLookAndFeel1
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2013";
@@ -446,8 +431,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(598, 329);
-            this.Controls.Add(this.tabFormContentContainer1);
+            this.ClientSize = new System.Drawing.Size(598, 353);
+            this.Controls.Add(this.tabFormContentContainer2);
             this.Controls.Add(this.tabFormControl);
             this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Glow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -464,8 +449,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbxCorretores)).EndInit();
             this.gbxCorretores.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcCorretores)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.corretorBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbsgsDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gdvCorretores)).EndInit();
             this.tabFormContentContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gbxNovoCorretor)).EndInit();
@@ -503,9 +486,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.TextEdit txtNome;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private dbsgsDataSet dbsgsDataSet;
-        private System.Windows.Forms.BindingSource corretorBindingSource;
-        private dbsgsDataSetTableAdapters.corretorTableAdapter corretorTableAdapter;
+        
         private DevExpress.XtraGrid.GridControl gcCorretores;
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
         private DevExpress.XtraEditors.GroupControl gbxStatus;

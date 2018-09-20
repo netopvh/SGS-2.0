@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='_MigrationReport_Files/MigrationReport.xslt'?>
+<UpgradeLog>
+<Properties>
+<Property Name="Solution" Value="C:\Github\SGS\SGS-2.0\SGS.sln"></Property>
+<Property Name="Solution File" Value="C:\Github\SGS\SGS-2.0"></Property>
+<Property Name="Date" Value="19/09/2018 14:33:19"></Property>
+</Properties>
+<Event ErrorLevel="3" Project="SGS" Source="App.config" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="app.manifest" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="c_Atendimento.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="c_CidadeEstado.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="c_ConexaoMySql.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="c_Corretor.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="c_Distribuicaocontratos.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="c_Empresalicenca.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="c_EncryptorDecrypt.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="c_Ftpconfig.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="c_GerarMD5.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="c_Loteamento.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="c_Pendencias.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="c_Permissao.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="c_Usuario.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="c_ValidarCPF.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="c_ValidarEmail.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="dbsgsDataSet.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="dbsgsDataSet.xsc" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="dbsgsDataSet.xss" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="e_Status.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="e_StatusPendencia.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="m_Atendimento.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="m_CidadeEstado.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="m_Corretor.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="m_Distribuicaocontratos.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="m_EmpresaLicenca.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="m_Ftpconfig.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="m_Loteamento.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="m_Pendencias.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="m_Permissao.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="m_Usuario.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="MP2032.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="packages.config" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="Program.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="AssemblyInfo.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="licenses.licx" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="Resources.Designer.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="Settings.Designer.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="v_AtualizarSistema.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="v_Backup.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="v_Corretor.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="v_EmpresaLicenca.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="v_FtpConfig.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="v_ImpressoraTermica.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="v_Login.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="v_Loteamento.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="v_NovoAtendimento.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="v_Pendencias.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="v_Principal.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="v_RestaurarBackup.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="v_Usuario.cs" Description="No need to convert"></Event>
+<Event ErrorLevel="3" Project="SGS" Source="v_VisitasStand.cs" Description="No need to convert"></Event>
+
+</UpgradeLog>
