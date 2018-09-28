@@ -53,8 +53,9 @@
             this.txtLT = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.txtLocalizouOutros = new System.Windows.Forms.TextBox();
-            this.rbtOutros = new System.Windows.Forms.RadioButton();
+            this.rbtIndicacao = new System.Windows.Forms.RadioButton();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtOutros = new System.Windows.Forms.TextBox();
             this.rbtFolder = new System.Windows.Forms.RadioButton();
             this.rbtCarroSom = new System.Windows.Forms.RadioButton();
             this.rbtInternet = new System.Windows.Forms.RadioButton();
@@ -310,8 +311,9 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.txtLocalizouOutros);
-            this.groupBox4.Controls.Add(this.rbtOutros);
+            this.groupBox4.Controls.Add(this.rbtIndicacao);
+            this.groupBox4.Controls.Add(this.label10);
+            this.groupBox4.Controls.Add(this.txtOutros);
             this.groupBox4.Controls.Add(this.rbtFolder);
             this.groupBox4.Controls.Add(this.rbtCarroSom);
             this.groupBox4.Controls.Add(this.rbtInternet);
@@ -324,26 +326,35 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Localizou";
             // 
-            // txtLocalizouOutros
+            // rbtIndicacao
             // 
-            this.txtLocalizouOutros.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtLocalizouOutros.Enabled = false;
-            this.txtLocalizouOutros.Location = new System.Drawing.Point(74, 41);
-            this.txtLocalizouOutros.Name = "txtLocalizouOutros";
-            this.txtLocalizouOutros.Size = new System.Drawing.Size(268, 21);
-            this.txtLocalizouOutros.TabIndex = 16;
+            this.rbtIndicacao.AutoSize = true;
+            this.rbtIndicacao.Location = new System.Drawing.Point(9, 42);
+            this.rbtIndicacao.Name = "rbtIndicacao";
+            this.rbtIndicacao.Size = new System.Drawing.Size(71, 17);
+            this.rbtIndicacao.TabIndex = 15;
+            this.rbtIndicacao.TabStop = true;
+            this.rbtIndicacao.Text = "Indicação";
+            this.rbtIndicacao.UseVisualStyleBackColor = true;
+            this.rbtIndicacao.CheckedChanged += new System.EventHandler(this.rbtIndicacao_CheckedChanged);
             // 
-            // rbtOutros
+            // label10
             // 
-            this.rbtOutros.AutoSize = true;
-            this.rbtOutros.Location = new System.Drawing.Point(9, 42);
-            this.rbtOutros.Name = "rbtOutros";
-            this.rbtOutros.Size = new System.Drawing.Size(62, 17);
-            this.rbtOutros.TabIndex = 15;
-            this.rbtOutros.TabStop = true;
-            this.rbtOutros.Text = "Outros:";
-            this.rbtOutros.UseVisualStyleBackColor = true;
-            this.rbtOutros.CheckedChanged += new System.EventHandler(this.rbtOutros_CheckedChanged);
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(83, 44);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(44, 13);
+            this.label10.TabIndex = 17;
+            this.label10.Text = "Outros:";
+            // 
+            // txtOutros
+            // 
+            this.txtOutros.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtOutros.Location = new System.Drawing.Point(133, 41);
+            this.txtOutros.Name = "txtOutros";
+            this.txtOutros.Size = new System.Drawing.Size(228, 21);
+            this.txtOutros.TabIndex = 16;
+            this.txtOutros.TextChanged += new System.EventHandler(this.txtOutros_TextChanged);
             // 
             // rbtFolder
             // 
@@ -486,8 +497,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox txtLocalizouOutros;
-        private System.Windows.Forms.RadioButton rbtOutros;
         private System.Windows.Forms.RadioButton rbtFolder;
         private System.Windows.Forms.RadioButton rbtCarroSom;
         private System.Windows.Forms.RadioButton rbtInternet;
@@ -507,6 +516,8 @@
         private DevExpress.XtraEditors.LookUpEdit lookUpEditEmpreendimento;
         
         private System.Windows.Forms.BindingSource cidadeEstadoBindingSource;
-        
+        private System.Windows.Forms.TextBox txtOutros;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.RadioButton rbtIndicacao;
     }
 }

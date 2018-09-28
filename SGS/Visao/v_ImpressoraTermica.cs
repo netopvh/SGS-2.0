@@ -66,7 +66,7 @@ namespace SGS.Visao
         private void btnImprimirTextoSimples_Click(object sender, EventArgs e)
         {
              // \n - quebra de linha e \r retorno de impressão (comandos da impressora)
-            iRetorno = MP2032.BematechTX(txtTextoSimples.Text + "\r\n\r\n");//ao ser clicado, imprime o texto da Text Box
+            iRetorno = MP2064.BematechTX(txtTextoSimples.Text + "\r\n\r\n");//ao ser clicado, imprime o texto da Text Box
         }
 
         private void btnTextoSimples_Click(object sender, EventArgs e)
@@ -84,11 +84,11 @@ namespace SGS.Visao
             //botão para cortar o papel
             if (radioButtonCorteTotal.Checked == true)//faz o teste através dos RadioButton para identificar se é corte total ou parcial
             {
-                iRetorno = MP2032.AcionaGuilhotina(1);//chama a função da DLL(Corte Total)
+                iRetorno = MP2064.AcionaGuilhotina(1);//chama a função da DLL(Corte Total)
             }
             else if (radioButtonCorteParcial.Checked == true)
             {
-                iRetorno = MP2032.AcionaGuilhotina(0); //chama a função da DLL (Corte Parcial)
+                iRetorno = MP2064.AcionaGuilhotina(0); //chama a função da DLL (Corte Parcial)
             }
             else
             {
@@ -102,11 +102,11 @@ namespace SGS.Visao
             string porta = cbxPortas.SelectedItem.ToString(); //pega a seleção da combo 
             if (porta == "ETHERNET")
             {
-                iRetorno = MP2032.IniciaPorta(txtIP.Text); //inicia a porta com o IP digitado
+                iRetorno = MP2064.IniciaPorta(txtIP.Text); //inicia a porta com o IP digitado
             }
             else
             {
-                iRetorno = MP2032.IniciaPorta(cbxPortas.SelectedItem.ToString());//inicia a porta com o valor da combo (exceto ethernet)
+                iRetorno = MP2064.IniciaPorta(cbxPortas.SelectedItem.ToString());//inicia a porta com o valor da combo (exceto ethernet)
             }
 
             if (iRetorno <= 0) //testa se a conexão da porta foi bem sucedido
@@ -167,39 +167,39 @@ namespace SGS.Visao
             //testes para definir o código do modelo da impressora
             if (modeloImp == "MP 20 CI")
             {
-                iRetorno = MP2032.ConfiguraModeloImpressora(1);
+                iRetorno = MP2064.ConfiguraModeloImpressora(1);
             }
             else if (modeloImp == "MP 20 MI")
             {
-                iRetorno = MP2032.ConfiguraModeloImpressora(1);
+                iRetorno = MP2064.ConfiguraModeloImpressora(1);
             }
             else if (modeloImp == "MP 20 TH")
             {
-                iRetorno = MP2032.ConfiguraModeloImpressora(0);
+                iRetorno = MP2064.ConfiguraModeloImpressora(0);
             }
             else if (modeloImp == "MP 2000 CI")
             {
-                iRetorno = MP2032.ConfiguraModeloImpressora(0);
+                iRetorno = MP2064.ConfiguraModeloImpressora(0);
             }
             else if (modeloImp == "MP 2000 TH")
             {
-                iRetorno = MP2032.ConfiguraModeloImpressora(0);
+                iRetorno = MP2064.ConfiguraModeloImpressora(0);
             }
             else if (modeloImp == "MP 2100 TH")
             {
-                iRetorno = MP2032.ConfiguraModeloImpressora(0);
+                iRetorno = MP2064.ConfiguraModeloImpressora(0);
             }
             else if (modeloImp == "MP 2500 TH")
             {
-                iRetorno = MP2032.ConfiguraModeloImpressora(8);
+                iRetorno = MP2064.ConfiguraModeloImpressora(8);
             }
             else if (modeloImp == "MP 4000 TH")
             {
-                iRetorno = MP2032.ConfiguraModeloImpressora(5);
+                iRetorno = MP2064.ConfiguraModeloImpressora(5);
             }
             else if (modeloImp == "MP 4200 TH")
             {
-                iRetorno = MP2032.ConfiguraModeloImpressora(7);
+                iRetorno = MP2064.ConfiguraModeloImpressora(7);
             }
 
 

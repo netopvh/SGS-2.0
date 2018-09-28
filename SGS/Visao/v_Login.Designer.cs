@@ -117,10 +117,13 @@
             // 
             // cbxMostrarSenha
             // 
-            this.cbxMostrarSenha.Location = new System.Drawing.Point(159, 114);
+            this.cbxMostrarSenha.Location = new System.Drawing.Point(160, 114);
             this.cbxMostrarSenha.Name = "cbxMostrarSenha";
             this.cbxMostrarSenha.Properties.Caption = "Mostrar Senha";
-            this.cbxMostrarSenha.Size = new System.Drawing.Size(92, 19);
+            this.cbxMostrarSenha.Properties.PictureChecked = global::SGS.Properties.Resources.MostrarSenha24x24;
+            this.cbxMostrarSenha.Properties.PictureGrayed = global::SGS.Properties.Resources.MostrarSenha24x24;
+            this.cbxMostrarSenha.Properties.PictureUnchecked = global::SGS.Properties.Resources.MostrarSenha24x24;
+            this.cbxMostrarSenha.Size = new System.Drawing.Size(91, 19);
             this.cbxMostrarSenha.TabIndex = 4;
             this.cbxMostrarSenha.CheckedChanged += new System.EventHandler(this.cbxMostrarSenha_CheckedChanged);
             // 

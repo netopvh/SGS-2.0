@@ -51,6 +51,9 @@
             this.bsiVersao = new DevExpress.XtraBars.BarStaticItem();
             this.bbiVerificarAtualizacao = new DevExpress.XtraBars.BarButtonItem();
             this.bbiFTP = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiAcessoRemoto = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiContato = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.rbpAtendimento = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpCadastros = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -59,6 +62,8 @@
             this.rbpContratos = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbpComissao = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpFinanceiro = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -66,6 +71,7 @@
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup12 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControlPrincipal)).BeginInit();
@@ -95,14 +101,18 @@
             this.bbiLoteamento,
             this.bsiVersao,
             this.bbiVerificarAtualizacao,
-            this.bbiFTP});
+            this.bbiFTP,
+            this.bbiAcessoRemoto,
+            this.bbiContato,
+            this.barButtonItem1});
             this.ribbonControlPrincipal.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControlPrincipal.MaxItemId = 24;
+            this.ribbonControlPrincipal.MaxItemId = 2;
             this.ribbonControlPrincipal.Name = "ribbonControlPrincipal";
             this.ribbonControlPrincipal.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpAtendimento,
             this.rbpCadastros,
             this.rbpContratos,
+            this.rbpComissao,
             this.rbpFinanceiro,
             this.rbpSistema});
             this.ribbonControlPrincipal.ShowToolbarCustomizeItem = false;
@@ -115,6 +125,8 @@
             // 
             this.bbiContrato.Caption = "Contrato";
             this.bbiContrato.Id = 2;
+            this.bbiContrato.ImageOptions.Image = global::SGS.Properties.Resources.contrato32x32;
+            this.bbiContrato.ImageOptions.LargeImage = global::SGS.Properties.Resources.contrato32x32;
             this.bbiContrato.Name = "bbiContrato";
             this.bbiContrato.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiContrato_ItemClick);
             // 
@@ -122,6 +134,7 @@
             // 
             this.bbiFolhaAvulso.Caption = "Folha Avulso";
             this.bbiFolhaAvulso.Id = 3;
+            this.bbiFolhaAvulso.ImageOptions.LargeImage = global::SGS.Properties.Resources.FolhaAvulso32x32;
             this.bbiFolhaAvulso.Name = "bbiFolhaAvulso";
             this.bbiFolhaAvulso.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiFolhaAvulso_ItemClick);
             // 
@@ -130,6 +143,7 @@
             this.bbiCorretor.Caption = "Corretor";
             this.bbiCorretor.Id = 4;
             this.bbiCorretor.ImageOptions.Image = global::SGS.Properties.Resources.Corretores24x24;
+            this.bbiCorretor.ImageOptions.LargeImage = global::SGS.Properties.Resources.Corretores32x32;
             this.bbiCorretor.Name = "bbiCorretor";
             this.bbiCorretor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiCorretor_ItemClick);
             // 
@@ -138,6 +152,7 @@
             this.bbiUsuario.Caption = "Usuário";
             this.bbiUsuario.Id = 5;
             this.bbiUsuario.ImageOptions.Image = global::SGS.Properties.Resources.Usuarios24x24;
+            this.bbiUsuario.ImageOptions.LargeImage = global::SGS.Properties.Resources.Usuarios32x32;
             this.bbiUsuario.Name = "bbiUsuario";
             this.bbiUsuario.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiUsuario_ItemClick);
             // 
@@ -174,6 +189,7 @@
             this.bbiPendencias.Caption = "Pendencias";
             this.bbiPendencias.Id = 10;
             this.bbiPendencias.ImageOptions.Image = global::SGS.Properties.Resources.ContratoPendente24x24;
+            this.bbiPendencias.ImageOptions.LargeImage = global::SGS.Properties.Resources.ContratoPendente32x32;
             this.bbiPendencias.Name = "bbiPendencias";
             this.bbiPendencias.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPendencias_ItemClick);
             // 
@@ -197,6 +213,7 @@
             // 
             this.bbiEmail.Caption = "E-mail";
             this.bbiEmail.Id = 13;
+            this.bbiEmail.ImageOptions.Image = global::SGS.Properties.Resources.gmail24x24;
             this.bbiEmail.Name = "bbiEmail";
             this.bbiEmail.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEmail_ItemClick);
             // 
@@ -204,7 +221,7 @@
             // 
             this.bbiImpressoraTermica.Caption = "Impressora Termica";
             this.bbiImpressoraTermica.Id = 14;
-            this.bbiImpressoraTermica.ImageOptions.Image = global::SGS.Properties.Resources.ConfigurarImpressora24x24;
+            this.bbiImpressoraTermica.ImageOptions.Image = global::SGS.Properties.Resources.ImprimirTermic2_24x24;
             this.bbiImpressoraTermica.Name = "bbiImpressoraTermica";
             this.bbiImpressoraTermica.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiImpressoraTermica_ItemClick);
             // 
@@ -221,6 +238,7 @@
             this.bbiVisitaStand.Caption = "Visitas no Stand";
             this.bbiVisitaStand.Id = 17;
             this.bbiVisitaStand.ImageOptions.Image = global::SGS.Properties.Resources.CartaoVisitas24x24;
+            this.bbiVisitaStand.ImageOptions.LargeImage = global::SGS.Properties.Resources.CartaoVisitas32x32;
             this.bbiVisitaStand.Name = "bbiVisitaStand";
             this.bbiVisitaStand.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiVisitaStand_ItemClick);
             // 
@@ -235,6 +253,7 @@
             this.bbiLoteamento.Caption = "Loteamento";
             this.bbiLoteamento.Id = 20;
             this.bbiLoteamento.ImageOptions.Image = global::SGS.Properties.Resources.Loteamento24x24;
+            this.bbiLoteamento.ImageOptions.LargeImage = global::SGS.Properties.Resources.Loteamento32x32;
             this.bbiLoteamento.Name = "bbiLoteamento";
             this.bbiLoteamento.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiLoteamento_ItemClick);
             // 
@@ -262,6 +281,28 @@
             this.bbiFTP.Name = "bbiFTP";
             this.bbiFTP.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiFTP_ItemClick);
             // 
+            // bbiAcessoRemoto
+            // 
+            this.bbiAcessoRemoto.Caption = "Acesso Remoto";
+            this.bbiAcessoRemoto.Id = 24;
+            this.bbiAcessoRemoto.ImageOptions.LargeImage = global::SGS.Properties.Resources.teamviewer_32x32;
+            this.bbiAcessoRemoto.Name = "bbiAcessoRemoto";
+            this.bbiAcessoRemoto.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAcessoRemoto_ItemClick);
+            // 
+            // bbiContato
+            // 
+            this.bbiContato.Caption = "Contato";
+            this.bbiContato.Id = 25;
+            this.bbiContato.ImageOptions.LargeImage = global::SGS.Properties.Resources.suporte32x32;
+            this.bbiContato.Name = "bbiContato";
+            this.bbiContato.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiContato_ItemClick);
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "barButtonItem1";
+            this.barButtonItem1.Id = 1;
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
             // rbpAtendimento
             // 
             this.rbpAtendimento.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -271,6 +312,7 @@
             // 
             // ribbonPageGroup8
             // 
+            this.ribbonPageGroup8.AllowTextClipping = false;
             this.ribbonPageGroup8.ItemLinks.Add(this.bbiVisitaStand);
             this.ribbonPageGroup8.Name = "ribbonPageGroup8";
             this.ribbonPageGroup8.ShowCaptionButton = false;
@@ -326,6 +368,20 @@
             this.ribbonPageGroup6.ShowCaptionButton = false;
             this.ribbonPageGroup6.Text = "Controle";
             // 
+            // rbpComissao
+            // 
+            this.rbpComissao.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup11});
+            this.rbpComissao.Name = "rbpComissao";
+            this.rbpComissao.Text = "Comissão";
+            // 
+            // ribbonPageGroup11
+            // 
+            this.ribbonPageGroup11.AllowTextClipping = false;
+            this.ribbonPageGroup11.Name = "ribbonPageGroup11";
+            this.ribbonPageGroup11.ShowCaptionButton = false;
+            this.ribbonPageGroup11.Text = "Corretor / Imob.";
+            // 
             // rbpFinanceiro
             // 
             this.rbpFinanceiro.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -357,7 +413,8 @@
             this.rbpSistema.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup5,
             this.ribbonPageGroup7,
-            this.ribbonPageGroup10});
+            this.ribbonPageGroup10,
+            this.ribbonPageGroup12});
             this.rbpSistema.Name = "rbpSistema";
             this.rbpSistema.Text = "Sistema";
             // 
@@ -387,6 +444,15 @@
             this.ribbonPageGroup10.Name = "ribbonPageGroup10";
             this.ribbonPageGroup10.ShowCaptionButton = false;
             this.ribbonPageGroup10.Text = "Update";
+            // 
+            // ribbonPageGroup12
+            // 
+            this.ribbonPageGroup12.AllowTextClipping = false;
+            this.ribbonPageGroup12.ItemLinks.Add(this.bbiAcessoRemoto);
+            this.ribbonPageGroup12.ItemLinks.Add(this.bbiContato);
+            this.ribbonPageGroup12.Name = "ribbonPageGroup12";
+            this.ribbonPageGroup12.ShowCaptionButton = false;
+            this.ribbonPageGroup12.Text = "Suporte";
             // 
             // ribbonStatusBar1
             // 
@@ -464,5 +530,11 @@
         private DevExpress.XtraBars.BarButtonItem bbiVerificarAtualizacao;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
         private DevExpress.XtraBars.BarButtonItem bbiFTP;
+        private DevExpress.XtraBars.Ribbon.RibbonPage rbpComissao;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
+        private DevExpress.XtraBars.BarButtonItem bbiAcessoRemoto;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup12;
+        private DevExpress.XtraBars.BarButtonItem bbiContato;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
     }
 }

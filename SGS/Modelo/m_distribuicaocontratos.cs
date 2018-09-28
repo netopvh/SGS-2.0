@@ -9,11 +9,10 @@ namespace SGS.Modelo
     public struct m_Distribuicaocontratos
     {
         public int iddistribuicaocontratos { get; set; }
-        public string numerocontrato { get; set; }
+        public int numerocontrato { get; set; }
         public int status { get; set; }
         public DateTime datadistribuicao { get; set; }
         public DateTime dataextravio { get; set; }
-        public DateTime datarasura { get; set; }
         public DateTime datacancelado { get; set; }
         public DateTime datadevolucao { get; set; }
         public string usuariocad { get; set; }

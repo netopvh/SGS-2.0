@@ -135,6 +135,17 @@ namespace SGS.Visao
                     MessageBox.Show("Entregue com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     CarregarPendencias();
                     break;
+                case "aresolver":
+                    m_pendencias.idpendencias = (int)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[0]);
+                    m_pendencias.status = (int) e_StatusPendencia.A_Resolver;
+                    
+                    m_pendencias.usuariocad = _usuariocad;
+                    c_pendencias.AlterarPendenciaParaARevolver(m_pendencias);
+                    MessageBox.Show("Você voltou a pendência para o Status A Revolver com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CarregarPendencias();
+                    break;
+                    
+
                 case "salvar":
                     m_pendencias.nomecliente = txtCliente.Text;
                     m_pendencias.quadra = txtQuadra.Text;
@@ -479,10 +490,10 @@ namespace SGS.Visao
                     "________________________________________________"+"\n"+
                     Assinatura;
                 string Porta = (ConfigurationManager.AppSettings["Porta"]);
-                iRetorno = MP2032.IniciaPorta(Porta);
+                iRetorno = MP2064.IniciaPorta(Porta);
                 // \n - quebra de linha e \r retorno de impressão (comandos da impressora)
-                iRetorno = MP2032.FormataTX("\r\n\r\n"+ Impressao + "\r\n\r\n",2,0,0,0,1);//ao ser clicado, imprime 
-                iRetorno = MP2032.AcionaGuilhotina(1);//chama a função da DLL(Corte Total)
+                iRetorno = MP2064.FormataTX("\r\n\r\n"+ Impressao + "\r\n\r\n",2,0,0,0,1);//ao ser clicado, imprime 
+                iRetorno = MP2064.AcionaGuilhotina(1);//chama a função da DLL(Corte Total)
             }
             
         }
@@ -530,6 +541,17 @@ namespace SGS.Visao
             }
             
 
+        }
+
+        private void btnARevolver_Click(object sender, EventArgs e)
+        {
+            if (gdvPendencias.SelectedRowsCount == 1 &&(int)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[11]) != 0)
+            {
+                if (MessageBox.Show("Deseja volta o status da pendência para A Resolver?","SGS",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    funcao("aresolver");
+                }
+            }
         }
     }
 }

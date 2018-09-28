@@ -54,6 +54,7 @@
             this.btnExportar = new DevExpress.XtraEditors.SimpleButton();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.btnComprou = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAtualizar = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -377,11 +378,23 @@
             this.btnComprou.Text = "Comprou";
             this.btnComprou.Click += new System.EventHandler(this.btnComprou_Click_1);
             // 
+            // btnAtualizar
+            // 
+            this.btnAtualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAtualizar.ImageOptions.Image = global::SGS.Properties.Resources.atualizacao24x24;
+            this.btnAtualizar.Location = new System.Drawing.Point(174, 356);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(75, 44);
+            this.btnAtualizar.TabIndex = 7;
+            this.btnAtualizar.Text = "Atualizar";
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
+            // 
             // v_VisitasStand
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 404);
+            this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.btnComprou);
             this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.btnNovo);
@@ -391,9 +404,9 @@
             this.Controls.Add(this.groupControl1);
             this.Name = "v_VisitasStand";
             this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Controle de Visitas";
+            this.Activated += new System.EventHandler(this.v_VisitasStand_Activated);
             this.Load += new System.EventHandler(this.v_VisitasStand_Load);
             this.Enter += new System.EventHandler(this.v_VisitasStand_Enter);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
@@ -432,5 +445,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn GridcolumnUsuarioCad;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private DevExpress.XtraEditors.SimpleButton btnComprou;
+        private DevExpress.XtraEditors.SimpleButton btnAtualizar;
     }
 }

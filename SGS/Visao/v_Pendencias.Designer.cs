@@ -40,6 +40,7 @@
             this.tabFormControl1 = new DevExpress.XtraBars.TabFormControl();
             this.tabFormPagePendencias = new DevExpress.XtraBars.TabFormPage();
             this.tabFormContentContainer1 = new DevExpress.XtraBars.TabFormContentContainer();
+            this.btnARevolver = new DevExpress.XtraEditors.SimpleButton();
             this.btnEntregarPendencia = new DevExpress.XtraEditors.SimpleButton();
             this.btnImprimir = new DevExpress.XtraEditors.SimpleButton();
             this.btnExportar = new DevExpress.XtraEditors.SimpleButton();
@@ -169,6 +170,7 @@
             // 
             // tabFormContentContainer1
             // 
+            this.tabFormContentContainer1.Controls.Add(this.btnARevolver);
             this.tabFormContentContainer1.Controls.Add(this.btnEntregarPendencia);
             this.tabFormContentContainer1.Controls.Add(this.btnImprimir);
             this.tabFormContentContainer1.Controls.Add(this.btnExportar);
@@ -185,48 +187,64 @@
             this.tabFormContentContainer1.TabIndex = 1;
             this.tabFormContentContainer1.Click += new System.EventHandler(this.tabFormContentContainer1_Click);
             // 
+            // btnARevolver
+            // 
+            this.btnARevolver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnARevolver.ImageOptions.Image = global::SGS.Properties.Resources.Pendente24x24;
+            this.btnARevolver.Location = new System.Drawing.Point(193, 361);
+            this.btnARevolver.Name = "btnARevolver";
+            this.btnARevolver.Size = new System.Drawing.Size(89, 44);
+            this.btnARevolver.TabIndex = 9;
+            this.btnARevolver.Text = "A Resolver";
+            this.btnARevolver.Click += new System.EventHandler(this.btnARevolver_Click);
+            // 
             // btnEntregarPendencia
             // 
+            this.btnEntregarPendencia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnEntregarPendencia.ImageOptions.Image = global::SGS.Properties.Resources.Atencao24x24;
-            this.btnEntregarPendencia.Location = new System.Drawing.Point(84, 361);
+            this.btnEntregarPendencia.Location = new System.Drawing.Point(98, 361);
             this.btnEntregarPendencia.Name = "btnEntregarPendencia";
-            this.btnEntregarPendencia.Size = new System.Drawing.Size(75, 44);
+            this.btnEntregarPendencia.Size = new System.Drawing.Size(89, 44);
             this.btnEntregarPendencia.TabIndex = 8;
             this.btnEntregarPendencia.Text = "Corretor";
             this.btnEntregarPendencia.Click += new System.EventHandler(this.btnEntregarPendencia_Click);
             // 
             // btnImprimir
             // 
-            this.btnImprimir.ImageOptions.Image = global::SGS.Properties.Resources.Imprimir_24x24;
-            this.btnImprimir.Location = new System.Drawing.Point(246, 361);
+            this.btnImprimir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnImprimir.ImageOptions.Image = global::SGS.Properties.Resources.ImprimirTermic2_24x24;
+            this.btnImprimir.Location = new System.Drawing.Point(383, 361);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(75, 44);
+            this.btnImprimir.Size = new System.Drawing.Size(89, 44);
             this.btnImprimir.TabIndex = 7;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // btnExportar
             // 
+            this.btnExportar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnExportar.ImageOptions.Image = global::SGS.Properties.Resources.Excel24x24;
-            this.btnExportar.Location = new System.Drawing.Point(165, 361);
+            this.btnExportar.Location = new System.Drawing.Point(288, 361);
             this.btnExportar.Name = "btnExportar";
-            this.btnExportar.Size = new System.Drawing.Size(75, 44);
+            this.btnExportar.Size = new System.Drawing.Size(89, 44);
             this.btnExportar.TabIndex = 6;
             this.btnExportar.Text = "Exportar";
             this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
             // 
             // btnDevolver
             // 
+            this.btnDevolver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnDevolver.ImageOptions.Image = global::SGS.Properties.Resources.OkResolvido24x24;
             this.btnDevolver.Location = new System.Drawing.Point(3, 361);
             this.btnDevolver.Name = "btnDevolver";
-            this.btnDevolver.Size = new System.Drawing.Size(75, 44);
+            this.btnDevolver.Size = new System.Drawing.Size(89, 44);
             this.btnDevolver.TabIndex = 5;
             this.btnDevolver.Text = "Resolvido";
             this.btnDevolver.Click += new System.EventHandler(this.btnDevolver_Click);
             // 
             // btnExcluir
             // 
+            this.btnExcluir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExcluir.ImageOptions.Image = global::SGS.Properties.Resources.ExcluirRegistro24x24;
             this.btnExcluir.Location = new System.Drawing.Point(826, 361);
             this.btnExcluir.Name = "btnExcluir";
@@ -237,6 +255,7 @@
             // 
             // btnAlterar
             // 
+            this.btnAlterar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAlterar.ImageOptions.Image = global::SGS.Properties.Resources.EditarRegistro24x24;
             this.btnAlterar.Location = new System.Drawing.Point(745, 361);
             this.btnAlterar.Name = "btnAlterar";
@@ -247,6 +266,7 @@
             // 
             // btnNovo
             // 
+            this.btnNovo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNovo.ImageOptions.Image = global::SGS.Properties.Resources.NovoRegistro24x24;
             this.btnNovo.Location = new System.Drawing.Point(664, 361);
             this.btnNovo.Name = "btnNovo";
@@ -257,6 +277,7 @@
             // 
             // btnVoltar
             // 
+            this.btnVoltar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnVoltar.ImageOptions.Image = global::SGS.Properties.Resources.VoltasOffice24x24;
             this.btnVoltar.Location = new System.Drawing.Point(907, 361);
             this.btnVoltar.Name = "btnVoltar";
@@ -267,6 +288,9 @@
             // 
             // groupControlTodasPendencias
             // 
+            this.groupControlTodasPendencias.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControlTodasPendencias.Controls.Add(this.gridControl1);
             this.groupControlTodasPendencias.Location = new System.Drawing.Point(0, 0);
             this.groupControlTodasPendencias.Name = "groupControlTodasPendencias";
@@ -276,7 +300,9 @@
             // 
             // gridControl1
             // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.Location = new System.Drawing.Point(2, 21);
             this.gridControl1.MainView = this.gdvPendencias;
             this.gridControl1.Name = "gridControl1";
@@ -874,10 +900,8 @@
             this.Controls.Add(this.tabFormContentContainer1);
             this.Controls.Add(this.tabFormControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
             this.Name = "v_Pendencias";
             this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TabFormControl = this.tabFormControl1;
             this.Text = "Controle de Pendências";
@@ -980,5 +1004,6 @@
         private System.Windows.Forms.DateTimePicker dtpDataCad;
         private System.Windows.Forms.DateTimePicker dtpDataVenda;
         private DevExpress.XtraEditors.TextEdit txtPendencia;
+        private DevExpress.XtraEditors.SimpleButton btnARevolver;
     }
 }

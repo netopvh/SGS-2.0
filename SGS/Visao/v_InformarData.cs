@@ -56,10 +56,19 @@ namespace SGS.Visao
 
                     c_atendimento.AlterarAtendimentoParaComprou(m_atendimento);
                     MessageBox.Show("Data da Compra informada com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    AtualizarGridAtendimentos();
                     this.Close();
 
                 }
 
+            }
+        }
+        private void AtualizarGridAtendimentos()
+        {
+            v_VisitasStand v = Application.OpenForms["v_VisitasStand"] as v_VisitasStand;
+            if (v != null)
+            {
+                v.CarregarAtendimentos();
             }
         }
     }

@@ -108,5 +108,17 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@dataentregacorretor", m_pendencias.dataentregacorretor));
             comando.ExecuteNonQuery();
         }
+        public void AlterarPendenciaParaARevolver(m_Pendencias m_pendencias)
+        {
+            MySqlConnection conexao = c_ConexaoMySql.GetConexao();
+            MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
+            comando.CommandType = System.Data.CommandType.Text;
+            comando.CommandText =
+                "update pendencias set usuariocad = @usuariocad,status = @status where idpendencias = @idpendencias; ";
+            comando.Parameters.Add(new MySqlParameter("@idpendencias", m_pendencias.idpendencias));
+            comando.Parameters.Add(new MySqlParameter("@status", m_pendencias.status));
+            comando.Parameters.Add(new MySqlParameter("@usuariocad", m_pendencias.usuariocad));
+            comando.ExecuteNonQuery();
+        }
     }
 }

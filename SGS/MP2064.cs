@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 
 namespace SGS
 {
-    class MP2032
+    public class MP2064
     {
         /*
 		 ===============================================================================
@@ -24,14 +24,14 @@ namespace SGS
                 /// </summary>
                 /// <param name="parcial_full">INTEIRA 0 = acionamento parcial, 1 = acionamento total.</param>
                 /// <returns>INTEIRO - Indica se a função conseguiu enviar o comando para impressora.</returns>
-                [DllImport("MP2032.dll")]public static extern int AcionaGuilhotina(int parcial_full);
+                [DllImport("MP2064.dll")]public static extern int AcionaGuilhotina(int parcial_full);
                 
                 /// <summary>
                 /// Seleciona  largura da bitola do papel da impressora.
                 /// </summary>
                 /// <param name="iWidth">INTEIRO bitola do papel em milímetros. Podendo ser: 48, 58, 76, 80 ou 112.</param>
                 /// <returns>INTEIRO - Indica se a função conseguiu enviar o comando para impressora.</returns>
-                [DllImport("MP2032.dll")]public static extern int AjustaLarguraPapel(int iWidth);
+                [DllImport("MP2064.dll")]public static extern int AjustaLarguraPapel(int iWidth);
 
 
                 /// <summary>
@@ -40,14 +40,14 @@ namespace SGS
                 /// <param name="texto">STRING Texto a ser impresso</param>
                 /// <param name="tempo">INTEIRO Tempo de espera para a impressão. Ex: 5000 = 5 segundos de espera para a inserção do documento.</param>
                 /// <returns>INTEIRO - Indica se a função conseguiu enviar o comando para impressora.</returns>
-                [DllImport("MP2032.dll")]public static extern int AutenticaDoc(String texto, int tempo);
+                [DllImport("MP2064.dll")]public static extern int AutenticaDoc(String texto, int tempo);
 
                 /// <summary>
                 /// Impressão de textos, enviando um conjunto com várias linhas.
                 /// </summary>
                 /// <param name="texto">STRING Texto a ser impresso</param>
                 /// <returns>INTEIRO - Indica se a função conseguiu enviar o comando para impressora.</returns>
-                [DllImport("MP2032.dll")]public static extern int BematechTX(String texto);
+                [DllImport("MP2064.dll")]public static extern int BematechTX(String texto);
 
                 /// <summary>
                 /// Envio de comandos para a impressora, como por exemplo: comandos de Autenticação, comando para Acionamento de Gaveta, etc.
@@ -55,47 +55,47 @@ namespace SGS
                 /// <param name="comando">STRING comando que deseja executar</param>
                 /// <param name="tComando">INTEIRO tamanho do comando que será enviado</param>
                 /// <returns>INTEIRO - Indica se a função conseguiu enviar o comando para impressora.</returns>
-                [DllImport("MP2032.dll")]public static extern int ComandoTX(String comando, int tComando);
+                [DllImport("MP2064.dll")]public static extern int ComandoTX(String comando, int tComando);
 
                 /// <summary>
                 /// Configurar o modelo da impressora não fiscal em uso. IMPORTANTE: Esta função deve ser usada antes da função IniciaPorta
                 /// </summary>
                 /// <param name="model">INTEIRO 0 = MP-20 TH, MP-2000 CI ou MP-2000 TH, 1 = MP-20 MI, MP-20 CI ou MP-20 S, 2 = Blocos térmicos (com comunicacao serial DTR/DSR), 3 = Bloco 112 mm, 4 = ThermalKiosk, 5 = MP-4000 TH, 7 = MP-4200 TH, 8 = MP-2500 TH 0 = Default</param>
                 /// <returns>INTEIRO - Indica se a função conseguiu enviar o comando para impressora.</returns>
-                [DllImport("MP2032.dll")]public static extern int ConfiguraModeloImpressora(int model);
+                [DllImport("MP2064.dll")]public static extern int ConfiguraModeloImpressora(int model);
 
                 /// <summary>
                 /// Configura a quantidade de linhas impressas no extrato, antes de começar a espulsá-lo (eject). A quantidade de linhas pode variar de 1 a 150 linhas. O Default é 90 linhas. OBS: SOMENTE UTILIZADA PARA OS BLOCOS IMPRESSORES
                 /// </summary>
                 /// <param name="tamanho">INTEIRO tamanho do extrato</param>
                 /// <returns>INTEIRO - Indica se a função conseguiu enviar o comando para impressora.</returns>
-                [DllImport("MP2032.dll")]public static extern int ConfiguraTamanhoExtrato(int tamanho);
+                [DllImport("MP2064.dll")]public static extern int ConfiguraTamanhoExtrato(int tamanho);
 
                 /// <summary>
                 /// Configura o taxa de transmissão para a porta serial.
                 /// </summary>
                 /// <param name="taxa">INTEIRO taxa em bps (bits por segundo). Esta taxa pode ser 9600 ou 115200.</param>
                 /// <returns>INTEIRO - Indica se a função conseguiu enviar o comando para impressora.</returns>
-                [DllImport("MP2032.dll")]public static extern int ConfiguraTaxaSerial(int taxa);
+                [DllImport("MP2064.dll")]public static extern int ConfiguraTaxaSerial(int taxa);
 
                 /// <summary>
                 /// Objetivo de verificar a presença de documento antes da autenticação.
                 /// </summary>
                 /// <returns>INTEIRO - Indica se a função conseguiu enviar o comando para impressora.</returns>
-                [DllImport("MP2032.dll")]public static extern int DocumentInserted();
+                [DllImport("MP2064.dll")]public static extern int DocumentInserted();
 
                 /// <summary>
                 /// Esta função segura a execução do Aplicativo, até que todo o texto enviado seja impresso.
                 /// </summary>
                 /// <param name="modo">INTEIRO modo de espera.</param>
                 /// <returns>INTEIRO - Indica se a função conseguiu enviar o comando para impressora.</returns>
-                [DllImport("MP2032.dll")]public static extern int EsperaImpressao(int modo);
+                [DllImport("MP2064.dll")]public static extern int EsperaImpressao(int modo);
 
                 /// <summary>
                 /// Esta função tem por objetivo fechar a porta de comunicação, liberando a porta para outras atividades.
                 /// </summary>
                 /// <returns>INTEIRO - Indica se a função conseguiu enviar o comando para impressora.</returns>
-                [DllImport("MP2032.dll")]public static extern int FechaPorta();
+                [DllImport("MP2064.dll")]public static extern int FechaPorta();
 
                 /// <summary>
                 /// Esta função tem por objetivo enviar textos para a impressora, com formatações, informadas pelos parâmetros.
@@ -107,80 +107,80 @@ namespace SGS
                 /// <param name="expandido">INTEIRO 0 = desativa modo, 1 = ativa modo.</param>
                 /// <param name="enfatizado">INTEIRO 0 = desativa modo, 1 = ativa modo.</param>
                 /// <returns>INTEIRO - Indica se a função conseguiu enviar o comando para impressora.</returns>
-                [DllImport("MP2032.dll")]public static extern int FormataTX(String texto, int TipoLetra, int italico, int sublinhado, int expandido, int enfatizado);
+                [DllImport("MP2064.dll")]public static extern int FormataTX(String texto, int TipoLetra, int italico, int sublinhado, int expandido, int enfatizado);
 
                 /// <summary>
                 /// Esta função habilita ou desabilita o envio do caracter ETX (03h), que mantém a impressora ocupada até o término da impressão de todo o texto (string).
                 /// </summary>
                 /// <param name="espera">INTEIRO 0 = desabilitado, 1 = habilitado</param>
                 /// <returns>INTEIRO - Indica se a função conseguiu enviar o comando para impressora.</returns>
-                [DllImport("MP2032.dll")]public static extern int HabilitaEsperaImpressao(int espera);
+                [DllImport("MP2064.dll")]public static extern int HabilitaEsperaImpressao(int espera);
 
                 /// <summary>
                 /// Esta função habilita ou desabilita a quantidade de linhas, configurada na função ConfiguraTamanhoExtrato. Caso esta função não for executada, a quantidade de linhas não será a Default (90 linhas), será a quantidade que for enviada. OBS: SOMENTE UTILIZADA PARA BLOCOS IMPRESSORES
                 /// </summary>
                 /// <param name="Exlongo">INTEIRO 0 = desabilitado, 1 = habilitado</param>
                 /// <returns>INTEIRO - Indica se a função conseguiu enviar o comando para impressora.</returns>
-                [DllImport("MP2032.dll")]public static extern int HabilitaExtratoLongo(int ExLongo);
+                [DllImport("MP2064.dll")]public static extern int HabilitaExtratoLongo(int ExLongo);
 
                 /// <summary>
                 /// Habilita ou Desabilita a função retrátil do Presenter.
                 /// </summary>
                 /// <param name="iFlag">INTEIRO 0 = desabilitado, 1 = habilitado</param>
                 /// <returns>INTEIRO - Indica se a função conseguiu enviar o comando para impressora.</returns>
-                [DllImport("MP2032.dll")]public static extern int HabilitaPresenterRetratil(int iFlag);
+                [DllImport("MP2064.dll")]public static extern int HabilitaPresenterRetratil(int iFlag);
 
                 /// <summary>
                 /// Esta função tem por objetivo abrir a porta de comunicação, onde a impressora está conectada
                 /// </summary>
                 /// <param name="porta">STRING nome da porta de comunicação</param>
                 /// <returns>INTEIRO - Indica se a função conseguiu enviar o comando para impressora.</returns>
-                [DllImport("MP2032.dll")]public static extern int IniciaPorta(String porta);
+                [DllImport("MP2064.dll")]public static extern int IniciaPorta(String porta);
 
                 /// <summary>
                 ///Esta função tem por objetivo retornar o estado da impressora.
                 /// </summary>
                 /// <returns>INTEIRO - Indica se a função conseguiu enviar o comando para impressora.</returns>
-                [DllImport("MP2032.dll")]public static extern int Le_Status();
+                [DllImport("MP2064.dll")]public static extern int Le_Status();
 
                 /// <summary>
                 /// Esta função retorna o estado da gaveta de dinheiro.
                 /// </summary>
                 /// <returns>INTEIRO - Indica se a função conseguiu enviar o comando para impressora.</returns>
-                [DllImport("MP2032.dll")]public static extern int Le_Status_gaveta();
+                [DllImport("MP2064.dll")]public static extern int Le_Status_gaveta();
 
                 /// <summary>
                 /// Reset da impressora
                 /// </summary>
                 /// <returns>INTEIRO - Indica se a função conseguiu enviar o comando para impressora.</returns>
-                [DllImport("MP2032.dll")]public static extern int PrinterReset();
+                [DllImport("MP2064.dll")]public static extern int PrinterReset();
 
                 /// <summary>
                 /// Programa o tempo de espera para retração do papel, caso o mesmo não seja retirado do bocal do Presenter.
                 /// </summary>
                 /// <param name="iTempo">INTEIRO tempo de espera</param>
                 /// <returns>INTEIRO - Indica se a função conseguiu enviar o comando para impressora.</returns>
-                [DllImport("MP2032.dll")]public static extern int ProgramaPresenterRetratil(int iTempo);
+                [DllImport("MP2064.dll")]public static extern int ProgramaPresenterRetratil(int iTempo);
 
                 /// <summary>
                 /// Seleciona a qualidade de impressão, somente disponível para as impressora não fiscais térmicas e para os blocos térmicos.
                 /// </summary>
                 /// <param name="TipoQualidade">INTEIRO onde: 0 = baixa, 1 = Média, 2 = Normal, 3 = Alta, 4 = Altíssima</param>
                 /// <returns>INTEIRO - Indica se a função conseguiu enviar o comando para impressora.</returns>
-                [DllImport("MP2032.dll")]public static extern int SelecionaQualidadeImpressao(int TipoQualidade);
+                [DllImport("MP2064.dll")]public static extern int SelecionaQualidadeImpressao(int TipoQualidade);
 
                 /// <summary>
                 /// Atualiza o firmware do dispositivo.
                 /// </summary>
                 /// <param name="Local">STRING com nome do arquivo e o local contendo o binário do novo firmware.</param>
                 /// <returns>INTEIRO - Indica se a função conseguiu enviar o comando para impressora.</returns>
-                [DllImport("MP2032.dll")]public static extern int AtualizaFirmware(string Local);
+                [DllImport("MP2064.dll")]public static extern int AtualizaFirmware(string Local);
 
                 /// <summary>
                 /// Verifica se há papel posicionado no Presenter.
                 /// </summary>
                 /// <returns>INTEIRO - Indica se a função conseguiu enviar o comando para impressora.</returns>
-                [DllImport("MP2032.dll")]public static extern int VerificaPapelPresenter();
+                [DllImport("MP2064.dll")]public static extern int VerificaPapelPresenter();
 
         #endregion
 

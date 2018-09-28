@@ -24,17 +24,15 @@ namespace SGS.Visao
         {
             InitializeComponent();
             this.m_atendimento = new m_Atendimento();
-            
             this.c_atendimento = new c_Atendimento();
         }
         public v_VisitasStand(int Permissao,string UsuarioCad)
         {
             InitializeComponent();
+            this.m_atendimento = new m_Atendimento();
+            this.c_atendimento = new c_Atendimento();
             _Permissao = Permissao;
             _UsuarioCad = UsuarioCad;
-            this.m_atendimento = new m_Atendimento();
-            
-            this.c_atendimento = new c_Atendimento();
         }
         private void funcao(string funcao)
         {
@@ -47,18 +45,44 @@ namespace SGS.Visao
                     
                     break;
                 case "alterar":
+                    
+                    m_atendimento.idatendimento = (int)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[0]);
+                    m_atendimento.nomeCliente = advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[1]).ToString();
+                    m_atendimento.telefone = advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[2]).ToString();
+                    m_atendimento.cidadeUF = advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[7]).ToString();
+                    m_atendimento.corretorAtual = advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[8]).ToString();
+                    m_atendimento.atendimentoAnterior = advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[3]).ToString();
+                    m_atendimento.empreendimento = advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[9]).ToString();
+                    m_atendimento.identificador = advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[4]).ToString();
+                    m_atendimento.localizou = advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[5]).ToString();
+                    m_atendimento.dataAtendimento = (DateTime)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[10]);
+                    m_atendimento.usuariocad = _UsuarioCad;
+
+                    v_NovoAtendimento v_AlterarAtendimento = new v_NovoAtendimento(
+                        this.m_atendimento.idatendimento,m_atendimento.nomeCliente,m_atendimento.telefone,m_atendimento.cidadeUF,
+                        m_atendimento.corretorAtual,m_atendimento.atendimentoAnterior,m_atendimento.empreendimento,m_atendimento.identificador,
+                        m_atendimento.localizou,m_atendimento.dataAtendimento,m_atendimento.usuariocad,true);
+
+
+                    /*
+                     int CodigoAtendimento,string NomeCliente,string Telefone,string CidadeEstado,string CorretorAtual,
+        string CorretorAtdAnterior,string Empreendimento,string Identificador,string Localizou,DateTime DataCadastroAtend,string UsuarioCad,bool Alterar
+        */
+        /*
                     v_NovoAtendimento v_AlterarAtendimento = new v_NovoAtendimento
                         ((int)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[0]),
-                        (string)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[1]),
-                        (string)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[2]),
-                        (string)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[7]),
-                        (string)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[8]),
-                        (string)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[3]),
-                        (string)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[9]),
-                        (string)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[4]),
-                        (string)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[5]),
+                        advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[1]).ToString(),
+                        advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[2]).ToString(),
+                        advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[7]).ToString(),
+                        advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[8]).ToString(),
+                        advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[3]).ToString(),
+                        advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[9]).ToString(),
+                        advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[4]).ToString(),
+                        advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[5]).ToString(),
                         (DateTime)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[10]),
                         _UsuarioCad,true);
+                        */
+
                     v_AlterarAtendimento.Name = "Alterar Atendimento";
                     v_AlterarAtendimento.ShowDialog();
                     
@@ -82,15 +106,16 @@ namespace SGS.Visao
                     btnExcluir.Enabled = false;
                     btnNovo.Enabled = false;
                     btnAlterar.Enabled = false;
+                    btnComprou.Enabled = false;
                     break;
                 case 2:
-                    
+                    btnComprou.Enabled = false;
                     btnExcluir.Enabled = false;
                     btnNovo.Enabled = true;
                     btnAlterar.Enabled = false;
                     break;
                 case 3:
-                    
+                    btnComprou.Enabled = true;
                     btnExcluir.Enabled = false;
                     btnNovo.Enabled = true;
                     btnAlterar.Enabled = true;
@@ -110,12 +135,11 @@ namespace SGS.Visao
         {
             CancelButton = btnVoltar;
             //advBandedGridView1.BestFitColumns(true);
-            Permissao();
             CarregarAtendimentos();
             BestFitBand(gridBand1);
-            
+            Permissao();
         }
-        private void CarregarAtendimentos()
+        public void CarregarAtendimentos()
         {
             DataTable dtAtendimentos = new DataTable();
             dtAtendimentos = c_atendimento.CarregarAtendimentos();
@@ -240,6 +264,16 @@ namespace SGS.Visao
                 MessageBox.Show("Não à index selecionado", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             
+        }
+
+        private void v_VisitasStand_Activated(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            CarregarAtendimentos();
         }
     }
 }

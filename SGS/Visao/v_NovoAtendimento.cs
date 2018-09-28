@@ -27,7 +27,6 @@ namespace SGS.Visao
         //Construtor para registrar novo Atendimento.
         public v_NovoAtendimento()
         {
-            
             this.m_atendimento = new m_Atendimento();
             this.c_atendimento = new c_Atendimento();
             this.c_loteamento = new c_Loteamento();
@@ -39,7 +38,6 @@ namespace SGS.Visao
         }
         public v_NovoAtendimento(string UsuarioCad)
         {
-            
             this.m_atendimento = new m_Atendimento();
             this.c_atendimento = new c_Atendimento();
             this.c_loteamento = new c_Loteamento();
@@ -51,8 +49,6 @@ namespace SGS.Visao
         }
         private void v_NovoAtendimento_Load(object sender, EventArgs e)
         {
-            
-            
             CancelButton = btnVoltar;
             AcceptButton = btnSalvar;
             CarregarCidadeEstado();
@@ -84,10 +80,17 @@ namespace SGS.Visao
                 txtQD.Text = string.Empty;
                 txtLT.Text = string.Empty;
             }
-            lookUpEditCorretorAtual.EditValue = CorretorAtual;
-            lookUpEditCorretorAnterior.EditValue = CorretorAtdAnterior;
-            lookUpEditEmpreendimento.EditValue = Empreendimento;
-            lookUpEditCiddeUF.EditValue = CidadeEstado;
+                lookUpEditCorretorAtual.EditValue = CorretorAtual;
+                lookUpEditCorretorAnterior.EditValue = CorretorAtdAnterior;
+                lookUpEditEmpreendimento.EditValue = Empreendimento;
+            if (CidadeEstado == null)
+            {
+                lookUpEditCiddeUF.EditValue = "";
+            }
+            else
+            {
+                lookUpEditCiddeUF.EditValue = CidadeEstado;
+            }
             m_atendimento.cidadeUF = CidadeEstado;
             if (Localizou == "Televisão")
             {
@@ -109,12 +112,9 @@ namespace SGS.Visao
             {
                 rbtFolder.Checked = true;
             }
-            
-            
             else
             {
-                rbtOutros.Checked = true;
-                txtLocalizouOutros.Text = Localizou;
+                txtOutros.Text = Localizou;
             }
 
             dtpDataCadastro.Value = DataCadastroAtend;
@@ -124,7 +124,7 @@ namespace SGS.Visao
         {
             this.Close();
         }
-
+        
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             if (txtQD.Text == string.Empty && txtLT.Text == string.Empty)
@@ -146,6 +146,10 @@ namespace SGS.Visao
                 m_atendimento.atendimentoAnterior = lookUpEditCorretorAnterior.Text;
                 m_atendimento.empreendimento = lookUpEditEmpreendimento.Text;
                 m_atendimento.dataAtendimento = dtpDataCadastro.Value;
+                if (txtOutros.Text != string.Empty)
+                {
+                    this.indicacao = txtOutros.Text;
+                }
                 m_atendimento.localizou = indicacao;
                 m_atendimento.comprou = "NÃO";
                 m_atendimento.usuariocad = _usuarioCad;
@@ -162,14 +166,13 @@ namespace SGS.Visao
                 {
                     c_atendimento.NovoAtendimento(m_atendimento);
                     MessageBox.Show("Atendimento cadastrado com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
-                    this.Close();
+                    AtualizarGrid();this.Close();
                 }
                 else if (AlterarAtend == true && MessageBox.Show("Deseja alterar o novo atendimento?", "SGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     c_atendimento.AlterarAtendimento(m_atendimento);
                     MessageBox.Show("Atendimento alterado com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
+                    AtualizarGrid();
                     this.Close();
                 }
             }
@@ -180,6 +183,18 @@ namespace SGS.Visao
             }
         }
 
+        private void AtualizarGrid()
+        {
+            v_VisitasStand v  = Application.OpenForms["v_VisitasStand"] as v_VisitasStand;
+            if (v != null)
+            {
+                v.CarregarAtendimentos();
+            }
+        }
+        private void rbtOutros_CheckedChanged(object sender, EventArgs e)
+        {
+            indicacao = txtOutros.Text;
+        }
         private void rbtTelevisao_CheckedChanged(object sender, EventArgs e)
         {
             indicacao = rbtTelevisao.Text;
@@ -199,27 +214,14 @@ namespace SGS.Visao
         {
             indicacao = rbtCarroSom.Text;
         }
-
         private void rbtFolder_CheckedChanged(object sender, EventArgs e)
         {
             indicacao = rbtFolder.Text;
         }
-
-        private void rbtOutros_CheckedChanged(object sender, EventArgs e)
+        private void rbtIndicacao_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbtOutros.Checked == true)
-            {
-                txtLocalizouOutros.Enabled = true;
-                indicacao = txtLocalizouOutros.Text;
-            }
-            else if (rbtOutros.Checked == false)
-            {
-                txtLocalizouOutros.Enabled = false;
-            }
-
+            indicacao = rbtIndicacao.Text;
         }
-
-        
         private void CarregarCorretores()
         {
             DataTable dtCorretores = new DataTable();
@@ -242,7 +244,6 @@ namespace SGS.Visao
             {
                 
             }
-           
         }
         private void CarregarEmpreendimentos()
         {
@@ -259,8 +260,15 @@ namespace SGS.Visao
             {
                 
             }
+        }
+
+        private void txtOutros_TextChanged(object sender, EventArgs e)
+        {
             
         }
+
+        
+
         private void CarregarCidadeEstado()
         {
             DataTable dtCidadeEstado = new DataTable();
@@ -277,7 +285,5 @@ namespace SGS.Visao
                 
             }
         }
-
-        
     }
 }

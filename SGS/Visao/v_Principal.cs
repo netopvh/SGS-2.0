@@ -20,18 +20,18 @@ namespace SGS.Visao
         int _permissao;
 
         v_AtualizarSistema v_atualizarSistema;
-        v_Corretor v_corretor;
-        v_Usuario v_usuario;
+        
+        
         c_Permissao c_permissao;
         c_Empresalicenca c_empresalicenca;
-        v_Pendencias v_pendencias;
+        
         v_EmpresaLicenca v_empresalicenca;
-        v_Loteamento v_empreendimento;
+        
         v_Backup v_backup;
         v_RestaurarBackup v_restaurarBackup;
         v_ImpressoraTermica v_impressoTermica;
         v_FtpConfig v_ftpConfig;
-        v_VisitasStand v_visitasStand;
+        
         public v_Principal()
         {
             InitializeComponent();
@@ -41,20 +41,21 @@ namespace SGS.Visao
         {
             InitializeComponent();
             _usuario = Usuario;
-            this.v_corretor = new v_Corretor(_usuario, _permissao);
-            this.v_usuario = new v_Usuario(_permissao);
+            _permissao = Permissao;
+            
+            
             this.c_permissao = new c_Permissao();
             this.c_empresalicenca = new c_Empresalicenca();
-            this.v_pendencias = new v_Pendencias(_usuario,_permissao);
+            
             this.v_empresalicenca = new v_EmpresaLicenca(false,true);
-            this.v_empreendimento = new v_Loteamento(_usuario,_permissao);
+            
             this.v_backup = new v_Backup();
             this.v_restaurarBackup = new v_RestaurarBackup();
             this.v_impressoTermica = new v_ImpressoraTermica();
             this.v_atualizarSistema = new v_AtualizarSistema();
             this.v_ftpConfig = new v_FtpConfig();
-            this.v_visitasStand = new v_VisitasStand(_permissao, _usuario);
-            Permissao = _permissao;
+            
+            
         }
         private void Permissao()
         {
@@ -68,7 +69,7 @@ namespace SGS.Visao
                     bbiFluxoCaixa.Enabled = false;
                     bbiFTP.Enabled = false;
                     bbiRestaurarBackup.Enabled = false;
-                    
+                    bbiUsuario.Enabled = false;
                     break;
                 case 2:
                     bbiAPagar.Enabled = false;
@@ -78,6 +79,7 @@ namespace SGS.Visao
                     bbiFluxoCaixa.Enabled = false;
                     bbiFTP.Enabled = false;
                     bbiRestaurarBackup.Enabled = false;
+                    bbiUsuario.Enabled = false;
                     break;
                 case 3:
                     bbiAPagar.Enabled = false;
@@ -87,6 +89,7 @@ namespace SGS.Visao
                     bbiFluxoCaixa.Enabled = false;
                     bbiFTP.Enabled = false;
                     bbiRestaurarBackup.Enabled = false;
+                    bbiUsuario.Enabled = false;
                     break;
                 case 4:
                     bbiAPagar.Enabled = false;
@@ -96,6 +99,7 @@ namespace SGS.Visao
                     bbiFluxoCaixa.Enabled = false;
                     bbiFTP.Enabled = false;
                     bbiRestaurarBackup.Enabled = false;
+                    bbiUsuario.Enabled = false;
                     break;
                     
                 default:
@@ -106,6 +110,7 @@ namespace SGS.Visao
 
         private void bbiCorretor_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            v_Corretor v_corretor = new v_Corretor(_usuario, _permissao);
             v_corretor.ShowDialog();
         }
 
@@ -134,8 +139,8 @@ namespace SGS.Visao
             //LogoEmpresa();
             VersaoAssembly();
             _permissao = c_permissao.AutenticarPermissao(_usuario);
-            var StringConexao = ConfigurationManager.ConnectionStrings["SGS.Properties.Settings.dbsgsConnectionString"].ToString();
-            bsiUsuario.Caption = "Usuário:" + _usuario + " Permissão:(Nivel:" + _permissao + ") | "+ StringConexao.Replace(";Port=3307;user id=root;password=masterkey;persistsecurityinfo=True;database=dbsgs", "");
+            string Server = (ConfigurationManager.AppSettings["Server"]);
+            bsiUsuario.Caption = "Usuário:" + _usuario + " Permissão:(Nivel:" + _permissao + ") | Servidor:"+ Server;
             Permissao();   
         }
         private void VersaoAssembly()
@@ -145,6 +150,7 @@ namespace SGS.Visao
 
         private void bbiUsuario_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            v_Usuario v_usuario = new v_Usuario(_permissao);
             v_usuario.ShowDialog();
         }
 
@@ -156,6 +162,7 @@ namespace SGS.Visao
 
         private void bbiPendencias_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            v_Pendencias v_pendencias = new v_Pendencias(_usuario, _permissao);
             v_pendencias.ShowDialog();
         }
 
@@ -166,6 +173,7 @@ namespace SGS.Visao
 
         private void bbiLoteamento_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            v_Loteamento v_empreendimento = new v_Loteamento(_usuario, _permissao);
             v_empreendimento.ShowDialog();
         }
 
@@ -201,12 +209,14 @@ namespace SGS.Visao
 
         private void bbiVisitaStand_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            v_VisitasStand v_visitasStand = new v_VisitasStand(_permissao,_usuario);
             v_visitasStand.ShowDialog();
         }
 
         private void bbiContrato_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            MessageBox.Show("Em Desenvolvimento", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            v_DistContrato v_disContrato = new v_DistContrato(_permissao, _usuario);
+            v_disContrato.ShowDialog();
         }
 
         private void bbiFolhaAvulso_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -237,6 +247,24 @@ namespace SGS.Visao
         private void bbiFluxoCaixa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             MessageBox.Show("Em Desenvolvimento", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void bbiContato_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            MessageBox.Show("Email:italo@primeempreendimentos.net.br\nContato:(91)-99338-9501", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void bbiAcessoRemoto_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(@"C:\SGS\TeamViewerQS11.exe");
+            }
+            catch (System.ComponentModel.Win32Exception)
+            {
+                MessageBox.Show("Não foi possível encontrar o execultavel do TeamViewer na pasta do sistema SGS!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
     }
 }

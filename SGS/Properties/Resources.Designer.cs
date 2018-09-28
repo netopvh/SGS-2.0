@@ -143,6 +143,16 @@ namespace SGS.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CartaoVisitas32x32 {
+            get {
+                object obj = ResourceManager.GetObject("CartaoVisitas32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ConfigurarImpressora24x24 {
             get {
                 object obj = ResourceManager.GetObject("ConfigurarImpressora24x24", resourceCulture);
@@ -153,9 +163,39 @@ namespace SGS.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap contrato24x24 {
+            get {
+                object obj = ResourceManager.GetObject("contrato24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap contrato32x32 {
+            get {
+                object obj = ResourceManager.GetObject("contrato32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ContratoPendente24x24 {
             get {
                 object obj = ResourceManager.GetObject("ContratoPendente24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ContratoPendente32x32 {
+            get {
+                object obj = ResourceManager.GetObject("ContratoPendente32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -176,6 +216,16 @@ namespace SGS.Properties {
         internal static System.Drawing.Bitmap Corretores24x24 {
             get {
                 object obj = ResourceManager.GetObject("Corretores24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Corretores32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Corretores32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -223,6 +273,16 @@ namespace SGS.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FolhaAvulso32x32 {
+            get {
+                object obj = ResourceManager.GetObject("FolhaAvulso32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FTP16x16 {
             get {
                 object obj = ResourceManager.GetObject("FTP16x16", resourceCulture);
@@ -243,9 +303,29 @@ namespace SGS.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gmail24x24 {
+            get {
+                object obj = ResourceManager.GetObject("gmail24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Imprimir_24x24 {
             get {
                 object obj = ResourceManager.GetObject("Imprimir 24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ImprimirTermic2_24x24 {
+            get {
+                object obj = ResourceManager.GetObject("ImprimirTermic2_24x24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -283,6 +363,26 @@ namespace SGS.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Loteamento32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Loteamento32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MostrarSenha24x24 {
+            get {
+                object obj = ResourceManager.GetObject("MostrarSenha24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap NovoRegistro24x24 {
             get {
                 object obj = ResourceManager.GetObject("NovoRegistro24x24", resourceCulture);
@@ -296,6 +396,16 @@ namespace SGS.Properties {
         internal static System.Drawing.Bitmap OkResolvido24x24 {
             get {
                 object obj = ResourceManager.GetObject("OkResolvido24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Pendente24x24 {
+            get {
+                object obj = ResourceManager.GetObject("Pendente24x24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -373,9 +483,39 @@ namespace SGS.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap suporte32x32 {
+            get {
+                object obj = ResourceManager.GetObject("suporte32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap teamviewer_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("teamviewer_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Usuarios24x24 {
             get {
                 object obj = ResourceManager.GetObject("Usuarios24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Usuarios32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Usuarios32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

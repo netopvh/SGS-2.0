@@ -62,7 +62,7 @@ namespace SGS.Controle
             MySqlConnection conexao = c_ConexaoMySql.GetConexao();
             MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
             comando.CommandType = CommandType.Text;
-            comando.CommandText = "update atendimento set nomeCliente = @nomecliente,telefone = @telefone,cidadeuf = @cidadeuf,atendimentoAnterior = @atendimentoanterior,identificador = @identificador,localizou = @localizou,comprou = @comprou,corretorAtual = @corretoratual,dataAtendimento = @dataatendimento,empreendimento = @empreendimento, usuariocad = @usuariocad where idatendimento = @idatendimento;";
+            comando.CommandText = "update atendimento set nomeCliente = @nomecliente,telefone = @telefone,cidadeuf = @cidadeuf,atendimentoAnterior = @atendimentoanterior,identificador = @identificador,localizou = @localizou,corretorAtual = @corretoratual,dataAtendimento = @dataatendimento,empreendimento = @empreendimento, usuariocad = @usuariocad where idatendimento = @idatendimento;";
             comando.Parameters.Add(new MySqlParameter("@idatendimento", m_atendimento.idatendimento));
             comando.Parameters.Add(new MySqlParameter("@nomecliente", m_atendimento.nomeCliente));
             comando.Parameters.Add(new MySqlParameter("@telefone", m_atendimento.telefone));
@@ -70,7 +70,6 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@atendimentoanterior", m_atendimento.atendimentoAnterior));
             comando.Parameters.Add(new MySqlParameter("@identificador", m_atendimento.identificador));
             comando.Parameters.Add(new MySqlParameter("@localizou", m_atendimento.localizou));
-            comando.Parameters.Add(new MySqlParameter("@comprou", m_atendimento.comprou));
             comando.Parameters.Add(new MySqlParameter("@corretoratual", m_atendimento.corretorAtual));
             comando.Parameters.Add(new MySqlParameter("@empreendimento", m_atendimento.empreendimento));
             comando.Parameters.Add(new MySqlParameter("@dataatendimento", m_atendimento.dataAtendimento));
