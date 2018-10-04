@@ -553,5 +553,15 @@ namespace SGS.Visao
                 }
             }
         }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            CarregarPendencias();
+        }
+
+        private void searchControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

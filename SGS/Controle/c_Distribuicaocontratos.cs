@@ -16,7 +16,7 @@ namespace SGS.Controle
             MySqlConnection conexao = c_ConexaoMySql.GetConexao();
             MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
             comando.CommandType = CommandType.Text;
-            comando.CommandText = "SELECT distribuicaocontratos.iddistribuicaocontratos,distribuicaocontratos.numerocontrato,distribuicaocontratos.`status`,distribuicaocontratos.datadistribuicao,distribuicaocontratos.dataextravio,distribuicaocontratos.datacancelado,distribuicaocontratos.datadevolucao,distribuicaocontratos.usuariocad,distribuicaocontratos.fk_corretor_distribuicaocontratos,distribuicaocontratos.fk_loteamento_distribuicaocontratos,loteamento.idloteamento,loteamento.nome,corretor.idcorretor,corretor.nome FROM distribuicaocontratos "+
+            comando.CommandText = "SELECT distribuicaocontratos.iddistribuicaocontratos,distribuicaocontratos.numerocontrato,distribuicaocontratos.`status`,distribuicaocontratos.datadistribuicao,distribuicaocontratos.dataextravio,distribuicaocontratos.datacancelado,distribuicaocontratos.datadevolucao,distribuicaocontratos.usuariocad,distribuicaocontratos.fk_corretor_distribuicaocontratos,distribuicaocontratos.fk_loteamento_distribuicaocontratos,distribuicaocontratos.datavenda,loteamento.idloteamento,loteamento.nome,corretor.idcorretor,corretor.nome FROM distribuicaocontratos "+
             "INNER JOIN corretor ON distribuicaocontratos.fk_corretor_distribuicaocontratos = corretor.idcorretor "+
             "INNER JOIN loteamento ON distribuicaocontratos.fk_loteamento_distribuicaocontratos = loteamento.idloteamento";
             MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
@@ -77,6 +77,7 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@fk_loteamento_distribuicaocontratos", m_distribuicaoContratos.fk_loteamento_distribuicaocontratos));
             comando.ExecuteNonQuery();
         }
+        
         public void AlterarDistribuicaoParaCancelado(m_Distribuicaocontratos m_distribuicaoContratos)
         {
             MySqlConnection conexao = c_ConexaoMySql.GetConexao();
@@ -112,6 +113,19 @@ namespace SGS.Controle
                 "UPDATE distribuicaocontratos SET dataextravio = @dataextravio,usuariocad = @usuariocad,status = @status WHERE iddistribuicaocontratos = @iddistribuicaocontratos;";
             comando.Parameters.Add(new MySqlParameter("@iddistribuicaocontratos", m_distribuicaoContratos.iddistribuicaocontratos));
             comando.Parameters.Add(new MySqlParameter("@dataextravio", m_distribuicaoContratos.dataextravio));
+            comando.Parameters.Add(new MySqlParameter("@usuariocad", m_distribuicaoContratos.usuariocad));
+            comando.Parameters.Add(new MySqlParameter("@status", m_distribuicaoContratos.status));
+            comando.ExecuteNonQuery();
+        }
+        public void AlterarDistribuicaoParaVendido(m_Distribuicaocontratos m_distribuicaoContratos)
+        {
+            MySqlConnection conexao = c_ConexaoMySql.GetConexao();
+            MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
+            comando.CommandType = System.Data.CommandType.Text;
+            comando.CommandText =
+                "UPDATE distribuicaocontratos SET datavenda = @datavenda,usuariocad = @usuariocad,status = @status WHERE iddistribuicaocontratos = @iddistribuicaocontratos;";
+            comando.Parameters.Add(new MySqlParameter("@iddistribuicaocontratos", m_distribuicaoContratos.iddistribuicaocontratos));
+            comando.Parameters.Add(new MySqlParameter("@datavenda", m_distribuicaoContratos.datavenda));
             comando.Parameters.Add(new MySqlParameter("@usuariocad", m_distribuicaoContratos.usuariocad));
             comando.Parameters.Add(new MySqlParameter("@status", m_distribuicaoContratos.status));
             comando.ExecuteNonQuery();

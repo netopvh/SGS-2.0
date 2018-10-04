@@ -500,6 +500,7 @@
     <None Include="Resources\FolhaAvulso32x32.png" />
     <None Include="Resources\CartaoVisitas32x32.png" />
     <None Include="Resources\MostrarSenha24x24.png" />
+    <None Include="Resources\AlterarStatusContrato24x24.png" />
     <Content Include="Visao\LOGOSGS.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

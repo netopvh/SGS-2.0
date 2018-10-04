@@ -81,6 +81,9 @@ namespace SGS.Visao
                     CarregarGrid();
                     break;
                 case "status":
+                    var CodigoDistContrato = (int)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[0]);
+                    v_StatusContrato v_statusContrato = new v_StatusContrato(_usuarioCad,CodigoDistContrato);
+                    v_statusContrato.ShowDialog();
                     break;
                 
                 default:
@@ -95,8 +98,6 @@ namespace SGS.Visao
                     btnExcluir.Enabled = false;
                     btnNovo.Enabled = false;
                     btnAlterar.Enabled = false;
-                    
-
                     break;
                 case 2:
                     btnExcluir.Enabled = false;
@@ -199,32 +200,39 @@ namespace SGS.Visao
 
         private void btnBaixar_Click(object sender, EventArgs e)
         {
-            /*
+            
             try
             {
-                if (gdvPendencias.SelectedRowsCount == 1 && (int)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[11]) == 1)
+                if (advBandedGridView1.SelectedRowsCount == 1 && (int)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[6]) == 0)
                 {
-                    if (MessageBox.Show("Deseja da baixar nesse contrato pendênte como devolvido?", "SGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        funcao("devolvido");
-                    }
+                    funcao("status");
                 }
-                else if ((int)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[11]) == 2)
+                else if ((int)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[6]) == 1)
                 {
-                    string DataDevolucao = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[16]).ToString();
-                    MessageBox.Show("Contrato pendênte já devolvido para o stand no dia:" + DataDevolucao + "Hr...", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    string DataDevolucao = advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[9]).ToString();
+                    MessageBox.Show("Contrato Cancelado no dia :" + DataDevolucao + "Hr...", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
-                else if ((int)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[11]) == 0)
+                else if ((int)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[6]) == 2)
                 {
-
-                    MessageBox.Show("Contrato deve ser entregue primeiro para o Corretor resolver a pendência no botão (Corretor)!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    string DataDevolucao = advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[10]).ToString();
+                    MessageBox.Show("Contrato devolvido para o stand no dia:" + DataDevolucao + "Hr...", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else if ((int)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[6]) == 3)
+                {
+                    string DataDevolucao = advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[8]).ToString();
+                    MessageBox.Show("Contrato Extraviado informado a perca no dia :" + DataDevolucao + "Hr...", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else if ((int)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[6]) == 4)
+                {
+                    string DataVenda = advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[12]).ToString();
+                    MessageBox.Show("Contrato passado venda, data da venda: " + DataVenda.Replace("00:00:00", "") + "...", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             catch (System.IndexOutOfRangeException)
             {
                 MessageBox.Show("Não à index selecionado", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            */
+            
         }
 
         private void gridControl1_EmbeddedNavigator_TextChanged(object sender, EventArgs e)
@@ -260,6 +268,11 @@ namespace SGS.Visao
                 if ((int)e.Value == 3) e.DisplayText = "3 - Extraviado";
                 if ((int)e.Value == 4) e.DisplayText = "4 - Vendido";
             }
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            CarregarGrid();
         }
     }
 }

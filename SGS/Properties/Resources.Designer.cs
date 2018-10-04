@@ -63,6 +63,16 @@ namespace SGS.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AlterarStatusContrato24x24 {
+            get {
+                object obj = ResourceManager.GetObject("AlterarStatusContrato24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Atencao24x24 {
             get {
                 object obj = ResourceManager.GetObject("Atencao24x24", resourceCulture);

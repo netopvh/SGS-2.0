@@ -41,6 +41,11 @@ namespace SGS.Visao
             this.m_loteamento = new m_Loteamento();
             _usuarioCad = UsuarioCad;
         }
+        private void v_NovaDistribuicaoContrato_Load(object sender, EventArgs e)
+        {
+            CarregarCorretores();
+            CarregarEmpreendimentos();
+        }
         public v_NovaDistribuicaoContrato(string UsuarioCad,bool Alterar,int CodigoDistribuicao,string Empreendimento,string Corretor,int NumeroContrato,DateTime DataDistribuicao)//Atualizar//Editar Distribuição
         {
             
@@ -51,6 +56,8 @@ namespace SGS.Visao
             this.c_loteamento = new c_Loteamento();
             this.m_loteamento = new m_Loteamento();
             InitializeComponent();
+            btnSalvar.Text = "Alterar";
+            this.Text = "Alterar distribuição de Contrato";
             m_distribuicaoContratos.iddistribuicaocontratos = CodigoDistribuicao;
             _usuarioCad = UsuarioCad;
             lookUpEditCorretor.EditValue = Corretor;
@@ -60,15 +67,10 @@ namespace SGS.Visao
             txtSqcFinal.Value = txtSqcInicial.Value;
             _Alterar = Alterar;
             txtSqcFinal.Enabled = false;
-            btnSalvar.Text = "Alterar";
-            this.Text = "Alterar distribuição de Contrato";
+            
         }
 
-        private void v_NovaDistribuicaoContrato_Load(object sender, EventArgs e)
-        {
-            CarregarCorretores();
-            CarregarEmpreendimentos();
-        }
+        
         private void CarregarCorretores()
         {
 

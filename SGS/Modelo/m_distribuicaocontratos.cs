@@ -15,6 +15,7 @@ namespace SGS.Modelo
         public DateTime dataextravio { get; set; }
         public DateTime datacancelado { get; set; }
         public DateTime datadevolucao { get; set; }
+        public DateTime datavenda { get; set; }
         public string usuariocad { get; set; }
         public int fk_corretor_distribuicaocontratos { get; set; }
         public int fk_loteamento_distribuicaocontratos { get; set; }
