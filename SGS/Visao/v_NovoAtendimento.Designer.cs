@@ -64,6 +64,7 @@
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.rbtOutdoor = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEditCiddeUF.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cidadeEstadoBindingSource)).BeginInit();
@@ -311,6 +312,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.rbtOutdoor);
             this.groupBox4.Controls.Add(this.rbtIndicacao);
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.txtOutros);
@@ -341,7 +343,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(83, 44);
+            this.label10.Location = new System.Drawing.Point(157, 44);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(44, 13);
             this.label10.TabIndex = 17;
@@ -350,9 +352,9 @@
             // txtOutros
             // 
             this.txtOutros.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtOutros.Location = new System.Drawing.Point(133, 41);
+            this.txtOutros.Location = new System.Drawing.Point(207, 38);
             this.txtOutros.Name = "txtOutros";
-            this.txtOutros.Size = new System.Drawing.Size(228, 21);
+            this.txtOutros.Size = new System.Drawing.Size(154, 21);
             this.txtOutros.TabIndex = 16;
             this.txtOutros.TextChanged += new System.EventHandler(this.txtOutros_TextChanged);
             // 
@@ -446,6 +448,18 @@
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2013";
             // 
+            // rbtOutdoor
+            // 
+            this.rbtOutdoor.AutoSize = true;
+            this.rbtOutdoor.Location = new System.Drawing.Point(86, 42);
+            this.rbtOutdoor.Name = "rbtOutdoor";
+            this.rbtOutdoor.Size = new System.Drawing.Size(65, 17);
+            this.rbtOutdoor.TabIndex = 18;
+            this.rbtOutdoor.TabStop = true;
+            this.rbtOutdoor.Text = "Outdoor";
+            this.rbtOutdoor.UseVisualStyleBackColor = true;
+            this.rbtOutdoor.CheckedChanged += new System.EventHandler(this.rbtOutdoor_CheckedChanged);
+            // 
             // v_NovoAtendimento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -519,5 +533,6 @@
         private System.Windows.Forms.TextBox txtOutros;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.RadioButton rbtIndicacao;
+        private System.Windows.Forms.RadioButton rbtOutdoor;
     }
 }

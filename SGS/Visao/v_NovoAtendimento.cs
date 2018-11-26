@@ -112,6 +112,14 @@ namespace SGS.Visao
             {
                 rbtFolder.Checked = true;
             }
+            else if (Localizou == "Outdoor")
+            {
+                rbtOutdoor.Checked = true;
+            }
+            else if (Localizou == "Indicação")
+            {
+                rbtIndicacao.Checked = true;
+            }
             else
             {
                 txtOutros.Text = Localizou;
@@ -151,7 +159,7 @@ namespace SGS.Visao
                     this.indicacao = txtOutros.Text;
                 }
                 m_atendimento.localizou = indicacao;
-                m_atendimento.comprou = "NÃO";
+                m_atendimento.comprou = "NEGOCIAÇÃO";
                 m_atendimento.usuariocad = _usuarioCad;
                
                 if (txtQD.Text != string.Empty && txtQD.Text.Length < 3 || txtLT.Text != string.Empty && txtLT.Text.Length < 3)
@@ -221,6 +229,10 @@ namespace SGS.Visao
         private void rbtIndicacao_CheckedChanged(object sender, EventArgs e)
         {
             indicacao = rbtIndicacao.Text;
+        }
+        private void rbtOutdoor_CheckedChanged(object sender, EventArgs e)
+        {
+            indicacao = rbtOutdoor.Text;
         }
         private void CarregarCorretores()
         {

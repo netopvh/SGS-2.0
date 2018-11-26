@@ -4,6 +4,7 @@ using SGS.Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace SGS.Visao
     {
         int _permissao;
         string _usuarioCad;
+        int iRetorno = 0; //Variável para retorno das chamadas
         c_Distribuicaocontratos c_distribuicaoContratos;
         m_Distribuicaocontratos m_distribuicaoContratos;
         public v_DistContrato()
@@ -179,7 +181,114 @@ namespace SGS.Visao
 
         private void btnImprimirProtocolo_Click(object sender, EventArgs e)
         {
+            if (advBandedGridView1.SelectedRowsCount == 1)
+            {
+                var status = (int)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[6]);
+                var DataDistribuicao = (DateTime)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[7]);
+                var NumeroContrato = (int)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[5]);
+                var Corretor = (string)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[2]);
+                var Loteamento = (string)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[4]);
+                var UsuarioCad = (string)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[11]);
+                
+                
+                
 
+                var Impressao = "";
+                switch (status)
+                {
+                    case 0:
+                        Impressao =
+                    "****************** PROTOCOLO *******************\n" +
+                    "\n" +
+                    "STATUS: (0 - DISTRIBUIDO)\n" +
+                    "Data Distribuição: " + DataDistribuicao + "\n" +
+                    "Número Contrato: " + NumeroContrato + "\n" +
+                    "Corretor: " + Corretor + "\n" +
+                    "Loteamento: " + Loteamento + "\n" +
+                    "\n" +
+                    "Usuário Cad: " + UsuarioCad + "\n" +
+                    "Emissão: " + DateTime.Now + "Hrs." + "\n" +
+                    "************************************************" +
+                    "\n" +
+                    "Assinatura:" + "\n\n\n" +
+                    "________________________________________________" + "\n"+
+                    "Confirmo recebimento do contrato com todos as páginas";
+                        break;
+                    case 1:
+                        var DataCancelamento = (DateTime)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[9]);
+                        Impressao =
+                    "****************** PROTOCOLO *******************\n" +
+                    "\n" +
+                    "STATUS: (1 - CANCELADO)\n" +
+                    "Data Distribuição: " + DataDistribuicao + "\n" +
+                    "Data Cancelamento: " + DataCancelamento + "\n" +
+                    "Número Contrato: " + NumeroContrato + "\n" +
+                    "Corretor: " + Corretor + "\n" +
+                    "Loteamento: " + Loteamento + "\n" +
+                    "\n" +
+                    "Usuário Cad: " + UsuarioCad + "\n" +
+                    "Emissão: " + DateTime.Now + "Hrs." + "\n" +
+                    "************************************************" +
+                    "\n" +
+                    "Assinatura:" + "\n\n\n" +
+                    "________________________________________________" + "\n" +
+                    "Confirmo que estou cancelando esse contrato.";
+                        break;
+                    case 2:
+                        var DataDevolucao = (DateTime)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[10]);
+                        Impressao =
+                    "****************** PROTOCOLO *******************\n" +
+                    "\n" +
+                    "STATUS: (2 - DEVOLVIDO)\n" +
+                    "Data Distribuição: " + DataDistribuicao + "\n" +
+                    "Data Devolução: " + DataDevolucao + "\n" +
+                    "Número Contrato: " + NumeroContrato + "\n" +
+                    "Corretor: " + Corretor + "\n" +
+                    "Loteamento: " + Loteamento + "\n" +
+                    "\n" +
+                    "Usuário Cad: " + UsuarioCad + "\n" +
+                    "Emissão: " + DateTime.Now + "Hrs." + "\n" +
+                    "************************************************" +
+                    "\n" +
+                    "Assinatura:" + "\n\n\n" +
+                    "________________________________________________" + "\n" +
+                    "Confirmo que estou recebendo o contrato de volta.";
+                        break;
+                    case 3:
+                        var DataExtravio = (DateTime)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[8]);
+                        Impressao =
+                    "****************** PROTOCOLO *******************\n" +
+                    "\n" +
+                    "STATUS: (3 - EXTRAVIADO)\n" +
+                    "Data Distribuição: " + DataDistribuicao + "\n" +
+                    "Data Extravio: " + DataExtravio + "\n" +
+                    "Número Contrato: " + NumeroContrato + "\n" +
+                    "Corretor: " + Corretor + "\n" +
+                    "Loteamento: " + Loteamento + "\n" +
+                    "\n" +
+                    "Usuário Cad: " + UsuarioCad + "\n" +
+                    "Emissão: " + DateTime.Now + "Hrs." + "\n" +
+                    "************************************************" +
+                    "\n" +
+                    "Assinatura:" + "\n\n\n" +
+                    "________________________________________________" + "\n" +
+                    "Confirmo que o contrato foi perdido ou roubado.";
+                        break;
+                    case 4:
+                        MessageBox.Show("Contrato usado venda passada!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        break;
+                    default:
+                        break;
+                }
+                
+                string Porta = (ConfigurationManager.AppSettings["Porta"]);
+                iRetorno = MP2064.IniciaPorta(Porta);
+                // \n - quebra de linha e \r retorno de impressão (comandos da impressora)
+                iRetorno = MP2064.FormataTX("\r\n\r\n" + Impressao + "\r\n\r\n", 2, 0, 0, 0, 1);//ao ser clicado, imprime 
+                iRetorno = MP2064.AcionaGuilhotina(1);//chama a função da DLL(Corte Total)
+
+
+            }
         }
 
         private void btnExportar_Click(object sender, EventArgs e)
@@ -273,6 +382,11 @@ namespace SGS.Visao
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
             CarregarGrid();
+        }
+
+        private void bbiImprimirGrid_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            advBandedGridView1.ShowRibbonPrintPreview();
         }
     }
 }

@@ -52,7 +52,7 @@ namespace SGS.Visao
                 if (MessageBox.Show("Confirma que essa data informada e a data que o cliente comprou o lote?","SGS",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     m_atendimento.dataCompra = dtpData.Value;
-                    m_atendimento.comprou = "SIM";
+                    m_atendimento.comprou = "COMPROU";
 
                     c_atendimento.AlterarAtendimentoParaComprou(m_atendimento);
                     MessageBox.Show("Data da Compra informada com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);

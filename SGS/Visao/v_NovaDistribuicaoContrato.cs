@@ -4,6 +4,7 @@ using SGS.Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace SGS.Visao
     public partial class v_NovaDistribuicaoContrato : DevExpress.XtraEditors.XtraForm
     {
 
-        
+        int iRetorno = 0; //Variável para retorno das chamadas
         string _usuarioCad;
         bool _Alterar = false;
         m_Distribuicaocontratos m_distribuicaoContratos;
@@ -147,7 +148,27 @@ namespace SGS.Visao
                     }
                     if (_Alterar == false)
                     {
+                        var Impressao =
+                    "****************** PROTOCOLO *******************\n" +
+                    "\n" +
+                    "Número(s) Contrato(s): " + txtSqcInicial.Value + " até " + txtSqcFinal.Value + "\n" +
+                    "Corretor: " + lookUpEditCorretor.Text + "\n" +
+                    "Loteamento: " + lookUpEditEmpreendimento.Text + "\n" +
+                    "\n" +
+                    "Usuário Cad: " + _usuarioCad + "\n" +
+                    "Emissão: " + DateTime.Now + "Hrs." + "\n" +
+                    "************************************************" +
+                    "\n" +
+                    "Assinatura Corretor:" + "\n\n\n" +
+                    "________________________________________________" + "\n" +
+                    "Confirmo recebimento da sequencia de contrato(s).";
+                        string Porta = (ConfigurationManager.AppSettings["Porta"]);
+                        iRetorno = MP2064.IniciaPorta(Porta);
+                        // \n - quebra de linha e \r retorno de impressão (comandos da impressora)
+                        iRetorno = MP2064.FormataTX("\r\n\r\n" + Impressao + "\r\n\r\n", 2, 0, 0, 0, 1);//ao ser clicado, imprime 
+                        iRetorno = MP2064.AcionaGuilhotina(1);//chama a função da DLL(Corte Total)
                         MessageBox.Show("Sequencia de Contrato(s) de N° " + txtSqcInicial.Value.ToString() + " até " + txtSqcFinal.Value.ToString() + " distribuido(s) com Sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        
                         AtualizarGrid();
                         this.Close();
                     }

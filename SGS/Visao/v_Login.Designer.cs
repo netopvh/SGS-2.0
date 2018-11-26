@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::SGS.Visao.SplashScreen1), true, true);
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.tabFormControl1 = new DevExpress.XtraBars.TabFormControl();
             this.gbxEmpresaLicenca = new DevExpress.XtraEditors.GroupControl();
@@ -55,7 +56,7 @@
             // 
             // defaultLookAndFeel1
             // 
-            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2013 Light Gray";
+            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2013";
             // 
             // tabFormControl1
             // 
@@ -179,6 +180,10 @@
             this.btnLogin.Text = "Login";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
+            // splashScreenManager
+            // 
+            splashScreenManager.ClosingDelay = 500;
+            // 
             // v_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -227,5 +232,6 @@
         private DevExpress.XtraEditors.LabelControl lblLicenca;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.XtraEditors.CheckEdit cbxMostrarSenha;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }

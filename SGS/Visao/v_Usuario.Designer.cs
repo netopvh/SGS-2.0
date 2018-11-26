@@ -95,10 +95,10 @@
             this.tabFormControl1.Name = "tabFormControl1";
             this.tabFormControl1.Pages.Add(this.tabFormPageUsuarios);
             this.tabFormControl1.Pages.Add(this.tabFormPageNovoUsuario);
-            this.tabFormControl1.SelectedPage = this.tabFormPageNovoUsuario;
+            this.tabFormControl1.SelectedPage = this.tabFormPageUsuarios;
             this.tabFormControl1.ShowAddPageButton = false;
             this.tabFormControl1.ShowTabCloseButtons = false;
-            this.tabFormControl1.Size = new System.Drawing.Size(508, 55);
+            this.tabFormControl1.Size = new System.Drawing.Size(510, 55);
             this.tabFormControl1.TabForm = this;
             this.tabFormControl1.TabIndex = 0;
             this.tabFormControl1.TabStop = false;
@@ -119,7 +119,7 @@
             this.tabFormContentContainer1.Controls.Add(this.gbxUsuarios);
             this.tabFormContentContainer1.Location = new System.Drawing.Point(0, 55);
             this.tabFormContentContainer1.Name = "tabFormContentContainer1";
-            this.tabFormContentContainer1.Size = new System.Drawing.Size(508, 272);
+            this.tabFormContentContainer1.Size = new System.Drawing.Size(510, 273);
             this.tabFormContentContainer1.TabIndex = 1;
             this.tabFormContentContainer1.Click += new System.EventHandler(this.tabFormContentContainer1_Click);
             // 
@@ -185,6 +185,8 @@
             // 
             // gdvUsuarios
             // 
+            this.gdvUsuarios.Appearance.EvenRow.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.gdvUsuarios.Appearance.EvenRow.Options.UseBackColor = true;
             this.gdvUsuarios.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
             this.gridBand1});
             this.gdvUsuarios.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
@@ -198,10 +200,13 @@
             this.gdvUsuarios.Name = "gdvUsuarios";
             this.gdvUsuarios.OptionsBehavior.Editable = false;
             this.gdvUsuarios.OptionsPrint.EnableAppearanceEvenRow = true;
+            this.gdvUsuarios.OptionsPrint.PrintBandHeader = false;
             this.gdvUsuarios.OptionsPrint.PrintDetails = true;
             this.gdvUsuarios.OptionsPrint.PrintFilterInfo = true;
             this.gdvUsuarios.OptionsPrint.PrintGroupFooter = false;
+            this.gdvUsuarios.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gdvUsuarios.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.gdvUsuarios.OptionsView.EnableAppearanceEvenRow = true;
             this.gdvUsuarios.OptionsView.ShowFooter = true;
             this.gdvUsuarios.OptionsView.ShowGroupPanel = false;
             // 
@@ -278,7 +283,7 @@
             this.tabFormContentContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabFormContentContainer2.Location = new System.Drawing.Point(0, 55);
             this.tabFormContentContainer2.Name = "tabFormContentContainer2";
-            this.tabFormContentContainer2.Size = new System.Drawing.Size(508, 272);
+            this.tabFormContentContainer2.Size = new System.Drawing.Size(510, 273);
             this.tabFormContentContainer2.TabIndex = 2;
             // 
             // gbxNovoUsuario
@@ -294,7 +299,7 @@
             this.gbxNovoUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbxNovoUsuario.Location = new System.Drawing.Point(0, 0);
             this.gbxNovoUsuario.Name = "gbxNovoUsuario";
-            this.gbxNovoUsuario.Size = new System.Drawing.Size(508, 272);
+            this.gbxNovoUsuario.Size = new System.Drawing.Size(510, 273);
             this.gbxNovoUsuario.TabIndex = 0;
             this.gbxNovoUsuario.Text = "Dados";
             // 
@@ -464,14 +469,14 @@
             // 
             // defaultLookAndFeel1
             // 
-            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2016 Colorful";
+            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2013";
             // 
             // v_Usuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(508, 327);
-            this.Controls.Add(this.tabFormContentContainer2);
+            this.ClientSize = new System.Drawing.Size(510, 328);
+            this.Controls.Add(this.tabFormContentContainer1);
             this.Controls.Add(this.tabFormControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;

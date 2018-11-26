@@ -132,6 +132,11 @@
             // txtSqcFinal
             // 
             this.txtSqcFinal.Location = new System.Drawing.Point(226, 24);
+            this.txtSqcFinal.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
             this.txtSqcFinal.Name = "txtSqcFinal";
             this.txtSqcFinal.Size = new System.Drawing.Size(126, 21);
             this.txtSqcFinal.TabIndex = 5;
@@ -149,6 +154,11 @@
             // txtSqcInicial
             // 
             this.txtSqcInicial.Location = new System.Drawing.Point(49, 24);
+            this.txtSqcInicial.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
             this.txtSqcInicial.Name = "txtSqcInicial";
             this.txtSqcInicial.Size = new System.Drawing.Size(126, 21);
             this.txtSqcInicial.TabIndex = 4;

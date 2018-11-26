@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SGS.Visao;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace SGS
             Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-br");
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("pt-br");
 
-            Application.Run(new Visao.v_Login());
+            Application.Run(new v_Login());
         }
     }
 }

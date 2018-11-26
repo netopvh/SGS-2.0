@@ -54,6 +54,11 @@
             this.bbiAcessoRemoto = new DevExpress.XtraBars.BarButtonItem();
             this.bbiContato = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiInserirComissoes = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiControleGeral = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiBaixarRecebimentos = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiEstruturasComissoes = new DevExpress.XtraBars.BarButtonItem();
             this.rbpAtendimento = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpCadastros = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -64,6 +69,7 @@
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpComissao = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup13 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpFinanceiro = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -104,9 +110,14 @@
             this.bbiFTP,
             this.bbiAcessoRemoto,
             this.bbiContato,
-            this.barButtonItem1});
+            this.barButtonItem1,
+            this.bbiInserirComissoes,
+            this.bbiControleGeral,
+            this.barButtonItem2,
+            this.bbiBaixarRecebimentos,
+            this.bbiEstruturasComissoes});
             this.ribbonControlPrincipal.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControlPrincipal.MaxItemId = 2;
+            this.ribbonControlPrincipal.MaxItemId = 7;
             this.ribbonControlPrincipal.Name = "ribbonControlPrincipal";
             this.ribbonControlPrincipal.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpAtendimento,
@@ -174,6 +185,7 @@
             // 
             this.bbiAreceber.Caption = "A Receber";
             this.bbiAreceber.Id = 8;
+            this.bbiAreceber.ImageOptions.LargeImage = global::SGS.Properties.Resources.AReceber32x32;
             this.bbiAreceber.Name = "bbiAreceber";
             this.bbiAreceber.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAreceber_ItemClick);
             // 
@@ -181,6 +193,7 @@
             // 
             this.bbiAPagar.Caption = "A Pagar";
             this.bbiAPagar.Id = 9;
+            this.bbiAPagar.ImageOptions.LargeImage = global::SGS.Properties.Resources.APagar32x32;
             this.bbiAPagar.Name = "bbiAPagar";
             this.bbiAPagar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAPagar_ItemClick);
             // 
@@ -303,6 +316,44 @@
             this.barButtonItem1.Id = 1;
             this.barButtonItem1.Name = "barButtonItem1";
             // 
+            // bbiInserirComissoes
+            // 
+            this.bbiInserirComissoes.Caption = "Comissões Excel";
+            this.bbiInserirComissoes.Id = 2;
+            this.bbiInserirComissoes.ImageOptions.LargeImage = global::SGS.Properties.Resources.Excel32x32;
+            this.bbiInserirComissoes.Name = "bbiInserirComissoes";
+            this.bbiInserirComissoes.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiInserirComissoes_ItemClick);
+            // 
+            // bbiControleGeral
+            // 
+            this.bbiControleGeral.Caption = "Controle Geral";
+            this.bbiControleGeral.Id = 3;
+            this.bbiControleGeral.ImageOptions.LargeImage = global::SGS.Properties.Resources.razao_geral_32x32;
+            this.bbiControleGeral.Name = "bbiControleGeral";
+            this.bbiControleGeral.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiControleGeral_ItemClick);
+            // 
+            // barButtonItem2
+            // 
+            this.barButtonItem2.Caption = "Recebimentos";
+            this.barButtonItem2.Id = 4;
+            this.barButtonItem2.ImageOptions.LargeImage = global::SGS.Properties.Resources.Excel32x32;
+            this.barButtonItem2.Name = "barButtonItem2";
+            // 
+            // bbiBaixarRecebimentos
+            // 
+            this.bbiBaixarRecebimentos.Caption = "Baixar Recebimentos";
+            this.bbiBaixarRecebimentos.Id = 5;
+            this.bbiBaixarRecebimentos.ImageOptions.LargeImage = global::SGS.Properties.Resources.baixarRecebimentos32x32;
+            this.bbiBaixarRecebimentos.Name = "bbiBaixarRecebimentos";
+            // 
+            // bbiEstruturasComissoes
+            // 
+            this.bbiEstruturasComissoes.Caption = "Estruturas de Comissões";
+            this.bbiEstruturasComissoes.Id = 6;
+            this.bbiEstruturasComissoes.ImageOptions.LargeImage = global::SGS.Properties.Resources.AjusteComissao32x32;
+            this.bbiEstruturasComissoes.Name = "bbiEstruturasComissoes";
+            this.bbiEstruturasComissoes.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEstruturasComissoes_ItemClick);
+            // 
             // rbpAtendimento
             // 
             this.rbpAtendimento.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -371,16 +422,26 @@
             // rbpComissao
             // 
             this.rbpComissao.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup11});
+            this.ribbonPageGroup11,
+            this.ribbonPageGroup13});
             this.rbpComissao.Name = "rbpComissao";
             this.rbpComissao.Text = "Comissão";
             // 
             // ribbonPageGroup11
             // 
             this.ribbonPageGroup11.AllowTextClipping = false;
+            this.ribbonPageGroup11.ItemLinks.Add(this.bbiControleGeral);
+            this.ribbonPageGroup11.ItemLinks.Add(this.bbiEstruturasComissoes);
             this.ribbonPageGroup11.Name = "ribbonPageGroup11";
             this.ribbonPageGroup11.ShowCaptionButton = false;
-            this.ribbonPageGroup11.Text = "Corretor / Imob.";
+            this.ribbonPageGroup11.Text = "Comissões Corretor/imob";
+            // 
+            // ribbonPageGroup13
+            // 
+            this.ribbonPageGroup13.ItemLinks.Add(this.bbiInserirComissoes);
+            this.ribbonPageGroup13.ItemLinks.Add(this.bbiBaixarRecebimentos);
+            this.ribbonPageGroup13.Name = "ribbonPageGroup13";
+            this.ribbonPageGroup13.Text = "Inserir/Baixar";
             // 
             // rbpFinanceiro
             // 
@@ -536,5 +597,11 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup12;
         private DevExpress.XtraBars.BarButtonItem bbiContato;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem bbiInserirComissoes;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup13;
+        private DevExpress.XtraBars.BarButtonItem bbiControleGeral;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.BarButtonItem bbiBaixarRecebimentos;
+        private DevExpress.XtraBars.BarButtonItem bbiEstruturasComissoes;
     }
 }

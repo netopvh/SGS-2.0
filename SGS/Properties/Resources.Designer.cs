@@ -63,9 +63,69 @@ namespace SGS.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AjusteComissao24x24 {
+            get {
+                object obj = ResourceManager.GetObject("AjusteComissao24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AjusteComissao32x32 {
+            get {
+                object obj = ResourceManager.GetObject("AjusteComissao32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AlterarStatusContrato24x24 {
             get {
                 object obj = ResourceManager.GetObject("AlterarStatusContrato24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap anexo24x24 {
+            get {
+                object obj = ResourceManager.GetObject("anexo24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap APagar24x24 {
+            get {
+                object obj = ResourceManager.GetObject("APagar24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap APagar32x32 {
+            get {
+                object obj = ResourceManager.GetObject("APagar32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AReceber32x32 {
+            get {
+                object obj = ResourceManager.GetObject("AReceber32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -116,6 +176,16 @@ namespace SGS.Properties {
         internal static System.Drawing.Bitmap backup32x32 {
             get {
                 object obj = ResourceManager.GetObject("backup32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap baixarRecebimentos32x32 {
+            get {
+                object obj = ResourceManager.GetObject("baixarRecebimentos32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -256,6 +326,16 @@ namespace SGS.Properties {
         internal static System.Drawing.Bitmap Excel24x24 {
             get {
                 object obj = ResourceManager.GetObject("Excel24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Excel32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Excel32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -443,6 +523,16 @@ namespace SGS.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap razao_geral_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("razao-geral-32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap restaurarbackup24x24 {
             get {
                 object obj = ResourceManager.GetObject("restaurarbackup24x24", resourceCulture);
@@ -506,6 +596,16 @@ namespace SGS.Properties {
         internal static System.Drawing.Bitmap teamviewer_32x32 {
             get {
                 object obj = ResourceManager.GetObject("teamviewer_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Triste24x24 {
+            get {
+                object obj = ResourceManager.GetObject("Triste24x24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

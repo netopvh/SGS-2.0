@@ -563,5 +563,16 @@ namespace SGS.Visao
         {
 
         }
+
+        private void bbiPendencias_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Visao.Relatorios.v_PendenciasRelatorio RelatorioPendencias = new Relatorios.v_PendenciasRelatorio();
+            RelatorioPendencias.ShowDialog();
+        }
+
+        private void bbiImprimirGrid_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            gridControl1.ShowRibbonPrintPreview();
+        }
     }
 }

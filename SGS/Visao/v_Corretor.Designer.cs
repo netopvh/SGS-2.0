@@ -89,7 +89,7 @@
             this.tabFormControl.Name = "tabFormControl";
             this.tabFormControl.Pages.Add(this.tabFormPageCorretores);
             this.tabFormControl.Pages.Add(this.tabFormPageNovoCorretor);
-            this.tabFormControl.SelectedPage = this.tabFormPageNovoCorretor;
+            this.tabFormControl.SelectedPage = this.tabFormPageCorretores;
             this.tabFormControl.ShowAddPageButton = false;
             this.tabFormControl.ShowTabCloseButtons = false;
             this.tabFormControl.Size = new System.Drawing.Size(598, 55);
@@ -179,6 +179,8 @@
             // 
             // gdvCorretores
             // 
+            this.gdvCorretores.Appearance.EvenRow.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.gdvCorretores.Appearance.EvenRow.Options.UseBackColor = true;
             this.gdvCorretores.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
             this.gridBand1});
             this.gdvCorretores.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
@@ -192,7 +194,14 @@
             this.gdvCorretores.GridControl = this.gcCorretores;
             this.gdvCorretores.Name = "gdvCorretores";
             this.gdvCorretores.OptionsBehavior.Editable = false;
+            this.gdvCorretores.OptionsPrint.EnableAppearanceEvenRow = true;
+            this.gdvCorretores.OptionsPrint.PrintBandHeader = false;
+            this.gdvCorretores.OptionsPrint.PrintDetails = true;
+            this.gdvCorretores.OptionsPrint.PrintFilterInfo = true;
+            this.gdvCorretores.OptionsPrint.PrintGroupFooter = false;
+            this.gdvCorretores.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gdvCorretores.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.gdvCorretores.OptionsView.EnableAppearanceEvenRow = true;
             // 
             // gridBand1
             // 
@@ -432,7 +441,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(598, 353);
-            this.Controls.Add(this.tabFormContentContainer2);
+            this.Controls.Add(this.tabFormContentContainer1);
             this.Controls.Add(this.tabFormControl);
             this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Glow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

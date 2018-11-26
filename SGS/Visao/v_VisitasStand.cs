@@ -245,7 +245,7 @@ namespace SGS.Visao
             {
                 if (advBandedGridView1.SelectedRowsCount == 1)
                 {
-                    if ((string)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[6]) == "NÃO")
+                    if ((string)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[6]) == "NEGOCIAÇÃO")
                     {
                         int CodigoAtendimento = (int)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[0]);
 
@@ -274,6 +274,45 @@ namespace SGS.Visao
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
             CarregarAtendimentos();
+        }
+
+        private void bbiAtendimentosSintetico_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void btnDesistiu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (advBandedGridView1.SelectedRowsCount == 1)
+                {
+                    if ((string)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[6]) == "NEGOCIAÇÃO")
+                    {
+                        if (MessageBox.Show("Deseja informar que o cliente do Atendimento selecionado desistiu de comprar?","SGS",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            m_atendimento.idatendimento = (int)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[0]);
+                            m_atendimento.comprou = "DESISTIU";
+                            c_atendimento.AlterarAtendimentoParaDesistiu(m_atendimento);
+                            MessageBox.Show("Sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    else
+                    {
+                        //MessageBox.Show("Já informado que o cliente comprou o lote!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+
+            }
+            catch (System.IndexOutOfRangeException)
+            {
+                MessageBox.Show("Não à index selecionado", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void bbiImprimirGrid_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            advBandedGridView1.ShowRibbonPrintPreview();
         }
     }
 }

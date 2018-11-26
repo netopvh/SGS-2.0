@@ -88,6 +88,17 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@usuariocad", m_atendimento.usuariocad));
             comando.ExecuteNonQuery();
         }
+        public void AlterarAtendimentoParaDesistiu(m_Atendimento m_atendimento)
+        {
+            MySqlConnection conexao = c_ConexaoMySql.GetConexao();
+            MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = "update atendimento set comprou = @comprou,usuariocad = @usuariocad where idatendimento = @idatendimento;";
+            comando.Parameters.Add(new MySqlParameter("@idatendimento", m_atendimento.idatendimento));
+            comando.Parameters.Add(new MySqlParameter("@comprou", m_atendimento.comprou));
+            comando.Parameters.Add(new MySqlParameter("@usuariocad", m_atendimento.usuariocad));
+            comando.ExecuteNonQuery();
+        }
         public void ExcluirAtendimento(m_Atendimento m_atendimento)
         {
             MySqlConnection conexao = c_ConexaoMySql.GetConexao();

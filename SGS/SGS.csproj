@@ -116,14 +116,31 @@
     <Reference Include="Devart.Data, Version=5.0.2008.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
     <Reference Include="Devart.Data.MySql, Version=8.12.1216.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.BonusSkins.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v17.1.Core, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Images.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v17.1.Core, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v17.1.Core, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v17.1.Core, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v17.1.Core, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v17.1.Export, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v17.1.Core, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v17.1.UI, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v17.1.Core, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v17.1.Extensions, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraScheduler.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraScheduler.v17.1.Core, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraVerticalGrid.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -140,6 +157,7 @@
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Management" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web.Extensions" />
@@ -156,9 +174,11 @@
   <ItemGroup>
     <Compile Include="Controle\c_Atendimento.cs" />
     <Compile Include="Controle\c_CidadeEstado.cs" />
+    <Compile Include="Controle\c_Comissoes.cs" />
     <Compile Include="Controle\c_ConexaoMySql.cs" />
     <Compile Include="Controle\c_Corretor.cs" />
     <Compile Include="Controle\c_Distribuicaocontratos.cs" />
+    <Compile Include="Controle\c_EstruturaComissao.cs" />
     <Compile Include="Controle\c_Ftpconfig.cs" />
     <Compile Include="Controle\c_Loteamento.cs" />
     <Compile Include="Controle\c_EncryptorDecrypt.cs" />
@@ -170,13 +190,16 @@
     <Compile Include="Controle\c_ValidarCPF.cs" />
     <Compile Include="Controle\c_ValidarEmail.cs" />
     <Compile Include="Enum\e_Status.cs" />
+    <Compile Include="Enum\e_StatusComissao.cs" />
     <Compile Include="Enum\e_StatusDistribuicao.cs" />
     <Compile Include="Enum\e_StatusPendencia.cs" />
     <Compile Include="Modelo\m_Atendimento.cs" />
     <Compile Include="Modelo\m_CidadeEstado.cs" />
+    <Compile Include="Modelo\m_Comissoes.cs" />
     <Compile Include="Modelo\m_Corretor.cs" />
     <Compile Include="Modelo\m_Distribuicaocontratos.cs" />
     <Compile Include="Modelo\m_EmpresaLicenca.cs" />
+    <Compile Include="Modelo\m_EstruturaComissao.cs" />
     <Compile Include="Modelo\m_Ftpconfig.cs" />
     <Compile Include="Modelo\m_Loteamento.cs" />
     <Compile Include="Modelo\m_Pendencias.cs" />
@@ -185,6 +208,36 @@
     <Compile Include="MP2064.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Visao\Relatorios\r_AtendimentosSintetico.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Visao\Relatorios\r_AtendimentosSintetico.Designer.cs">
+      <DependentUpon>r_AtendimentosSintetico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\Relatorios\r_Pendencias.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Visao\Relatorios\r_Pendencias.Designer.cs">
+      <DependentUpon>r_Pendencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\Relatorios\v_PendenciasRelatorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\Relatorios\v_PendenciasRelatorio.Designer.cs">
+      <DependentUpon>v_PendenciasRelatorio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\SplashScreen1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\SplashScreen1.Designer.cs">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\v_AjustarComissao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\v_AjustarComissao.Designer.cs">
+      <DependentUpon>v_AjustarComissao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visao\v_AtualizarSistema.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +249,12 @@
     </Compile>
     <Compile Include="Visao\v_Backup.Designer.cs">
       <DependentUpon>v_Backup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\v_ControleGeralComissoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\v_ControleGeralComissoes.Designer.cs">
+      <DependentUpon>v_ControleGeralComissoes.cs</DependentUpon>
     </Compile>
     <Compile Include="Visao\v_Corretor.cs">
       <SubType>Form</SubType>
@@ -215,6 +274,12 @@
     <Compile Include="Visao\v_EmpresaLicenca.Designer.cs">
       <DependentUpon>v_EmpresaLicenca.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visao\v_EstruturasComissoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\v_EstruturasComissoes.Designer.cs">
+      <DependentUpon>v_EstruturasComissoes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visao\v_FtpConfig.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,6 +298,12 @@
     <Compile Include="Visao\v_InformarData.Designer.cs">
       <DependentUpon>v_InformarData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visao\v_InserirComissao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\v_InserirComissao.Designer.cs">
+      <DependentUpon>v_InserirComissao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visao\v_Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,6 +321,12 @@
     </Compile>
     <Compile Include="Visao\v_NovaDistribuicaoContrato.Designer.cs">
       <DependentUpon>v_NovaDistribuicaoContrato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\v_NovaEstruturaComissao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\v_NovaEstruturaComissao.Designer.cs">
+      <DependentUpon>v_NovaEstruturaComissao.cs</DependentUpon>
     </Compile>
     <Compile Include="Visao\v_NovoAtendimento.cs">
       <SubType>Form</SubType>
@@ -304,11 +381,29 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Visao\Relatorios\r_AtendimentosSintetico.resx">
+      <DependentUpon>r_AtendimentosSintetico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\Relatorios\r_Pendencias.resx">
+      <DependentUpon>r_Pendencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\Relatorios\v_PendenciasRelatorio.resx">
+      <DependentUpon>v_PendenciasRelatorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\SplashScreen1.resx">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\v_AjustarComissao.resx">
+      <DependentUpon>v_AjustarComissao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_AtualizarSistema.resx">
       <DependentUpon>v_AtualizarSistema.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_Backup.resx">
       <DependentUpon>v_Backup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\v_ControleGeralComissoes.resx">
+      <DependentUpon>v_ControleGeralComissoes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_Corretor.resx">
       <DependentUpon>v_Corretor.cs</DependentUpon>
@@ -319,6 +414,9 @@
     <EmbeddedResource Include="Visao\v_EmpresaLicenca.resx">
       <DependentUpon>v_EmpresaLicenca.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Visao\v_EstruturasComissoes.resx">
+      <DependentUpon>v_EstruturasComissoes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_FtpConfig.resx">
       <DependentUpon>v_FtpConfig.cs</DependentUpon>
     </EmbeddedResource>
@@ -328,6 +426,9 @@
     <EmbeddedResource Include="Visao\v_InformarData.resx">
       <DependentUpon>v_InformarData.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Visao\v_InserirComissao.resx">
+      <DependentUpon>v_InserirComissao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_Login.resx">
       <DependentUpon>v_Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -336,6 +437,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_NovaDistribuicaoContrato.resx">
       <DependentUpon>v_NovaDistribuicaoContrato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\v_NovaEstruturaComissao.resx">
+      <DependentUpon>v_NovaEstruturaComissao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_NovoAtendimento.resx">
       <DependentUpon>v_NovoAtendimento.cs</DependentUpon>
@@ -501,6 +605,16 @@
     <None Include="Resources\CartaoVisitas32x32.png" />
     <None Include="Resources\MostrarSenha24x24.png" />
     <None Include="Resources\AlterarStatusContrato24x24.png" />
+    <None Include="Resources\Triste24x24.png" />
+    <None Include="Resources\Excel32x32.png" />
+    <None Include="Resources\razao-geral-32x32.png" />
+    <None Include="Resources\baixarRecebimentos32x32.png" />
+    <None Include="Resources\AjusteComissao32x32.png" />
+    <None Include="Resources\AReceber32x32.png" />
+    <None Include="Resources\APagar32x32.png" />
+    <None Include="Resources\APagar24x24.png" />
+    <None Include="Resources\anexo24x24.png" />
+    <None Include="Resources\AjusteComissao24x24.png" />
     <Content Include="Visao\LOGOSGS.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

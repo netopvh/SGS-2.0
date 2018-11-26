@@ -29,21 +29,32 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleIconSet formatConditionRuleIconSet1 = new DevExpress.XtraEditors.FormatConditionRuleIconSet();
-            DevExpress.XtraEditors.FormatConditionIconSet formatConditionIconSet1 = new DevExpress.XtraEditors.FormatConditionIconSet();
-            DevExpress.XtraEditors.FormatConditionIconSetIcon formatConditionIconSetIcon1 = new DevExpress.XtraEditors.FormatConditionIconSetIcon();
-            DevExpress.XtraEditors.FormatConditionIconSetIcon formatConditionIconSetIcon2 = new DevExpress.XtraEditors.FormatConditionIconSetIcon();
-            DevExpress.XtraEditors.FormatConditionIconSetIcon formatConditionIconSetIcon3 = new DevExpress.XtraEditors.FormatConditionIconSetIcon();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleIconSet formatConditionRuleIconSet2 = new DevExpress.XtraEditors.FormatConditionRuleIconSet();
+            DevExpress.XtraEditors.FormatConditionIconSet formatConditionIconSet2 = new DevExpress.XtraEditors.FormatConditionIconSet();
+            DevExpress.XtraEditors.FormatConditionIconSetIcon formatConditionIconSetIcon4 = new DevExpress.XtraEditors.FormatConditionIconSetIcon();
+            DevExpress.XtraEditors.FormatConditionIconSetIcon formatConditionIconSetIcon5 = new DevExpress.XtraEditors.FormatConditionIconSetIcon();
+            DevExpress.XtraEditors.FormatConditionIconSetIcon formatConditionIconSetIcon6 = new DevExpress.XtraEditors.FormatConditionIconSetIcon();
             this.gridColumnStatus = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.repositoryItemMemoEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.tabFormControl1 = new DevExpress.XtraBars.TabFormControl();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.tabFormPagePendencias = new DevExpress.XtraBars.TabFormPage();
             this.tabFormContentContainer1 = new DevExpress.XtraBars.TabFormContentContainer();
-            this.btnARevolver = new DevExpress.XtraEditors.SimpleButton();
+            this.btnImprimir = new DevExpress.XtraEditors.DropDownButton();
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.bbiPendencias = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiImprimirGrid = new DevExpress.XtraBars.BarButtonItem();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.toolTipController1 = new DevExpress.Utils.ToolTipController(this.components);
+            this.btnAtualizar = new DevExpress.XtraEditors.SimpleButton();
+            this.btnARevolver = new DevExpress.XtraEditors.SimpleButton();
             this.btnEntregarPendencia = new DevExpress.XtraEditors.SimpleButton();
-            this.btnImprimir = new DevExpress.XtraEditors.SimpleButton();
+            this.btnImprimirTermica = new DevExpress.XtraEditors.SimpleButton();
             this.btnExportar = new DevExpress.XtraEditors.SimpleButton();
             this.btnDevolver = new DevExpress.XtraEditors.SimpleButton();
             this.btnExcluir = new DevExpress.XtraEditors.SimpleButton();
@@ -51,6 +62,7 @@
             this.btnNovo = new DevExpress.XtraEditors.SimpleButton();
             this.btnVoltar = new DevExpress.XtraEditors.SimpleButton();
             this.groupControlTodasPendencias = new DevExpress.XtraEditors.GroupControl();
+            this.searchControl1 = new DevExpress.XtraEditors.SearchControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gdvPendencias = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
             this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
@@ -102,13 +114,14 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.btnAtualizar = new DevExpress.XtraEditors.SimpleButton();
-            this.searchControl1 = new DevExpress.XtraEditors.SearchControl();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabFormControl1)).BeginInit();
             this.tabFormContentContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlTodasPendencias)).BeginInit();
             this.groupControlTodasPendencias.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gdvPendencias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).BeginInit();
@@ -125,7 +138,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtVenda.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLote.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQuadra.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // gridColumnStatus
@@ -151,6 +163,8 @@
             // 
             this.tabFormControl1.AllowMoveTabs = false;
             this.tabFormControl1.AllowMoveTabsToOuterForm = false;
+            this.tabFormControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.barButtonItem1});
             this.tabFormControl1.Location = new System.Drawing.Point(0, 0);
             this.tabFormControl1.Name = "tabFormControl1";
             this.tabFormControl1.Pages.Add(this.tabFormPagePendencias);
@@ -158,11 +172,17 @@
             this.tabFormControl1.SelectedPage = this.tabFormPagePendencias;
             this.tabFormControl1.ShowAddPageButton = false;
             this.tabFormControl1.ShowTabCloseButtons = false;
-            this.tabFormControl1.Size = new System.Drawing.Size(971, 55);
+            this.tabFormControl1.Size = new System.Drawing.Size(1025, 55);
             this.tabFormControl1.TabForm = this;
             this.tabFormControl1.TabIndex = 0;
             this.tabFormControl1.TabStop = false;
             this.tabFormControl1.Click += new System.EventHandler(this.tabFormControl1_Click);
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Pendências A Resolver";
+            this.barButtonItem1.Id = 1;
+            this.barButtonItem1.Name = "barButtonItem1";
             // 
             // tabFormPagePendencias
             // 
@@ -172,10 +192,11 @@
             // 
             // tabFormContentContainer1
             // 
+            this.tabFormContentContainer1.Controls.Add(this.btnImprimir);
             this.tabFormContentContainer1.Controls.Add(this.btnAtualizar);
             this.tabFormContentContainer1.Controls.Add(this.btnARevolver);
             this.tabFormContentContainer1.Controls.Add(this.btnEntregarPendencia);
-            this.tabFormContentContainer1.Controls.Add(this.btnImprimir);
+            this.tabFormContentContainer1.Controls.Add(this.btnImprimirTermica);
             this.tabFormContentContainer1.Controls.Add(this.btnExportar);
             this.tabFormContentContainer1.Controls.Add(this.btnDevolver);
             this.tabFormContentContainer1.Controls.Add(this.btnExcluir);
@@ -186,15 +207,109 @@
             this.tabFormContentContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabFormContentContainer1.Location = new System.Drawing.Point(0, 55);
             this.tabFormContentContainer1.Name = "tabFormContentContainer1";
-            this.tabFormContentContainer1.Size = new System.Drawing.Size(971, 404);
+            this.tabFormContentContainer1.Size = new System.Drawing.Size(1025, 422);
             this.tabFormContentContainer1.TabIndex = 1;
             this.tabFormContentContainer1.Click += new System.EventHandler(this.tabFormContentContainer1_Click);
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnImprimir.DropDownControl = this.popupMenu1;
+            this.btnImprimir.ImageOptions.Image = global::SGS.Properties.Resources.Imprimir_24x24;
+            this.btnImprimir.Location = new System.Drawing.Point(572, 372);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(102, 44);
+            this.btnImprimir.TabIndex = 11;
+            this.btnImprimir.Text = "Relatórios";
+            this.btnImprimir.ToolTip = "Clique aqui para imprimir relatórios!";
+            this.btnImprimir.ToolTipController = this.toolTipController1;
+            this.btnImprimir.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
+            // 
+            // popupMenu1
+            // 
+            this.popupMenu1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiPendencias),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiImprimirGrid)});
+            this.popupMenu1.Manager = this.barManager1;
+            this.popupMenu1.Name = "popupMenu1";
+            // 
+            // bbiPendencias
+            // 
+            this.bbiPendencias.Caption = "Pendências A Resolver";
+            this.bbiPendencias.Id = 0;
+            this.bbiPendencias.Name = "bbiPendencias";
+            this.bbiPendencias.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPendencias_ItemClick);
+            // 
+            // bbiImprimirGrid
+            // 
+            this.bbiImprimirGrid.Caption = "Imprimir Grid";
+            this.bbiImprimirGrid.Id = 1;
+            this.bbiImprimirGrid.Name = "bbiImprimirGrid";
+            this.bbiImprimirGrid.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiImprimirGrid_ItemClick);
+            // 
+            // barManager1
+            // 
+            this.barManager1.DockControls.Add(this.barDockControlTop);
+            this.barManager1.DockControls.Add(this.barDockControlBottom);
+            this.barManager1.DockControls.Add(this.barDockControlLeft);
+            this.barManager1.DockControls.Add(this.barDockControlRight);
+            this.barManager1.Form = this;
+            this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.bbiPendencias,
+            this.bbiImprimirGrid});
+            this.barManager1.MaxItemId = 2;
+            // 
+            // barDockControlTop
+            // 
+            this.barDockControlTop.CausesValidation = false;
+            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Manager = this.barManager1;
+            this.barDockControlTop.Size = new System.Drawing.Size(1025, 0);
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 477);
+            this.barDockControlBottom.Manager = this.barManager1;
+            this.barDockControlBottom.Size = new System.Drawing.Size(1025, 0);
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlLeft.Manager = this.barManager1;
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 477);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(1025, 0);
+            this.barDockControlRight.Manager = this.barManager1;
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 477);
+            // 
+            // btnAtualizar
+            // 
+            this.btnAtualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAtualizar.ImageOptions.Image = global::SGS.Properties.Resources.atualizacao24x24;
+            this.btnAtualizar.Location = new System.Drawing.Point(477, 372);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(89, 44);
+            this.btnAtualizar.TabIndex = 10;
+            this.btnAtualizar.Text = "Atualizar";
+            this.btnAtualizar.ToolTip = "Clique aqui para atualizar o grid!";
+            this.btnAtualizar.ToolTipController = this.toolTipController1;
+            this.btnAtualizar.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // btnARevolver
             // 
             this.btnARevolver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnARevolver.ImageOptions.Image = global::SGS.Properties.Resources.Pendente24x24;
-            this.btnARevolver.Location = new System.Drawing.Point(193, 354);
+            this.btnARevolver.Location = new System.Drawing.Point(193, 372);
             this.btnARevolver.Name = "btnARevolver";
             this.btnARevolver.Size = new System.Drawing.Size(89, 44);
             this.btnARevolver.TabIndex = 9;
@@ -208,7 +323,7 @@
             // 
             this.btnEntregarPendencia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnEntregarPendencia.ImageOptions.Image = global::SGS.Properties.Resources.Atencao24x24;
-            this.btnEntregarPendencia.Location = new System.Drawing.Point(98, 354);
+            this.btnEntregarPendencia.Location = new System.Drawing.Point(98, 372);
             this.btnEntregarPendencia.Name = "btnEntregarPendencia";
             this.btnEntregarPendencia.Size = new System.Drawing.Size(89, 44);
             this.btnEntregarPendencia.TabIndex = 8;
@@ -218,25 +333,25 @@
             this.btnEntregarPendencia.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
             this.btnEntregarPendencia.Click += new System.EventHandler(this.btnEntregarPendencia_Click);
             // 
-            // btnImprimir
+            // btnImprimirTermica
             // 
-            this.btnImprimir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnImprimir.ImageOptions.Image = global::SGS.Properties.Resources.ImprimirTermic2_24x24;
-            this.btnImprimir.Location = new System.Drawing.Point(383, 354);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(89, 44);
-            this.btnImprimir.TabIndex = 7;
-            this.btnImprimir.Text = "Imprimir";
-            this.btnImprimir.ToolTip = "Clique aqui para imprimir protocolo do registro selecionado!";
-            this.btnImprimir.ToolTipController = this.toolTipController1;
-            this.btnImprimir.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            this.btnImprimirTermica.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnImprimirTermica.ImageOptions.Image = global::SGS.Properties.Resources.ImprimirTermic2_24x24;
+            this.btnImprimirTermica.Location = new System.Drawing.Point(383, 372);
+            this.btnImprimirTermica.Name = "btnImprimirTermica";
+            this.btnImprimirTermica.Size = new System.Drawing.Size(89, 44);
+            this.btnImprimirTermica.TabIndex = 7;
+            this.btnImprimirTermica.Text = "Imprimir";
+            this.btnImprimirTermica.ToolTip = "Clique aqui para imprimir protocolo do registro selecionado!";
+            this.btnImprimirTermica.ToolTipController = this.toolTipController1;
+            this.btnImprimirTermica.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
+            this.btnImprimirTermica.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // btnExportar
             // 
             this.btnExportar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnExportar.ImageOptions.Image = global::SGS.Properties.Resources.Excel24x24;
-            this.btnExportar.Location = new System.Drawing.Point(288, 354);
+            this.btnExportar.Location = new System.Drawing.Point(288, 372);
             this.btnExportar.Name = "btnExportar";
             this.btnExportar.Size = new System.Drawing.Size(89, 44);
             this.btnExportar.TabIndex = 6;
@@ -250,7 +365,7 @@
             // 
             this.btnDevolver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnDevolver.ImageOptions.Image = global::SGS.Properties.Resources.OkResolvido24x24;
-            this.btnDevolver.Location = new System.Drawing.Point(3, 354);
+            this.btnDevolver.Location = new System.Drawing.Point(3, 372);
             this.btnDevolver.Name = "btnDevolver";
             this.btnDevolver.Size = new System.Drawing.Size(89, 44);
             this.btnDevolver.TabIndex = 5;
@@ -264,7 +379,7 @@
             // 
             this.btnExcluir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExcluir.ImageOptions.Image = global::SGS.Properties.Resources.ExcluirRegistro24x24;
-            this.btnExcluir.Location = new System.Drawing.Point(812, 354);
+            this.btnExcluir.Location = new System.Drawing.Point(866, 372);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 44);
             this.btnExcluir.TabIndex = 4;
@@ -278,7 +393,7 @@
             // 
             this.btnAlterar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAlterar.ImageOptions.Image = global::SGS.Properties.Resources.EditarRegistro24x24;
-            this.btnAlterar.Location = new System.Drawing.Point(731, 354);
+            this.btnAlterar.Location = new System.Drawing.Point(785, 372);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 44);
             this.btnAlterar.TabIndex = 3;
@@ -292,7 +407,7 @@
             // 
             this.btnNovo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNovo.ImageOptions.Image = global::SGS.Properties.Resources.NovoRegistro24x24;
-            this.btnNovo.Location = new System.Drawing.Point(650, 354);
+            this.btnNovo.Location = new System.Drawing.Point(704, 372);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(75, 44);
             this.btnNovo.TabIndex = 2;
@@ -306,7 +421,7 @@
             // 
             this.btnVoltar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnVoltar.ImageOptions.Image = global::SGS.Properties.Resources.VoltasOffice24x24;
-            this.btnVoltar.Location = new System.Drawing.Point(893, 354);
+            this.btnVoltar.Location = new System.Drawing.Point(947, 372);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(75, 44);
             this.btnVoltar.TabIndex = 1;
@@ -325,9 +440,23 @@
             this.groupControlTodasPendencias.Controls.Add(this.gridControl1);
             this.groupControlTodasPendencias.Location = new System.Drawing.Point(0, 0);
             this.groupControlTodasPendencias.Name = "groupControlTodasPendencias";
-            this.groupControlTodasPendencias.Size = new System.Drawing.Size(971, 348);
+            this.groupControlTodasPendencias.Size = new System.Drawing.Size(1025, 366);
             this.groupControlTodasPendencias.TabIndex = 0;
             this.groupControlTodasPendencias.Text = "Todas";
+            // 
+            // searchControl1
+            // 
+            this.searchControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchControl1.Client = this.gridControl1;
+            this.searchControl1.Location = new System.Drawing.Point(668, 28);
+            this.searchControl1.Name = "searchControl1";
+            this.searchControl1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Repository.ClearButton(),
+            new DevExpress.XtraEditors.Repository.SearchButton()});
+            this.searchControl1.Properties.Client = this.gridControl1;
+            this.searchControl1.Size = new System.Drawing.Size(350, 20);
+            this.searchControl1.TabIndex = 1;
+            this.searchControl1.SelectedIndexChanged += new System.EventHandler(this.searchControl1_SelectedIndexChanged);
             // 
             // gridControl1
             // 
@@ -341,13 +470,15 @@
             this.repositoryItemMemoEdit1,
             this.repositoryItemMemoEdit2,
             this.repositoryItemMemoEdit3});
-            this.gridControl1.Size = new System.Drawing.Size(967, 325);
+            this.gridControl1.Size = new System.Drawing.Size(1021, 343);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gdvPendencias});
             // 
             // gdvPendencias
             // 
+            this.gdvPendencias.Appearance.EvenRow.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.gdvPendencias.Appearance.EvenRow.Options.UseBackColor = true;
             this.gdvPendencias.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
             this.gridBand1});
             this.gdvPendencias.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
@@ -369,46 +500,47 @@
             this.gridColumnUsuarioCad,
             this.gridColumnDataDevolucao,
             this.gridColumnDataEntregaCorretor});
-            gridFormatRule1.Column = this.gridColumnStatus;
-            gridFormatRule1.ColumnApplyTo = this.gridColumnStatus;
-            gridFormatRule1.Name = "FormatStatusCor";
-            formatConditionIconSet1.CategoryName = "Symbols";
-            formatConditionIconSetIcon1.PredefinedName = "Symbols23_1.png";
-            formatConditionIconSetIcon1.Value = new decimal(new int[] {
+            gridFormatRule2.Column = this.gridColumnStatus;
+            gridFormatRule2.ColumnApplyTo = this.gridColumnStatus;
+            gridFormatRule2.Name = "FormatStatusCor";
+            formatConditionIconSet2.CategoryName = "Symbols";
+            formatConditionIconSetIcon4.PredefinedName = "Symbols23_1.png";
+            formatConditionIconSetIcon4.Value = new decimal(new int[] {
             2,
             0,
             0,
             0});
-            formatConditionIconSetIcon1.ValueComparison = DevExpress.XtraEditors.FormatConditionComparisonType.GreaterOrEqual;
-            formatConditionIconSetIcon2.PredefinedName = "Symbols23_2.png";
-            formatConditionIconSetIcon2.Value = new decimal(new int[] {
+            formatConditionIconSetIcon4.ValueComparison = DevExpress.XtraEditors.FormatConditionComparisonType.GreaterOrEqual;
+            formatConditionIconSetIcon5.PredefinedName = "Symbols23_2.png";
+            formatConditionIconSetIcon5.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            formatConditionIconSetIcon2.ValueComparison = DevExpress.XtraEditors.FormatConditionComparisonType.GreaterOrEqual;
-            formatConditionIconSetIcon3.PredefinedName = "Symbols23_3.png";
-            formatConditionIconSetIcon3.ValueComparison = DevExpress.XtraEditors.FormatConditionComparisonType.GreaterOrEqual;
-            formatConditionIconSet1.Icons.Add(formatConditionIconSetIcon1);
-            formatConditionIconSet1.Icons.Add(formatConditionIconSetIcon2);
-            formatConditionIconSet1.Icons.Add(formatConditionIconSetIcon3);
-            formatConditionIconSet1.Name = "Symbols3Circled";
-            formatConditionIconSet1.ValueType = DevExpress.XtraEditors.FormatConditionValueType.Number;
-            formatConditionRuleIconSet1.IconSet = formatConditionIconSet1;
-            gridFormatRule1.Rule = formatConditionRuleIconSet1;
-            this.gdvPendencias.FormatRules.Add(gridFormatRule1);
+            formatConditionIconSetIcon5.ValueComparison = DevExpress.XtraEditors.FormatConditionComparisonType.GreaterOrEqual;
+            formatConditionIconSetIcon6.PredefinedName = "Symbols23_3.png";
+            formatConditionIconSetIcon6.ValueComparison = DevExpress.XtraEditors.FormatConditionComparisonType.GreaterOrEqual;
+            formatConditionIconSet2.Icons.Add(formatConditionIconSetIcon4);
+            formatConditionIconSet2.Icons.Add(formatConditionIconSetIcon5);
+            formatConditionIconSet2.Icons.Add(formatConditionIconSetIcon6);
+            formatConditionIconSet2.Name = "Symbols3Circled";
+            formatConditionIconSet2.ValueType = DevExpress.XtraEditors.FormatConditionValueType.Number;
+            formatConditionRuleIconSet2.IconSet = formatConditionIconSet2;
+            gridFormatRule2.Rule = formatConditionRuleIconSet2;
+            this.gdvPendencias.FormatRules.Add(gridFormatRule2);
             this.gdvPendencias.GridControl = this.gridControl1;
             this.gdvPendencias.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "idpendencias", null, "Total: {0}")});
             this.gdvPendencias.Name = "gdvPendencias";
             this.gdvPendencias.OptionsBehavior.Editable = false;
             this.gdvPendencias.OptionsPrint.EnableAppearanceEvenRow = true;
-            this.gdvPendencias.OptionsPrint.EnableAppearanceOddRow = true;
             this.gdvPendencias.OptionsPrint.PrintBandHeader = false;
             this.gdvPendencias.OptionsPrint.PrintDetails = true;
             this.gdvPendencias.OptionsPrint.PrintFilterInfo = true;
             this.gdvPendencias.OptionsPrint.PrintGroupFooter = false;
+            this.gdvPendencias.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gdvPendencias.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.gdvPendencias.OptionsView.EnableAppearanceEvenRow = true;
             this.gdvPendencias.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gdvPendencias_CustomColumnDisplayText);
             // 
             // gridBand1
@@ -676,13 +808,13 @@
             this.tabFormContentContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabFormContentContainer2.Location = new System.Drawing.Point(0, 55);
             this.tabFormContentContainer2.Name = "tabFormContentContainer2";
-            this.tabFormContentContainer2.Size = new System.Drawing.Size(985, 411);
+            this.tabFormContentContainer2.Size = new System.Drawing.Size(1025, 422);
             this.tabFormContentContainer2.TabIndex = 2;
             // 
             // btnSalvar
             // 
             this.btnSalvar.ImageOptions.Image = global::SGS.Properties.Resources.Salvar24x24;
-            this.btnSalvar.Location = new System.Drawing.Point(826, 363);
+            this.btnSalvar.Location = new System.Drawing.Point(866, 375);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 44);
             this.btnSalvar.TabIndex = 12;
@@ -692,7 +824,7 @@
             // btnCancelar
             // 
             this.btnCancelar.ImageOptions.Image = global::SGS.Properties.Resources.VoltasOffice24x24;
-            this.btnCancelar.Location = new System.Drawing.Point(907, 363);
+            this.btnCancelar.Location = new System.Drawing.Point(947, 375);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 44);
             this.btnCancelar.TabIndex = 13;
@@ -725,7 +857,7 @@
             this.gbxNovaPendencia.Controls.Add(this.labelControl1);
             this.gbxNovaPendencia.Location = new System.Drawing.Point(0, 0);
             this.gbxNovaPendencia.Name = "gbxNovaPendencia";
-            this.gbxNovaPendencia.Size = new System.Drawing.Size(985, 357);
+            this.gbxNovaPendencia.Size = new System.Drawing.Size(1025, 369);
             this.gbxNovaPendencia.TabIndex = 0;
             this.gbxNovaPendencia.Text = "Dados da Pendência";
             // 
@@ -918,41 +1050,17 @@
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2013";
             // 
-            // btnAtualizar
-            // 
-            this.btnAtualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAtualizar.ImageOptions.Image = global::SGS.Properties.Resources.atualizacao24x24;
-            this.btnAtualizar.Location = new System.Drawing.Point(477, 354);
-            this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(89, 44);
-            this.btnAtualizar.TabIndex = 10;
-            this.btnAtualizar.Text = "Atualizar";
-            this.btnAtualizar.ToolTip = "Clique aqui para atualizar o grid!";
-            this.btnAtualizar.ToolTipController = this.toolTipController1;
-            this.btnAtualizar.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
-            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
-            // 
-            // searchControl1
-            // 
-            this.searchControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchControl1.Client = this.gridControl1;
-            this.searchControl1.Location = new System.Drawing.Point(614, 28);
-            this.searchControl1.Name = "searchControl1";
-            this.searchControl1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Repository.ClearButton(),
-            new DevExpress.XtraEditors.Repository.SearchButton()});
-            this.searchControl1.Properties.Client = this.gridControl1;
-            this.searchControl1.Size = new System.Drawing.Size(350, 20);
-            this.searchControl1.TabIndex = 1;
-            this.searchControl1.SelectedIndexChanged += new System.EventHandler(this.searchControl1_SelectedIndexChanged);
-            // 
             // v_Pendencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(971, 459);
+            this.ClientSize = new System.Drawing.Size(1025, 477);
             this.Controls.Add(this.tabFormContentContainer1);
             this.Controls.Add(this.tabFormControl1);
+            this.Controls.Add(this.barDockControlLeft);
+            this.Controls.Add(this.barDockControlRight);
+            this.Controls.Add(this.barDockControlBottom);
+            this.Controls.Add(this.barDockControlTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "v_Pendencias";
             this.ShowIcon = false;
@@ -963,8 +1071,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabFormControl1)).EndInit();
             this.tabFormContentContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlTodasPendencias)).EndInit();
             this.groupControlTodasPendencias.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gdvPendencias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).EndInit();
@@ -982,8 +1093,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtVenda.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLote.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQuadra.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1046,7 +1157,7 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumnDataDevolucao;
         private DevExpress.XtraEditors.SimpleButton btnDevolver;
         private DevExpress.XtraEditors.TextEdit dteDataCadPendencia;
-        private DevExpress.XtraEditors.SimpleButton btnImprimir;
+        private DevExpress.XtraEditors.SimpleButton btnImprimirTermica;
         private DevExpress.XtraEditors.SimpleButton btnExportar;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit3;
@@ -1060,5 +1171,15 @@
         private DevExpress.Utils.ToolTipController toolTipController1;
         private DevExpress.XtraEditors.SimpleButton btnAtualizar;
         private DevExpress.XtraEditors.SearchControl searchControl1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraEditors.DropDownButton btnImprimir;
+        private DevExpress.XtraBars.PopupMenu popupMenu1;
+        private DevExpress.XtraBars.BarButtonItem bbiPendencias;
+        private DevExpress.XtraBars.BarManager barManager1;
+        private DevExpress.XtraBars.BarDockControl barDockControlTop;
+        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
+        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
+        private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraBars.BarButtonItem bbiImprimirGrid;
     }
 }

@@ -157,6 +157,9 @@
   <data name="backup24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\backup24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="APagar24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\APagar24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Sair 24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sair 24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -175,8 +178,14 @@
   <data name="Pesquisar32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Pesquisar32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Triste24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Triste24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Cancelar32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Cancelar32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="baixarRecebimentos32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\baixarRecebimentos32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pendente24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Pendente24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -186,6 +195,9 @@
   </data>
   <data name="ContratoPendente24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ContratoPendente24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="APagar32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\APagar32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ContratoPendente32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ContratoPendente32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -202,6 +214,9 @@
   <data name="Keys24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Keys24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Corretores24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Corretores24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="atualizacao24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\atualizacao24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -217,6 +232,9 @@
   <data name="Atencao24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Atencao24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="anexo24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\anexo24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="contrato32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\contrato32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -226,11 +244,17 @@
   <data name="Loteamento32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Loteamento32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Corretores24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Corretores24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="AReceber32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AReceber32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="FechaNegocio24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FechaNegocio24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Excel32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Excel32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AjusteComissao32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AjusteComissao32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="restaurarbackup24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\restaurarbackup24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -240,6 +264,12 @@
   </data>
   <data name="CartaoVisitas32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CartaoVisitas32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="razao-geral-32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\razao-geral-32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AlterarStatusContrato24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AlterarStatusContrato24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Sair 22x22" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sair 22x22.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -262,7 +292,7 @@
   <data name="atualizacao16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\atualizacao16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="AlterarStatusContrato24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AlterarStatusContrato24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="AjusteComissao24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AjusteComissao24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

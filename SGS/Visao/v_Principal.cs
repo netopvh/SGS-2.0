@@ -70,6 +70,11 @@ namespace SGS.Visao
                     bbiFTP.Enabled = false;
                     bbiRestaurarBackup.Enabled = false;
                     bbiUsuario.Enabled = false;
+                    bbiBaixarRecebimentos.Enabled = false;
+                    bbiControleGeral.Enabled = false;
+                    bbiEstruturasComissoes.Enabled = false;
+                    bbiInserirComissoes.Enabled = false;
+                    
                     break;
                 case 2:
                     bbiAPagar.Enabled = false;
@@ -80,6 +85,10 @@ namespace SGS.Visao
                     bbiFTP.Enabled = false;
                     bbiRestaurarBackup.Enabled = false;
                     bbiUsuario.Enabled = false;
+                    bbiBaixarRecebimentos.Enabled = false;
+                    bbiControleGeral.Enabled = false;
+                    bbiEstruturasComissoes.Enabled = false;
+                    bbiInserirComissoes.Enabled = false;
                     break;
                 case 3:
                     bbiAPagar.Enabled = false;
@@ -90,6 +99,10 @@ namespace SGS.Visao
                     bbiFTP.Enabled = false;
                     bbiRestaurarBackup.Enabled = false;
                     bbiUsuario.Enabled = false;
+                    bbiBaixarRecebimentos.Enabled = false;
+                    bbiControleGeral.Enabled = false;
+                    bbiEstruturasComissoes.Enabled = false;
+                    bbiInserirComissoes.Enabled = false;
                     break;
                 case 4:
                     bbiAPagar.Enabled = false;
@@ -100,6 +113,10 @@ namespace SGS.Visao
                     bbiFTP.Enabled = false;
                     bbiRestaurarBackup.Enabled = false;
                     bbiUsuario.Enabled = false;
+                    bbiBaixarRecebimentos.Enabled = false;
+                    bbiControleGeral.Enabled = false;
+                    bbiEstruturasComissoes.Enabled = false;
+                    bbiInserirComissoes.Enabled = false;
                     break;
                     
                 default:
@@ -265,6 +282,24 @@ namespace SGS.Visao
                 MessageBox.Show("Não foi possível encontrar o execultavel do TeamViewer na pasta do sistema SGS!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
+        }
+
+        private void bbiInserirComissoes_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            v_InserirComissao v_inserirComissao = new v_InserirComissao(_usuario);
+            v_inserirComissao.ShowDialog();
+        }
+
+        private void bbiControleGeral_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            v_ControleGeralComissoes v_GeralComissoes = new v_ControleGeralComissoes(_usuario);
+            v_GeralComissoes.ShowDialog();
+        }
+
+        private void bbiEstruturasComissoes_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            v_EstruturasComissoes v_estruturasComissoes = new v_EstruturasComissoes(_usuario);
+            v_estruturasComissoes.ShowDialog();
         }
     }
 }

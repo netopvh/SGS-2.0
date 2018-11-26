@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.searchControl1 = new DevExpress.XtraEditors.SearchControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.advBandedGridView1 = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
             this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
@@ -44,7 +45,7 @@
             this.GridcolumnIdentificador = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.GridcolumnCorretorAtual = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.GridcolumnAtendimentoAnterior = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.GridcolumnComprou = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.GridcolumnSituacao = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.GridcolumnDataCompra = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.GridcolumnUsuarioCad = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.btnVoltar = new DevExpress.XtraEditors.SimpleButton();
@@ -55,10 +56,23 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.btnComprou = new DevExpress.XtraEditors.SimpleButton();
             this.btnAtualizar = new DevExpress.XtraEditors.SimpleButton();
+            this.dropDownButton1 = new DevExpress.XtraEditors.DropDownButton();
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.bbiAtendimentosSintetico = new DevExpress.XtraBars.BarButtonItem();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.btnDesistiu = new DevExpress.XtraEditors.SimpleButton();
+            this.bbiImprimirGrid = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.advBandedGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // defaultLookAndFeel1
@@ -70,12 +84,26 @@
             this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl1.Controls.Add(this.searchControl1);
             this.groupControl1.Controls.Add(this.gridControl1);
             this.groupControl1.Location = new System.Drawing.Point(12, 12);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(776, 338);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Todas os registros";
+            // 
+            // searchControl1
+            // 
+            this.searchControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchControl1.Client = this.gridControl1;
+            this.searchControl1.Location = new System.Drawing.Point(422, 28);
+            this.searchControl1.Name = "searchControl1";
+            this.searchControl1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Repository.ClearButton(),
+            new DevExpress.XtraEditors.Repository.SearchButton()});
+            this.searchControl1.Properties.Client = this.gridControl1;
+            this.searchControl1.Size = new System.Drawing.Size(350, 20);
+            this.searchControl1.TabIndex = 1;
             // 
             // gridControl1
             // 
@@ -90,6 +118,8 @@
             // 
             // advBandedGridView1
             // 
+            this.advBandedGridView1.Appearance.EvenRow.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.advBandedGridView1.Appearance.EvenRow.Options.UseBackColor = true;
             this.advBandedGridView1.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
             this.gridBand1});
             this.advBandedGridView1.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
@@ -99,7 +129,7 @@
             this.GridcolumnAtendimentoAnterior,
             this.GridcolumnIdentificador,
             this.GridcolumnLocalizou,
-            this.GridcolumnComprou,
+            this.GridcolumnSituacao,
             this.GridcolumnCidadeUF,
             this.GridcolumnCorretorAtual,
             this.GridcolumnEmpreendimento,
@@ -109,10 +139,15 @@
             this.advBandedGridView1.GridControl = this.gridControl1;
             this.advBandedGridView1.Name = "advBandedGridView1";
             this.advBandedGridView1.OptionsBehavior.Editable = false;
+            this.advBandedGridView1.OptionsPrint.EnableAppearanceEvenRow = true;
+            this.advBandedGridView1.OptionsPrint.PrintBandHeader = false;
+            this.advBandedGridView1.OptionsPrint.PrintDetails = true;
             this.advBandedGridView1.OptionsPrint.PrintFilterInfo = true;
+            this.advBandedGridView1.OptionsPrint.PrintGroupFooter = false;
+            this.advBandedGridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.advBandedGridView1.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.advBandedGridView1.OptionsView.EnableAppearanceEvenRow = true;
             this.advBandedGridView1.OptionsView.ShowFooter = true;
-            this.advBandedGridView1.OptionsView.ShowGroupPanel = false;
             // 
             // gridBand1
             // 
@@ -130,7 +165,7 @@
             this.gridBand1.Columns.Add(this.GridcolumnIdentificador);
             this.gridBand1.Columns.Add(this.GridcolumnCorretorAtual);
             this.gridBand1.Columns.Add(this.GridcolumnAtendimentoAnterior);
-            this.gridBand1.Columns.Add(this.GridcolumnComprou);
+            this.gridBand1.Columns.Add(this.GridcolumnSituacao);
             this.gridBand1.Columns.Add(this.GridcolumnDataCompra);
             this.gridBand1.Columns.Add(this.GridcolumnUsuarioCad);
             this.gridBand1.Name = "gridBand1";
@@ -274,19 +309,19 @@
             this.GridcolumnAtendimentoAnterior.Visible = true;
             this.GridcolumnAtendimentoAnterior.Width = 153;
             // 
-            // GridcolumnComprou
+            // GridcolumnSituacao
             // 
-            this.GridcolumnComprou.AppearanceCell.Options.UseTextOptions = true;
-            this.GridcolumnComprou.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.GridcolumnComprou.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.GridcolumnComprou.AppearanceHeader.Options.UseTextOptions = true;
-            this.GridcolumnComprou.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.GridcolumnComprou.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.GridcolumnComprou.Caption = "Comprou";
-            this.GridcolumnComprou.FieldName = "comprou";
-            this.GridcolumnComprou.Name = "GridcolumnComprou";
-            this.GridcolumnComprou.Visible = true;
-            this.GridcolumnComprou.Width = 62;
+            this.GridcolumnSituacao.AppearanceCell.Options.UseTextOptions = true;
+            this.GridcolumnSituacao.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.GridcolumnSituacao.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.GridcolumnSituacao.AppearanceHeader.Options.UseTextOptions = true;
+            this.GridcolumnSituacao.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.GridcolumnSituacao.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.GridcolumnSituacao.Caption = "Situação";
+            this.GridcolumnSituacao.FieldName = "comprou";
+            this.GridcolumnSituacao.Name = "GridcolumnSituacao";
+            this.GridcolumnSituacao.Visible = true;
+            this.GridcolumnSituacao.Width = 62;
             // 
             // GridcolumnDataCompra
             // 
@@ -360,7 +395,7 @@
             // 
             this.btnExportar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnExportar.ImageOptions.Image = global::SGS.Properties.Resources.Excel24x24;
-            this.btnExportar.Location = new System.Drawing.Point(93, 356);
+            this.btnExportar.Location = new System.Drawing.Point(174, 356);
             this.btnExportar.Name = "btnExportar";
             this.btnExportar.Size = new System.Drawing.Size(75, 44);
             this.btnExportar.TabIndex = 5;
@@ -382,18 +417,107 @@
             // 
             this.btnAtualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAtualizar.ImageOptions.Image = global::SGS.Properties.Resources.atualizacao24x24;
-            this.btnAtualizar.Location = new System.Drawing.Point(174, 356);
+            this.btnAtualizar.Location = new System.Drawing.Point(255, 356);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(75, 44);
             this.btnAtualizar.TabIndex = 7;
             this.btnAtualizar.Text = "Atualizar";
             this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
+            // dropDownButton1
+            // 
+            this.dropDownButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dropDownButton1.ImageOptions.Image = global::SGS.Properties.Resources.Imprimir_24x24;
+            this.dropDownButton1.Location = new System.Drawing.Point(336, 356);
+            this.dropDownButton1.Name = "dropDownButton1";
+            this.dropDownButton1.Size = new System.Drawing.Size(103, 44);
+            this.dropDownButton1.TabIndex = 8;
+            this.dropDownButton1.Text = "Relatórios";
+            // 
+            // popupMenu1
+            // 
+            this.popupMenu1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiAtendimentosSintetico),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiImprimirGrid)});
+            this.popupMenu1.Manager = this.barManager1;
+            this.popupMenu1.Name = "popupMenu1";
+            // 
+            // bbiAtendimentosSintetico
+            // 
+            this.bbiAtendimentosSintetico.Caption = "Atendimentos Sintetico";
+            this.bbiAtendimentosSintetico.Id = 0;
+            this.bbiAtendimentosSintetico.Name = "bbiAtendimentosSintetico";
+            this.bbiAtendimentosSintetico.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAtendimentosSintetico_ItemClick);
+            // 
+            // barManager1
+            // 
+            this.barManager1.DockControls.Add(this.barDockControlTop);
+            this.barManager1.DockControls.Add(this.barDockControlBottom);
+            this.barManager1.DockControls.Add(this.barDockControlLeft);
+            this.barManager1.DockControls.Add(this.barDockControlRight);
+            this.barManager1.Form = this;
+            this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.bbiAtendimentosSintetico,
+            this.bbiImprimirGrid});
+            this.barManager1.MaxItemId = 2;
+            // 
+            // barDockControlTop
+            // 
+            this.barDockControlTop.CausesValidation = false;
+            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Manager = this.barManager1;
+            this.barDockControlTop.Size = new System.Drawing.Size(800, 0);
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 404);
+            this.barDockControlBottom.Manager = this.barManager1;
+            this.barDockControlBottom.Size = new System.Drawing.Size(800, 0);
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlLeft.Manager = this.barManager1;
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 404);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(800, 0);
+            this.barDockControlRight.Manager = this.barManager1;
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 404);
+            // 
+            // btnDesistiu
+            // 
+            this.btnDesistiu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDesistiu.ImageOptions.Image = global::SGS.Properties.Resources.Triste24x24;
+            this.btnDesistiu.Location = new System.Drawing.Point(93, 356);
+            this.btnDesistiu.Name = "btnDesistiu";
+            this.btnDesistiu.Size = new System.Drawing.Size(75, 44);
+            this.btnDesistiu.TabIndex = 13;
+            this.btnDesistiu.Text = "Desistiu";
+            this.btnDesistiu.Click += new System.EventHandler(this.btnDesistiu_Click);
+            // 
+            // bbiImprimirGrid
+            // 
+            this.bbiImprimirGrid.Caption = "ImprimirGrid";
+            this.bbiImprimirGrid.Id = 1;
+            this.bbiImprimirGrid.Name = "bbiImprimirGrid";
+            this.bbiImprimirGrid.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiImprimirGrid_ItemClick);
+            // 
             // v_VisitasStand
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 404);
+            this.Controls.Add(this.btnDesistiu);
+            this.Controls.Add(this.dropDownButton1);
             this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.btnComprou);
             this.Controls.Add(this.btnExportar);
@@ -402,6 +526,10 @@
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.groupControl1);
+            this.Controls.Add(this.barDockControlLeft);
+            this.Controls.Add(this.barDockControlRight);
+            this.Controls.Add(this.barDockControlBottom);
+            this.Controls.Add(this.barDockControlTop);
             this.Name = "v_VisitasStand";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -411,9 +539,13 @@
             this.Enter += new System.EventHandler(this.v_VisitasStand_Enter);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.advBandedGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -434,7 +566,7 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn GridcolumnAtendimentoAnterior;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn GridcolumnIdentificador;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn GridcolumnLocalizou;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn GridcolumnComprou;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn GridcolumnSituacao;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn GridcolumnCidadeUF;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn GridcolumnCorretorAtual;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn GridcolumnEmpreendimento;
@@ -446,5 +578,16 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private DevExpress.XtraEditors.SimpleButton btnComprou;
         private DevExpress.XtraEditors.SimpleButton btnAtualizar;
+        private DevExpress.XtraEditors.SearchControl searchControl1;
+        private DevExpress.XtraEditors.DropDownButton dropDownButton1;
+        private DevExpress.XtraBars.PopupMenu popupMenu1;
+        private DevExpress.XtraBars.BarButtonItem bbiAtendimentosSintetico;
+        private DevExpress.XtraBars.BarManager barManager1;
+        private DevExpress.XtraBars.BarDockControl barDockControlTop;
+        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
+        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
+        private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraEditors.SimpleButton btnDesistiu;
+        private DevExpress.XtraBars.BarButtonItem bbiImprimirGrid;
     }
 }
