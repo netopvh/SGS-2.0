@@ -69,11 +69,19 @@ namespace SGS.Visao
                     tabFormControl.SelectedPage = tabFormPageCorretores;
                     break;
                 case "excluir":
-                    //<SEU_GRID>.GetRowCellValue(SEU_GRID.GetSelectedRows()[index], SEU_GRID.Columns[0]);
-                    m_corretor.idcorretor = (int)gdvCorretores.GetRowCellValue(gdvCorretores.GetSelectedRows()[0],gdvCorretores.Columns[0]);
-                    c_corretor.ExcluirCorretor(m_corretor);
-                    MessageBox.Show("Excluido com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    CarregarCorretores();
+                    try
+                    {
+                        //<SEU_GRID>.GetRowCellValue(SEU_GRID.GetSelectedRows()[index], SEU_GRID.Columns[0]);
+                        m_corretor.idcorretor = (int)gdvCorretores.GetRowCellValue(gdvCorretores.GetSelectedRows()[0], gdvCorretores.Columns[0]);
+                        c_corretor.ExcluirCorretor(m_corretor);
+                        MessageBox.Show("Excluido com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CarregarCorretores();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error:"+ex.Message, "SGS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    
                     
                     break;
                 case "alterar":

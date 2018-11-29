@@ -91,19 +91,22 @@ namespace SGS.Visao
 
         private void advBandedGridView1_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
         {
-            /*
-             * if (e.Column.FieldName == "status")
+            if (e.Column.FieldName == "status")
             {
-                if ((int)e.Value == 0) e.DisplayText = "0 - A Resolver";
-                if ((int)e.Value == 1) e.DisplayText = "1 - Corretor";
-                if ((int)e.Value == 2) e.DisplayText = "2 - Resolvido";
-            }*/
+                if ((int)e.Value == 0) e.DisplayText = "0 - Não Liberada";
+                if ((int)e.Value == 1) e.DisplayText = "1 - Liberada";
+                if ((int)e.Value == 2) e.DisplayText = "2 - Paga";
+                if ((int)e.Value == 3) e.DisplayText = "3 - Bloqueada";
+                if ((int)e.Value == 4) e.DisplayText = "4 - Cancelada";
+            }
         }
         private void Funcao(string funcao)
         {
             switch (funcao)
             {
                 case "novo":
+                    v_NovaComissao v_novaComissao = new v_NovaComissao();
+                    v_novaComissao.ShowDialog();
                     break;
                 case "alterar":
                     break;
@@ -114,6 +117,30 @@ namespace SGS.Visao
                     CarregarGrid();
                     break;
                 case "ajustar":
+                    v_AjustarComissao v_ajustar = new v_AjustarComissao(
+                    Convert.ToInt32(advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[0])),
+                    advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[8]).ToString(),
+                    advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[2]).ToString(),
+                    advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[3]).ToString(),
+                    advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[4]).ToString(),
+                    (decimal)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[10]),
+                    (decimal)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[17]),
+                    (int)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[14])
+                    , _usuarioCad);
+                    v_ajustar.ShowDialog();
+                    break;
+                case "pagar":
+                    v_PagarComissao v_pagar = new v_PagarComissao(
+                        Convert.ToInt32(advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[0])),
+                        advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[8]).ToString(),
+                        advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[21]).ToString(),
+                        advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[19]).ToString(),
+                        advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[13]).ToString(),
+                        advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[2]).ToString(),
+                        advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[3]).ToString(),
+                        advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[4]).ToString(),
+                        _usuarioCad);
+                    v_pagar.ShowDialog();
                     break;
                 default:
                     break;
@@ -121,7 +148,7 @@ namespace SGS.Visao
         }
         private void btnNovo_Click(object sender, EventArgs e)
         {
-
+            Funcao("novo");
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
@@ -180,7 +207,7 @@ namespace SGS.Visao
         {
             if (advBandedGridView1.SelectedRowsCount == 1)
             {
-
+                Funcao("pagar");
             }
         }
 
@@ -198,17 +225,7 @@ namespace SGS.Visao
         {
             if (advBandedGridView1.SelectedRowsCount == 1)
             {
-                v_AjustarComissao v_ajustar = new v_AjustarComissao(
-                    Convert.ToInt32(advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[0])),
-                    advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[8]).ToString(),
-                    advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[2]).ToString(),
-                    advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[3]).ToString(),
-                    advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[4]).ToString(),
-                    (decimal)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[10]),
-                    (decimal)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[17]),
-                    (int)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[14])
-                    , _usuarioCad);
-                v_ajustar.ShowDialog();
+                Funcao("ajustar");
             }
         }
     }

@@ -105,9 +105,9 @@ namespace SGS.Visao
                     bbiInserirComissoes.Enabled = false;
                     break;
                 case 4:
-                    bbiAPagar.Enabled = false;
-                    bbiAreceber.Enabled = false;
-                    bbiEmail.Enabled = false;
+                    bbiAPagar.Enabled = true;
+                    bbiAreceber.Enabled = true;
+                    bbiEmail.Enabled = true;
                     bbiFechamentoCaixa.Enabled = false;
                     bbiFluxoCaixa.Enabled = false;
                     bbiFTP.Enabled = false;
@@ -243,7 +243,9 @@ namespace SGS.Visao
 
         private void bbiEmail_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            MessageBox.Show("Em Desenvolvimento", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //MessageBox.Show("Em Desenvolvimento", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            v_EmailConfig v_emailConfig = new v_EmailConfig();
+            v_emailConfig.ShowDialog();
         }
 
         private void bbiAreceber_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

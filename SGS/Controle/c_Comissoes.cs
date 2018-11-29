@@ -22,6 +22,7 @@ namespace SGS.Controle
             dataTable.Load(reader);
             return dataTable;
         }
+        
         public void NovasComissoes(m_Comissoes m_comissoes)
         {
             MySqlConnection conexao = c_ConexaoMySql.GetConexao();
@@ -57,6 +58,17 @@ namespace SGS.Controle
             comando.CommandText =
                 "delete from comissoes where idcomissoes = @idcomissoes;";
             comando.Parameters.Add(new MySqlParameter("@idcomissoes", m_comissoes.idcomissoes));
+            comando.ExecuteNonQuery();
+        }
+        public void AlterarDataPagmentoComissao(m_Comissoes m_comissoes)
+        {
+            MySqlConnection conexao = c_ConexaoMySql.GetConexao();
+            MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
+            comando.CommandType = System.Data.CommandType.Text;
+            comando.CommandText =
+                "update comissoes set datapagamentocomissao = @datapagamentocomissao  where idcomissoes = @idcomissoes;";
+            comando.Parameters.Add(new MySqlParameter("@idcomissoes", m_comissoes.idcomissoes));
+            comando.Parameters.Add(new MySqlParameter("@datapagamentocomissao", m_comissoes.datapagamentocomissao));
             comando.ExecuteNonQuery();
         }
         public void AlterarPorcentagensComissoesImobCorretor(m_Comissoes m_comissoes)

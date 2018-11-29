@@ -24,7 +24,8 @@ namespace SGS.Visao
             this.c_atendimento = new c_Atendimento();
             this.m_atendimento = new m_Atendimento();
         }
-        public v_InformarData(int CodigoAtendimento, string UsuarioCad)
+        
+        public v_InformarData(int CodigoAtendimento, string UsuarioCad)//Para informar Data da compra
         {
             InitializeComponent();
             this.c_atendimento = new c_Atendimento();

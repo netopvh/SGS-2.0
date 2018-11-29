@@ -144,12 +144,16 @@
     <Reference Include="DevExpress.XtraScheduler.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraScheduler.v17.1.Core, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraVerticalGrid.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EPPlus, Version=4.5.2.1, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.2.1\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.10.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.6.10.7\lib\net452\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="MySqlBackup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MySqlBackup.1.0.1\lib\MySqlBackup.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -159,6 +163,7 @@
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
@@ -178,6 +183,7 @@
     <Compile Include="Controle\c_ConexaoMySql.cs" />
     <Compile Include="Controle\c_Corretor.cs" />
     <Compile Include="Controle\c_Distribuicaocontratos.cs" />
+    <Compile Include="Controle\c_EmailConfig.cs" />
     <Compile Include="Controle\c_EstruturaComissao.cs" />
     <Compile Include="Controle\c_Ftpconfig.cs" />
     <Compile Include="Controle\c_Loteamento.cs" />
@@ -198,6 +204,7 @@
     <Compile Include="Modelo\m_Comissoes.cs" />
     <Compile Include="Modelo\m_Corretor.cs" />
     <Compile Include="Modelo\m_Distribuicaocontratos.cs" />
+    <Compile Include="Modelo\m_EmailConfig.cs" />
     <Compile Include="Modelo\m_EmpresaLicenca.cs" />
     <Compile Include="Modelo\m_EstruturaComissao.cs" />
     <Compile Include="Modelo\m_Ftpconfig.cs" />
@@ -268,6 +275,12 @@
     <Compile Include="Visao\v_DistContrato.Designer.cs">
       <DependentUpon>v_DistContrato.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visao\v_EmailConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\v_EmailConfig.Designer.cs">
+      <DependentUpon>v_EmailConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visao\v_EmpresaLicenca.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -316,6 +329,12 @@
     <Compile Include="Visao\v_Loteamento.Designer.cs">
       <DependentUpon>v_Loteamento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visao\v_NovaComissao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\v_NovaComissao.Designer.cs">
+      <DependentUpon>v_NovaComissao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visao\v_NovaDistribuicaoContrato.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -328,11 +347,23 @@
     <Compile Include="Visao\v_NovaEstruturaComissao.Designer.cs">
       <DependentUpon>v_NovaEstruturaComissao.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visao\v_NovaPendencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\v_NovaPendencia.Designer.cs">
+      <DependentUpon>v_NovaPendencia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visao\v_NovoAtendimento.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Visao\v_NovoAtendimento.designer.cs">
       <DependentUpon>v_NovoAtendimento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\v_PagarComissao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\v_PagarComissao.Designer.cs">
+      <DependentUpon>v_PagarComissao.cs</DependentUpon>
     </Compile>
     <Compile Include="Visao\v_Pendencias.cs">
       <SubType>Form</SubType>
@@ -411,6 +442,9 @@
     <EmbeddedResource Include="Visao\v_DistContrato.resx">
       <DependentUpon>v_DistContrato.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Visao\v_EmailConfig.resx">
+      <DependentUpon>v_EmailConfig.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_EmpresaLicenca.resx">
       <DependentUpon>v_EmpresaLicenca.cs</DependentUpon>
     </EmbeddedResource>
@@ -435,14 +469,23 @@
     <EmbeddedResource Include="Visao\v_Loteamento.resx">
       <DependentUpon>v_Loteamento.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Visao\v_NovaComissao.resx">
+      <DependentUpon>v_NovaComissao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_NovaDistribuicaoContrato.resx">
       <DependentUpon>v_NovaDistribuicaoContrato.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_NovaEstruturaComissao.resx">
       <DependentUpon>v_NovaEstruturaComissao.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Visao\v_NovaPendencia.resx">
+      <DependentUpon>v_NovaPendencia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_NovoAtendimento.resx">
       <DependentUpon>v_NovoAtendimento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\v_PagarComissao.resx">
+      <DependentUpon>v_PagarComissao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_Pendencias.resx">
       <DependentUpon>v_Pendencias.cs</DependentUpon>
@@ -615,6 +658,8 @@
     <None Include="Resources\APagar24x24.png" />
     <None Include="Resources\anexo24x24.png" />
     <None Include="Resources\AjusteComissao24x24.png" />
+    <None Include="Resources\NF24x24.png" />
+    <None Include="Resources\EnviarEmail24x24.png" />
     <Content Include="Visao\LOGOSGS.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

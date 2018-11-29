@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Windows.Forms;
 
 namespace SGS.Controle
 {
@@ -36,6 +37,24 @@ namespace SGS.Controle
             return dataTable;
 
         }
+        public string GetEmailCorretor(m_Corretor m_corretor)
+        {
+            string resultado = "";
+
+            MySqlConnection conexao = c_ConexaoMySql.GetConexao();
+            MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
+            comando.CommandText =
+            "select email from corretor where idcorretor = @idcorretor;";
+            comando.CommandType = CommandType.Text;
+            comando.Parameters.Add(new MySqlParameter("@idcorretor", m_corretor.idcorretor));
+            MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
+            while (reader.Read())
+            {
+                resultado = reader.GetString(0);
+            }
+            return resultado;
+
+        }
         public void NovoCorretor(m_Corretor m_corretor)
         {
             MySqlConnection conexao = c_ConexaoMySql.GetConexao();
@@ -53,13 +72,21 @@ namespace SGS.Controle
         }
         public void ExcluirCorretor(m_Corretor m_corretor)
         {
-            MySqlConnection conexao = c_ConexaoMySql.GetConexao();
-            MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
-            comando.CommandType = System.Data.CommandType.Text;
-            comando.CommandText =
-                "delete from corretor where idcorretor = @idcorretor;";
-            comando.Parameters.Add(new MySqlParameter("@idcorretor", m_corretor.idcorretor));
-            comando.ExecuteNonQuery();
+            try
+            {
+                MySqlConnection conexao = c_ConexaoMySql.GetConexao();
+                MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
+                comando.CommandType = System.Data.CommandType.Text;
+                comando.CommandText =
+                    "delete from corretor where idcorretor = @idcorretor;";
+                comando.Parameters.Add(new MySqlParameter("@idcorretor", m_corretor.idcorretor));
+                comando.ExecuteNonQuery();
+            }
+            catch (MySql.Data.MySqlClient.MySqlException mex)
+            {
+                MessageBox.Show("Error:"+mex.Message, "SGS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
         public void AlterarCorretor(m_Corretor m_corretor)
         {

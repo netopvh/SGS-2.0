@@ -12,6 +12,7 @@ using SGS.Controle;
 using SGS.Enum;
 using DevExpress.XtraEditors.Controls;
 using System.Configuration;
+using DevExpress.XtraEditors.Repository;
 
 namespace SGS.Visao
 {
@@ -20,22 +21,13 @@ namespace SGS.Visao
 
         c_Pendencias c_pendencias;
         m_Pendencias m_pendencias;
-        c_Loteamento c_loteamento;
-        m_Loteamento m_loteamento;
-        c_Corretor c_corretor;
-        m_Corretor m_corretor;
         int iRetorno = 0; //Variável para retorno das chamadas
         string _usuariocad;
         int _permissao;
-        bool _alterarCad;
         public v_Pendencias()
         {
             
             InitializeComponent();
-            this.c_loteamento = new c_Loteamento();
-            this.m_loteamento = new m_Loteamento();
-            this.c_corretor = new c_Corretor();
-            this.m_corretor = new m_Corretor();
             this.c_pendencias = new c_Pendencias();
             this.m_pendencias = new m_Pendencias();
         }
@@ -43,52 +35,22 @@ namespace SGS.Visao
         {
             
             InitializeComponent();
-            this.c_loteamento = new c_Loteamento();
-            this.m_loteamento = new m_Loteamento();
-            this.c_corretor = new c_Corretor();
-            this.m_corretor = new m_Corretor();
             this.c_pendencias = new c_Pendencias();
             this.m_pendencias = new m_Pendencias();
             _usuariocad = Usuario;
             _permissao = Permissao;
             
         }
-        private void LimparCampos()
-        {
-            txtCliente.Text = string.Empty;
-            txtLote.Text = string.Empty;
-            txtNumeroContrato.Text = string.Empty;
-            txtPendencia.Text = string.Empty;
-            txtQuadra.Text = string.Empty;
-            txtVenda.Text = string.Empty;
-            
-            LookUpEditLoteamento.Text = string.Empty;
-            LookUpEditCorretor.Text = string.Empty;
-            LookUpEditCorretor.EditValue = -1;
-            LookUpEditLoteamento.EditValue = -1;
-        }
+        
         private void funcao(string funcao)
         {
             switch (funcao)
             {
                 case "novapendencia":
-                    _alterarCad = false;
-                    LimparCampos();
-                    tabFormControl1.SelectedPage = tabFormPageNovaPendencia;
-                    gbxNovaPendencia.Enabled = true;
-                    btnCancelar.Enabled = true;
-                    btnSalvar.Enabled = true;
-                    dteDataCadPendencia.EditValue = DateTime.Now;
-
+                    v_NovaPendencia v_novaPendencia = new v_NovaPendencia(_usuariocad,false);
+                    v_novaPendencia.ShowDialog();
                     break;
-                case "cancelarnovo":
-                    LimparCampos();
-                    gbxNovaPendencia.Enabled = false;
-                    btnSalvar.Enabled = false;
-                    btnCancelar.Enabled = false;
-                    tabFormControl1.SelectedPage = tabFormPagePendencias;
-
-                    break;
+                
                 case "excluir":
                     m_pendencias.idpendencias = (int)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[0]);
                     c_pendencias.ExcluirPendencias(m_pendencias);
@@ -97,7 +59,22 @@ namespace SGS.Visao
 
                     break;
                 case "alterar":
-                    _alterarCad = true;
+                    v_NovaPendencia v_AlterarPendencia = new v_NovaPendencia(
+                        (int)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[0]),
+                        (int)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[1]),
+                        (int)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[3]),
+                        (string)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[5]),
+                        (string)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[6]),
+                        (string)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[7]),
+                        (string)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[8]),
+                        (string)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[9]),
+                        (string)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[10]),
+                        Convert.ToDateTime(gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[12]).ToString()),
+                        Convert.ToDateTime(gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[13]).ToString()),
+                        Convert.ToDateTime(gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[14]).ToString()),
+                        _usuariocad,true);
+                    v_AlterarPendencia.ShowDialog();
+                    /*_alterarCad = true;
                     m_pendencias.idpendencias = (int)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[0]);
                     LookUpEditLoteamento.EditValue = (int)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[1]);
                     LookUpEditCorretor.EditValue = (int)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[3]);
@@ -115,7 +92,7 @@ namespace SGS.Visao
                     gbxNovaPendencia.Enabled = true;
                     btnCancelar.Enabled = true;
                     btnSalvar.Enabled = true;
-
+                    */
                     break;
                 case "devolvido":
                     m_pendencias.idpendencias = (int)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[0]);
@@ -144,48 +121,6 @@ namespace SGS.Visao
                     MessageBox.Show("Você voltou a pendência para o Status A Revolver com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     CarregarPendencias();
                     break;
-                    
-
-                case "salvar":
-                    m_pendencias.nomecliente = txtCliente.Text;
-                    m_pendencias.quadra = txtQuadra.Text;
-                    m_pendencias.lote = txtLote.Text;
-                    m_pendencias.numerocontrato = txtNumeroContrato.Text;
-                    m_pendencias.pendencia = txtPendencia.Text;
-                    m_pendencias.usuariocad = _usuariocad;
-                    m_pendencias.datacadastro = Convert.ToDateTime(dtpDataCad.Value.ToShortDateString());
-                    m_pendencias.datavenda = Convert.ToDateTime(dtpDataVenda.Value.ToShortDateString());
-                    m_pendencias.datacadpendencia = Convert.ToDateTime(dteDataCadPendencia.Text);
-                    m_pendencias.venda = txtVenda.Text;
-                    m_pendencias.fk_corretor_pendencias = (int)LookUpEditCorretor.EditValue;
-                    m_pendencias.fk_loteamento_pendencias = (int)LookUpEditLoteamento.EditValue;
-                    //Status pendencia 0 = corretor, 1 = resolvido.
-                    m_pendencias.status = (int)e_StatusPendencia.A_Resolver;
-
-
-                    if (_alterarCad == true)
-                    {
-                        
-                        c_pendencias.AlterarPendencias(m_pendencias);
-                        MessageBox.Show("Alterado com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        CarregarPendencias();
-                    }
-                    else if (_alterarCad == false)
-                    {
-                        
-                        c_pendencias.NovoPendencias(m_pendencias);
-                        MessageBox.Show("Salvo com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        CarregarPendencias();
-                    }
-
-                    LimparCampos();
-                    gbxNovaPendencia.Enabled = false;
-                    btnSalvar.Enabled = false;
-                    btnCancelar.Enabled = false;
-                    
-                    tabFormControl1.SelectedPage = tabFormPagePendencias;
-                    break;
-
                 default:
                     break;
             }
@@ -292,51 +227,21 @@ namespace SGS.Visao
 
         private void v_Pendencias_Load(object sender, EventArgs e)
         {
-            txtQuadra.Properties.MaxLength = 3;
-            txtLote.Properties.MaxLength = 3;
-            txtVenda.Properties.MaxLength = 10;
-            txtNumeroContrato.Properties.MaxLength = 10;
-            txtPendencia.Properties.MaxLength = 150;
-            
-            
-            _alterarCad = false;
             CancelButton = btnVoltar;
-            LimparCampos();
-            gbxNovaPendencia.Enabled = false;
-            btnCancelar.Enabled = false;
-            btnSalvar.Enabled = false;
             tabFormControl1.SelectedPage = tabFormPagePendencias;
             Permissao();
             CarregarPendencias();
-            gdvPendencias.BestFitColumns(true);
-            CarregarCorretores();
-            CarregarLoteamentos();
+            //gdvPendencias.BestFitColumns(true);
+            
         }
-        private void CarregarPendencias()
+        public void CarregarPendencias()
         {
             DataTable dtPendencias = new DataTable();
             dtPendencias = c_pendencias.CarregarPendenciaCorretorLoteamento();
             gridControl1.DataSource = dtPendencias;
             gdvPendencias.RefreshData();
         }
-        private void CarregarCorretores()
-        {
-            DataTable dtCorretor = new DataTable();
-            dtCorretor = c_corretor.CarregarCorretor();
-            LookUpEditCorretor.Properties.DataSource = dtCorretor;
-            LookUpEditCorretor.Properties.DisplayMember = "nome";
-            LookUpEditCorretor.Properties.ValueMember = "idcorretor";
-            LookUpEditCorretor.ItemIndex = -1;
-        }
-        private void CarregarLoteamentos()
-        {
-            DataTable dtLoteamento = new DataTable();
-            dtLoteamento = c_loteamento.CarregarLoteamento();
-            LookUpEditLoteamento.Properties.DataSource = dtLoteamento;
-            LookUpEditLoteamento.Properties.DisplayMember = "nome";
-            LookUpEditLoteamento.Properties.ValueMember = "idloteamento";
-            LookUpEditLoteamento.ItemIndex = -1;
-        }
+        
         private void tabFormContentContainer1_Click(object sender, EventArgs e)
         {
 
@@ -346,32 +251,6 @@ namespace SGS.Visao
         {
             funcao("cancelarnovo");
         }
-
-        private void btnSalvar_Click(object sender, EventArgs e)
-        {
-            if (txtCliente.Text != string.Empty && txtPendencia.Text != string.Empty && txtQuadra.Text != string.Empty && txtLote.Text != string.Empty)
-            {
-                if (_alterarCad == true)
-                {
-                    if (MessageBox.Show("Deseja salvar as alterações do cadastro da Pendência?", "SGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        funcao("salvar");
-                    }
-                }
-                else if (_alterarCad == false)
-                {
-                    if (MessageBox.Show("Deseja salvar o cadastro da nova Pendência?", "SGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        funcao("salvar");
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Verifique se todos os campos foram preenchidos!...", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-        }
-
         private void loteamentoBindingSource_CurrentChanged(object sender, EventArgs e)
         {
 
@@ -500,12 +379,20 @@ namespace SGS.Visao
 
         private void gdvPendencias_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
         {
-            if (e.Column.FieldName == "status")
+            try
             {
-                if ((int)e.Value == 0) e.DisplayText = "0 - A Resolver";
-                if ((int)e.Value == 1) e.DisplayText = "1 - Corretor";
-                if ((int)e.Value == 2) e.DisplayText = "2 - Resolvido";
+                if (e.Column.FieldName == "status")
+                {
+                    if ((int)e.Value == 0) e.DisplayText = "0 - A Resolver";
+                    if ((int)e.Value == 1) e.DisplayText = "1 - Corretor";
+                    if ((int)e.Value == 2) e.DisplayText = "2 - Resolvido";
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:" + ex.Message, "SGS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void btnEntregarPendencia_Click(object sender, EventArgs e)
@@ -574,5 +461,12 @@ namespace SGS.Visao
         {
             gridControl1.ShowRibbonPrintPreview();
         }
+
+        private void btnEmail_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

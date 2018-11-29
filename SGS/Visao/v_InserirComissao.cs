@@ -19,6 +19,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using DevExpress.XtraSpreadsheet;
+using OfficeOpenXml;
 
 namespace SGS.Visao
 {
@@ -137,7 +139,34 @@ namespace SGS.Visao
 
         private void btnPlanilhaExemplo_Click(object sender, EventArgs e)
         {
-            
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel(xlsx)|*.xlsx", ValidateNames = true })
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                    using (ExcelPackage excel = new ExcelPackage())
+                    {
+                        excel.Workbook.Worksheets.Add("DADOS");
+                        
+
+                        var headerRow = new List<string[]>()
+                          {
+                            new string[] { "empresa", "venda", "obra", "corretor","cliente","qd","lt","statusveda","datavenda","datacad","vlrvenda","parcelatipo","parcela","qtdparc","vencimento","valorparcela" }
+                          };
+
+                        // Determine the header range (e.g. A1:D1)
+                        string headerRange = "A1:" + Char.ConvertFromUtf32(headerRow[0].Length + 64) + "1";
+
+                        // Target a worksheet
+                        var worksheet = excel.Workbook.Worksheets["DADOS"];
+
+                        // Popular header row data
+                        worksheet.Cells[headerRange].LoadFromArrays(headerRow);
+
+                        FileInfo excelFile = new FileInfo(sfd.FileName);
+                        excel.SaveAs(excelFile);
+                        MessageBox.Show("Planilha de exemplo para inserir comissões via excel no Sistema criado com Sucesso!\nOBS:Não altere o cabeçalho das colunas pois já estar no nome padrão que o sistema entendi...", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+
         }
     }
 }

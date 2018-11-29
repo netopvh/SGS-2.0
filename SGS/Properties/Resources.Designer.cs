@@ -323,6 +323,16 @@ namespace SGS.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap EnviarEmail24x24 {
+            get {
+                object obj = ResourceManager.GetObject("EnviarEmail24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Excel24x24 {
             get {
                 object obj = ResourceManager.GetObject("Excel24x24", resourceCulture);
@@ -466,6 +476,16 @@ namespace SGS.Properties {
         internal static System.Drawing.Bitmap MostrarSenha24x24 {
             get {
                 object obj = ResourceManager.GetObject("MostrarSenha24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NF24x24 {
+            get {
+                object obj = ResourceManager.GetObject("NF24x24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -58,7 +58,6 @@
             this.searchControl1 = new DevExpress.XtraEditors.SearchControl();
             this.label1 = new System.Windows.Forms.Label();
             this.btnPlanilhaExemplo = new DevExpress.XtraEditors.SimpleButton();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -527,6 +526,5 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn GridColumnVencimentoParcela;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn GridColumnValorParcela;
         private DevExpress.XtraEditors.SimpleButton btnPlanilhaExemplo;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
