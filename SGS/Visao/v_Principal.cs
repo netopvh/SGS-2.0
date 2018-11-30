@@ -303,5 +303,25 @@ namespace SGS.Visao
             v_EstruturasComissoes v_estruturasComissoes = new v_EstruturasComissoes(_usuario);
             v_estruturasComissoes.ShowDialog();
         }
+
+        private void bbiEstoqueGeral_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            MessageBox.Show("Em Desenvolvimento", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void bbiControlePlantao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            MessageBox.Show("Em Desenvolvimento", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void bbiContaCaixa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            MessageBox.Show("Em Desenvolvimento", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void bbiCentroCusto_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            MessageBox.Show("Em Desenvolvimento", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
     }
 }

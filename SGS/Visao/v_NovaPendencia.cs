@@ -1,4 +1,5 @@
-﻿using SGS.Controle;
+﻿using DevExpress.XtraSplashScreen;
+using SGS.Controle;
 using SGS.Enum;
 using SGS.Modelo;
 using System;
@@ -123,24 +124,46 @@ namespace SGS.Visao
                 v.CarregarPendencias();
             }
         }
+        private void DesativaTela()
+        {
+            
+            gbxNovaPendencia.Enabled = false;
+            btnCancelar.Enabled = false;
+            btnSalvar.Enabled = false;
+            
+        }
+        private void AtivaTela()
+        {
+            
+            gbxNovaPendencia.Enabled = true;
+            btnCancelar.Enabled = true;
+            btnSalvar.Enabled = true;
+            
+        }
 
         private async void btnSalvar_Click(object sender, EventArgs e)
         {
-            m_pendencias.nomecliente = txtCliente.Text;
-            m_pendencias.quadra = txtQuadra.Text;
-            m_pendencias.lote = txtLote.Text;
-            m_pendencias.numerocontrato = txtNumeroContrato.Text;
-            m_pendencias.pendencia = txtPendencia.Text;
-            m_pendencias.datacadastro = Convert.ToDateTime(dtpDataCad.Value.ToShortDateString());
-            m_pendencias.datavenda = Convert.ToDateTime(dtpDataVenda.Value.ToShortDateString());
-            m_pendencias.datacadpendencia = Convert.ToDateTime(dteDataCadPendencia.Text);
-            m_pendencias.venda = txtVenda.Text;
-            m_pendencias.fk_corretor_pendencias = (int)LookUpEditCorretor.EditValue;
-            m_pendencias.fk_loteamento_pendencias = (int)LookUpEditLoteamento.EditValue;
-            //Status pendencia 0 = corretor, 1 = resolvido.
-            if (cbxAvisarCorretorPendencia.Checked == true)
+            splashScreenManager1.ShowWaitForm();
+            
+            try
             {
-               
+                DesativaTela();
+
+                m_pendencias.nomecliente = txtCliente.Text;
+                m_pendencias.quadra = txtQuadra.Text;
+                m_pendencias.lote = txtLote.Text;
+                m_pendencias.numerocontrato = txtNumeroContrato.Text;
+                m_pendencias.pendencia = txtPendencia.Text;
+                m_pendencias.datacadastro = Convert.ToDateTime(dtpDataCad.Value.ToShortDateString());
+                m_pendencias.datavenda = Convert.ToDateTime(dtpDataVenda.Value.ToShortDateString());
+                m_pendencias.datacadpendencia = Convert.ToDateTime(dteDataCadPendencia.Text);
+                m_pendencias.venda = txtVenda.Text;
+                m_pendencias.fk_corretor_pendencias = (int)LookUpEditCorretor.EditValue;
+                m_pendencias.fk_loteamento_pendencias = (int)LookUpEditLoteamento.EditValue;
+                //Status pendencia 0 = corretor, 1 = resolvido.
+                if (cbxAvisarCorretorPendencia.Checked == true)
+                {
+
                     using (System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient())
                     {
                         m_corretor.idcorretor = Convert.ToInt32(LookUpEditCorretor.EditValue);
@@ -168,71 +191,92 @@ namespace SGS.Visao
                             }
                             else
                             {
+                                splashScreenManager1.CloseWaitForm();
                                 MessageBox.Show("Não foi encontrado E-mail para envio!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
                             }
-                            /*if (!string.IsNullOrWhiteSpace(textBoxCC.Text))
-                                mail.CC.Add(new System.Net.Mail.MailAddress(textBoxCC.Text));
-                            if (!string.IsNullOrWhiteSpace(textBoxCCo.Text))
+                            if (cbxEnviarCopiarEmailAviso.Checked == true)
+                                mail.CC.Add(new System.Net.Mail.MailAddress(m_emailConfig.smtpemail));
+                            /*if (!string.IsNullOrWhiteSpace(textBoxCCo.Text))
                                 mail.Bcc.Add(new System.Net.Mail.MailAddress(textBoxCCo.Text));*/
                             mail.IsBodyHtml = true;
                             mail.Subject = "Aviso Contrato Pendênte Prime/Valle!";//Assunto do email
-                            
+
                             var EmailHtml =
-@"<h2 style=""text - align: center; ""><span style=""color: #ff0000;""><strong>Aviso de Contrato com Pend&ecirc;ncia <img src=""https://html-online.com/editor/tinymce4_6_5/plugins/emoticons/img/smiley-frown.gif"" alt=""frown"" /><br /></strong></span></h2>"+
-@"<hr />" +
-@"<p style=""text - align: center; ""><span style=""text - decoration: underline; ""><span style=""color: #000000;""><strong>Dados da Venda:</strong></span></span></p>"+
-@"<ul>" +
-@"<li style=""text - align: left; ""><span style=""color: #000000;""><strong>Empreendimento: </strong><span style=""color: #008000;"">"+LookUpEditLoteamento.Text+"</span><br /></span></li>"+
-@"<li style=""text - align: left; ""><span style=""color: #000000;""><strong>Quadra:</strong> <span style=""color: #008000;"">"+txtQuadra.Text+"</span> <strong>Lote:</strong>" +
-@"<span style=""color: #008000;"">"+txtLote.Text+"</span></span></li>"+
-@"<li style=""text - align: left; ""><span style=""color: #000000;""><strong>Corretor:</strong> <span style=""color: #008000;"">"+LookUpEditCorretor.Text+"</span></span></li>"+
-@"<li style=""text - align: left; ""><span style=""color: #000000;""><strong>Cliente:</strong> <span style=""color: #008000;"">"+txtCliente.Text+"</span></span></li>"+
-@"<li style=""text - align: left; ""><span style=""color: #000000;""><strong>Data Venda:</strong> <span style=""color: #008000;"">"+dtpDataVenda.Text+"</span></span></li>"+
-@"<li style=""text - align: left; ""><span style=""color: #000000;""><strong>Pend&ecirc;ncia:</strong> <span style=""color: #008000;"">"+txtPendencia.Text+"</span></span></li>"+
-@"</ul>" +
-@"<p style=""text - align: left; "">&nbsp;</p>" +
-   @"<p style=""text - align: left; ""><span style=""color: #000000;""><strong>OBS:</strong> Procure o escr&iacute;torio o mais r&aacute;pido poss&iacute;vel para resolver sua pend&ecirc;ncia e evitar que o pagamento da sua comiss&atilde;o seja <strong><span style=""color: #ff0000;"">bloqueada!</span></strong></span></p>"+
-@"<hr />" +
-@"<p><span style=""color: #0000ff;""><span style=""color: #000000;"">&copy;2018 -</span> <strong><span style=""color: #0000ff;"">Viva Bem, Viva Valle...</span></strong></span></p>"+
-@"<p style=""text - align: left; "">&nbsp;</p>";
-                        mail.Body = EmailHtml;
+    @"<h2 style=""text - align: center; ""><span style=""color: #ff0000;""><strong>Aviso de Contrato com Pend&ecirc;ncia <img src=""https://html-online.com/editor/tinymce4_6_5/plugins/emoticons/img/smiley-frown.gif"" alt=""frown"" /><br /></strong></span></h2>" +
+    @"<hr />" +
+    @"<p style=""text - align: center; ""><span style=""text - decoration: underline; ""><span style=""color: #000000;""><strong>Dados da Venda:</strong></span></span></p>" +
+    @"<ul>" +
+    @"<li style=""text - align: left; ""><span style=""color: #000000;""><strong>Empreendimento: </strong><span style=""color: #008000;"">" + LookUpEditLoteamento.Text + "</span><br /></span></li>" +
+    @"<li style=""text - align: left; ""><span style=""color: #000000;""><strong>Quadra:</strong> <span style=""color: #008000;"">" + txtQuadra.Text + "</span> <strong>Lote:</strong>" +
+    @"<span style=""color: #008000;"">" + txtLote.Text + "</span></span></li>" +
+    @"<li style=""text - align: left; ""><span style=""color: #000000;""><strong>Corretor:</strong> <span style=""color: #008000;"">" + LookUpEditCorretor.Text + "</span></span></li>" +
+    @"<li style=""text - align: left; ""><span style=""color: #000000;""><strong>Cliente:</strong> <span style=""color: #008000;"">" + txtCliente.Text + "</span></span></li>" +
+    @"<li style=""text - align: left; ""><span style=""color: #000000;""><strong>Data Venda:</strong> <span style=""color: #008000;"">" + dtpDataVenda.Text + "</span></span></li>" +
+    @"<li style=""text - align: left; ""><span style=""color: #000000;""><strong>Pend&ecirc;ncia:</strong> <span style=""color: #008000;"">" + txtPendencia.Text + "</span></span></li>" +
+    @"</ul>" +
+    @"<p style=""text - align: left; "">&nbsp;</p>" +
+    @"<p style=""text - align: left; ""><span style=""color: #000000;""><strong>OBS:</strong> Procure o escr&iacute;torio o mais r&aacute;pido poss&iacute;vel para resolver sua pend&ecirc;ncia e evitar que o pagamento da sua comiss&atilde;o seja <strong><span style=""color: #ff0000;"">bloqueada!</span></strong></span></p>" +
+    @"<hr />" +
+    @"<p><span style=""color: #0000ff;""><span style=""color: #000000;"">&copy;2018 -</span> <strong><span style=""color: #0000ff;"">Viva Bem, Viva Valle...</span></strong></span></p>" +
+    @"<p style=""text - align: left; "">&nbsp;</p>";
+                            mail.Body = EmailHtml;
                             await smtp.SendMailAsync(mail);
                             //MessageBox.Show("Enviado com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
 
                     }
 
+                }
+
+                if (txtCliente.Text != string.Empty && txtPendencia.Text != string.Empty && txtQuadra.Text != string.Empty && txtLote.Text != string.Empty)
+                {
+                    splashScreenManager1.CloseWaitForm();
+                    if (_alterarCad == true)
+                    {
+                        
+                        if (MessageBox.Show("Deseja salvar as alterações do cadastro da Pendência?", "SGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            m_pendencias.status = (int)e_StatusPendencia.A_Resolver;
+                            c_pendencias.AlterarPendencias(m_pendencias);
+                            MessageBox.Show("Alterado com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            AtualizarGrid();
+                            this.Close();
+                        }
+                        else 
+                        {
+                            AtivaTela();
+                        }
+                    }
+                    else if (_alterarCad == false)
+                    {
+                        if (MessageBox.Show("Deseja salvar o cadastro da nova Pendência?", "SGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            c_pendencias.NovoPendencias(m_pendencias);
+                            MessageBox.Show("Salvo com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            AtualizarGrid();
+                            this.Close();
+                        }
+                        else
+                        {
+                            AtivaTela();
+                        }
+                    }
+                }
+                else
+                {
+                    splashScreenManager1.CloseWaitForm();
+                    AtivaTela();
+                    MessageBox.Show("Verifique se todos os campos foram preenchidos!...", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+                splashScreenManager1.CloseWaitForm();
+                AtivaTela();
+                MessageBox.Show("Error:" + ex.Message, "SGS", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
-            if (txtCliente.Text != string.Empty && txtPendencia.Text != string.Empty && txtQuadra.Text != string.Empty && txtLote.Text != string.Empty)
-            {
-                if (_alterarCad == true)
-                {
-                    if (MessageBox.Show("Deseja salvar as alterações do cadastro da Pendência?", "SGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        m_pendencias.status = (int)e_StatusPendencia.A_Resolver;
-                        c_pendencias.AlterarPendencias(m_pendencias);
-                        MessageBox.Show("Alterado com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        AtualizarGrid();
-                        this.Close();
-                    }
-                }
-                else if (_alterarCad == false)
-                {
-                    if (MessageBox.Show("Deseja salvar o cadastro da nova Pendência?", "SGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        c_pendencias.NovoPendencias(m_pendencias);
-                        MessageBox.Show("Salvo com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        AtualizarGrid();
-                        this.Close();
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Verifique se todos os campos foram preenchidos!...", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
         }
     }
 }

@@ -59,6 +59,10 @@
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.bbiBaixarRecebimentos = new DevExpress.XtraBars.BarButtonItem();
             this.bbiEstruturasComissoes = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiCentroCusto = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiContaCaixa = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiControlePlantao = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiEstoqueGeral = new DevExpress.XtraBars.BarButtonItem();
             this.rbpAtendimento = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpCadastros = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -70,9 +74,12 @@
             this.rbpComissao = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup13 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpFinanceiro = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup14 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpSistema = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -115,15 +122,20 @@
             this.bbiControleGeral,
             this.barButtonItem2,
             this.bbiBaixarRecebimentos,
-            this.bbiEstruturasComissoes});
+            this.bbiEstruturasComissoes,
+            this.bbiCentroCusto,
+            this.bbiContaCaixa,
+            this.bbiControlePlantao,
+            this.bbiEstoqueGeral});
             this.ribbonControlPrincipal.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControlPrincipal.MaxItemId = 7;
+            this.ribbonControlPrincipal.MaxItemId = 11;
             this.ribbonControlPrincipal.Name = "ribbonControlPrincipal";
             this.ribbonControlPrincipal.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpAtendimento,
             this.rbpCadastros,
             this.rbpContratos,
             this.rbpComissao,
+            this.ribbonPage1,
             this.rbpFinanceiro,
             this.rbpSistema});
             this.ribbonControlPrincipal.ShowToolbarCustomizeItem = false;
@@ -171,6 +183,7 @@
             // 
             this.bbiFechamentoCaixa.Caption = "Fechamento de Caixa";
             this.bbiFechamentoCaixa.Id = 6;
+            this.bbiFechamentoCaixa.ImageOptions.LargeImage = global::SGS.Properties.Resources.CaixaRegistradora32x32;
             this.bbiFechamentoCaixa.Name = "bbiFechamentoCaixa";
             this.bbiFechamentoCaixa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiFechamentoCaixa_ItemClick);
             // 
@@ -178,6 +191,7 @@
             // 
             this.bbiFluxoCaixa.Caption = "Fluxo de Caixa";
             this.bbiFluxoCaixa.Id = 7;
+            this.bbiFluxoCaixa.ImageOptions.LargeImage = global::SGS.Properties.Resources.FluxoCaixa32x32;
             this.bbiFluxoCaixa.Name = "bbiFluxoCaixa";
             this.bbiFluxoCaixa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiFluxoCaixa_ItemClick);
             // 
@@ -354,6 +368,38 @@
             this.bbiEstruturasComissoes.Name = "bbiEstruturasComissoes";
             this.bbiEstruturasComissoes.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEstruturasComissoes_ItemClick);
             // 
+            // bbiCentroCusto
+            // 
+            this.bbiCentroCusto.Caption = "Centros de Custos";
+            this.bbiCentroCusto.Id = 7;
+            this.bbiCentroCusto.ImageOptions.LargeImage = global::SGS.Properties.Resources.Fluxograma32x32;
+            this.bbiCentroCusto.Name = "bbiCentroCusto";
+            this.bbiCentroCusto.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiCentroCusto_ItemClick);
+            // 
+            // bbiContaCaixa
+            // 
+            this.bbiContaCaixa.Caption = "Contas Caixas";
+            this.bbiContaCaixa.Id = 8;
+            this.bbiContaCaixa.ImageOptions.LargeImage = global::SGS.Properties.Resources.Banco32x32;
+            this.bbiContaCaixa.Name = "bbiContaCaixa";
+            this.bbiContaCaixa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiContaCaixa_ItemClick);
+            // 
+            // bbiControlePlantao
+            // 
+            this.bbiControlePlantao.Caption = "Controle Plantão";
+            this.bbiControlePlantao.Id = 9;
+            this.bbiControlePlantao.ImageOptions.LargeImage = global::SGS.Properties.Resources.Cronometro32x32;
+            this.bbiControlePlantao.Name = "bbiControlePlantao";
+            this.bbiControlePlantao.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiControlePlantao_ItemClick);
+            // 
+            // bbiEstoqueGeral
+            // 
+            this.bbiEstoqueGeral.Caption = "Estoque Geral";
+            this.bbiEstoqueGeral.Id = 10;
+            this.bbiEstoqueGeral.ImageOptions.LargeImage = global::SGS.Properties.Resources.Estoque32x32;
+            this.bbiEstoqueGeral.Name = "bbiEstoqueGeral";
+            this.bbiEstoqueGeral.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEstoqueGeral_ItemClick);
+            // 
             // rbpAtendimento
             // 
             this.rbpAtendimento.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -365,6 +411,7 @@
             // 
             this.ribbonPageGroup8.AllowTextClipping = false;
             this.ribbonPageGroup8.ItemLinks.Add(this.bbiVisitaStand);
+            this.ribbonPageGroup8.ItemLinks.Add(this.bbiControlePlantao);
             this.ribbonPageGroup8.Name = "ribbonPageGroup8";
             this.ribbonPageGroup8.ShowCaptionButton = false;
             this.ribbonPageGroup8.Text = "Atendimento";
@@ -443,11 +490,25 @@
             this.ribbonPageGroup13.Name = "ribbonPageGroup13";
             this.ribbonPageGroup13.Text = "Inserir/Baixar";
             // 
+            // ribbonPage1
+            // 
+            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup15});
+            this.ribbonPage1.Name = "ribbonPage1";
+            this.ribbonPage1.Text = "Estoque";
+            // 
+            // ribbonPageGroup15
+            // 
+            this.ribbonPageGroup15.ItemLinks.Add(this.bbiEstoqueGeral);
+            this.ribbonPageGroup15.Name = "ribbonPageGroup15";
+            this.ribbonPageGroup15.Text = "Controle";
+            // 
             // rbpFinanceiro
             // 
             this.rbpFinanceiro.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup3,
-            this.ribbonPageGroup4});
+            this.ribbonPageGroup4,
+            this.ribbonPageGroup14});
             this.rbpFinanceiro.Name = "rbpFinanceiro";
             this.rbpFinanceiro.Text = "Financeiro";
             // 
@@ -468,6 +529,13 @@
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.ShowCaptionButton = false;
             this.ribbonPageGroup4.Text = "Contas";
+            // 
+            // ribbonPageGroup14
+            // 
+            this.ribbonPageGroup14.ItemLinks.Add(this.bbiCentroCusto);
+            this.ribbonPageGroup14.ItemLinks.Add(this.bbiContaCaixa);
+            this.ribbonPageGroup14.Name = "ribbonPageGroup14";
+            this.ribbonPageGroup14.Text = "Contas";
             // 
             // rbpSistema
             // 
@@ -603,5 +671,12 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem bbiBaixarRecebimentos;
         private DevExpress.XtraBars.BarButtonItem bbiEstruturasComissoes;
+        private DevExpress.XtraBars.BarButtonItem bbiCentroCusto;
+        private DevExpress.XtraBars.BarButtonItem bbiContaCaixa;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup14;
+        private DevExpress.XtraBars.BarButtonItem bbiControlePlantao;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup15;
+        private DevExpress.XtraBars.BarButtonItem bbiEstoqueGeral;
     }
 }

@@ -31,6 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.gbxNovaPendencia = new DevExpress.XtraEditors.GroupControl();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.cbxEnviarCopiarEmailAviso = new System.Windows.Forms.CheckBox();
+            this.cbxAvisarCorretorPendencia = new System.Windows.Forms.CheckBox();
             this.txtPendencia = new DevExpress.XtraEditors.TextEdit();
             this.dtpDataCad = new System.Windows.Forms.DateTimePicker();
             this.dtpDataVenda = new System.Windows.Forms.DateTimePicker();
@@ -53,13 +56,13 @@
             this.txtQuadra = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::SGS.Visao.WaitForm1), true, true);
             this.btnSalvar = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancelar = new DevExpress.XtraEditors.SimpleButton();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.cbxAvisarCorretorPendencia = new System.Windows.Forms.CheckBox();
-            this.cbxEnviarCopiarEmailAviso = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.gbxNovaPendencia)).BeginInit();
             this.gbxNovaPendencia.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPendencia.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteDataCadPendencia.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpEditCorretor.Properties)).BeginInit();
@@ -69,8 +72,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtVenda.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLote.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQuadra.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
-            this.groupControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // defaultLookAndFeel1
@@ -107,6 +108,36 @@
             this.gbxNovaPendencia.Size = new System.Drawing.Size(984, 329);
             this.gbxNovaPendencia.TabIndex = 1;
             this.gbxNovaPendencia.Text = "Dados da Pendência";
+            // 
+            // groupControl1
+            // 
+            this.groupControl1.Controls.Add(this.cbxEnviarCopiarEmailAviso);
+            this.groupControl1.Controls.Add(this.cbxAvisarCorretorPendencia);
+            this.groupControl1.Location = new System.Drawing.Point(12, 159);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(960, 58);
+            this.groupControl1.TabIndex = 23;
+            this.groupControl1.Text = "E-mail";
+            // 
+            // cbxEnviarCopiarEmailAviso
+            // 
+            this.cbxEnviarCopiarEmailAviso.AutoSize = true;
+            this.cbxEnviarCopiarEmailAviso.Location = new System.Drawing.Point(258, 24);
+            this.cbxEnviarCopiarEmailAviso.Name = "cbxEnviarCopiarEmailAviso";
+            this.cbxEnviarCopiarEmailAviso.Size = new System.Drawing.Size(193, 17);
+            this.cbxEnviarCopiarEmailAviso.TabIndex = 1;
+            this.cbxEnviarCopiarEmailAviso.Text = "Com Copia Para E-mail do Sistema?";
+            this.cbxEnviarCopiarEmailAviso.UseVisualStyleBackColor = true;
+            // 
+            // cbxAvisarCorretorPendencia
+            // 
+            this.cbxAvisarCorretorPendencia.AutoSize = true;
+            this.cbxAvisarCorretorPendencia.Location = new System.Drawing.Point(7, 24);
+            this.cbxAvisarCorretorPendencia.Name = "cbxAvisarCorretorPendencia";
+            this.cbxAvisarCorretorPendencia.Size = new System.Drawing.Size(246, 17);
+            this.cbxAvisarCorretorPendencia.TabIndex = 0;
+            this.cbxAvisarCorretorPendencia.Text = "Avisar Corretor Por E-mail sobre a Pendência?";
+            this.cbxAvisarCorretorPendencia.UseVisualStyleBackColor = true;
             // 
             // txtPendencia
             // 
@@ -293,6 +324,10 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Empreendimento:";
             // 
+            // splashScreenManager1
+            // 
+            this.splashScreenManager1.ClosingDelay = 500;
+            // 
             // btnSalvar
             // 
             this.btnSalvar.ImageOptions.Image = global::SGS.Properties.Resources.Salvar24x24;
@@ -313,37 +348,6 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // groupControl1
-            // 
-            this.groupControl1.Controls.Add(this.cbxEnviarCopiarEmailAviso);
-            this.groupControl1.Controls.Add(this.cbxAvisarCorretorPendencia);
-            this.groupControl1.Location = new System.Drawing.Point(12, 159);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(960, 58);
-            this.groupControl1.TabIndex = 23;
-            this.groupControl1.Text = "E-mail";
-            // 
-            // cbxAvisarCorretorPendencia
-            // 
-            this.cbxAvisarCorretorPendencia.AutoSize = true;
-            this.cbxAvisarCorretorPendencia.Location = new System.Drawing.Point(7, 24);
-            this.cbxAvisarCorretorPendencia.Name = "cbxAvisarCorretorPendencia";
-            this.cbxAvisarCorretorPendencia.Size = new System.Drawing.Size(246, 17);
-            this.cbxAvisarCorretorPendencia.TabIndex = 0;
-            this.cbxAvisarCorretorPendencia.Text = "Avisar Corretor Por E-mail sobre a Pendência?";
-            this.cbxAvisarCorretorPendencia.UseVisualStyleBackColor = true;
-            // 
-            // cbxEnviarCopiarEmailAviso
-            // 
-            this.cbxEnviarCopiarEmailAviso.AutoSize = true;
-            this.cbxEnviarCopiarEmailAviso.Location = new System.Drawing.Point(258, 24);
-            this.cbxEnviarCopiarEmailAviso.Name = "cbxEnviarCopiarEmailAviso";
-            this.cbxEnviarCopiarEmailAviso.Size = new System.Drawing.Size(462, 17);
-            this.cbxEnviarCopiarEmailAviso.TabIndex = 1;
-            this.cbxEnviarCopiarEmailAviso.Text = "Enviar Uma Copia do E-mail Enviado para o Corretor para o E-mail Configurado no S" +
-    "istema?";
-            this.cbxEnviarCopiarEmailAviso.UseVisualStyleBackColor = true;
-            // 
             // v_NovaPendencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -360,6 +364,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbxNovaPendencia)).EndInit();
             this.gbxNovaPendencia.ResumeLayout(false);
             this.gbxNovaPendencia.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPendencia.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteDataCadPendencia.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpEditCorretor.Properties)).EndInit();
@@ -369,9 +376,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtVenda.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLote.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQuadra.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
-            this.groupControl1.ResumeLayout(false);
-            this.groupControl1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -407,5 +411,6 @@
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private System.Windows.Forms.CheckBox cbxEnviarCopiarEmailAviso;
         private System.Windows.Forms.CheckBox cbxAvisarCorretorPendencia;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }

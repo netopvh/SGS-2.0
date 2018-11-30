@@ -193,6 +193,26 @@ namespace SGS.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Banco32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Banco32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CaixaRegistradora32x32 {
+            get {
+                object obj = ResourceManager.GetObject("CaixaRegistradora32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Cancelar32x32 {
             get {
                 object obj = ResourceManager.GetObject("Cancelar32x32", resourceCulture);
@@ -313,6 +333,16 @@ namespace SGS.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Cronometro32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Cronometro32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap EditarRegistro24x24 {
             get {
                 object obj = ResourceManager.GetObject("EditarRegistro24x24", resourceCulture);
@@ -326,6 +356,16 @@ namespace SGS.Properties {
         internal static System.Drawing.Bitmap EnviarEmail24x24 {
             get {
                 object obj = ResourceManager.GetObject("EnviarEmail24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Estoque32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Estoque32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -366,6 +406,26 @@ namespace SGS.Properties {
         internal static System.Drawing.Bitmap FechaNegocio24x24 {
             get {
                 object obj = ResourceManager.GetObject("FechaNegocio24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FluxoCaixa32x32 {
+            get {
+                object obj = ResourceManager.GetObject("FluxoCaixa32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fluxograma32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Fluxograma32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
