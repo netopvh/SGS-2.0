@@ -21,6 +21,10 @@ namespace SGS.Visao
 
         c_Pendencias c_pendencias;
         m_Pendencias m_pendencias;
+        c_EmailConfig c_emailConfig;
+        m_EmailConfig m_emailConfig;
+        c_Corretor c_corretor;
+        m_Corretor m_corretor;
         int iRetorno = 0; //Variável para retorno das chamadas
         string _usuariocad;
         int _permissao;
@@ -30,6 +34,10 @@ namespace SGS.Visao
             InitializeComponent();
             this.c_pendencias = new c_Pendencias();
             this.m_pendencias = new m_Pendencias();
+            this.c_emailConfig = new c_EmailConfig();
+            this.m_emailConfig = new m_EmailConfig();
+            this.c_corretor = new c_Corretor();
+            this.m_corretor = new m_Corretor();
         }
         public v_Pendencias(string Usuario,int Permissao)
         {
@@ -37,6 +45,10 @@ namespace SGS.Visao
             InitializeComponent();
             this.c_pendencias = new c_Pendencias();
             this.m_pendencias = new m_Pendencias();
+            this.c_emailConfig = new c_EmailConfig();
+            this.m_emailConfig = new m_EmailConfig();
+            this.c_corretor = new c_Corretor();
+            this.m_corretor = new m_Corretor();
             _usuariocad = Usuario;
             _permissao = Permissao;
             
@@ -321,8 +333,8 @@ namespace SGS.Visao
                 string status = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[11]).ToString();
                 string NumeroPendencia = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[0]).ToString();
                 string Corretor = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[4]).ToString();
-                string Loteamento = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[2]).ToString();;
-                string Qd = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[5]).ToString();;
+                string Loteamento = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[2]).ToString();
+                string Qd = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[5]).ToString();
                 string Lt = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[6]).ToString();
                 string Venda = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[8]).ToString();
                 string NumeroContrato = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[9]).ToString();
@@ -467,6 +479,190 @@ namespace SGS.Visao
 
         }
 
-        
+        private async void bbiEmailAvisoPendencia_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            int IdCorretor = Convert.ToInt32(gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[3]));
+            string Loteamento = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[2]).ToString();
+            string Corretor = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[4]).ToString();
+            string Qd = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[5]).ToString();
+            string Lt = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[6]).ToString();
+            string Pendencia = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[10]).ToString();
+            string Cliente = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[7]).ToString();
+            string DataVenda = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[12]).ToString().Replace("00:00:00", "");
+            string Venda = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[8]).ToString();
+            try
+            {
+                if (gdvPendencias.SelectedRowsCount == 1 && (int)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[11]) == 0)
+                {
+                    using (System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient())
+                    {
+                        m_corretor.idcorretor = Convert.ToInt32(IdCorretor);
+                        m_corretor.email = c_corretor.GetEmailCorretor(m_corretor);
+                        m_emailConfig.smtpemail = c_emailConfig.GetSMTpEmail();
+                        m_emailConfig.smtphost = c_emailConfig.GetSMTPHost();
+                        m_emailConfig.smtpporta = Convert.ToInt32(c_emailConfig.GetSMTPPorta());
+                        m_emailConfig.smtpsenhaemail = c_emailConfig.GetSMTPSenhaEmail();
+                        m_emailConfig.smtpssl = c_emailConfig.GetSMTPSSL();
+                        m_emailConfig.smtpcredencialpadrao = c_emailConfig.GetSMTPCredencialPadrao();
+
+                        smtp.Host = m_emailConfig.smtphost;//"smtp.gmail.com"
+                        smtp.Port = m_emailConfig.smtpporta;//587
+                        smtp.EnableSsl = m_emailConfig.smtpssl;//true
+                        smtp.UseDefaultCredentials = m_emailConfig.smtpcredencialpadrao;//false
+                        smtp.Credentials = new System.Net.NetworkCredential(m_emailConfig.smtpemail, m_emailConfig.smtpsenhaemail);
+
+                        using (System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage())
+                        {
+                            mail.From = new System.Net.Mail.MailAddress(m_emailConfig.smtpemail);//Conta de email que vai usar
+
+                            if (!string.IsNullOrWhiteSpace(m_corretor.email))//Email para enviar
+                            {
+                                mail.To.Add(new System.Net.Mail.MailAddress(m_corretor.email));//Email para enviar
+                            }
+                            else
+                            {
+                                //splashScreenManager1.CloseWaitForm();
+                                MessageBox.Show("Não foi encontrado E-mail para envio!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                            /*if (cbxEnviarCopiarEmailAviso.Checked == true)
+                                mail.CC.Add(new System.Net.Mail.MailAddress(m_emailConfig.smtpemail));
+                            if (!string.IsNullOrWhiteSpace(textBoxCCo.Text))
+                                mail.Bcc.Add(new System.Net.Mail.MailAddress(textBoxCCo.Text));*/
+                            mail.IsBodyHtml = true;
+                            mail.Subject = "Aviso Contrato Pendênte Prime/Valle!  Venda:(" + Venda + ")";//Assunto do email
+
+                            var EmailHtml =
+        @"<h2 style=""text - align: center; ""><span style=""color: #ff0000;""><strong>Aviso de Contrato com Pend&ecirc;ncia <img src=""https://html-online.com/editor/tinymce4_6_5/plugins/emoticons/img/smiley-frown.gif"" alt=""frown"" /><br /></strong></span></h2>" +
+        @"<hr />" +
+        @"<p style=""text - align: center; ""><span style=""text - decoration: underline; ""><span style=""color: #000000;""><strong>Dados da Venda:</strong></span></span></p>" +
+        @"<ul>" +
+        @"<li style=""text - align: left; ""><span style=""color: #000000;""><strong>Empreendimento: </strong><span style=""color: #008000;"">" + Loteamento + "</span><br /></span></li>" +
+        @"<li style=""text - align: left; ""><span style=""color: #000000;""><strong>Quadra:</strong> <span style=""color: #008000;"">" + Qd + "</span> <strong>Lote:</strong>" +
+        @"<span style=""color: #008000;"">" + Lt + "</span></span></li>" +
+        @"<li style=""text - align: left; ""><span style=""color: #000000;""><strong>Corretor:</strong> <span style=""color: #008000;"">" + Corretor + "</span></span></li>" +
+        @"<li style=""text - align: left; ""><span style=""color: #000000;""><strong>Cliente:</strong> <span style=""color: #008000;"">" + Cliente + "</span></span></li>" +
+        @"<li style=""text - align: left; ""><span style=""color: #000000;""><strong>Data Venda:</strong> <span style=""color: #008000;"">" + DataVenda + "</span></span></li>" +
+        @"<li style=""text - align: left; ""><span style=""color: #000000;""><strong>Pend&ecirc;ncia:</strong> <span style=""color: #008000;"">" + Pendencia + "</span></span></li>" +
+        @"</ul>" +
+        @"<p style=""text - align: left; "">&nbsp;</p>" +
+        @"<p style=""text - align: left; ""><span style=""color: #000000;""><strong>OBS:</strong> Procure o escr&iacute;torio o mais r&aacute;pido poss&iacute;vel para resolver sua pend&ecirc;ncia e evitar que o pagamento da sua comiss&atilde;o seja <strong><span style=""color: #ff0000;"">bloqueada!</span></strong></span></p>" +
+        @"<hr />" +
+        @"<p><span style=""color: #0000ff;""><span style=""color: #000000;"">&copy;2018 -</span> <strong><span style=""color: #0000ff;"">Viva Bem, Viva Valle...</span></strong></span></p>" +
+        @"<p style=""text - align: left; "">&nbsp;</p>";
+                            mail.Body = EmailHtml;
+                            await smtp.SendMailAsync(mail);
+                            MessageBox.Show("E-mail Enviado com sucesso para:" + m_corretor.email + " sobre a pendência do corretor(a):" + Corretor, "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Tipo de aviso somente para contratos com Pendência com status = A - Resolver", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:" + ex.Message, "SGS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+
+            
+        }
+
+        private async void bbiEmailPendenciaResolvida_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            int IdCorretor = Convert.ToInt32(gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[3]));
+            string Loteamento = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[2]).ToString();
+            string Corretor = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[4]).ToString();
+            string Qd = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[5]).ToString();
+            string Lt = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[6]).ToString();
+            string Pendencia = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[10]).ToString();
+            string Cliente = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[7]).ToString();
+            string DataVenda = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[12]).ToString().Replace("00:00:00", "");
+            string Venda = gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[8]).ToString();
+            try
+            {
+                if (gdvPendencias.SelectedRowsCount == 1 && (int)gdvPendencias.GetRowCellValue(gdvPendencias.GetSelectedRows()[0], gdvPendencias.Columns[11]) == 2)
+                {
+                    using (System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient())
+                    {
+                        m_corretor.idcorretor = Convert.ToInt32(IdCorretor);
+                        m_corretor.email = c_corretor.GetEmailCorretor(m_corretor);
+                        m_emailConfig.smtpemail = c_emailConfig.GetSMTpEmail();
+                        m_emailConfig.smtphost = c_emailConfig.GetSMTPHost();
+                        m_emailConfig.smtpporta = Convert.ToInt32(c_emailConfig.GetSMTPPorta());
+                        m_emailConfig.smtpsenhaemail = c_emailConfig.GetSMTPSenhaEmail();
+                        m_emailConfig.smtpssl = c_emailConfig.GetSMTPSSL();
+                        m_emailConfig.smtpcredencialpadrao = c_emailConfig.GetSMTPCredencialPadrao();
+
+                        smtp.Host = m_emailConfig.smtphost;//"smtp.gmail.com"
+                        smtp.Port = m_emailConfig.smtpporta;//587
+                        smtp.EnableSsl = m_emailConfig.smtpssl;//true
+                        smtp.UseDefaultCredentials = m_emailConfig.smtpcredencialpadrao;//false
+                        smtp.Credentials = new System.Net.NetworkCredential(m_emailConfig.smtpemail, m_emailConfig.smtpsenhaemail);
+
+                        using (System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage())
+                        {
+                            mail.From = new System.Net.Mail.MailAddress(m_emailConfig.smtpemail);//Conta de email que vai usar
+
+                            if (!string.IsNullOrWhiteSpace(m_corretor.email))//Email para enviar
+                            {
+                                mail.To.Add(new System.Net.Mail.MailAddress(m_corretor.email));//Email para enviar
+                            }
+                            else
+                            {
+                                //splashScreenManager1.CloseWaitForm();
+                                MessageBox.Show("Não foi encontrado E-mail para envio!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                            /*if (cbxEnviarCopiarEmailAviso.Checked == true)
+                                mail.CC.Add(new System.Net.Mail.MailAddress(m_emailConfig.smtpemail));
+                            if (!string.IsNullOrWhiteSpace(textBoxCCo.Text))
+                                mail.Bcc.Add(new System.Net.Mail.MailAddress(textBoxCCo.Text));*/
+                            mail.IsBodyHtml = true;
+                            mail.Subject = "Aviso Pendênte Resolvida Prime/Valle!  Venda:(" + Venda + ")";//Assunto do email
+
+                            var EmailHtml =
+                                @"<h2 style=""text-align: center;""><span style=""color: #ff0000;""><strong><span style=""color: #339966;"">Pend&ecirc;ncia Resolvida</span> <img src=""https://html-online.com/editor/tinymce4_6_5/plugins/emoticons/img/smiley-smile.gif"" alt=""smile"" /><br /></strong></span></h2>" +
+@"<hr />" +
+@"<p style=""text-align: center;""><span style=""text-decoration: underline;""><span style=""color: #000000;""><strong>Dados da Venda</strong></span></span></p>" +
+@"<ul>" +
+@"<li style=""text-align: left;""><span style=""color: #000000;""><strong>Empreendimento: </strong><span style=""color: #008000;"">"+Loteamento+"</span><br /></span></li>" +
+@"<li style=""text-align: left;""><span style=""color: #000000;""><strong>Quadra:</strong> <span style=""color: #008000;"">"+Qd+"</span> <strong>Lote:</strong>"+
+@"<span style=""color: #008000;"">"+Lt+"</span></span></li>" +
+@"<li style=""text-align: left;""><span style=""color: #000000;""><strong>Corretor:</strong> <span style=""color: #008000;"">"+Corretor+"</span></span></li>"+
+@"<li style=""text-align: left;""><span style=""color: #000000;""><strong>Cliente:</strong> <span style=""color: #008000;"">"+Cliente+"</span></span></li>"+
+@"<li style=""text-align: left;""><span style=""color: #000000;""><strong>Data Venda:</strong> <span style=""color: #008000;"">"+DataVenda+"</span></span></li>"+
+@"<li style=""text-align: left;""><span style=""color: #000000;""><strong>Pend&ecirc;ncia:</strong> <span style=""color: #008000;"">"+Pendencia+"</span></span></li>"+
+@"</ul>" +
+@"<p style=""text-align: left;"">&nbsp;</p>" +
+@"<p style=""text-align: left;""><span style=""color: #000000;""><strong>OBS:</strong> Este E-mail confirma que sua&nbsp; Pend&ecirc;ncia foi <span style=""color: #ff0000;"">RESOLVIDA</span> Obrigado(a).</span></p>"+
+@"<hr />" +
+@"<p><span style=""color: #0000ff;""><span style=""color: #000000;"">&copy;2018 -</span> <strong><span style=""color: #0000ff;"">Viva Bem, Viva Valle...</span></strong></span></p>" +
+@"<p style=""text-align: left;"">&nbsp;</p>";
+                                
+                            mail.Body = EmailHtml;
+                            await smtp.SendMailAsync(mail);
+                            MessageBox.Show("E -mail Enviado com sucesso para:" + m_corretor.email + " avisando que a pendência do corretor(a):" + Corretor+" foi RESOLVIDA!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Tipo de aviso somente para contratos com Pendência com status = Resolvido", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:" + ex.Message, "SGS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+        }
     }
 }

@@ -59,13 +59,13 @@
             this.dropDownButton1 = new DevExpress.XtraEditors.DropDownButton();
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.bbiAtendimentosSintetico = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiImprimirGrid = new DevExpress.XtraBars.BarButtonItem();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.btnDesistiu = new DevExpress.XtraEditors.SimpleButton();
-            this.bbiImprimirGrid = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).BeginInit();
@@ -449,6 +449,13 @@
             this.bbiAtendimentosSintetico.Name = "bbiAtendimentosSintetico";
             this.bbiAtendimentosSintetico.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAtendimentosSintetico_ItemClick);
             // 
+            // bbiImprimirGrid
+            // 
+            this.bbiImprimirGrid.Caption = "ImprimirGrid";
+            this.bbiImprimirGrid.Id = 1;
+            this.bbiImprimirGrid.Name = "bbiImprimirGrid";
+            this.bbiImprimirGrid.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiImprimirGrid_ItemClick);
+            // 
             // barManager1
             // 
             this.barManager1.DockControls.Add(this.barDockControlTop);
@@ -504,13 +511,6 @@
             this.btnDesistiu.Text = "Desistiu";
             this.btnDesistiu.Click += new System.EventHandler(this.btnDesistiu_Click);
             // 
-            // bbiImprimirGrid
-            // 
-            this.bbiImprimirGrid.Caption = "ImprimirGrid";
-            this.bbiImprimirGrid.Id = 1;
-            this.bbiImprimirGrid.Name = "bbiImprimirGrid";
-            this.bbiImprimirGrid.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiImprimirGrid_ItemClick);
-            // 
             // v_VisitasStand
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -534,6 +534,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Controle de Visitas";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Activated += new System.EventHandler(this.v_VisitasStand_Activated);
             this.Load += new System.EventHandler(this.v_VisitasStand_Load);
             this.Enter += new System.EventHandler(this.v_VisitasStand_Enter);

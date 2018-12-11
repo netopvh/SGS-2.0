@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.splashScreenManagerP = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::SGS.Visao.WaitForm1), true, true);
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.gbxNovaPendencia = new DevExpress.XtraEditors.GroupControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
@@ -56,7 +57,6 @@
             this.txtQuadra = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::SGS.Visao.WaitForm1), true, true);
             this.btnSalvar = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancelar = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gbxNovaPendencia)).BeginInit();
@@ -73,6 +73,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtLote.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQuadra.Properties)).BeginInit();
             this.SuspendLayout();
+            // 
+            // splashScreenManagerP
+            // 
+            this.splashScreenManagerP.ClosingDelay = 500;
             // 
             // defaultLookAndFeel1
             // 
@@ -132,6 +136,8 @@
             // cbxAvisarCorretorPendencia
             // 
             this.cbxAvisarCorretorPendencia.AutoSize = true;
+            this.cbxAvisarCorretorPendencia.Checked = true;
+            this.cbxAvisarCorretorPendencia.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbxAvisarCorretorPendencia.Location = new System.Drawing.Point(7, 24);
             this.cbxAvisarCorretorPendencia.Name = "cbxAvisarCorretorPendencia";
             this.cbxAvisarCorretorPendencia.Size = new System.Drawing.Size(246, 17);
@@ -324,10 +330,6 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Empreendimento:";
             // 
-            // splashScreenManager1
-            // 
-            this.splashScreenManager1.ClosingDelay = 500;
-            // 
             // btnSalvar
             // 
             this.btnSalvar.ImageOptions.Image = global::SGS.Properties.Resources.Salvar24x24;
@@ -411,6 +413,6 @@
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private System.Windows.Forms.CheckBox cbxEnviarCopiarEmailAviso;
         private System.Windows.Forms.CheckBox cbxAvisarCorretorPendencia;
-        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManagerP;
     }
 }

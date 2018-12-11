@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.splashScreenManagerP = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::SGS.Visao.WaitForm1), true, true);
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.lookUpEditCorretor = new DevExpress.XtraEditors.LookUpEdit();
@@ -45,13 +46,21 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnVoltar = new DevExpress.XtraEditors.SimpleButton();
             this.btnSalvar = new DevExpress.XtraEditors.SimpleButton();
+            this.cbxAvisarPorEmail = new System.Windows.Forms.CheckBox();
+            this.gbxDados = new DevExpress.XtraEditors.GroupControl();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEditCorretor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEditEmpreendimento.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSqcFinal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSqcInicial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gbxDados)).BeginInit();
+            this.gbxDados.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // splashScreenManagerP
+            // 
+            this.splashScreenManagerP.ClosingDelay = 500;
             // 
             // defaultLookAndFeel1
             // 
@@ -60,7 +69,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(9, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 13);
             this.label1.TabIndex = 0;
@@ -68,7 +77,7 @@
             // 
             // lookUpEditCorretor
             // 
-            this.lookUpEditCorretor.Location = new System.Drawing.Point(15, 25);
+            this.lookUpEditCorretor.Location = new System.Drawing.Point(12, 37);
             this.lookUpEditCorretor.Name = "lookUpEditCorretor";
             this.lookUpEditCorretor.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -79,7 +88,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 48);
+            this.label2.Location = new System.Drawing.Point(9, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 13);
             this.label2.TabIndex = 2;
@@ -87,7 +96,7 @@
             // 
             // lookUpEditEmpreendimento
             // 
-            this.lookUpEditEmpreendimento.Location = new System.Drawing.Point(15, 64);
+            this.lookUpEditEmpreendimento.Location = new System.Drawing.Point(12, 76);
             this.lookUpEditEmpreendimento.Name = "lookUpEditEmpreendimento";
             this.lookUpEditEmpreendimento.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -103,7 +112,7 @@
             this.groupControl1.Controls.Add(this.label5);
             this.groupControl1.Controls.Add(this.txtSqcInicial);
             this.groupControl1.Controls.Add(this.label4);
-            this.groupControl1.Location = new System.Drawing.Point(15, 117);
+            this.groupControl1.Location = new System.Drawing.Point(12, 129);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(357, 76);
             this.groupControl1.TabIndex = 4;
@@ -178,7 +187,7 @@
             // dtpDataDistribuicao
             // 
             this.dtpDataDistribuicao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataDistribuicao.Location = new System.Drawing.Point(110, 90);
+            this.dtpDataDistribuicao.Location = new System.Drawing.Point(107, 102);
             this.dtpDataDistribuicao.Name = "dtpDataDistribuicao";
             this.dtpDataDistribuicao.Size = new System.Drawing.Size(102, 21);
             this.dtpDataDistribuicao.TabIndex = 3;
@@ -186,7 +195,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 96);
+            this.label3.Location = new System.Drawing.Point(9, 108);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(92, 13);
             this.label3.TabIndex = 6;
@@ -195,7 +204,7 @@
             // btnVoltar
             // 
             this.btnVoltar.ImageOptions.Image = global::SGS.Properties.Resources.VoltasOffice24x24;
-            this.btnVoltar.Location = new System.Drawing.Point(297, 199);
+            this.btnVoltar.Location = new System.Drawing.Point(294, 211);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(75, 44);
             this.btnVoltar.TabIndex = 7;
@@ -205,27 +214,50 @@
             // btnSalvar
             // 
             this.btnSalvar.ImageOptions.Image = global::SGS.Properties.Resources.Salvar24x24;
-            this.btnSalvar.Location = new System.Drawing.Point(216, 199);
+            this.btnSalvar.Location = new System.Drawing.Point(213, 211);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 44);
             this.btnSalvar.TabIndex = 6;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
+            // cbxAvisarPorEmail
+            // 
+            this.cbxAvisarPorEmail.AutoSize = true;
+            this.cbxAvisarPorEmail.Checked = true;
+            this.cbxAvisarPorEmail.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbxAvisarPorEmail.Font = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxAvisarPorEmail.Location = new System.Drawing.Point(12, 211);
+            this.cbxAvisarPorEmail.Name = "cbxAvisarPorEmail";
+            this.cbxAvisarPorEmail.Size = new System.Drawing.Size(178, 15);
+            this.cbxAvisarPorEmail.TabIndex = 8;
+            this.cbxAvisarPorEmail.Text = "Notificar Corretor sobre a Distribuição";
+            this.cbxAvisarPorEmail.UseVisualStyleBackColor = true;
+            // 
+            // gbxDados
+            // 
+            this.gbxDados.Controls.Add(this.label1);
+            this.gbxDados.Controls.Add(this.cbxAvisarPorEmail);
+            this.gbxDados.Controls.Add(this.lookUpEditCorretor);
+            this.gbxDados.Controls.Add(this.btnSalvar);
+            this.gbxDados.Controls.Add(this.label2);
+            this.gbxDados.Controls.Add(this.btnVoltar);
+            this.gbxDados.Controls.Add(this.lookUpEditEmpreendimento);
+            this.gbxDados.Controls.Add(this.label3);
+            this.gbxDados.Controls.Add(this.groupControl1);
+            this.gbxDados.Controls.Add(this.dtpDataDistribuicao);
+            this.gbxDados.Location = new System.Drawing.Point(12, 12);
+            this.gbxDados.Name = "gbxDados";
+            this.gbxDados.Size = new System.Drawing.Size(382, 262);
+            this.gbxDados.TabIndex = 9;
+            this.gbxDados.Text = "Distribuir para:";
+            // 
             // v_NovaDistribuicaoContrato
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 256);
-            this.Controls.Add(this.btnSalvar);
-            this.Controls.Add(this.btnVoltar);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.dtpDataDistribuicao);
-            this.Controls.Add(this.groupControl1);
-            this.Controls.Add(this.lookUpEditEmpreendimento);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.lookUpEditCorretor);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(406, 287);
+            this.Controls.Add(this.gbxDados);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "v_NovaDistribuicaoContrato";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -238,8 +270,10 @@
             this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSqcFinal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSqcInicial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gbxDados)).EndInit();
+            this.gbxDados.ResumeLayout(false);
+            this.gbxDados.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -261,5 +295,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown txtSqcInicial;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox cbxAvisarPorEmail;
+        private DevExpress.XtraEditors.GroupControl gbxDados;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManagerP;
     }
 }

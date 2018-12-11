@@ -683,6 +683,16 @@ namespace SGS.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Temas32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Temas32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Triste24x24 {
             get {
                 object obj = ResourceManager.GetObject("Triste24x24", resourceCulture);

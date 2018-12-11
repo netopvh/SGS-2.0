@@ -63,6 +63,7 @@
             this.bbiContaCaixa = new DevExpress.XtraBars.BarButtonItem();
             this.bbiControlePlantao = new DevExpress.XtraBars.BarButtonItem();
             this.bbiEstoqueGeral = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiTemas = new DevExpress.XtraBars.BarButtonItem();
             this.rbpAtendimento = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpCadastros = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -85,6 +86,7 @@
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup12 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup16 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControlPrincipal)).BeginInit();
@@ -126,9 +128,10 @@
             this.bbiCentroCusto,
             this.bbiContaCaixa,
             this.bbiControlePlantao,
-            this.bbiEstoqueGeral});
+            this.bbiEstoqueGeral,
+            this.bbiTemas});
             this.ribbonControlPrincipal.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControlPrincipal.MaxItemId = 11;
+            this.ribbonControlPrincipal.MaxItemId = 12;
             this.ribbonControlPrincipal.Name = "ribbonControlPrincipal";
             this.ribbonControlPrincipal.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpAtendimento,
@@ -400,6 +403,14 @@
             this.bbiEstoqueGeral.Name = "bbiEstoqueGeral";
             this.bbiEstoqueGeral.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEstoqueGeral_ItemClick);
             // 
+            // bbiTemas
+            // 
+            this.bbiTemas.Caption = "Temas";
+            this.bbiTemas.Id = 11;
+            this.bbiTemas.ImageOptions.LargeImage = global::SGS.Properties.Resources.Temas32x32;
+            this.bbiTemas.Name = "bbiTemas";
+            this.bbiTemas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTemas_ItemClick);
+            // 
             // rbpAtendimento
             // 
             this.rbpAtendimento.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -488,6 +499,7 @@
             this.ribbonPageGroup13.ItemLinks.Add(this.bbiInserirComissoes);
             this.ribbonPageGroup13.ItemLinks.Add(this.bbiBaixarRecebimentos);
             this.ribbonPageGroup13.Name = "ribbonPageGroup13";
+            this.ribbonPageGroup13.ShowCaptionButton = false;
             this.ribbonPageGroup13.Text = "Inserir/Baixar";
             // 
             // ribbonPage1
@@ -499,8 +511,10 @@
             // 
             // ribbonPageGroup15
             // 
+            this.ribbonPageGroup15.AllowTextClipping = false;
             this.ribbonPageGroup15.ItemLinks.Add(this.bbiEstoqueGeral);
             this.ribbonPageGroup15.Name = "ribbonPageGroup15";
+            this.ribbonPageGroup15.ShowCaptionButton = false;
             this.ribbonPageGroup15.Text = "Controle";
             // 
             // rbpFinanceiro
@@ -532,9 +546,11 @@
             // 
             // ribbonPageGroup14
             // 
+            this.ribbonPageGroup14.AllowTextClipping = false;
             this.ribbonPageGroup14.ItemLinks.Add(this.bbiCentroCusto);
             this.ribbonPageGroup14.ItemLinks.Add(this.bbiContaCaixa);
             this.ribbonPageGroup14.Name = "ribbonPageGroup14";
+            this.ribbonPageGroup14.ShowCaptionButton = false;
             this.ribbonPageGroup14.Text = "Contas";
             // 
             // rbpSistema
@@ -542,6 +558,7 @@
             this.rbpSistema.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup5,
             this.ribbonPageGroup7,
+            this.ribbonPageGroup16,
             this.ribbonPageGroup10,
             this.ribbonPageGroup12});
             this.rbpSistema.Name = "rbpSistema";
@@ -582,6 +599,14 @@
             this.ribbonPageGroup12.Name = "ribbonPageGroup12";
             this.ribbonPageGroup12.ShowCaptionButton = false;
             this.ribbonPageGroup12.Text = "Suporte";
+            // 
+            // ribbonPageGroup16
+            // 
+            this.ribbonPageGroup16.AllowTextClipping = false;
+            this.ribbonPageGroup16.ItemLinks.Add(this.bbiTemas);
+            this.ribbonPageGroup16.Name = "ribbonPageGroup16";
+            this.ribbonPageGroup16.ShowCaptionButton = false;
+            this.ribbonPageGroup16.Text = "Design";
             // 
             // ribbonStatusBar1
             // 
@@ -678,5 +703,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup15;
         private DevExpress.XtraBars.BarButtonItem bbiEstoqueGeral;
+        private DevExpress.XtraBars.BarButtonItem bbiTemas;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup16;
     }
 }

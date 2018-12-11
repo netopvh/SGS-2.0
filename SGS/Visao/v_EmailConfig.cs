@@ -16,6 +16,8 @@ namespace SGS.Visao
     {
         c_EmailConfig c_emailConfig;
         m_EmailConfig m_emailConfig;
+        string _EmailAtivo = "";
+        bool _AlterarCad = false;
         public v_EmailConfig()
         {
             InitializeComponent();
@@ -26,8 +28,11 @@ namespace SGS.Visao
 
         private void v_EmailConfig_Load(object sender, EventArgs e)
         {
+            _EmailAtivo = c_emailConfig.GetSMTpEmail();
             CancelButton = btnVoltar;
             VerificarConfigEmailAtiva();
+            
+            
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -37,6 +42,8 @@ namespace SGS.Visao
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            
+
             m_emailConfig.smtphost = txtHostSMTP.Text;
             m_emailConfig.smtpemail = txtEmail.Text;
             m_emailConfig.smtpsenhaemail = txtSenhaEmail.Text;
@@ -58,29 +65,42 @@ namespace SGS.Visao
                 m_emailConfig.smtpssl = false;
             }
             
-            if (VerificarConfigEmailAtiva() == false && MessageBox.Show("Deseja salvar a configuração de Email?","SGS",MessageBoxButtons.YesNo,MessageBoxIcon.Question)== DialogResult.Yes)
+            if (_AlterarCad == false)
             {
-                c_emailConfig.PrimeiraConfigEmail(m_emailConfig);
+                if (MessageBox.Show("Deseja salvar a configuração de Email?", "SGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    c_emailConfig.PrimeiraConfigEmail(m_emailConfig);
 
-                MessageBox.Show("Configuração de Email Salvo com sucesso!", "SGS",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                
+                    MessageBox.Show("Configuração de Email Salvo com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
 
+                }
             }
-            else if (VerificarConfigEmailAtiva() == true && MessageBox.Show("Deseja salvar as alterações de configuração de Email?", "SGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            else if (_AlterarCad == true)
             {
-                c_emailConfig.AlterarConfigEmail(m_emailConfig);
-                MessageBox.Show("Alterações na Configuração de Email Salvo com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (MessageBox.Show("Deseja salvar as alterações de configuração de Email?", "SGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    c_emailConfig.AlterarConfigEmail(m_emailConfig);
+                    MessageBox.Show("Alterações na Configuração de Email Salvo com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
             }
+            
+            
         }
-        private bool VerificarConfigEmailAtiva()
+        private void VerificarConfigEmailAtiva()
         {
-
-            m_emailConfig.smtpemail = c_emailConfig.GetSMTpEmail();
-            bool Resultado;
-            if (m_emailConfig.smtpemail != string.Empty)
+            
+            if (_EmailAtivo == string.Empty || _EmailAtivo == null)
             {
-                
-                Resultado = true;
+                _AlterarCad = false;
+                btnEmailTeste.Enabled = false;
+                MessageBox.Show("Atenção você irá configurar pela primeira vez a conta de email do sistema!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtEmail.Focus();
+            }
+            else
+            {
+                _AlterarCad= true;
                 txtEmail.Text = c_emailConfig.GetSMTpEmail();
                 txtHostSMTP.Text = c_emailConfig.GetSMTPHost();
                 txtPortaSMTP.Text = c_emailConfig.GetSMTPPorta();
@@ -93,7 +113,7 @@ namespace SGS.Visao
                 {
                     cbxCredencialPadrao.Checked = false;
                 }
-                if(c_emailConfig.GetSMTPSSL() == true)
+                if (c_emailConfig.GetSMTPSSL() == true)
                 {
                     cbxSSL.Checked = true;
                 }
@@ -101,35 +121,8 @@ namespace SGS.Visao
                 {
                     cbxSSL.Checked = false;
                 }
-                // Modelo
-                m_emailConfig.smtphost = txtHostSMTP.Text;
-                m_emailConfig.smtpemail = txtEmail.Text;
-                m_emailConfig.smtpsenhaemail = txtSenhaEmail.Text;
-                m_emailConfig.smtpporta = Convert.ToInt32(txtPortaSMTP.Text);
-                if (cbxCredencialPadrao.Checked == true)
-                {
-                    m_emailConfig.smtpcredencialpadrao = true;
-                }
-                else if (cbxSSL.Checked == false)
-                {
-                    m_emailConfig.smtpcredencialpadrao = false;
-                }
-                if (cbxSSL.Checked == true)
-                {
-                    m_emailConfig.smtpssl = true;
-                }
-                else if (cbxSSL.Checked == false)
-                {
-                    m_emailConfig.smtpssl = false;
-                }
+                btnEmailTeste.Enabled = true;
             }
-            else
-            {
-                Resultado = false;
-                MessageBox.Show("Atenção você irá configurar pela primeira vez a conta de email do sistema!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtEmail.Focus();
-            }
-            return Resultado;
         }
 
         private async void btnEmailTeste_Click(object sender, EventArgs e)
@@ -141,11 +134,25 @@ namespace SGS.Visao
             {
                 using (System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient())
                 {
-                    smtp.Host = m_emailConfig.smtphost;//"smtp.gmail.com"
-                    smtp.Port = m_emailConfig.smtpporta;//587
-                    smtp.EnableSsl = m_emailConfig.smtpssl;//true
-                    smtp.UseDefaultCredentials = m_emailConfig.smtpcredencialpadrao;//false
-                    smtp.Credentials = new System.Net.NetworkCredential(m_emailConfig.smtpemail, m_emailConfig.smtpsenhaemail);
+                    smtp.Host = txtHostSMTP.Text;//"smtp.gmail.com"
+                    smtp.Port = Convert.ToInt32(txtPortaSMTP.Text);//587
+                    if (cbxSSL.Checked == true)
+                    {
+                        smtp.EnableSsl = true;//true
+                    }
+                    else if (cbxSSL.Checked == false)
+                    {
+                        smtp.EnableSsl = false;
+                    }
+                    if (cbxCredencialPadrao.Checked == true)
+                    {
+                        smtp.UseDefaultCredentials = true;
+                    }
+                    else if (cbxCredencialPadrao.Checked == false)
+                    {
+                        smtp.UseDefaultCredentials = false;//false
+                    }
+                    smtp.Credentials = new System.Net.NetworkCredential(txtEmail.Text, txtSenhaEmail.Text);
 
                     using (System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage())
                     {
@@ -164,12 +171,11 @@ namespace SGS.Visao
                             mail.CC.Add(new System.Net.Mail.MailAddress(textBoxCC.Text));
                         if (!string.IsNullOrWhiteSpace(textBoxCCo.Text))
                             mail.Bcc.Add(new System.Net.Mail.MailAddress(textBoxCCo.Text));*/
-                        mail.Subject = "Email teste configuração SGS";//Assunto do email
-                        mail.Body = "Você configurou com sucesso o email:" + txtEmail.Text;//Corpo do Email
+                        mail.Subject = "E-mail teste configuração SGS";//Assunto do email
+                        mail.Body = "Você configurou com Sucesso o E-mail:" + txtEmail.Text;//Corpo do Email
                         await smtp.SendMailAsync(mail);
-                        MessageBox.Show("Enviado com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("E-mail Teste Enviado com sucesso para o E-mail:"+txtEmail.Text, "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-
                 }
             }
             catch (Exception ex)

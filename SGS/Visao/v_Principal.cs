@@ -93,7 +93,7 @@ namespace SGS.Visao
                 case 3:
                     bbiAPagar.Enabled = false;
                     bbiAreceber.Enabled = false;
-                    bbiEmail.Enabled = false;
+                    bbiEmail.Enabled = true;
                     bbiFechamentoCaixa.Enabled = false;
                     bbiFluxoCaixa.Enabled = false;
                     bbiFTP.Enabled = false;
@@ -108,15 +108,15 @@ namespace SGS.Visao
                     bbiAPagar.Enabled = true;
                     bbiAreceber.Enabled = true;
                     bbiEmail.Enabled = true;
-                    bbiFechamentoCaixa.Enabled = false;
-                    bbiFluxoCaixa.Enabled = false;
+                    bbiFechamentoCaixa.Enabled = true;
+                    bbiFluxoCaixa.Enabled = true;
                     bbiFTP.Enabled = false;
                     bbiRestaurarBackup.Enabled = false;
                     bbiUsuario.Enabled = false;
-                    bbiBaixarRecebimentos.Enabled = false;
-                    bbiControleGeral.Enabled = false;
-                    bbiEstruturasComissoes.Enabled = false;
-                    bbiInserirComissoes.Enabled = false;
+                    bbiBaixarRecebimentos.Enabled = true;
+                    bbiControleGeral.Enabled = true;
+                    bbiEstruturasComissoes.Enabled = true;
+                    bbiInserirComissoes.Enabled = true;
                     break;
                     
                 default:
@@ -238,7 +238,8 @@ namespace SGS.Visao
 
         private void bbiFolhaAvulso_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            MessageBox.Show("Em Desenvolvimento", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            v_DistFolhaAvulso v_distFolhaAvulso = new v_DistFolhaAvulso(_permissao, _usuario);
+            v_distFolhaAvulso.ShowDialog();
         }
 
         private void bbiEmail_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -311,7 +312,8 @@ namespace SGS.Visao
 
         private void bbiControlePlantao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            MessageBox.Show("Em Desenvolvimento", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            v_ControlePlatao v_controlePlatao = new v_ControlePlatao(_usuario);
+            v_controlePlatao.Show();
         }
 
         private void bbiContaCaixa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -320,6 +322,11 @@ namespace SGS.Visao
         }
 
         private void bbiCentroCusto_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            MessageBox.Show("Em Desenvolvimento", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void bbiTemas_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             MessageBox.Show("Em Desenvolvimento", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }

@@ -183,6 +183,7 @@
     <Compile Include="Controle\c_ConexaoMySql.cs" />
     <Compile Include="Controle\c_Corretor.cs" />
     <Compile Include="Controle\c_Distribuicaocontratos.cs" />
+    <Compile Include="Controle\c_DistribuicaoFolhasAvulsas.cs" />
     <Compile Include="Controle\c_EmailConfig.cs" />
     <Compile Include="Controle\c_EstruturaComissao.cs" />
     <Compile Include="Controle\c_Ftpconfig.cs" />
@@ -198,12 +199,14 @@
     <Compile Include="Enum\e_Status.cs" />
     <Compile Include="Enum\e_StatusComissao.cs" />
     <Compile Include="Enum\e_StatusDistribuicao.cs" />
+    <Compile Include="Enum\e_StatusDistribuicaoFolhaAvulso.cs" />
     <Compile Include="Enum\e_StatusPendencia.cs" />
     <Compile Include="Modelo\m_Atendimento.cs" />
     <Compile Include="Modelo\m_CidadeEstado.cs" />
     <Compile Include="Modelo\m_Comissoes.cs" />
     <Compile Include="Modelo\m_Corretor.cs" />
     <Compile Include="Modelo\m_Distribuicaocontratos.cs" />
+    <Compile Include="Modelo\m_DistribuicaoFolhasAvulsas.cs" />
     <Compile Include="Modelo\m_EmailConfig.cs" />
     <Compile Include="Modelo\m_EmpresaLicenca.cs" />
     <Compile Include="Modelo\m_EstruturaComissao.cs" />
@@ -263,6 +266,12 @@
     <Compile Include="Visao\v_ControleGeralComissoes.Designer.cs">
       <DependentUpon>v_ControleGeralComissoes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visao\v_ControlePlatao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\v_ControlePlatao.Designer.cs">
+      <DependentUpon>v_ControlePlatao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visao\v_Corretor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -274,6 +283,12 @@
     </Compile>
     <Compile Include="Visao\v_DistContrato.Designer.cs">
       <DependentUpon>v_DistContrato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\v_DistFolhaAvulso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\v_DistFolhaAvulso.Designer.cs">
+      <DependentUpon>v_DistFolhaAvulso.cs</DependentUpon>
     </Compile>
     <Compile Include="Visao\v_EmailConfig.cs">
       <SubType>Form</SubType>
@@ -341,6 +356,12 @@
     <Compile Include="Visao\v_NovaDistribuicaoContrato.Designer.cs">
       <DependentUpon>v_NovaDistribuicaoContrato.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visao\v_NovaDistribuicaoFolhaAvulso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\v_NovaDistribuicaoFolhaAvulso.Designer.cs">
+      <DependentUpon>v_NovaDistribuicaoFolhaAvulso.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visao\v_NovaEstruturaComissao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -388,6 +409,12 @@
     </Compile>
     <Compile Include="Visao\v_StatusContrato.Designer.cs">
       <DependentUpon>v_StatusContrato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\v_StatusFolhaAvulso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\v_StatusFolhaAvulso.Designer.cs">
+      <DependentUpon>v_StatusFolhaAvulso.cs</DependentUpon>
     </Compile>
     <Compile Include="Visao\v_Usuario.cs">
       <SubType>Form</SubType>
@@ -442,11 +469,17 @@
     <EmbeddedResource Include="Visao\v_ControleGeralComissoes.resx">
       <DependentUpon>v_ControleGeralComissoes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Visao\v_ControlePlatao.resx">
+      <DependentUpon>v_ControlePlatao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_Corretor.resx">
       <DependentUpon>v_Corretor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_DistContrato.resx">
       <DependentUpon>v_DistContrato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\v_DistFolhaAvulso.resx">
+      <DependentUpon>v_DistFolhaAvulso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_EmailConfig.resx">
       <DependentUpon>v_EmailConfig.cs</DependentUpon>
@@ -481,6 +514,9 @@
     <EmbeddedResource Include="Visao\v_NovaDistribuicaoContrato.resx">
       <DependentUpon>v_NovaDistribuicaoContrato.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Visao\v_NovaDistribuicaoFolhaAvulso.resx">
+      <DependentUpon>v_NovaDistribuicaoFolhaAvulso.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_NovaEstruturaComissao.resx">
       <DependentUpon>v_NovaEstruturaComissao.cs</DependentUpon>
     </EmbeddedResource>
@@ -504,6 +540,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_StatusContrato.resx">
       <DependentUpon>v_StatusContrato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\v_StatusFolhaAvulso.resx">
+      <DependentUpon>v_StatusFolhaAvulso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_Usuario.resx">
       <DependentUpon>v_Usuario.cs</DependentUpon>
@@ -675,6 +714,7 @@
     <None Include="Resources\FluxoCaixa32x32.png" />
     <None Include="Resources\CaixaRegistradora32x32.png" />
     <None Include="Resources\Estoque32x32.png" />
+    <None Include="Resources\Temas32x32.png" />
     <Content Include="Visao\LOGOSGS.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

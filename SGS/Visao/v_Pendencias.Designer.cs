@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleIconSet formatConditionRuleIconSet2 = new DevExpress.XtraEditors.FormatConditionRuleIconSet();
-            DevExpress.XtraEditors.FormatConditionIconSet formatConditionIconSet2 = new DevExpress.XtraEditors.FormatConditionIconSet();
-            DevExpress.XtraEditors.FormatConditionIconSetIcon formatConditionIconSetIcon4 = new DevExpress.XtraEditors.FormatConditionIconSetIcon();
-            DevExpress.XtraEditors.FormatConditionIconSetIcon formatConditionIconSetIcon5 = new DevExpress.XtraEditors.FormatConditionIconSetIcon();
-            DevExpress.XtraEditors.FormatConditionIconSetIcon formatConditionIconSetIcon6 = new DevExpress.XtraEditors.FormatConditionIconSetIcon();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleIconSet formatConditionRuleIconSet1 = new DevExpress.XtraEditors.FormatConditionRuleIconSet();
+            DevExpress.XtraEditors.FormatConditionIconSet formatConditionIconSet1 = new DevExpress.XtraEditors.FormatConditionIconSet();
+            DevExpress.XtraEditors.FormatConditionIconSetIcon formatConditionIconSetIcon1 = new DevExpress.XtraEditors.FormatConditionIconSetIcon();
+            DevExpress.XtraEditors.FormatConditionIconSetIcon formatConditionIconSetIcon2 = new DevExpress.XtraEditors.FormatConditionIconSetIcon();
+            DevExpress.XtraEditors.FormatConditionIconSetIcon formatConditionIconSetIcon3 = new DevExpress.XtraEditors.FormatConditionIconSetIcon();
             this.gridColumnStatus = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.repositoryItemMemoEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.tabFormControl1 = new DevExpress.XtraBars.TabFormControl();
@@ -42,17 +42,20 @@
             this.bbiQuebraLinhaPendencia = new DevExpress.XtraBars.BarButtonItem();
             this.tabFormPagePendencias = new DevExpress.XtraBars.TabFormPage();
             this.tabFormContentContainer1 = new DevExpress.XtraBars.TabFormContentContainer();
-            this.btnEmail = new DevExpress.XtraEditors.SimpleButton();
-            this.toolTipController1 = new DevExpress.Utils.ToolTipController(this.components);
-            this.btnImprimir = new DevExpress.XtraEditors.DropDownButton();
-            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.bbiPendencias = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiImprimirGrid = new DevExpress.XtraBars.BarButtonItem();
+            this.btnEnviarEmail = new DevExpress.XtraEditors.DropDownButton();
+            this.pmEmail = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.bbiEmailAvisoPendencia = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiEmailPendenciaResolvida = new DevExpress.XtraBars.BarButtonItem();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.bbiPendencias = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiImprimirGrid = new DevExpress.XtraBars.BarButtonItem();
+            this.btnImprimir = new DevExpress.XtraEditors.DropDownButton();
+            this.pmRelatorios = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.toolTipController1 = new DevExpress.Utils.ToolTipController(this.components);
             this.btnAtualizar = new DevExpress.XtraEditors.SimpleButton();
             this.btnARevolver = new DevExpress.XtraEditors.SimpleButton();
             this.btnEntregarPendencia = new DevExpress.XtraEditors.SimpleButton();
@@ -84,17 +87,18 @@
             this.gridColumnDataEntregaCorretor = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumnDataDevolucao = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumnPendencia = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.repositoryItemMemoEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.gridColumnDataVenda = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumnDataCadastro = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumnUsuarioCad = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.repositoryItemMemoEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabFormControl1)).BeginInit();
             this.tabFormContentContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pmEmail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pmRelatorios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlTodasPendencias)).BeginInit();
             this.groupControlTodasPendencias.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).BeginInit();
@@ -151,7 +155,8 @@
             // 
             // bbiQuebraLinhaPendencia
             // 
-            
+            this.bbiQuebraLinhaPendencia.Id = 0;
+            this.bbiQuebraLinhaPendencia.Name = "bbiQuebraLinhaPendencia";
             // 
             // tabFormPagePendencias
             // 
@@ -161,7 +166,7 @@
             // 
             // tabFormContentContainer1
             // 
-            this.tabFormContentContainer1.Controls.Add(this.btnEmail);
+            this.tabFormContentContainer1.Controls.Add(this.btnEnviarEmail);
             this.tabFormContentContainer1.Controls.Add(this.btnImprimir);
             this.tabFormContentContainer1.Controls.Add(this.btnAtualizar);
             this.tabFormContentContainer1.Controls.Add(this.btnARevolver);
@@ -181,55 +186,39 @@
             this.tabFormContentContainer1.TabIndex = 1;
             this.tabFormContentContainer1.Click += new System.EventHandler(this.tabFormContentContainer1_Click);
             // 
-            // btnEmail
+            // btnEnviarEmail
             // 
-            this.btnEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnEmail.ImageOptions.Image = global::SGS.Properties.Resources.EnviarEmail24x24;
-            this.btnEmail.Location = new System.Drawing.Point(478, 372);
-            this.btnEmail.Name = "btnEmail";
-            this.btnEmail.Size = new System.Drawing.Size(89, 44);
-            this.btnEmail.TabIndex = 12;
-            this.btnEmail.Text = "Enviar Email";
-            this.btnEmail.ToolTip = "Clique aqui para imprimir protocolo do registro selecionado!";
-            this.btnEmail.ToolTipController = this.toolTipController1;
-            this.btnEmail.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
-            this.btnEmail.Click += new System.EventHandler(this.btnEmail_Click);
+            this.btnEnviarEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnEnviarEmail.DropDownControl = this.pmEmail;
+            this.btnEnviarEmail.ImageOptions.Image = global::SGS.Properties.Resources.EnviarEmail24x24;
+            this.btnEnviarEmail.Location = new System.Drawing.Point(573, 372);
+            this.btnEnviarEmail.MenuManager = this.barManager1;
+            this.btnEnviarEmail.Name = "btnEnviarEmail";
+            this.btnEnviarEmail.Size = new System.Drawing.Size(114, 44);
+            this.btnEnviarEmail.TabIndex = 12;
+            this.btnEnviarEmail.Text = "Enviar E-mail";
             // 
-            // btnImprimir
+            // pmEmail
             // 
-            this.btnImprimir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnImprimir.DropDownControl = this.popupMenu1;
-            this.btnImprimir.ImageOptions.Image = global::SGS.Properties.Resources.Imprimir_24x24;
-            this.btnImprimir.Location = new System.Drawing.Point(668, 372);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(102, 44);
-            this.btnImprimir.TabIndex = 11;
-            this.btnImprimir.Text = "Relatórios";
-            this.btnImprimir.ToolTip = "Clique aqui para imprimir relatórios!";
-            this.btnImprimir.ToolTipController = this.toolTipController1;
-            this.btnImprimir.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
+            this.pmEmail.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiEmailAvisoPendencia),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiEmailPendenciaResolvida)});
+            this.pmEmail.Manager = this.barManager1;
+            this.pmEmail.Name = "pmEmail";
             // 
-            // popupMenu1
+            // bbiEmailAvisoPendencia
             // 
-            this.popupMenu1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiPendencias),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiImprimirGrid)});
-            this.popupMenu1.Manager = this.barManager1;
-            this.popupMenu1.Name = "popupMenu1";
+            this.bbiEmailAvisoPendencia.Caption = "Aviso de Pendência";
+            this.bbiEmailAvisoPendencia.Id = 2;
+            this.bbiEmailAvisoPendencia.Name = "bbiEmailAvisoPendencia";
+            this.bbiEmailAvisoPendencia.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEmailAvisoPendencia_ItemClick);
             // 
-            // bbiPendencias
+            // bbiEmailPendenciaResolvida
             // 
-            this.bbiPendencias.Caption = "Pendências A Resolver";
-            this.bbiPendencias.Id = 0;
-            this.bbiPendencias.Name = "bbiPendencias";
-            this.bbiPendencias.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPendencias_ItemClick);
-            // 
-            // bbiImprimirGrid
-            // 
-            this.bbiImprimirGrid.Caption = "Imprimir Grid";
-            this.bbiImprimirGrid.Id = 1;
-            this.bbiImprimirGrid.Name = "bbiImprimirGrid";
-            this.bbiImprimirGrid.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiImprimirGrid_ItemClick);
+            this.bbiEmailPendenciaResolvida.Caption = "Pendência Resolvida";
+            this.bbiEmailPendenciaResolvida.Id = 3;
+            this.bbiEmailPendenciaResolvida.Name = "bbiEmailPendenciaResolvida";
+            this.bbiEmailPendenciaResolvida.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEmailPendenciaResolvida_ItemClick);
             // 
             // barManager1
             // 
@@ -240,8 +229,10 @@
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.bbiPendencias,
-            this.bbiImprimirGrid});
-            this.barManager1.MaxItemId = 2;
+            this.bbiImprimirGrid,
+            this.bbiEmailAvisoPendencia,
+            this.bbiEmailPendenciaResolvida});
+            this.barManager1.MaxItemId = 4;
             // 
             // barDockControlTop
             // 
@@ -275,11 +266,47 @@
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 477);
             // 
+            // bbiPendencias
+            // 
+            this.bbiPendencias.Caption = "Pendências A Resolver";
+            this.bbiPendencias.Id = 0;
+            this.bbiPendencias.Name = "bbiPendencias";
+            this.bbiPendencias.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPendencias_ItemClick);
+            // 
+            // bbiImprimirGrid
+            // 
+            this.bbiImprimirGrid.Caption = "Imprimir Grid";
+            this.bbiImprimirGrid.Id = 1;
+            this.bbiImprimirGrid.Name = "bbiImprimirGrid";
+            this.bbiImprimirGrid.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiImprimirGrid_ItemClick);
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnImprimir.DropDownControl = this.pmRelatorios;
+            this.btnImprimir.ImageOptions.Image = global::SGS.Properties.Resources.Imprimir_24x24;
+            this.btnImprimir.Location = new System.Drawing.Point(693, 372);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(102, 44);
+            this.btnImprimir.TabIndex = 11;
+            this.btnImprimir.Text = "Relatórios";
+            this.btnImprimir.ToolTip = "Clique aqui para imprimir relatórios!";
+            this.btnImprimir.ToolTipController = this.toolTipController1;
+            this.btnImprimir.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
+            // 
+            // pmRelatorios
+            // 
+            this.pmRelatorios.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiPendencias),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiImprimirGrid)});
+            this.pmRelatorios.Manager = this.barManager1;
+            this.pmRelatorios.Name = "pmRelatorios";
+            // 
             // btnAtualizar
             // 
             this.btnAtualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAtualizar.ImageOptions.Image = global::SGS.Properties.Resources.atualizacao24x24;
-            this.btnAtualizar.Location = new System.Drawing.Point(573, 372);
+            this.btnAtualizar.Location = new System.Drawing.Point(478, 372);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(89, 44);
             this.btnAtualizar.TabIndex = 10;
@@ -491,34 +518,34 @@
             this.gridColumnUsuarioCad,
             this.gridColumnDataDevolucao,
             this.gridColumnDataEntregaCorretor});
-            gridFormatRule2.Column = this.gridColumnStatus;
-            gridFormatRule2.ColumnApplyTo = this.gridColumnStatus;
-            gridFormatRule2.Name = "FormatStatusCor";
-            formatConditionIconSet2.CategoryName = "Symbols";
-            formatConditionIconSetIcon4.PredefinedName = "Symbols23_1.png";
-            formatConditionIconSetIcon4.Value = new decimal(new int[] {
+            gridFormatRule1.Column = this.gridColumnStatus;
+            gridFormatRule1.ColumnApplyTo = this.gridColumnStatus;
+            gridFormatRule1.Name = "FormatStatusCor";
+            formatConditionIconSet1.CategoryName = "Symbols";
+            formatConditionIconSetIcon1.PredefinedName = "Symbols23_1.png";
+            formatConditionIconSetIcon1.Value = new decimal(new int[] {
             2,
             0,
             0,
             0});
-            formatConditionIconSetIcon4.ValueComparison = DevExpress.XtraEditors.FormatConditionComparisonType.GreaterOrEqual;
-            formatConditionIconSetIcon5.PredefinedName = "Symbols23_2.png";
-            formatConditionIconSetIcon5.Value = new decimal(new int[] {
+            formatConditionIconSetIcon1.ValueComparison = DevExpress.XtraEditors.FormatConditionComparisonType.GreaterOrEqual;
+            formatConditionIconSetIcon2.PredefinedName = "Symbols23_2.png";
+            formatConditionIconSetIcon2.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            formatConditionIconSetIcon5.ValueComparison = DevExpress.XtraEditors.FormatConditionComparisonType.GreaterOrEqual;
-            formatConditionIconSetIcon6.PredefinedName = "Symbols23_3.png";
-            formatConditionIconSetIcon6.ValueComparison = DevExpress.XtraEditors.FormatConditionComparisonType.GreaterOrEqual;
-            formatConditionIconSet2.Icons.Add(formatConditionIconSetIcon4);
-            formatConditionIconSet2.Icons.Add(formatConditionIconSetIcon5);
-            formatConditionIconSet2.Icons.Add(formatConditionIconSetIcon6);
-            formatConditionIconSet2.Name = "Symbols3Circled";
-            formatConditionIconSet2.ValueType = DevExpress.XtraEditors.FormatConditionValueType.Number;
-            formatConditionRuleIconSet2.IconSet = formatConditionIconSet2;
-            gridFormatRule2.Rule = formatConditionRuleIconSet2;
-            this.gdvPendencias.FormatRules.Add(gridFormatRule2);
+            formatConditionIconSetIcon2.ValueComparison = DevExpress.XtraEditors.FormatConditionComparisonType.GreaterOrEqual;
+            formatConditionIconSetIcon3.PredefinedName = "Symbols23_3.png";
+            formatConditionIconSetIcon3.ValueComparison = DevExpress.XtraEditors.FormatConditionComparisonType.GreaterOrEqual;
+            formatConditionIconSet1.Icons.Add(formatConditionIconSetIcon1);
+            formatConditionIconSet1.Icons.Add(formatConditionIconSetIcon2);
+            formatConditionIconSet1.Icons.Add(formatConditionIconSetIcon3);
+            formatConditionIconSet1.Name = "Symbols3Circled";
+            formatConditionIconSet1.ValueType = DevExpress.XtraEditors.FormatConditionValueType.Number;
+            formatConditionRuleIconSet1.IconSet = formatConditionIconSet1;
+            gridFormatRule1.Rule = formatConditionRuleIconSet1;
+            this.gdvPendencias.FormatRules.Add(gridFormatRule1);
             this.gdvPendencias.GridControl = this.gridControl1;
             this.gdvPendencias.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "idpendencias", null, "Total: {0}")});
@@ -749,6 +776,10 @@
             this.gridColumnPendencia.Visible = true;
             this.gridColumnPendencia.Width = 320;
             // 
+            // repositoryItemMemoEdit4
+            // 
+            this.repositoryItemMemoEdit4.Name = "repositoryItemMemoEdit4";
+            // 
             // gridColumnDataVenda
             // 
             this.gridColumnDataVenda.AppearanceCell.Options.UseTextOptions = true;
@@ -797,10 +828,6 @@
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2013";
             // 
-            // repositoryItemMemoEdit4
-            // 
-            this.repositoryItemMemoEdit4.Name = "repositoryItemMemoEdit4";
-            // 
             // v_Pendencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -823,8 +850,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabFormControl1)).EndInit();
             this.tabFormContentContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pmEmail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pmRelatorios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlTodasPendencias)).EndInit();
             this.groupControlTodasPendencias.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).EndInit();
@@ -885,7 +913,7 @@
         private DevExpress.XtraEditors.SearchControl searchControl1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraEditors.DropDownButton btnImprimir;
-        private DevExpress.XtraBars.PopupMenu popupMenu1;
+        private DevExpress.XtraBars.PopupMenu pmRelatorios;
         private DevExpress.XtraBars.BarButtonItem bbiPendencias;
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
@@ -893,8 +921,11 @@
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarButtonItem bbiImprimirGrid;
-        private DevExpress.XtraEditors.SimpleButton btnEmail;
         private DevExpress.XtraBars.BarButtonItem bbiQuebraLinhaPendencia;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit4;
+        private DevExpress.XtraEditors.DropDownButton btnEnviarEmail;
+        private DevExpress.XtraBars.PopupMenu pmEmail;
+        private DevExpress.XtraBars.BarButtonItem bbiEmailAvisoPendencia;
+        private DevExpress.XtraBars.BarButtonItem bbiEmailPendenciaResolvida;
     }
 }

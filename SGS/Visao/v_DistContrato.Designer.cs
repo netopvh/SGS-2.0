@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleIconSet formatConditionRuleIconSet1 = new DevExpress.XtraEditors.FormatConditionRuleIconSet();
-            DevExpress.XtraEditors.FormatConditionIconSet formatConditionIconSet1 = new DevExpress.XtraEditors.FormatConditionIconSet();
-            DevExpress.XtraEditors.FormatConditionIconSetIcon formatConditionIconSetIcon1 = new DevExpress.XtraEditors.FormatConditionIconSetIcon();
-            DevExpress.XtraEditors.FormatConditionIconSetIcon formatConditionIconSetIcon2 = new DevExpress.XtraEditors.FormatConditionIconSetIcon();
-            DevExpress.XtraEditors.FormatConditionIconSetIcon formatConditionIconSetIcon3 = new DevExpress.XtraEditors.FormatConditionIconSetIcon();
-            DevExpress.XtraEditors.FormatConditionIconSetIcon formatConditionIconSetIcon4 = new DevExpress.XtraEditors.FormatConditionIconSetIcon();
-            DevExpress.XtraEditors.FormatConditionIconSetIcon formatConditionIconSetIcon5 = new DevExpress.XtraEditors.FormatConditionIconSetIcon();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleIconSet formatConditionRuleIconSet2 = new DevExpress.XtraEditors.FormatConditionRuleIconSet();
+            DevExpress.XtraEditors.FormatConditionIconSet formatConditionIconSet2 = new DevExpress.XtraEditors.FormatConditionIconSet();
+            DevExpress.XtraEditors.FormatConditionIconSetIcon formatConditionIconSetIcon6 = new DevExpress.XtraEditors.FormatConditionIconSetIcon();
+            DevExpress.XtraEditors.FormatConditionIconSetIcon formatConditionIconSetIcon7 = new DevExpress.XtraEditors.FormatConditionIconSetIcon();
+            DevExpress.XtraEditors.FormatConditionIconSetIcon formatConditionIconSetIcon8 = new DevExpress.XtraEditors.FormatConditionIconSetIcon();
+            DevExpress.XtraEditors.FormatConditionIconSetIcon formatConditionIconSetIcon9 = new DevExpress.XtraEditors.FormatConditionIconSetIcon();
+            DevExpress.XtraEditors.FormatConditionIconSetIcon formatConditionIconSetIcon10 = new DevExpress.XtraEditors.FormatConditionIconSetIcon();
             this.ColumnStatus = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
@@ -59,8 +59,9 @@
             this.tabFormControl1 = new DevExpress.XtraBars.TabFormControl();
             this.tabFormPage1 = new DevExpress.XtraBars.TabFormPage();
             this.tabFormContentContainer1 = new DevExpress.XtraBars.TabFormContentContainer();
-            this.btnAtualizar = new DevExpress.XtraEditors.SimpleButton();
+            this.btnImprimir = new DevExpress.XtraEditors.DropDownButton();
             this.toolTipController1 = new DevExpress.Utils.ToolTipController(this.components);
+            this.btnAtualizar = new DevExpress.XtraEditors.SimpleButton();
             this.btnImprimirProtocolo = new DevExpress.XtraEditors.SimpleButton();
             this.btnExportar = new DevExpress.XtraEditors.SimpleButton();
             this.btnBaixar = new DevExpress.XtraEditors.SimpleButton();
@@ -69,14 +70,13 @@
             this.btnExcluir = new DevExpress.XtraEditors.SimpleButton();
             this.btnVoltar = new DevExpress.XtraEditors.SimpleButton();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.btnImprimir = new DevExpress.XtraEditors.DropDownButton();
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.bbiImprimirGrid = new DevExpress.XtraBars.BarButtonItem();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.bbiImprimirGrid = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).BeginInit();
@@ -165,50 +165,50 @@
             this.ColumnDevolucao,
             this.ColumnUsuarioCad,
             this.ColumnDataVenda});
-            gridFormatRule1.Column = this.ColumnStatus;
-            gridFormatRule1.ColumnApplyTo = this.ColumnStatus;
-            gridFormatRule1.Name = "Format0";
-            formatConditionIconSet1.CategoryName = "Ratings";
-            formatConditionIconSetIcon1.PredefinedName = "Signs3_1.png";
-            formatConditionIconSetIcon1.ValueComparison = DevExpress.XtraEditors.FormatConditionComparisonType.GreaterOrEqual;
-            formatConditionIconSetIcon2.PredefinedName = "Symbols3_3.png";
-            formatConditionIconSetIcon2.Value = new decimal(new int[] {
+            gridFormatRule2.Column = this.ColumnStatus;
+            gridFormatRule2.ColumnApplyTo = this.ColumnStatus;
+            gridFormatRule2.Name = "Format0";
+            formatConditionIconSet2.CategoryName = "Ratings";
+            formatConditionIconSetIcon6.PredefinedName = "Signs3_1.png";
+            formatConditionIconSetIcon6.ValueComparison = DevExpress.XtraEditors.FormatConditionComparisonType.GreaterOrEqual;
+            formatConditionIconSetIcon7.PredefinedName = "Symbols3_3.png";
+            formatConditionIconSetIcon7.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            formatConditionIconSetIcon2.ValueComparison = DevExpress.XtraEditors.FormatConditionComparisonType.GreaterOrEqual;
-            formatConditionIconSetIcon3.PredefinedName = "Symbols23_2.png";
-            formatConditionIconSetIcon3.Value = new decimal(new int[] {
+            formatConditionIconSetIcon7.ValueComparison = DevExpress.XtraEditors.FormatConditionComparisonType.GreaterOrEqual;
+            formatConditionIconSetIcon8.PredefinedName = "Symbols23_2.png";
+            formatConditionIconSetIcon8.Value = new decimal(new int[] {
             2,
             0,
             0,
             0});
-            formatConditionIconSetIcon3.ValueComparison = DevExpress.XtraEditors.FormatConditionComparisonType.GreaterOrEqual;
-            formatConditionIconSetIcon4.PredefinedName = "Symbols23_3.png";
-            formatConditionIconSetIcon4.Value = new decimal(new int[] {
+            formatConditionIconSetIcon8.ValueComparison = DevExpress.XtraEditors.FormatConditionComparisonType.GreaterOrEqual;
+            formatConditionIconSetIcon9.PredefinedName = "Symbols23_3.png";
+            formatConditionIconSetIcon9.Value = new decimal(new int[] {
             3,
             0,
             0,
             0});
-            formatConditionIconSetIcon4.ValueComparison = DevExpress.XtraEditors.FormatConditionComparisonType.GreaterOrEqual;
-            formatConditionIconSetIcon5.PredefinedName = "Symbols23_1.png";
-            formatConditionIconSetIcon5.Value = new decimal(new int[] {
+            formatConditionIconSetIcon9.ValueComparison = DevExpress.XtraEditors.FormatConditionComparisonType.GreaterOrEqual;
+            formatConditionIconSetIcon10.PredefinedName = "Symbols23_1.png";
+            formatConditionIconSetIcon10.Value = new decimal(new int[] {
             4,
             0,
             0,
             0});
-            formatConditionIconSetIcon5.ValueComparison = DevExpress.XtraEditors.FormatConditionComparisonType.GreaterOrEqual;
-            formatConditionIconSet1.Icons.Add(formatConditionIconSetIcon1);
-            formatConditionIconSet1.Icons.Add(formatConditionIconSetIcon2);
-            formatConditionIconSet1.Icons.Add(formatConditionIconSetIcon3);
-            formatConditionIconSet1.Icons.Add(formatConditionIconSetIcon4);
-            formatConditionIconSet1.Icons.Add(formatConditionIconSetIcon5);
-            formatConditionIconSet1.Name = "Ratings5";
-            formatConditionIconSet1.ValueType = DevExpress.XtraEditors.FormatConditionValueType.Number;
-            formatConditionRuleIconSet1.IconSet = formatConditionIconSet1;
-            gridFormatRule1.Rule = formatConditionRuleIconSet1;
-            this.advBandedGridView1.FormatRules.Add(gridFormatRule1);
+            formatConditionIconSetIcon10.ValueComparison = DevExpress.XtraEditors.FormatConditionComparisonType.GreaterOrEqual;
+            formatConditionIconSet2.Icons.Add(formatConditionIconSetIcon6);
+            formatConditionIconSet2.Icons.Add(formatConditionIconSetIcon7);
+            formatConditionIconSet2.Icons.Add(formatConditionIconSetIcon8);
+            formatConditionIconSet2.Icons.Add(formatConditionIconSetIcon9);
+            formatConditionIconSet2.Icons.Add(formatConditionIconSetIcon10);
+            formatConditionIconSet2.Name = "Ratings5";
+            formatConditionIconSet2.ValueType = DevExpress.XtraEditors.FormatConditionValueType.Number;
+            formatConditionRuleIconSet2.IconSet = formatConditionIconSet2;
+            gridFormatRule2.Rule = formatConditionRuleIconSet2;
+            this.advBandedGridView1.FormatRules.Add(gridFormatRule2);
             this.advBandedGridView1.GridControl = this.gridControl1;
             this.advBandedGridView1.Name = "advBandedGridView1";
             this.advBandedGridView1.OptionsBehavior.Editable = false;
@@ -433,6 +433,19 @@
             this.tabFormContentContainer1.Size = new System.Drawing.Size(1002, 418);
             this.tabFormContentContainer1.TabIndex = 2;
             // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnImprimir.ImageOptions.Image = global::SGS.Properties.Resources.Imprimir_24x24;
+            this.btnImprimir.Location = new System.Drawing.Point(246, 369);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(102, 44);
+            this.btnImprimir.TabIndex = 12;
+            this.btnImprimir.Text = "Relatórios";
+            this.btnImprimir.ToolTip = "Clique aqui para imprimir relatórios!";
+            this.btnImprimir.ToolTipController = this.toolTipController1;
+            this.btnImprimir.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
+            // 
             // btnAtualizar
             // 
             this.btnAtualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -545,25 +558,19 @@
             this.btnVoltar.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
-            // btnImprimir
-            // 
-            this.btnImprimir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnImprimir.ImageOptions.Image = global::SGS.Properties.Resources.Imprimir_24x24;
-            this.btnImprimir.Location = new System.Drawing.Point(246, 369);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(102, 44);
-            this.btnImprimir.TabIndex = 12;
-            this.btnImprimir.Text = "Relatórios";
-            this.btnImprimir.ToolTip = "Clique aqui para imprimir relatórios!";
-            this.btnImprimir.ToolTipController = this.toolTipController1;
-            this.btnImprimir.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
-            // 
             // popupMenu1
             // 
             this.popupMenu1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiImprimirGrid)});
             this.popupMenu1.Manager = this.barManager1;
             this.popupMenu1.Name = "popupMenu1";
+            // 
+            // bbiImprimirGrid
+            // 
+            this.bbiImprimirGrid.Caption = "ImprimirGrid";
+            this.bbiImprimirGrid.Id = 0;
+            this.bbiImprimirGrid.Name = "bbiImprimirGrid";
+            this.bbiImprimirGrid.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiImprimirGrid_ItemClick);
             // 
             // barManager1
             // 
@@ -608,13 +615,6 @@
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 473);
             // 
-            // bbiImprimirGrid
-            // 
-            this.bbiImprimirGrid.Caption = "ImprimirGrid";
-            this.bbiImprimirGrid.Id = 0;
-            this.bbiImprimirGrid.Name = "bbiImprimirGrid";
-            this.bbiImprimirGrid.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiImprimirGrid_ItemClick);
-            // 
             // v_DistContrato
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -631,6 +631,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TabFormControl = this.tabFormControl1;
             this.Text = "Controle de Distribuições de Contratos";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.v_DistContrato_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
