@@ -21,5 +21,15 @@ namespace SGS.Visao
         {
 
         }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

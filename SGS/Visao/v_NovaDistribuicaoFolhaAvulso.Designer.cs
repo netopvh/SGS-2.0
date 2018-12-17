@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.splashScreenManagerP = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::SGS.Visao.WaitForm1), true, true);
             this.components = new System.ComponentModel.Container();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.gbxDistribuir = new DevExpress.XtraEditors.GroupControl();
@@ -56,6 +57,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbxEmpreendimento.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbxCorretor.Properties)).BeginInit();
             this.SuspendLayout();
+            // splashScreenManagerP
+            // 
+            this.splashScreenManagerP.ClosingDelay = 500;
             // 
             // defaultLookAndFeel1
             // 

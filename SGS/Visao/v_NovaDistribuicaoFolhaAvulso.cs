@@ -101,7 +101,7 @@ namespace SGS.Visao
         }
         private void CarrgearEmpreendimentos()
         {
-            cbxEmpreendimento.Properties.DataSource = c_Empreendimento.CarregarLoteamento();
+            cbxEmpreendimento.Properties.DataSource = c_Empreendimento.CarregarLoteamentoObra("2");
             cbxEmpreendimento.Properties.DisplayMember = "nome";
             cbxEmpreendimento.Properties.ValueMember = "idloteamento";
             if (_AlterarCad == false)

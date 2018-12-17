@@ -427,8 +427,10 @@
             // dropDownButton1
             // 
             this.dropDownButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dropDownButton1.DropDownControl = this.popupMenu1;
             this.dropDownButton1.ImageOptions.Image = global::SGS.Properties.Resources.Imprimir_24x24;
             this.dropDownButton1.Location = new System.Drawing.Point(336, 356);
+            this.dropDownButton1.MenuManager = this.barManager1;
             this.dropDownButton1.Name = "dropDownButton1";
             this.dropDownButton1.Size = new System.Drawing.Size(103, 44);
             this.dropDownButton1.TabIndex = 8;

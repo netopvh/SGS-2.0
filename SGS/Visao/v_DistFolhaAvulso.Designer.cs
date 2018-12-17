@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleIconSet formatConditionRuleIconSet2 = new DevExpress.XtraEditors.FormatConditionRuleIconSet();
+            DevExpress.XtraEditors.FormatConditionIconSet formatConditionIconSet2 = new DevExpress.XtraEditors.FormatConditionIconSet();
+            DevExpress.XtraEditors.FormatConditionIconSetIcon formatConditionIconSetIcon4 = new DevExpress.XtraEditors.FormatConditionIconSetIcon();
+            DevExpress.XtraEditors.FormatConditionIconSetIcon formatConditionIconSetIcon5 = new DevExpress.XtraEditors.FormatConditionIconSetIcon();
+            DevExpress.XtraEditors.FormatConditionIconSetIcon formatConditionIconSetIcon6 = new DevExpress.XtraEditors.FormatConditionIconSetIcon();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.tabFormControl1 = new DevExpress.XtraBars.TabFormControl();
             this.tabFormPage1 = new DevExpress.XtraBars.TabFormPage();
@@ -336,6 +342,34 @@
             this.ColumnCorretor,
             this.ColumnFk_loteamento_distribuicaofolhasavulsas,
             this.ColumnLoteamento});
+            gridFormatRule2.Column = this.ColumnStatus;
+            gridFormatRule2.ColumnApplyTo = this.ColumnStatus;
+            gridFormatRule2.Name = "Format0";
+            formatConditionIconSet2.CategoryName = "Ratings";
+            formatConditionIconSetIcon4.PredefinedName = "Signs3_1.png";
+            formatConditionIconSetIcon4.ValueComparison = DevExpress.XtraEditors.FormatConditionComparisonType.GreaterOrEqual;
+            formatConditionIconSetIcon5.PredefinedName = "Symbols3_3.png";
+            formatConditionIconSetIcon5.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            formatConditionIconSetIcon5.ValueComparison = DevExpress.XtraEditors.FormatConditionComparisonType.GreaterOrEqual;
+            formatConditionIconSetIcon6.PredefinedName = "Symbols23_2.png";
+            formatConditionIconSetIcon6.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            formatConditionIconSetIcon6.ValueComparison = DevExpress.XtraEditors.FormatConditionComparisonType.GreaterOrEqual;
+            formatConditionIconSet2.Icons.Add(formatConditionIconSetIcon4);
+            formatConditionIconSet2.Icons.Add(formatConditionIconSetIcon5);
+            formatConditionIconSet2.Icons.Add(formatConditionIconSetIcon6);
+            formatConditionIconSet2.Name = "Ratings5";
+            formatConditionIconSet2.ValueType = DevExpress.XtraEditors.FormatConditionValueType.Number;
+            formatConditionRuleIconSet2.IconSet = formatConditionIconSet2;
+            gridFormatRule2.Rule = formatConditionRuleIconSet2;
+            this.advBandedGridView1.FormatRules.Add(gridFormatRule2);
             this.advBandedGridView1.GridControl = this.gridControl1;
             this.advBandedGridView1.Name = "advBandedGridView1";
             this.advBandedGridView1.OptionsBehavior.Editable = false;

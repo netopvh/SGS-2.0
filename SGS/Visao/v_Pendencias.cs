@@ -381,7 +381,16 @@ namespace SGS.Visao
                     "________________________________________________"+"\n"+
                     Assinatura;
                 string Porta = (ConfigurationManager.AppSettings["Porta"]);
-                iRetorno = MP2064.IniciaPorta(Porta);
+                if (Porta.ToString() == "ETHERNET")
+                {
+                    string Ip = (ConfigurationManager.AppSettings["Ip"]);
+                    iRetorno = MP2064.IniciaPorta(Ip);
+                }
+                else
+                {
+                    iRetorno = MP2064.IniciaPorta(Porta);
+                }
+                
                 // \n - quebra de linha e \r retorno de impressão (comandos da impressora)
                 iRetorno = MP2064.FormataTX("\r\n\r\n"+ Impressao + "\r\n\r\n",2,0,0,0,1);//ao ser clicado, imprime 
                 iRetorno = MP2064.AcionaGuilhotina(1);//chama a função da DLL(Corte Total)

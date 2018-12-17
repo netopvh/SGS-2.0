@@ -34,6 +34,19 @@ namespace SGS.Controle
             return dataTable;
 
         }
+        public DataTable CarregarLoteamentoObra(string Obra)
+        {
+            MySqlConnection conexao = c_ConexaoMySql.GetConexao();
+            MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = "select idloteamento,nome,obra from loteamento where obra = "+Obra+";";
+            //comando.Parameters.Add(new MySqlParameter("@obra", m_loteamento.obra));
+            MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
+            DataTable dataTable = new DataTable();
+            dataTable.Load(reader);
+            return dataTable;
+
+        }
         public void NovoLoteamento(m_Loteamento m_loteamento)
         {
             MySqlConnection conexao = c_ConexaoMySql.GetConexao();

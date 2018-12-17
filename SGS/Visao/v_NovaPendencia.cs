@@ -115,7 +115,8 @@ namespace SGS.Visao
         private void CarregarLoteamentos()
         {
             DataTable dtLoteamento = new DataTable();
-            dtLoteamento = c_loteamento.CarregarLoteamento();
+            
+            dtLoteamento = c_loteamento.CarregarLoteamentoObra("3");
             LookUpEditLoteamento.Properties.DataSource = dtLoteamento;
             LookUpEditLoteamento.Properties.DisplayMember = "nome";
             LookUpEditLoteamento.Properties.ValueMember = "idloteamento";
