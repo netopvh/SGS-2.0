@@ -182,6 +182,7 @@
     <Compile Include="Controle\c_Comissoes.cs" />
     <Compile Include="Controle\c_ConexaoMySql.cs" />
     <Compile Include="Controle\c_Corretor.cs" />
+    <Compile Include="Controle\c_CorretorPlantao.cs" />
     <Compile Include="Controle\c_Distribuicaocontratos.cs" />
     <Compile Include="Controle\c_DistribuicaoFolhasAvulsas.cs" />
     <Compile Include="Controle\c_EmailConfig.cs" />
@@ -193,6 +194,8 @@
     <Compile Include="Controle\c_Empresalicenca.cs" />
     <Compile Include="Controle\c_Pendencias.cs" />
     <Compile Include="Controle\c_Permissao.cs" />
+    <Compile Include="Controle\c_Plantao.cs" />
+    <Compile Include="Controle\c_TempoAtendimento.cs" />
     <Compile Include="Controle\c_Usuario.cs" />
     <Compile Include="Controle\c_ValidarCPF.cs" />
     <Compile Include="Controle\c_ValidarEmail.cs" />
@@ -205,6 +208,7 @@
     <Compile Include="Modelo\m_CidadeEstado.cs" />
     <Compile Include="Modelo\m_Comissoes.cs" />
     <Compile Include="Modelo\m_Corretor.cs" />
+    <Compile Include="Modelo\m_CorretorPlantao.cs" />
     <Compile Include="Modelo\m_Distribuicaocontratos.cs" />
     <Compile Include="Modelo\m_DistribuicaoFolhasAvulsas.cs" />
     <Compile Include="Modelo\m_EmailConfig.cs" />
@@ -214,6 +218,8 @@
     <Compile Include="Modelo\m_Loteamento.cs" />
     <Compile Include="Modelo\m_Pendencias.cs" />
     <Compile Include="Modelo\m_Permissao.cs" />
+    <Compile Include="Modelo\m_Plantao.cs" />
+    <Compile Include="Modelo\m_TempoAtendimento.cs" />
     <Compile Include="Modelo\m_Usuario.cs" />
     <Compile Include="MP2064.cs" />
     <Compile Include="Program.cs" />
@@ -428,6 +434,12 @@
     <Compile Include="Visao\v_Usuario.Designer.cs">
       <DependentUpon>v_Usuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visao\v_VisaoAtendimentoPlantao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\v_VisaoAtendimentoPlantao.Designer.cs">
+      <DependentUpon>v_VisaoAtendimentoPlantao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visao\v_VisitasStand.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -555,6 +567,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_Usuario.resx">
       <DependentUpon>v_Usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\v_VisaoAtendimentoPlantao.resx">
+      <DependentUpon>v_VisaoAtendimentoPlantao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_VisitasStand.resx">
       <DependentUpon>v_VisitasStand.cs</DependentUpon>
@@ -724,6 +739,13 @@
     <None Include="Resources\CaixaRegistradora32x32.png" />
     <None Include="Resources\Estoque32x32.png" />
     <None Include="Resources\Temas32x32.png" />
+    <None Include="Resources\atualizacao48x48.png" />
+    <None Include="Resources\addPessoa24x24.png" />
+    <None Include="Resources\UP24x24.png" />
+    <None Include="Resources\Down24x24.png" />
+    <None Include="Resources\DeletarPessoa24x24.png" />
+    <None Include="Resources\PlayMostrarTV24x24.png" />
+    <None Include="Resources\BackgroundVisaoAtendimento.jpg" />
     <Content Include="Visao\LOGOSGS.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

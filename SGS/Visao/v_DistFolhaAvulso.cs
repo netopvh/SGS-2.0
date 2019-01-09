@@ -39,7 +39,8 @@ namespace SGS.Visao
             CancelButton = btnVoltar;
             Permissao();
             CarregarGrid();
-            BestFitBand(gridBand1);
+            //BestFitBand(gridBand1);
+            advBandedGridView1.BestFitColumns(true);
         }
         private void BestFitBand(GridBand band)
         {

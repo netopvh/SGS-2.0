@@ -208,88 +208,109 @@ namespace SGS.Visao
 
         private async void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Deseja Salvar ?","SGS",MessageBoxButtons.YesNo,MessageBoxIcon.Question)== DialogResult.Yes)
+            
+            try
             {
-                if (txtValorFolha.Text != string.Empty && cbxCorretor.Text != string.Empty && cbxEmpreendimento.Text != string.Empty && cbxFolha.Text != string.Empty)
+                if (cbxCorretor.Text != string.Empty && cbxEmpreendimento.Text != string.Empty && cbxFolha.Text != string.Empty || rbtPGAprazo.Checked == true || rbtPGAvista.Checked == true)
                 {
-                    if (cbxNotificarCorretorEmail.Checked == true)
+                    if (MessageBox.Show("Deseja Salvar a distribuição?", "SGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        splashScreenManagerP.ShowWaitForm();
-                        DesativarForm();
-
-                        using (System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient())
+                        
+                        if (cbxNotificarCorretorEmail.Checked == true)
                         {
-                            m_corretor.idcorretor = Convert.ToInt32(cbxCorretor.EditValue);
-                            m_corretor.email = c_corretor.GetEmailCorretor(m_corretor);
-                            m_emailConfig.smtpemail = c_emailConfig.GetSMTpEmail();
-                            m_emailConfig.smtphost = c_emailConfig.GetSMTPHost();
-                            m_emailConfig.smtpporta = Convert.ToInt32(c_emailConfig.GetSMTPPorta());
-                            m_emailConfig.smtpsenhaemail = c_emailConfig.GetSMTPSenhaEmail();
-                            m_emailConfig.smtpssl = c_emailConfig.GetSMTPSSL();
-                            m_emailConfig.smtpcredencialpadrao = c_emailConfig.GetSMTPCredencialPadrao();
-
-                            smtp.Host = m_emailConfig.smtphost;//"smtp.gmail.com"
-                            smtp.Port = m_emailConfig.smtpporta;//587
-                            smtp.EnableSsl = m_emailConfig.smtpssl;//true
-                            smtp.UseDefaultCredentials = m_emailConfig.smtpcredencialpadrao;//false
-                            smtp.Credentials = new System.Net.NetworkCredential(m_emailConfig.smtpemail, m_emailConfig.smtpsenhaemail);
-
-                            using (System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage())
+                            splashScreenManagerP.ShowWaitForm();
+                            DesativarForm();
+                            try
                             {
-                                mail.From = new System.Net.Mail.MailAddress(m_emailConfig.smtpemail);//Conta de email que vai usar
-
-                                if (!string.IsNullOrWhiteSpace(m_corretor.email))//Email para enviar
+                                using (System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient())
                                 {
-                                    mail.To.Add(new System.Net.Mail.MailAddress(m_corretor.email));//Email para enviar
-                                }
-                                else
-                                {
-                                    AtivarForm();
-                                    splashScreenManagerP.CloseWaitForm();
-                                    MessageBox.Show("Não foi encontrado E-mail para envio!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    return;
-                                }
-                                /*if (cbxEnviarCopiarEmailAviso.Checked == true)
-                                    mail.CC.Add(new System.Net.Mail.MailAddress(m_emailConfig.smtpemail));
-                                if (!string.IsNullOrWhiteSpace(textBoxCCo.Text))
-                                    mail.Bcc.Add(new System.Net.Mail.MailAddress(textBoxCCo.Text));*/
-                                mail.IsBodyHtml = true;
-                                mail.Subject = "Distribuição " + cbxFolha.Text + " Avulso do " + cbxEmpreendimento.Text;//Assunto do email
+                                    m_corretor.idcorretor = Convert.ToInt32(cbxCorretor.EditValue);
+                                    m_corretor.email = c_corretor.GetEmailCorretor(m_corretor);
+                                    m_emailConfig.smtpemail = c_emailConfig.GetSMTpEmail();
+                                    m_emailConfig.smtphost = c_emailConfig.GetSMTPHost();
+                                    m_emailConfig.smtpporta = Convert.ToInt32(c_emailConfig.GetSMTPPorta());
+                                    m_emailConfig.smtpsenhaemail = c_emailConfig.GetSMTPSenhaEmail();
+                                    m_emailConfig.smtpssl = c_emailConfig.GetSMTPSSL();
+                                    m_emailConfig.smtpcredencialpadrao = c_emailConfig.GetSMTPCredencialPadrao();
 
-                                var EmailHtml =
-                                    @"<h2 style=""text-align: center;""><span style=""color: #ff0000;""><strong><span style=""color: #0000ff;"">Distribui&ccedil;&atilde;o de Folha Avulso</span> <img src=""https://html-online.com/editor/tinymce4_6_5/plugins/emoticons/img/smiley-smile.gif"" alt=""smile"" /><br /></strong></span></h2>"+
-                                    @"<hr/>"+
-                                    @"<p><strong>&Oacute;la este &eacute; um e-mail autom&aacute;tico:</strong></p>"+
-                                    @"<p style=""text-align:left;"">Foi distribuido para o Corretor:<span style=""color:#008000;""><strong>"+cbxCorretor.Text+"</strong></span>"+
-                                    @", a folha avulso:<span style=""color:#008000;""><strong>"+cbxFolha.Text+"</strong></span>"+
-                                    @" do empreendimento:<span style=""color:#008000;""><strong>"+cbxEmpreendimento.Text+"</strong>.</span></p>"+
-                                    @"<p style=""text-align:left;""><span style=""color:#000000;""><strong>OBS:</strong><span style=""color:#ff0000;"">Se voc&ecirc; n&atilde;o solicitou ou n&atilde;o auturizou a distribui&ccedil;&atilde;o dessa folha no seu nome, por favor entre em contato com escritorio administrativo e informe sobre este e-mail, ou caso voc&ecirc; n&atilde;o seja esse corretor apenas avise que chegou e-mail pro corretor errado, obrigado.</span><br/></span></p>"+
-                                    @"<hr/>"+
-                                    @"<p><span style=""color: #0000ff;""><span style=""color: #000000;"">&copy;2018 -</span> <strong><span style=""color: #0000ff;"">Viva Bem, Viva Valle...</span></strong></span></p>"+
-                                    @"<p style=""text-align: left;"">&nbsp;</p>";
-                                mail.Body = EmailHtml;
-                                await smtp.SendMailAsync(mail);
-                                //MessageBox.Show("Enviado com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                //AtivarForm();
-                                splashScreenManagerP.CloseWaitForm();
-                                funcao("salvar");
+                                    smtp.Host = m_emailConfig.smtphost;//"smtp.gmail.com"
+                                    smtp.Port = m_emailConfig.smtpporta;//587
+                                    smtp.EnableSsl = m_emailConfig.smtpssl;//true
+                                    smtp.UseDefaultCredentials = m_emailConfig.smtpcredencialpadrao;//false
+                                    smtp.Credentials = new System.Net.NetworkCredential(m_emailConfig.smtpemail, m_emailConfig.smtpsenhaemail);
+
+                                    using (System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage())
+                                    {
+                                        mail.From = new System.Net.Mail.MailAddress(m_emailConfig.smtpemail);//Conta de email que vai usar
+
+                                        if (!string.IsNullOrWhiteSpace(m_corretor.email))//Email para enviar
+                                        {
+                                            mail.To.Add(new System.Net.Mail.MailAddress(m_corretor.email));//Email para enviar
+                                        }
+                                        else
+                                        {
+                                            //AtivarForm();
+
+                                            //MessageBox.Show("Não foi encontrado E-mail para envio!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            //return;
+                                            splashScreenManagerP.CloseWaitForm();
+                                            funcao("salvar");
+                                        }
+                                        /*if (cbxEnviarCopiarEmailAviso.Checked == true)
+                                            mail.CC.Add(new System.Net.Mail.MailAddress(m_emailConfig.smtpemail));
+                                        if (!string.IsNullOrWhiteSpace(textBoxCCo.Text))
+                                            mail.Bcc.Add(new System.Net.Mail.MailAddress(textBoxCCo.Text));*/
+                                        mail.IsBodyHtml = true;
+                                        mail.Subject = "Distribuição " + cbxFolha.Text + " Avulso do " + cbxEmpreendimento.Text;//Assunto do email
+
+                                        var EmailHtml =
+                                            @"<h2 style=""text-align: center;""><span style=""color: #ff0000;""><strong><span style=""color: #0000ff;"">Distribui&ccedil;&atilde;o de Folha Avulso</span> <img src=""https://html-online.com/editor/tinymce4_6_5/plugins/emoticons/img/smiley-smile.gif"" alt=""smile"" /><br /></strong></span></h2>" +
+                                            @"<hr/>" +
+                                            @"<p><strong>&Oacute;la este &eacute; um e-mail autom&aacute;tico:</strong></p>" +
+                                            @"<p style=""text-align:left;"">Foi distribuido para o Corretor:<span style=""color:#008000;""><strong>" + cbxCorretor.Text + "</strong></span>" +
+                                            @", a folha avulso:<span style=""color:#008000;""><strong>" + cbxFolha.Text + "</strong></span>" +
+                                            @" do empreendimento:<span style=""color:#008000;""><strong>" + cbxEmpreendimento.Text + "</strong>.</span></p>" +
+                                            @"<p style=""text-align:left;""><span style=""color:#000000;""><strong>OBS:</strong><span style=""color:#ff0000;"">Se voc&ecirc; n&atilde;o solicitou ou n&atilde;o auturizou a distribui&ccedil;&atilde;o dessa folha no seu nome, por favor entre em contato com escritorio administrativo e informe sobre este e-mail, ou caso voc&ecirc; n&atilde;o seja esse corretor apenas avise que chegou e-mail pro corretor errado, obrigado.</span><br/></span></p>" +
+                                            @"<hr/>" +
+                                            @"<p><span style=""color: #0000ff;""><span style=""color: #000000;"">&copy;2018 -</span> <strong><span style=""color: #0000ff;"">Viva Bem, Viva Valle...</span></strong></span></p>" +
+                                            @"<p style=""text-align: left;"">&nbsp;</p>";
+                                        mail.Body = EmailHtml;
+                                        await smtp.SendMailAsync(mail);
+                                        //MessageBox.Show("Enviado com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        //AtivarForm();
+                                        splashScreenManagerP.CloseWaitForm();
+                                        funcao("salvar");
+                                    }
+
+                                }
+                            }
+                            catch (System.InvalidOperationException)
+                            {
+
                             }
 
                         }
-                    }
-                    else
-                    {
-                        funcao("salvar");
+                        else
+                        {
+                            funcao("salvar");
+
+                        }
 
                     }
-                    
                 }
                 else
                 {
                     MessageBox.Show("Verifique se todos os campos estão preenchidos!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
                 }
-                
+                    
+                    
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:" + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
     }
 }

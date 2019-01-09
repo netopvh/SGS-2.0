@@ -243,7 +243,7 @@ namespace SGS.Visao
             tabFormControl1.SelectedPage = tabFormPagePendencias;
             Permissao();
             CarregarPendencias();
-            //gdvPendencias.BestFitColumns(true);
+            gdvPendencias.BestFitColumns(true);
             
         }
         public void CarregarPendencias()

@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::SGS.Visao.SplashScreen1), true, true);
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.tabFormControl1 = new DevExpress.XtraBars.TabFormControl();
             this.gbxEmpresaLicenca = new DevExpress.XtraEditors.GroupControl();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblLicenca = new DevExpress.XtraEditors.LabelControl();
-            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.gbxDadosAcesso = new DevExpress.XtraEditors.GroupControl();
+            this.cbxLembrarAcesso = new DevExpress.XtraEditors.CheckEdit();
             this.cbxMostrarSenha = new DevExpress.XtraEditors.CheckEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.txtSenha = new DevExpress.XtraEditors.TextEdit();
@@ -46,9 +46,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbxEmpresaLicenca)).BeginInit();
             this.gbxEmpresaLicenca.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbxDadosAcesso)).BeginInit();
             this.gbxDadosAcesso.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbxLembrarAcesso.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbxMostrarSenha.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSenha.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUsuario.Properties)).BeginInit();
@@ -74,37 +75,38 @@
             // 
             // gbxEmpresaLicenca
             // 
+            this.gbxEmpresaLicenca.Controls.Add(this.pictureBox1);
             this.gbxEmpresaLicenca.Controls.Add(this.lblLicenca);
-            this.gbxEmpresaLicenca.Controls.Add(this.pictureEdit1);
             this.gbxEmpresaLicenca.Location = new System.Drawing.Point(12, 61);
             this.gbxEmpresaLicenca.Name = "gbxEmpresaLicenca";
             this.gbxEmpresaLicenca.Size = new System.Drawing.Size(273, 147);
             this.gbxEmpresaLicenca.TabIndex = 1;
             this.gbxEmpresaLicenca.Text = "Empresa/Licença";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(5, 15);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(263, 107);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // lblLicenca
             // 
             this.lblLicenca.Appearance.Font = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLicenca.Appearance.ForeColor = System.Drawing.Color.Blue;
             this.lblLicenca.Appearance.Options.UseFont = true;
+            this.lblLicenca.Appearance.Options.UseForeColor = true;
             this.lblLicenca.Location = new System.Drawing.Point(5, 128);
             this.lblLicenca.Name = "lblLicenca";
             this.lblLicenca.Size = new System.Drawing.Size(32, 11);
             this.lblLicenca.TabIndex = 1;
             this.lblLicenca.Text = "Licença:";
             // 
-            // pictureEdit1
-            // 
-            this.pictureEdit1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pictureEdit1.Location = new System.Drawing.Point(5, 16);
-            this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit1.Properties.ShowMenu = false;
-            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.pictureEdit1.Size = new System.Drawing.Size(263, 106);
-            this.pictureEdit1.TabIndex = 0;
-            // 
             // gbxDadosAcesso
             // 
+            this.gbxDadosAcesso.Controls.Add(this.cbxLembrarAcesso);
             this.gbxDadosAcesso.Controls.Add(this.cbxMostrarSenha);
             this.gbxDadosAcesso.Controls.Add(this.labelControl3);
             this.gbxDadosAcesso.Controls.Add(this.txtSenha);
@@ -115,6 +117,18 @@
             this.gbxDadosAcesso.Size = new System.Drawing.Size(273, 141);
             this.gbxDadosAcesso.TabIndex = 2;
             this.gbxDadosAcesso.Text = "Dados de Acesso";
+            // 
+            // cbxLembrarAcesso
+            // 
+            this.cbxLembrarAcesso.Location = new System.Drawing.Point(22, 114);
+            this.cbxLembrarAcesso.Name = "cbxLembrarAcesso";
+            this.cbxLembrarAcesso.Properties.Caption = "Lembrar Usuário";
+            this.cbxLembrarAcesso.Properties.PictureChecked = global::SGS.Properties.Resources.MostrarSenha24x24;
+            this.cbxLembrarAcesso.Properties.PictureGrayed = global::SGS.Properties.Resources.MostrarSenha24x24;
+            this.cbxLembrarAcesso.Properties.PictureUnchecked = global::SGS.Properties.Resources.MostrarSenha24x24;
+            this.cbxLembrarAcesso.Size = new System.Drawing.Size(104, 19);
+            this.cbxLembrarAcesso.TabIndex = 5;
+            this.cbxLembrarAcesso.CheckedChanged += new System.EventHandler(this.cbxLembrarAcesso_CheckedChanged);
             // 
             // cbxMostrarSenha
             // 
@@ -180,10 +194,6 @@
             this.btnLogin.Text = "Login";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // splashScreenManager
-            // 
-            splashScreenManager.ClosingDelay = 500;
-            // 
             // v_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -206,10 +216,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbxEmpresaLicenca)).EndInit();
             this.gbxEmpresaLicenca.ResumeLayout(false);
             this.gbxEmpresaLicenca.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbxDadosAcesso)).EndInit();
             this.gbxDadosAcesso.ResumeLayout(false);
             this.gbxDadosAcesso.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbxLembrarAcesso.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbxMostrarSenha.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSenha.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUsuario.Properties)).EndInit();
@@ -230,8 +241,9 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.GroupControl gbxEmpresaLicenca;
         private DevExpress.XtraEditors.LabelControl lblLicenca;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.XtraEditors.CheckEdit cbxMostrarSenha;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
+        private DevExpress.XtraEditors.CheckEdit cbxLembrarAcesso;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -63,6 +63,16 @@ namespace SGS.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap addPessoa24x24 {
+            get {
+                object obj = ResourceManager.GetObject("addPessoa24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AjusteComissao24x24 {
             get {
                 object obj = ResourceManager.GetObject("AjusteComissao24x24", resourceCulture);
@@ -156,6 +166,26 @@ namespace SGS.Properties {
         internal static System.Drawing.Bitmap atualizacao24x24 {
             get {
                 object obj = ResourceManager.GetObject("atualizacao24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap atualizacao48x48 {
+            get {
+                object obj = ResourceManager.GetObject("atualizacao48x48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BackgroundVisaoAtendimento {
+            get {
+                object obj = ResourceManager.GetObject("BackgroundVisaoAtendimento", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -336,6 +366,26 @@ namespace SGS.Properties {
         internal static System.Drawing.Bitmap Cronometro32x32 {
             get {
                 object obj = ResourceManager.GetObject("Cronometro32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DeletarPessoa24x24 {
+            get {
+                object obj = ResourceManager.GetObject("DeletarPessoa24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Down24x24 {
+            get {
+                object obj = ResourceManager.GetObject("Down24x24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -603,6 +653,16 @@ namespace SGS.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PlayMostrarTV24x24 {
+            get {
+                object obj = ResourceManager.GetObject("PlayMostrarTV24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap razao_geral_32x32 {
             get {
                 object obj = ResourceManager.GetObject("razao-geral-32x32", resourceCulture);
@@ -696,6 +756,16 @@ namespace SGS.Properties {
         internal static System.Drawing.Bitmap Triste24x24 {
             get {
                 object obj = ResourceManager.GetObject("Triste24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UP24x24 {
+            get {
+                object obj = ResourceManager.GetObject("UP24x24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

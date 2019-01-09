@@ -164,32 +164,30 @@ namespace SGS.Visao
         private async void btnSalvar_Click(object sender, EventArgs e)
         {
            
-            
             try
             {
-                if (MessageBox.Show("Deseja salvar ?","SGS",MessageBoxButtons.YesNo,MessageBoxIcon.Question)== DialogResult.Yes)
+                if (txtCliente.Text != string.Empty && txtPendencia.Text != string.Empty && txtQuadra.Text != string.Empty && txtLote.Text != string.Empty && LookUpEditCorretor.Text != string.Empty && LookUpEditLoteamento.Text != string.Empty)
                 {
-                    m_pendencias.nomecliente = txtCliente.Text;
-                    m_pendencias.quadra = txtQuadra.Text;
-                    m_pendencias.lote = txtLote.Text;
-                    m_pendencias.numerocontrato = txtNumeroContrato.Text;
-                    m_pendencias.pendencia = txtPendencia.Text;
-                    m_pendencias.datacadastro = Convert.ToDateTime(dtpDataCad.Value.ToShortDateString());
-                    m_pendencias.datavenda = Convert.ToDateTime(dtpDataVenda.Value.ToShortDateString());
-                    m_pendencias.datacadpendencia = Convert.ToDateTime(dteDataCadPendencia.Text);
-                    m_pendencias.venda = txtVenda.Text;
-                    m_pendencias.fk_corretor_pendencias = (int)LookUpEditCorretor.EditValue;
-                    m_pendencias.fk_loteamento_pendencias = (int)LookUpEditLoteamento.EditValue;
-                    //Status pendencia 0 = corretor, 1 = resolvido.
-
-
-                    if (txtCliente.Text != string.Empty && txtPendencia.Text != string.Empty && txtQuadra.Text != string.Empty && txtLote.Text != string.Empty)
+                    if (MessageBox.Show("Deseja salvar ?", "SGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
+                        m_pendencias.nomecliente = txtCliente.Text;
+                        m_pendencias.quadra = txtQuadra.Text;
+                        m_pendencias.lote = txtLote.Text;
+                        m_pendencias.numerocontrato = txtNumeroContrato.Text;
+                        m_pendencias.pendencia = txtPendencia.Text;
+                        m_pendencias.datacadastro = Convert.ToDateTime(dtpDataCad.Value.ToShortDateString());
+                        m_pendencias.datavenda = Convert.ToDateTime(dtpDataVenda.Value.ToShortDateString());
+                        m_pendencias.datacadpendencia = Convert.ToDateTime(dteDataCadPendencia.Text);
+                        m_pendencias.venda = txtVenda.Text;
+                        m_pendencias.fk_corretor_pendencias = (int)LookUpEditCorretor.EditValue;
+                        m_pendencias.fk_loteamento_pendencias = (int)LookUpEditLoteamento.EditValue;
+                        //Status pendencia 0 = corretor, 1 = resolvido.
+                        
                         if (cbxAvisarCorretorPendencia.Checked == true)
                         {
                             splashScreenManagerP.ShowWaitForm();
                             DesativaTela();
-                            
+
                             using (System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient())
                             {
                                 m_corretor.idcorretor = Convert.ToInt32(LookUpEditCorretor.EditValue);
@@ -274,12 +272,15 @@ namespace SGS.Visao
                             this.Close();
                         }
                     }
-                    else
-                    {
-                        MessageBox.Show("Verifique se todos os campos foram preenchidos!...", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        return;
-                    }
+
                 }
+
+                else
+                {
+                    MessageBox.Show("Verifique se todos os campos foram preenchidos!...", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+                
                 
             }
             catch (Exception ex)

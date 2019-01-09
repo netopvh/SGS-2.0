@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -25,6 +26,7 @@ namespace SGS.Visao
         private string _key2 = "";
         private string _licenca = "";
         private int _permissao;
+        string _UsuarioSalvo = (ConfigurationManager.AppSettings["Usuario"]);
         public v_Login()
         {
             InitializeComponent();
@@ -52,6 +54,25 @@ namespace SGS.Visao
                     v_Principal v_principal = new v_Principal(txtUsuario.Text,_permissao);
                     v_principal.Show();
                     this.Hide();
+                    Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                    if (txtUsuario.Text != string.Empty && cbxLembrarAcesso.Checked == true)
+                    {
+                        _UsuarioSalvo = txtUsuario.Text.ToString();
+                        
+                        config.AppSettings.Settings.Add("Usuario", _UsuarioSalvo);
+                        config.AppSettings.Settings["Usuario"].Value = _UsuarioSalvo;
+                        
+                    }
+                    else if (cbxLembrarAcesso.Checked == false)
+                    {
+                        _UsuarioSalvo = "";
+
+                        config.AppSettings.Settings.Add("Usuario", _UsuarioSalvo);
+                        config.AppSettings.Settings["Usuario"].Value = _UsuarioSalvo;
+                        
+                    }
+                    config.Save(ConfigurationSaveMode.Modified);
+                    ConfigurationManager.RefreshSection("appSettings");
                 }
                 else
                 {
@@ -60,10 +81,14 @@ namespace SGS.Visao
                 
             }
         }
+        private void VersaoAssembly()
+        {
+            this.Text = Text +" - "+ System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+        }
 
         private void v_Login_Load(object sender, EventArgs e)
         {
-            CreateUpdateInfo();
+            
             _senhapadrao = "masterkey@";
             _licenca = _licenca = c_empresalicenca.AutenticarLicencaMD5();
             _key1 = c_empresalicenca.AutenticarKey1();
@@ -73,9 +98,24 @@ namespace SGS.Visao
             AcceptButton = btnLogin;
             CancelButton = btnSair;
             VerificarLicenca();
-            LogoEmpresa();
+            CreateUpdateInfo();
+            VersaoAssembly();
             _permissao = c_permissao.AutenticarPermissao(txtUsuario.Text);
+            txtUsuario.Text = _UsuarioSalvo;
+            //this.Refresh();
+            LogoEmpresa();
+            if (txtUsuario.Text != string.Empty)
+            {
+                cbxLembrarAcesso.Checked = true;
+                txtSenha.Focus();
+            }
+            else
+            {
+                txtUsuario.Focus();
+            }
+            
         }
+       
        
         private void LogoEmpresa()
         {
@@ -83,7 +123,7 @@ namespace SGS.Visao
             {
                 Stream stream = new MemoryStream(c_empresalicenca.CarrregarLogoMarca());
                 var image = Image.FromStream(stream);
-                pictureEdit1.Image = image;
+                pictureBox1.Image = image;
             }
             catch (ArgumentNullException)
             {
@@ -159,6 +199,11 @@ namespace SGS.Visao
                 txtSenha.Properties.UseSystemPasswordChar = true;
             }
         }
+        
+        private void cbxLembrarAcesso_CheckedChanged(object sender, EventArgs e)
+        {
+            //VerificarLembrarUsuario();
+        }
 
         private void tabFormControl1_Click(object sender, EventArgs e)
         {
@@ -189,7 +234,7 @@ namespace SGS.Visao
             Version assemblyVersion = assembly.GetName().Version;
 
             System.IO.StreamWriter sw = new System.IO.StreamWriter(infoFile, false);
-            sw.Write("Versão do sistema nesta pasta é:" + assemblyVersion.ToString() + ". Para atualizar bastar entrar no sistema, na aba Sistema e procurar por atualizações!");
+            sw.Write("Versão do sistema nesta pasta é:" + assemblyVersion.ToString());
             sw.Close();
         }
     }

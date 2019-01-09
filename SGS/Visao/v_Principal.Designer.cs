@@ -84,12 +84,14 @@
             this.rbpSistema = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup16 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup12 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup16 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.toastNotificationsManager1 = new DevExpress.XtraBars.ToastNotifications.ToastNotificationsManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControlPrincipal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toastNotificationsManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControlPrincipal
@@ -583,6 +585,14 @@
             this.ribbonPageGroup7.ShowCaptionButton = false;
             this.ribbonPageGroup7.Text = "Backup";
             // 
+            // ribbonPageGroup16
+            // 
+            this.ribbonPageGroup16.AllowTextClipping = false;
+            this.ribbonPageGroup16.ItemLinks.Add(this.bbiTemas);
+            this.ribbonPageGroup16.Name = "ribbonPageGroup16";
+            this.ribbonPageGroup16.ShowCaptionButton = false;
+            this.ribbonPageGroup16.Text = "Design";
+            // 
             // ribbonPageGroup10
             // 
             this.ribbonPageGroup10.ItemLinks.Add(this.bbiVerificarAtualizacao);
@@ -600,14 +610,6 @@
             this.ribbonPageGroup12.ShowCaptionButton = false;
             this.ribbonPageGroup12.Text = "Suporte";
             // 
-            // ribbonPageGroup16
-            // 
-            this.ribbonPageGroup16.AllowTextClipping = false;
-            this.ribbonPageGroup16.ItemLinks.Add(this.bbiTemas);
-            this.ribbonPageGroup16.Name = "ribbonPageGroup16";
-            this.ribbonPageGroup16.ShowCaptionButton = false;
-            this.ribbonPageGroup16.Text = "Design";
-            // 
             // ribbonStatusBar1
             // 
             this.ribbonStatusBar1.ItemLinks.Add(this.bsiUsuario);
@@ -620,6 +622,13 @@
             // defaultLookAndFeel1
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2013";
+            // 
+            // toastNotificationsManager1
+            // 
+            this.toastNotificationsManager1.ApplicationId = "6cd3b744-c49d-4116-b4cd-c38e57dc51d2";
+            this.toastNotificationsManager1.ApplicationName = "SGS";
+            this.toastNotificationsManager1.Notifications.AddRange(new DevExpress.XtraBars.ToastNotifications.IToastNotificationProperties[] {
+            new DevExpress.XtraBars.ToastNotifications.ToastNotification("4da965cc-d3fb-47a6-8e2f-5c63d4a066ed", global::SGS.Properties.Resources.atualizacao48x48, "teste3", "teste1", "teste2", DevExpress.XtraBars.ToastNotifications.ToastNotificationTemplate.ImageAndText01)});
             // 
             // v_Principal
             // 
@@ -638,6 +647,7 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.v_Principal_FormClosed);
             this.Load += new System.EventHandler(this.v_Principal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControlPrincipal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toastNotificationsManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -705,5 +715,6 @@
         private DevExpress.XtraBars.BarButtonItem bbiEstoqueGeral;
         private DevExpress.XtraBars.BarButtonItem bbiTemas;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup16;
+        private DevExpress.XtraBars.ToastNotifications.ToastNotificationsManager toastNotificationsManager1;
     }
 }

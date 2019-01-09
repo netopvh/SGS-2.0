@@ -216,94 +216,86 @@ namespace SGS.Visao
         {
             try
             {
-                if (MessageBox.Show("Confirma que deseja distribuir o(s) contrato(s)?", "SGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-
-
-
+                
+                    
                     if (txtSqcInicial.Value > 0 && txtSqcFinal.Value > 0 && txtSqcInicial.Value <= txtSqcFinal.Value)
                     {
-                        if (lookUpEditCorretor.Text != string.Empty && lookUpEditEmpreendimento.Text != string.Empty)
+                    if (lookUpEditCorretor.Text != string.Empty && lookUpEditEmpreendimento.Text != string.Empty)
+                    {
+                        if (MessageBox.Show("Confirma que deseja distribuir o(s) contrato(s)?", "SGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            /*if (_Alterar == false)
-                            {
-                                if (MessageBox.Show("Confirma que deseja distribuir o(s) contrato(s)?", "SGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                                {
-                                    funcao("salvar");
-                                }
-                            }
-                            else if (_Alterar == true)
-                            {
-                                if (MessageBox.Show("Confirma que deseja Alterar a distribuição desse contrato?", "SGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                                {
-
-                                    funcao("salvar");
-                                }
-                            }*/
                             if (cbxAvisarPorEmail.Checked == true)
                             {
                                 splashScreenManagerP.ShowWaitForm();
                                 DesativarForm();
-
-                                using (System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient())
+                                try
                                 {
-                                    m_corretor.idcorretor = Convert.ToInt32(lookUpEditCorretor.EditValue);
-                                    m_corretor.email = c_corretor.GetEmailCorretor(m_corretor);
-                                    m_emailConfig.smtpemail = c_emailConfig.GetSMTpEmail();
-                                    m_emailConfig.smtphost = c_emailConfig.GetSMTPHost();
-                                    m_emailConfig.smtpporta = Convert.ToInt32(c_emailConfig.GetSMTPPorta());
-                                    m_emailConfig.smtpsenhaemail = c_emailConfig.GetSMTPSenhaEmail();
-                                    m_emailConfig.smtpssl = c_emailConfig.GetSMTPSSL();
-                                    m_emailConfig.smtpcredencialpadrao = c_emailConfig.GetSMTPCredencialPadrao();
-
-                                    smtp.Host = m_emailConfig.smtphost;//"smtp.gmail.com"
-                                    smtp.Port = m_emailConfig.smtpporta;//587
-                                    smtp.EnableSsl = m_emailConfig.smtpssl;//true
-                                    smtp.UseDefaultCredentials = m_emailConfig.smtpcredencialpadrao;//false
-                                    smtp.Credentials = new System.Net.NetworkCredential(m_emailConfig.smtpemail, m_emailConfig.smtpsenhaemail);
-
-                                    using (System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage())
+                                    using (System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient())
                                     {
-                                        mail.From = new System.Net.Mail.MailAddress(m_emailConfig.smtpemail);//Conta de email que vai usar
+                                        m_corretor.idcorretor = Convert.ToInt32(lookUpEditCorretor.EditValue);
+                                        m_corretor.email = c_corretor.GetEmailCorretor(m_corretor);
+                                        m_emailConfig.smtpemail = c_emailConfig.GetSMTpEmail();
+                                        m_emailConfig.smtphost = c_emailConfig.GetSMTPHost();
+                                        m_emailConfig.smtpporta = Convert.ToInt32(c_emailConfig.GetSMTPPorta());
+                                        m_emailConfig.smtpsenhaemail = c_emailConfig.GetSMTPSenhaEmail();
+                                        m_emailConfig.smtpssl = c_emailConfig.GetSMTPSSL();
+                                        m_emailConfig.smtpcredencialpadrao = c_emailConfig.GetSMTPCredencialPadrao();
 
-                                        if (!string.IsNullOrWhiteSpace(m_corretor.email))//Email para enviar
+                                        smtp.Host = m_emailConfig.smtphost;//"smtp.gmail.com"
+                                        smtp.Port = m_emailConfig.smtpporta;//587
+                                        smtp.EnableSsl = m_emailConfig.smtpssl;//true
+                                        smtp.UseDefaultCredentials = m_emailConfig.smtpcredencialpadrao;//false
+                                        smtp.Credentials = new System.Net.NetworkCredential(m_emailConfig.smtpemail, m_emailConfig.smtpsenhaemail);
+
+                                        using (System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage())
                                         {
-                                            mail.To.Add(new System.Net.Mail.MailAddress(m_corretor.email));//Email para enviar
-                                        }
-                                        else
-                                        {
-                                            AtivarForm();
+                                            mail.From = new System.Net.Mail.MailAddress(m_emailConfig.smtpemail);//Conta de email que vai usar
+
+                                            if (!string.IsNullOrWhiteSpace(m_corretor.email))//Email para enviar
+                                            {
+                                                mail.To.Add(new System.Net.Mail.MailAddress(m_corretor.email));//Email para enviar
+                                            }
+                                            else
+                                            {
+
+                                                //MessageBox.Show("Não foi encontrado E-mail para envio!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                //return;
+                                                splashScreenManagerP.CloseWaitForm();
+                                                funcao("salvar");
+                                            }
+                                            /*if (cbxEnviarCopiarEmailAviso.Checked == true)
+                                                mail.CC.Add(new System.Net.Mail.MailAddress(m_emailConfig.smtpemail));
+                                            if (!string.IsNullOrWhiteSpace(textBoxCCo.Text))
+                                                mail.Bcc.Add(new System.Net.Mail.MailAddress(textBoxCCo.Text));*/
+                                            mail.IsBodyHtml = true;
+                                            mail.Subject = "Distribuição de Contrato(s) " + txtSqcInicial.Value.ToString() + " até " + txtSqcFinal.Value.ToString() + " do " + lookUpEditEmpreendimento.Text;//Assunto do email
+
+                                            var EmailHtml =
+                    @"<h2 style=""text-align:center;""><span style=""color: #ff0000;""><strong><span style=""color:#0000ff;"">Distribui&ccedil;&atilde;o de Contrato(s)</span><img src=""https://html-online.com/editor/tinymce4_6_5/plugins/emoticons/img/smiley-smile.gif""alt=""smile""/><br/></strong></span></h2> " +
+                    @"<hr/>" +
+                    @"<p><strong>&Oacute;la este &eacute; um e-mail autom&aacute;tico:</strong></p>" +
+                    @"<p style=""text-align: left;"">Foi distribuido para o Corretor:<span style=""color:#008000;""><strong>" + lookUpEditCorretor.Text + "</strong></span>" +
+                    @", a sequ&ecirc;ncia de contrato(s) com numera&ccedil;&atilde;o incial de <span style=""color: #008000;""><strong>" + txtSqcInicial.Value.ToString() + "</strong></span> at&eacute;" +
+                    @" a numera&ccedil;&atilde;o final <span style=""color: #008000;""><strong>" + txtSqcFinal.Value.ToString() + "</strong></span>" +
+                    @" dando um total de <span style=""color:#008000;""><strong>" + lblTotalContratos.Text + "</strong></span>" +
+                    @" contrato(s) distribuido(s), do empreendimento:<span style=""color:#008000;""><strong>" + lookUpEditEmpreendimento.Text + "</strong>.</span></p>" +
+                    @"<p style=""text-align:left;""><span style=""color: #000000;""><strong>OBS:</strong><span style=""color:#ff0000;"">Se voc&ecirc; n&atilde;o solicitou ou n&atilde;o auturizou a distribui&ccedil;&atilde;o de contratos no seu nome, por favor entre em contato com escritorio administrativo e informe sobre este e-mail, ou caso voc&ecirc; n&atilde;o seja esse corretor apenas avise que chegou e-mail pro corretor errado, obrigado.</span><br/></span></p> " +
+                    @"<hr/>" +
+                    @"<p><span style=""color:#0000ff;""><span style=""color:#000000;"">&copy;2018 -</span><strong><span style=""color:#0000ff;"">Viva Bem, Viva Valle...</span></strong></span></p>" +
+                    @"<p style=""text-align:left;"">&nbsp;</p>";
+                                            mail.Body = EmailHtml;
+                                            await smtp.SendMailAsync(mail);
+                                            //MessageBox.Show("Enviado com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            //AtivarForm();
                                             splashScreenManagerP.CloseWaitForm();
-                                            MessageBox.Show("Não foi encontrado E-mail para envio!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                            return;
+                                            funcao("salvar");
                                         }
-                                        /*if (cbxEnviarCopiarEmailAviso.Checked == true)
-                                            mail.CC.Add(new System.Net.Mail.MailAddress(m_emailConfig.smtpemail));
-                                        if (!string.IsNullOrWhiteSpace(textBoxCCo.Text))
-                                            mail.Bcc.Add(new System.Net.Mail.MailAddress(textBoxCCo.Text));*/
-                                        mail.IsBodyHtml = true;
-                                        mail.Subject = "Distribuição de Contrato(s) " + txtSqcInicial.Value.ToString() + " até " + txtSqcFinal.Value.ToString() + " do " + lookUpEditEmpreendimento.Text;//Assunto do email
 
-                                        var EmailHtml =
-                @"<h2 style=""text-align:center;""><span style=""color: #ff0000;""><strong><span style=""color:#0000ff;"">Distribui&ccedil;&atilde;o de Contrato(s)</span><img src=""https://html-online.com/editor/tinymce4_6_5/plugins/emoticons/img/smiley-smile.gif""alt=""smile""/><br/></strong></span></h2> " +
-                @"<hr/>" +
-                @"<p><strong>&Oacute;la este &eacute; um e-mail autom&aacute;tico:</strong></p>" +
-                @"<p style=""text-align: left;"">Foi distribuido para o Corretor:<span style=""color:#008000;""><strong>" + lookUpEditCorretor.Text + "</strong></span>" +
-                @", a sequ&ecirc;ncia de contrato(s) com numera&ccedil;&atilde;o incial de <span style=""color: #008000;""><strong>" + txtSqcInicial.Value.ToString() + "</strong></span> at&eacute;" +
-                @" a numera&ccedil;&atilde;o final <span style=""color: #008000;""><strong>" + txtSqcFinal.Value.ToString() + "</strong></span>" +
-                @" dando um total de <span style=""color:#008000;""><strong>" + lblTotalContratos.Text + "</strong></span>" +
-                @" contrato(s) distribuido(s), do empreendimento:<span style=""color:#008000;""><strong>" + lookUpEditEmpreendimento.Text + "</strong>.</span></p>" +
-                @"<p style=""text-align:left;""><span style=""color: #000000;""><strong>OBS:</strong><span style=""color:#ff0000;"">Se voc&ecirc; n&atilde;o solicitou ou n&atilde;o auturizou a distribui&ccedil;&atilde;o de contratos no seu nome, por favor entre em contato com escritorio administrativo e informe sobre este e-mail, ou caso voc&ecirc; n&atilde;o seja esse corretor apenas avise que chegou e-mail pro corretor errado, obrigado.</span><br/></span></p> " +
-                @"<hr/>" +
-                @"<p><span style=""color:#0000ff;""><span style=""color:#000000;"">&copy;2018 -</span><strong><span style=""color:#0000ff;"">Viva Bem, Viva Valle...</span></strong></span></p>" +
-                @"<p style=""text-align:left;"">&nbsp;</p>";
-                                        mail.Body = EmailHtml;
-                                        await smtp.SendMailAsync(mail);
-                                        //MessageBox.Show("Enviado com sucesso!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                        //AtivarForm();
-                                        splashScreenManagerP.CloseWaitForm();
-                                        funcao("salvar");
                                     }
+
+                                }
+                                catch (System.InvalidOperationException)
+                                {
 
                                 }
 
@@ -313,6 +305,8 @@ namespace SGS.Visao
                                 funcao("salvar");
                             }
                         }
+                    }
+                        
                         else
                         {
                             MessageBox.Show("Preencha todos os campos!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -324,7 +318,7 @@ namespace SGS.Visao
                         MessageBox.Show("Informe uma sequencia válida!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
-                }
+                
             }
             catch (Exception ex)
             {

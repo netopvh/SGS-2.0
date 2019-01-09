@@ -74,6 +74,7 @@ namespace SGS.Visao
                     bbiControleGeral.Enabled = false;
                     bbiEstruturasComissoes.Enabled = false;
                     bbiInserirComissoes.Enabled = false;
+                    bbiControlePlantao.Enabled = false;
                     
                     break;
                 case 2:
@@ -89,6 +90,7 @@ namespace SGS.Visao
                     bbiControleGeral.Enabled = false;
                     bbiEstruturasComissoes.Enabled = false;
                     bbiInserirComissoes.Enabled = false;
+                    bbiControlePlantao.Enabled = false;
                     break;
                 case 3:
                     bbiAPagar.Enabled = false;
@@ -103,6 +105,7 @@ namespace SGS.Visao
                     bbiControleGeral.Enabled = false;
                     bbiEstruturasComissoes.Enabled = false;
                     bbiInserirComissoes.Enabled = false;
+                    bbiControlePlantao.Enabled = false;
                     break;
                 case 4:
                     bbiAPagar.Enabled = true;
@@ -117,6 +120,7 @@ namespace SGS.Visao
                     bbiControleGeral.Enabled = true;
                     bbiEstruturasComissoes.Enabled = true;
                     bbiInserirComissoes.Enabled = true;
+                    bbiControlePlantao.Enabled = false;
                     break;
                     
                 default:
@@ -158,7 +162,8 @@ namespace SGS.Visao
             _permissao = c_permissao.AutenticarPermissao(_usuario);
             string Server = (ConfigurationManager.AppSettings["Server"]);
             bsiUsuario.Caption = "Usuário:" + _usuario + " Permissão:(Nivel:" + _permissao + ") | Servidor:"+ Server;
-            Permissao();   
+            Permissao();
+            
         }
         private void VersaoAssembly()
         {
@@ -212,6 +217,7 @@ namespace SGS.Visao
         private void bsiVersao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             MessageBox.Show("Na aba Sistema tem onde atualizar o sistema!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            toastNotificationsManager1.ShowNotification("4da965cc-d3fb-47a6-8e2f-5c63d4a066ed");
         }
 
         private void bbiVerificarAtualizacao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
