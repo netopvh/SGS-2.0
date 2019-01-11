@@ -19,6 +19,7 @@ namespace SGS.Controle
             MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
             DataTable dataTable = new DataTable();
             dataTable.Load(reader);
+            conexao.Clone();
             return dataTable;
         }
         public DataTable CarregarUsuariosPermissao()
@@ -30,6 +31,7 @@ namespace SGS.Controle
             MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
             DataTable dataTable = new DataTable();
             dataTable.Load(reader);
+            conexao.Clone();
             return dataTable;
         }
 
@@ -70,6 +72,7 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@status", m_usuario.status));
             comando.Parameters.Add(new MySqlParameter("@fk_permissao_usuario", m_usuario.fk_permissao_usuario));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
         
         public void ExcluirUsuario(m_Usuario m_usuario)
@@ -81,6 +84,7 @@ namespace SGS.Controle
                 "delete from usuario where idusuario = @idusuario;";
             comando.Parameters.Add(new MySqlParameter("@idusuario", m_usuario.idusuario));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
         
         public void AlterarUsuario(m_Usuario m_usuario)
@@ -97,6 +101,7 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@status", m_usuario.status));
             comando.Parameters.Add(new MySqlParameter("@fk_permissao_usuario", m_usuario.fk_permissao_usuario));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
         
 

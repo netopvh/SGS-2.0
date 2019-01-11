@@ -113,6 +113,16 @@ namespace SGS.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Anterior30x30 {
+            get {
+                object obj = ResourceManager.GetObject("Anterior30x30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap APagar24x24 {
             get {
                 object obj = ResourceManager.GetObject("APagar24x24", resourceCulture);
@@ -623,6 +633,16 @@ namespace SGS.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Pausar30x30 {
+            get {
+                object obj = ResourceManager.GetObject("Pausar30x30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Pendente24x24 {
             get {
                 object obj = ResourceManager.GetObject("Pendente24x24", resourceCulture);
@@ -656,6 +676,36 @@ namespace SGS.Properties {
         internal static System.Drawing.Bitmap PlayMostrarTV24x24 {
             get {
                 object obj = ResourceManager.GetObject("PlayMostrarTV24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PlayMostrarTV48x48 {
+            get {
+                object obj = ResourceManager.GetObject("PlayMostrarTV48x48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Proximo24x24 {
+            get {
+                object obj = ResourceManager.GetObject("Proximo24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Proximo30x30 {
+            get {
+                object obj = ResourceManager.GetObject("Proximo30x30", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

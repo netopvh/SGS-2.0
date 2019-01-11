@@ -20,6 +20,7 @@ namespace SGS.Controle
             MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
             DataTable dataTable = new DataTable();
             dataTable.Load(reader);
+            conexao.Clone();
             return dataTable;
         }
         

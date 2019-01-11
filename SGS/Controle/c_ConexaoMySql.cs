@@ -18,8 +18,8 @@ namespace SGS.Controle
             string Port = (ConfigurationManager.AppSettings["Port"]);
 
             MySqlConnection conexao = new MySqlConnection(
-                    @"Server=" + Server + ";Port = " + Port + ";Database=" + Database + ";Uid=root;Password=masterkey");
-
+                    @"Server=" + Server + ";Port = " + Port + ";Database=" + Database + ";Uid=root;Password=masterkey;Pooling=False");
+            
             try
             {
                 conexao.Open();

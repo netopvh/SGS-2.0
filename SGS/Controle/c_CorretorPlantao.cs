@@ -22,6 +22,7 @@ namespace SGS.Controle
             MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
             DataTable dataTable = new DataTable();
             dataTable.Load(reader);
+            conexao.Clone();
             return dataTable;
 
         }
@@ -34,29 +35,31 @@ namespace SGS.Controle
             MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
             DataTable dataTable = new DataTable();
             dataTable.Load(reader);
+            conexao.Clone();
             return dataTable;
 
         }
-        /*
-        public string GetEmailCorretor(m_Corretor m_corretor)
+        
+        public int SomarTotalPosicoesCorretoresPlantao(m_CorretorPlantao m_corretorPlantao)
         {
-            string resultado = "";
+            int resultado = 0;
 
             MySqlConnection conexao = c_ConexaoMySql.GetConexao();
             MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
             comando.CommandText =
-            "select email from corretor where idcorretor = @idcorretor;";
+            "select count(posicao) from corretorplantao where fk_plantao_corretorplantao = @fk_plantao_corretorplantao;";
             comando.CommandType = CommandType.Text;
-            comando.Parameters.Add(new MySqlParameter("@idcorretor", m_corretor.idcorretor));
+            comando.Parameters.Add(new MySqlParameter("@fk_plantao_corretorplantao", m_corretorPlantao.fk_plantao_corretorplantao));
             MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
             while (reader.Read())
             {
-                resultado = reader.GetString(0);
+                resultado = reader.GetInt32(0);
             }
+            conexao.Clone();
             return resultado;
 
         }
-        */
+        
         public void NovoCorretorPlantao(m_CorretorPlantao m_corretorPlantao)
         {
             MySqlConnection conexao = c_ConexaoMySql.GetConexao();
@@ -69,6 +72,7 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@fk_plantao_corretorplantao", m_corretorPlantao.fk_plantao_corretorplantao));
             
             comando.ExecuteNonQuery();
+            conexao.Clone();
 
         }
         /*

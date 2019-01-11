@@ -19,6 +19,7 @@ namespace SGS.Controle
             MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
             DataTable dataTable = new DataTable();
             dataTable.Load(reader);
+            conexao.Clone();
             return dataTable;
         }
         public int AutenticarPermissao(string login)
@@ -36,7 +37,7 @@ namespace SGS.Controle
                 resultado = reader.GetInt32(6);
                 
             }
-
+            conexao.Clone();
             return resultado;
             
         }

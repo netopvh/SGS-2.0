@@ -126,11 +126,19 @@ namespace SGS.Visao
                 
                 v_VisaoAtendimentoPlantao visaoPlantao = new v_VisaoAtendimentoPlantao(UltimoID);
                 visaoPlantao.Show();
+                FecharFormControleDePlantao();
                 this.Close();
             }
             
 
         }
-        
+        private void FecharFormControleDePlantao()
+        {
+            v_ControlePlatao v = Application.OpenForms["v_ControlePlatao"] as v_ControlePlatao;
+            if (v != null)
+            {
+                v.Close();
+            }
+        }
     }
 }

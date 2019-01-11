@@ -336,5 +336,11 @@ namespace SGS.Visao
         {
             MessageBox.Show("Em Desenvolvimento", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
+
+        private void bbiControleRemotoPlantao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            v_ControleVisaoAtendimentoPlantao ControleRemoto = new v_ControleVisaoAtendimentoPlantao();
+            ControleRemoto.Show();
+        }
     }
 }

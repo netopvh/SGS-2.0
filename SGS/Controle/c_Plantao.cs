@@ -20,6 +20,7 @@ namespace SGS.Controle
             MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
             DataTable dataTable = new DataTable();
             dataTable.Load(reader);
+            conexao.Clone();
             return dataTable;
         }
         public DataTable CarregarPlantoesCorretores()
@@ -31,6 +32,7 @@ namespace SGS.Controle
             MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
             DataTable dataTable = new DataTable();
             dataTable.Load(reader);
+            conexao.Clone();
             return dataTable;
         }
         public int CarregarUltimaIDPlantao()
@@ -45,6 +47,23 @@ namespace SGS.Controle
             {
                 resultado = reader.GetInt32(0);
             }
+            conexao.Clone();
+            return resultado;
+        }
+        public string CarregarNomeEquipePlantao(m_Plantao m_plantao)
+        {
+            string resultado = "";
+            MySqlConnection conexao = c_ConexaoMySql.GetConexao();
+            MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
+            comando.CommandText = "select equipe from plantao where idplantao = @idplantao;";
+            comando.CommandType = CommandType.Text;
+            comando.Parameters.Add(new MySqlParameter("@idplantao", m_plantao.idplantao));
+            MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
+            while (reader.Read())
+            {
+                resultado = reader.GetString(0);
+            }
+            conexao.Clone();
             return resultado;
         }
         public TimeSpan CarregarTempoPorPessoa(m_Plantao m_plantao)
@@ -60,6 +79,23 @@ namespace SGS.Controle
             {
                 resultado = reader.GetTimeSpan(0);
             }
+            conexao.Clone();
+            return resultado;
+        }
+        public TimeSpan CarregarTempoFinalPlantao(m_Plantao m_plantao)
+        {
+            TimeSpan resultado = new TimeSpan(0, 0, 0);
+            MySqlConnection conexao = c_ConexaoMySql.GetConexao();
+            MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
+            comando.CommandText = "select horafinal from plantao where idplantao = @idplantao;";
+            comando.CommandType = CommandType.Text;
+            comando.Parameters.Add(new MySqlParameter("@idplantao", m_plantao.idplantao));
+            MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
+            while (reader.Read())
+            {
+                resultado = reader.GetTimeSpan(0);
+            }
+            conexao.Clone();
             return resultado;
         }
         public void NovoPlantao(m_Plantao m_plantao)
@@ -76,6 +112,7 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@tempoporpessoa", m_plantao.tempoporpessoa));
             comando.Parameters.Add(new MySqlParameter("@usuariocad", m_plantao.usuariocad));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
         public void ExcluirPlantao(m_Plantao m_plantao)
         {
@@ -86,6 +123,7 @@ namespace SGS.Controle
                 "delete from plantao where idplantao = @idplantao;";
             comando.Parameters.Add(new MySqlParameter("@idplantao", m_plantao.idplantao));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
         /*public void AlterarPlantao(m_Plantao m_plantao)
         {

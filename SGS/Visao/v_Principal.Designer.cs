@@ -64,6 +64,7 @@
             this.bbiControlePlantao = new DevExpress.XtraBars.BarButtonItem();
             this.bbiEstoqueGeral = new DevExpress.XtraBars.BarButtonItem();
             this.bbiTemas = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiControleRemotoPlantao = new DevExpress.XtraBars.BarButtonItem();
             this.rbpAtendimento = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpCadastros = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -131,9 +132,10 @@
             this.bbiContaCaixa,
             this.bbiControlePlantao,
             this.bbiEstoqueGeral,
-            this.bbiTemas});
+            this.bbiTemas,
+            this.bbiControleRemotoPlantao});
             this.ribbonControlPrincipal.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControlPrincipal.MaxItemId = 12;
+            this.ribbonControlPrincipal.MaxItemId = 13;
             this.ribbonControlPrincipal.Name = "ribbonControlPrincipal";
             this.ribbonControlPrincipal.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpAtendimento,
@@ -413,6 +415,14 @@
             this.bbiTemas.Name = "bbiTemas";
             this.bbiTemas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTemas_ItemClick);
             // 
+            // bbiControleRemotoPlantao
+            // 
+            this.bbiControleRemotoPlantao.Caption = "Controle Remoto";
+            this.bbiControleRemotoPlantao.Id = 12;
+            this.bbiControleRemotoPlantao.ImageOptions.LargeImage = global::SGS.Properties.Resources.PlayMostrarTV48x48;
+            this.bbiControleRemotoPlantao.Name = "bbiControleRemotoPlantao";
+            this.bbiControleRemotoPlantao.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiControleRemotoPlantao_ItemClick);
+            // 
             // rbpAtendimento
             // 
             this.rbpAtendimento.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -425,6 +435,7 @@
             this.ribbonPageGroup8.AllowTextClipping = false;
             this.ribbonPageGroup8.ItemLinks.Add(this.bbiVisitaStand);
             this.ribbonPageGroup8.ItemLinks.Add(this.bbiControlePlantao);
+            this.ribbonPageGroup8.ItemLinks.Add(this.bbiControleRemotoPlantao);
             this.ribbonPageGroup8.Name = "ribbonPageGroup8";
             this.ribbonPageGroup8.ShowCaptionButton = false;
             this.ribbonPageGroup8.Text = "Atendimento";
@@ -716,5 +727,6 @@
         private DevExpress.XtraBars.BarButtonItem bbiTemas;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup16;
         private DevExpress.XtraBars.ToastNotifications.ToastNotificationsManager toastNotificationsManager1;
+        private DevExpress.XtraBars.BarButtonItem bbiControleRemotoPlantao;
     }
 }

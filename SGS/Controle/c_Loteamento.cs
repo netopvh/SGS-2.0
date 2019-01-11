@@ -19,6 +19,7 @@ namespace SGS.Controle
             MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
             DataTable dataTable = new DataTable();
             dataTable.Load(reader);
+            conexao.Clone();
             return dataTable;
 
         }
@@ -31,6 +32,7 @@ namespace SGS.Controle
             MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
             DataTable dataTable = new DataTable();
             dataTable.Load(reader);
+            conexao.Clone();
             return dataTable;
 
         }
@@ -44,6 +46,7 @@ namespace SGS.Controle
             MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
             DataTable dataTable = new DataTable();
             dataTable.Load(reader);
+            conexao.Clone();
             return dataTable;
 
         }
@@ -62,6 +65,7 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@datacad", m_loteamento.datacad));
             comando.Parameters.Add(new MySqlParameter("@usuariocad", m_loteamento.usuariocad));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
         public void ExcluirLoteamento(m_Loteamento m_loteamento)
         {
@@ -72,6 +76,7 @@ namespace SGS.Controle
                 "delete from loteamento where idloteamento = @idloteamento;";
             comando.Parameters.Add(new MySqlParameter("@idloteamento", m_loteamento.idloteamento));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
         public void AlterarLoteamento(m_Loteamento m_loteamento)
         {
@@ -88,6 +93,7 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@datacad", m_loteamento.datacad));
             comando.Parameters.Add(new MySqlParameter("@usuariocad", m_loteamento.usuariocad));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
 
 

@@ -26,6 +26,7 @@ namespace SGS.Controle
             {
                 resultado = reader.GetString(5);
             }
+            conexao.Clone();
             return resultado;
 
         }
@@ -44,6 +45,7 @@ namespace SGS.Controle
             {
                 resultado = reader.GetString(6);
             }
+            conexao.Clone();
             return resultado;
 
         }
@@ -62,6 +64,7 @@ namespace SGS.Controle
             {
                 resultado = reader.GetString(1);
             }
+            conexao.Clone();
             return resultado;
 
         }
@@ -80,6 +83,7 @@ namespace SGS.Controle
             {
                 resultado = reader.GetString(2);
             }
+            conexao.Clone();
             return resultado;
 
         }
@@ -98,6 +102,7 @@ namespace SGS.Controle
             {
                 resultado = reader.GetBoolean(3);
             }
+            conexao.Clone();
             return resultado;
 
         }
@@ -116,6 +121,7 @@ namespace SGS.Controle
             {
                 resultado = reader.GetBoolean(4);
             }
+            conexao.Clone();
             return resultado;
 
         }
@@ -133,6 +139,7 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@smtpsenhaemail", m_emailConfig.smtpsenhaemail));
             comando.Parameters.Add(new MySqlParameter("@smtpssl", m_emailConfig.smtpssl));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
         public void AlterarConfigEmail(m_EmailConfig m_emailConfig)
         {
@@ -148,6 +155,7 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@smtpsenhaemail", m_emailConfig.smtpsenhaemail));
             comando.Parameters.Add(new MySqlParameter("@smtpssl", m_emailConfig.smtpssl));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
         public void ExcluirConfigEmail()
         {
@@ -157,6 +165,7 @@ namespace SGS.Controle
             comando.CommandText =
                 "delete from emailconfig where idemailconfig = 1";
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
     }
 }

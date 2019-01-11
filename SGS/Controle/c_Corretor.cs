@@ -22,6 +22,7 @@ namespace SGS.Controle
             MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
             DataTable dataTable = new DataTable();
             dataTable.Load(reader);
+            conexao.Clone();
             return dataTable;
 
         }
@@ -34,6 +35,7 @@ namespace SGS.Controle
             MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
             DataTable dataTable = new DataTable();
             dataTable.Load(reader);
+            conexao.Clone();
             return dataTable;
 
         }
@@ -52,6 +54,7 @@ namespace SGS.Controle
             {
                 resultado = reader.GetString(0);
             }
+            conexao.Clone();
             return resultado;
 
         }
@@ -69,6 +72,7 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@status", m_corretor.status));
             comando.Parameters.Add(new MySqlParameter("@usuariocad", m_corretor.usuariocad));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
         public void ExcluirCorretor(m_Corretor m_corretor)
         {
@@ -81,6 +85,7 @@ namespace SGS.Controle
                     "delete from corretor where idcorretor = @idcorretor;";
                 comando.Parameters.Add(new MySqlParameter("@idcorretor", m_corretor.idcorretor));
                 comando.ExecuteNonQuery();
+                conexao.Clone();
             }
             catch (MySql.Data.MySqlClient.MySqlException mex)
             {
@@ -103,6 +108,7 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@status", m_corretor.status));
             comando.Parameters.Add(new MySqlParameter("@usuariocad", m_corretor.usuariocad));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
     }
 }

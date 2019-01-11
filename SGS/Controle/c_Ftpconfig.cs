@@ -20,6 +20,7 @@ namespace SGS.Controle
             MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
             DataTable dataTable = new DataTable();
             dataTable.Load(reader);
+            conexao.Clone();
             return dataTable;
 
         }
@@ -29,6 +30,7 @@ namespace SGS.Controle
             MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
             comando.CommandType = CommandType.Text;
             comando.CommandText = "select senhaftp from ftpconfig where idftpconfig = 1;";
+            conexao.Clone();
             return comando.ExecuteScalar().ToString();
             
         }
@@ -46,6 +48,7 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@usuarioftp", m_FtpConfig.usuarioftp));
             comando.Parameters.Add(new MySqlParameter("@senhaftp", m_FtpConfig.senhaftp));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
         public void ExcluirFtpConfig(m_Ftpconfig m_FtpConfig)
         {
@@ -56,6 +59,7 @@ namespace SGS.Controle
                 "delete from ftpconfig where idftpconfig = @idftpconfig;";
             comando.Parameters.Add(new MySqlParameter("@idftpconfig", m_FtpConfig.idftpconfig));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
         public void AlterarFtpConfig(m_Ftpconfig m_FtpConfig)
         {
@@ -71,6 +75,7 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@usuarioftp", m_FtpConfig.usuarioftp));
             comando.Parameters.Add(new MySqlParameter("@senhaftp", m_FtpConfig.senhaftp));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
 
 

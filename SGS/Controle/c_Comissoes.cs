@@ -20,6 +20,7 @@ namespace SGS.Controle
             MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
             DataTable dataTable = new DataTable();
             dataTable.Load(reader);
+            conexao.Clone();
             return dataTable;
         }
         
@@ -49,6 +50,7 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@valorparcela", m_comissoes.valorparcela));
             comando.Parameters.Add(new MySqlParameter("@usuariocad", m_comissoes.usuariocad));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
         public void ExcluirComissao(m_Comissoes m_comissoes)
         {
@@ -59,6 +61,7 @@ namespace SGS.Controle
                 "delete from comissoes where idcomissoes = @idcomissoes;";
             comando.Parameters.Add(new MySqlParameter("@idcomissoes", m_comissoes.idcomissoes));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
         public void AlterarDataPagmentoComissao(m_Comissoes m_comissoes)
         {
@@ -70,6 +73,7 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@idcomissoes", m_comissoes.idcomissoes));
             comando.Parameters.Add(new MySqlParameter("@datapagamentocomissao", m_comissoes.datapagamentocomissao));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
         public void AlterarPorcentagensComissoesImobCorretor(m_Comissoes m_comissoes)
         {
@@ -84,6 +88,7 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@comissaoimob", m_comissoes.comissaoimob));
             comando.Parameters.Add(new MySqlParameter("@comissaocorretor", m_comissoes.comissaocorretor));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
         public void AlterarComissaoVinculoEmpresaCorretor(m_Comissoes m_comissoes)
         {
@@ -95,6 +100,7 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@idcomissoes", m_comissoes.idcomissoes));
             comando.Parameters.Add(new MySqlParameter("@fk_empresacorretor_comissoes", m_comissoes.fk_empresacorretor_comissoes));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
         public void AlterarComissaoVinculoNotaFiscalCorretor(m_Comissoes m_comissoes)
         {
@@ -106,6 +112,7 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@idcomissoes", m_comissoes.idcomissoes));
             comando.Parameters.Add(new MySqlParameter("@fk_notafiscalcomissao_comissoes", m_comissoes.fk_notafiscalcomissao_comissoes));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
 
     }

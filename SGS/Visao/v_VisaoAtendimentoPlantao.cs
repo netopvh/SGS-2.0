@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +17,12 @@ namespace SGS.Visao
     public partial class v_VisaoAtendimentoPlantao : DevExpress.XtraEditors.XtraForm
     {
         bool _TelaCheia = false;
+        
+        TimeSpan _TempoPorVez;
+        int _TotalPosicoes;
+        int _PosicaoAtual;
+        TimeSpan _PlantaoHorafinal;
+        int ImagemNumero = 1;
         m_TempoAtendimento m_tempoAtendimento;
         c_TempoAtendimento c_tempoAtendimento;
         m_CorretorPlantao m_corretorPlantao;
@@ -22,14 +30,10 @@ namespace SGS.Visao
         m_Plantao m_plantao;
         c_Plantao c_plantao;
 
-        // Como não especificamos um namespace, este
-        // será uma instância de System.Windows.Forms.Timer
-        private Timer _timer;
-        private DateTime _startTime = DateTime.MinValue;
-        private TimeSpan _currentElapSedTime = TimeSpan.Zero;
-        private TimeSpan _totalElapSedTime = TimeSpan.Zero;
-        private bool _timerRunning = false;
-
+        TimeSpan ts;
+        DateTime start = DateTime.Now;
+        TimeSpan delta;
+        TimeSpan timeReaming;
         public v_VisaoAtendimentoPlantao()
         {
             InitializeComponent();
@@ -53,90 +57,106 @@ namespace SGS.Visao
             m_corretorPlantao.fk_plantao_corretorplantao = CodigoPlantao;
             m_tempoAtendimento.fk_plantao_tempoatendimento = CodigoPlantao;
             m_plantao.idplantao = CodigoPlantao;
-            
+            gbxTempoCorretor.Text = "Corretor da Vez - Equipe de Plantão " + c_plantao.CarregarNomeEquipePlantao(m_plantao);
+        }
+        private void CarregarImagemSlider()
+        {
+            string s = @"C:\SGS\ImagensSlider\";
+            System.IO.DirectoryInfo d = new System.IO.DirectoryInfo(s);
+            int files;
+            files = d.GetFiles().Length;
+            if (ImagemNumero == files)
+            {
+                ImagemNumero = 1;
+            }
+            pictureBoxSlider.ImageLocation = string.Format(@"C:\SGS\ImagensSlider\{0}.jpg", ImagemNumero);
+            ImagemNumero++;
+        }
+        public void StopSlider()
+        {
+            timerSliderImagens.Stop();
         }
         private void CarregarPlantao()
         {
-            advBandedGridView1.GridControl.DataSource = c_corretorPlantao.CarregarCorretoresPlantaoID(m_corretorPlantao);
-            string TempoPorPessoa = Convert.ToString(c_plantao.CarregarTempoPorPessoa(m_plantao));
-            _timer.Tick += new EventHandler(timerTempoPorPessoa_Tick);
+            
+            advBandedGridView1.OptionsSelection.MultiSelect = false;
+            advBandedGridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            advBandedGridView1.OptionsSelection.EnableAppearanceFocusedRow = false;
+            advBandedGridView1.OptionsSelection.EnableAppearanceHideSelection = false;
+
+            timerSliderImagens.Start();
             timerDataHoraCerta.Start();
+            advBandedGridView1.GridControl.DataSource = c_corretorPlantao.CarregarCorretoresPlantaoID(m_corretorPlantao);
             advBandedGridView1.FocusedRowHandle = 0;
+            _TotalPosicoes = c_corretorPlantao.SomarTotalPosicoesCorretoresPlantao(m_corretorPlantao);
+            MostrarCorretorDaVez();
+            _TempoPorVez = c_plantao.CarregarTempoPorPessoa(m_plantao);
+            SalvarTempoAtendimentoInicial();
+            IniciarTempo();
+        }
+        private void MostrarCorretorDaVez()
+        {
+            lblCorretorDaVez.Text = advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[2]).ToString();
+            PlaySimplesSound();
         }
 
         private void v_VisaoAtendimentoPlantao_Load(object sender, EventArgs e)
         {
-            
             CarregarPlantao();
-            
         }
-        
-
         private void timerHoraCerta_Tick(object sender, EventArgs e)
         {
-            
-            lblDataHoraCerta.Text = DateTime.Now.ToShortDateString() +" "+DateTime.Now.Hour +":"+DateTime.Now.Minute+":"+DateTime.Now.Second;
+            lblDataDoDia.Text = DateTime.Now.ToShortDateString();
+            //lblHoraCerta.Text = DateTime.Now.Hour +":"+DateTime.Now.Minute+":"+DateTime.Now.Second;
+            lblHoraCerta.Text = DateTime.Now.ToLongTimeString();
         }
         private void timerTempoPorPessoa_Tick(object sender, EventArgs e)
         {
-            // Fazemos isso para 'cortar' quaisquer milissegundos perdidos
-            // resultante da imprecisão inerente do Timer,
-            // com o bônus que o método TimeSpan.ToString ()
-            // mostrará agora o formato correto de HH: MM: SS
-            var timeSinceStartTime = DateTime.Now - _startTime;
-            timeSinceStartTime = new TimeSpan(timeSinceStartTime.Hours,
-                                              timeSinceStartTime.Minutes,
-                                              timeSinceStartTime.Seconds);
-            // O tempo decorrido atual é o tempo desde o botão iniciar
-            // foi clicado, mais o tempo total decorrido desde a última reinicialização
-            _currentElapSedTime = timeSinceStartTime + _totalElapSedTime;
-
-            // Estes são apenas dois controles Label que exibem a corrente
-            // tempo decorrido e tempo total decorrido
-
-            //_totalElapSedTimeDisplay.Text = _currentElapSedTime.ToString();
-            lblTempoRestante.Text = timeSinceStartTime.ToString();
-            //advBandedGridView1.MoveNext();
+            delta = DateTime.Now - start;
+            timeReaming = ts - delta;
+            lblTempoRestante.Text = timeReaming.ToString("hh\\:mm\\:ss");
         }
         private void ResetTimer()
         {
-            // Pare e reinicie o cronômetro se ele estivesse em execução
-            _timer.Stop();
-            _timerRunning = false;
-
-            // Redefinir o tempo decorrido de objetos TimeSpan
-            _startTime = DateTime.Now;
-            _totalElapSedTime = TimeSpan.Zero;
-            _currentElapSedTime = TimeSpan.Zero;//Tempo decorrido...
+            timerTempoPorPessoa.Stop();
+            timeReaming = TimeSpan.Zero;
+            delta = TimeSpan.Zero;
+            start = DateTime.Now;
+            IniciarTempo();
         }
         private void IniciarTempo()
         {
-            if (!_timerRunning)
+            //00:00:00
+            ts = new TimeSpan(_TempoPorVez.Hours,_TempoPorVez.Minutes,_TempoPorVez.Seconds);
+            timerTempoPorPessoa.Start();
+        }
+        private void SalvarTempoAtendimentoInicial()
+        {
+            m_tempoAtendimento.atendimentohorainicial = DateTime.Now;
+
+            m_tempoAtendimento.fk_corretorplantao_tempoatendimento = Convert.ToInt32(advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[0]));
+            c_tempoAtendimento.NovoTempoAtendimento(m_tempoAtendimento);
+        }
+        public void PassarVez()
+        {
+            if (_PosicaoAtual == _TotalPosicoes)
             {
-                // Defina a hora de início como Agora
-                _startTime = DateTime.Now;
 
-                // Armazena o tempo decorrido total até agora
-                _totalElapSedTime = _currentElapSedTime;
-
-                _timer.Start();
-                _timerRunning = true;
+                advBandedGridView1.FocusedRowHandle = 0;
+                advBandedGridView1.SelectRow(0);
+                SalvarTempoAtendimentoInicial();
             }
             else
-            // Se o temporizador já estiver em execução
             {
-                _timer.Stop();
-                _timerRunning = false;
+                advBandedGridView1.MoveNext();
+                SalvarTempoAtendimentoInicial();
             }
 
+            MostrarCorretorDaVez();
+            ResetTimer();
+            
         }
-        private void PassarVez()
-        {
-            /*ResetTimer();
-            _timer.Start();
-            dgvAtendimento.SelectedRows;*/
-        }
-
+        
         
         private void lblSejaBemVindo_Click(object sender, EventArgs e)
         {
@@ -160,6 +180,39 @@ namespace SGS.Visao
             }
         }
 
-        
+        private void lblTempoRestante_TextChanged(object sender, EventArgs e)
+        {
+            _PosicaoAtual = (int)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[1]);
+            if (lblTempoRestante.Text == "00:00:00")
+            {
+
+                m_tempoAtendimento.idtempoatendimento = c_tempoAtendimento.CarregarUltimaID_Inserida();
+                m_tempoAtendimento.atendimentohorafinal = DateTime.Now;
+                c_tempoAtendimento.AlterarAtendimentoHoraFinal(m_tempoAtendimento);
+                PassarVez();
+            }
+        }
+
+        private void lblDataHoraCerta_TextChanged(object sender, EventArgs e)
+        {
+            //00:00:00
+            _PlantaoHorafinal = c_plantao.CarregarTempoFinalPlantao(m_plantao);
+            if (lblHoraCerta.Text.Substring(0,5) == _PlantaoHorafinal.ToString().Substring(0,5))
+            {
+                //timerDataHoraCerta.Stop();
+                timerTempoPorPessoa.Stop();
+                lblTempoRestante.Text = "--:--:--";
+            }
+        }
+        private void PlaySimplesSound()
+        {
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\SGS\Sons\alerta01.wav");
+            simpleSound.Play();
+        }
+
+        private void timerSliderImagens_Tick(object sender, EventArgs e)
+        {
+            CarregarImagemSlider();
+        }
     }
 }

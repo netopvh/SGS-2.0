@@ -20,6 +20,7 @@ namespace SGS.Controle
             MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
             DataTable dataTable = new DataTable();
             dataTable.Load(reader);
+            conexao.Clone();
             return dataTable;
         }
 
@@ -33,6 +34,7 @@ namespace SGS.Controle
             MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
             DataTable dataTable = new DataTable();
             dataTable.Load(reader);
+            conexao.Clone();
             return dataTable;
         }
 
@@ -55,6 +57,7 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@dataatendimento", m_atendimento.dataAtendimento));
             comando.Parameters.Add(new MySqlParameter("@usuariocad", m_atendimento.usuariocad));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
         
         public void AlterarAtendimento(m_Atendimento m_atendimento)
@@ -75,6 +78,7 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@dataatendimento", m_atendimento.dataAtendimento));
             comando.Parameters.Add(new MySqlParameter("@usuariocad", m_atendimento.usuariocad));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
         public void AlterarAtendimentoParaComprou(m_Atendimento m_atendimento)
         {
@@ -87,6 +91,7 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@datacompra", m_atendimento.dataCompra));
             comando.Parameters.Add(new MySqlParameter("@usuariocad", m_atendimento.usuariocad));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
         public void AlterarAtendimentoParaDesistiu(m_Atendimento m_atendimento)
         {
@@ -98,6 +103,7 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@comprou", m_atendimento.comprou));
             comando.Parameters.Add(new MySqlParameter("@usuariocad", m_atendimento.usuariocad));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
         public void ExcluirAtendimento(m_Atendimento m_atendimento)
         {
@@ -107,6 +113,7 @@ namespace SGS.Controle
             comando.CommandText = "delete from atendimento where idatendimento = @idatendimento;";
             comando.Parameters.Add(new MySqlParameter("@idatendimento", m_atendimento.idatendimento));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
 
     }

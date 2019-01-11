@@ -20,6 +20,7 @@ namespace SGS.Controle
             MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
             DataTable dataTable = new DataTable();
             dataTable.Load(reader);
+            conexao.Clone();
             return dataTable;
         }
         public void NovoPendencias(m_Pendencias m_pendencias)
@@ -45,6 +46,7 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@fk_corretor_pendencias", m_pendencias.fk_corretor_pendencias));
             comando.Parameters.Add(new MySqlParameter("@fk_loteamento_pendencias", m_pendencias.fk_loteamento_pendencias));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
         public void ExcluirPendencias(m_Pendencias m_pendencias)
         {
@@ -55,6 +57,7 @@ namespace SGS.Controle
                 "delete from pendencias where idpendencias = @idpendencias;";
             comando.Parameters.Add(new MySqlParameter("@idpendencias", m_pendencias.idpendencias));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
         public void AlterarPendencias(m_Pendencias m_pendencias)
         {
@@ -81,6 +84,7 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@fk_corretor_pendencias", m_pendencias.fk_corretor_pendencias));
             comando.Parameters.Add(new MySqlParameter("@fk_loteamento_pendencias", m_pendencias.fk_loteamento_pendencias));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
         public void AlterarPendenciaParaResolvido(m_Pendencias m_pendencias)
         {
@@ -94,6 +98,7 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@usuariocad", m_pendencias.usuariocad));
             comando.Parameters.Add(new MySqlParameter("@datadevolucao", m_pendencias.datadevolucao));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
         public void AlterarPendenciaParaCorretor(m_Pendencias m_pendencias)
         {
@@ -107,6 +112,7 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@usuariocad", m_pendencias.usuariocad));
             comando.Parameters.Add(new MySqlParameter("@dataentregacorretor", m_pendencias.dataentregacorretor));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
         public void AlterarPendenciaParaARevolver(m_Pendencias m_pendencias)
         {
@@ -119,6 +125,7 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@status", m_pendencias.status));
             comando.Parameters.Add(new MySqlParameter("@usuariocad", m_pendencias.usuariocad));
             comando.ExecuteNonQuery();
+            conexao.Clone();
         }
     }
 }
