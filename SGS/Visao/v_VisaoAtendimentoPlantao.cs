@@ -57,7 +57,7 @@ namespace SGS.Visao
             m_corretorPlantao.fk_plantao_corretorplantao = CodigoPlantao;
             m_tempoAtendimento.fk_plantao_tempoatendimento = CodigoPlantao;
             m_plantao.idplantao = CodigoPlantao;
-            gbxTempoCorretor.Text = "Corretor da Vez - Equipe de Plantão " + c_plantao.CarregarNomeEquipePlantao(m_plantao);
+            gbxCorretores.Text = gbxCorretores.Text + " - Equipe " + c_plantao.CarregarNomeEquipePlantao(m_plantao);
         }
         private void CarregarImagemSlider()
         {
@@ -213,6 +213,18 @@ namespace SGS.Visao
         private void timerSliderImagens_Tick(object sender, EventArgs e)
         {
             CarregarImagemSlider();
+        }
+
+        private void v_VisaoAtendimentoPlantao_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Deseja realmente fechar essa tela?", "SGS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

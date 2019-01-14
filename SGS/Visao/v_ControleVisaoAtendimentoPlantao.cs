@@ -15,6 +15,7 @@ namespace SGS.Visao
         public v_ControleVisaoAtendimentoPlantao()
         {
             InitializeComponent();
+            MessageBox.Show("Este controle só funciona na maquina que estar com a tela visão de controle de atendimento do plantão aberta!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void btnVoltarCorretorDaVez_Click(object sender, EventArgs e)

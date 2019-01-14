@@ -238,6 +238,7 @@
             this.gbxTempoCorretor.Size = new System.Drawing.Size(1125, 79);
             this.gbxTempoCorretor.TabIndex = 3;
             this.gbxTempoCorretor.TabStop = false;
+            this.gbxTempoCorretor.Text = "Corretor da vez";
             // 
             // lblCorretorDaVez
             // 
@@ -325,6 +326,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.v_VisaoAtendimentoPlantao_FormClosing);
             this.Load += new System.EventHandler(this.v_VisaoAtendimentoPlantao_Load);
             this.gbxLogoHora.ResumeLayout(false);
             this.gbxLogoHora.PerformLayout();

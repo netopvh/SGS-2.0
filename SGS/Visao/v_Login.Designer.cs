@@ -43,6 +43,7 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.btnSair = new DevExpress.XtraEditors.SimpleButton();
             this.btnLogin = new DevExpress.XtraEditors.SimpleButton();
+            this.lblEsqueceuSenha = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.tabFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbxEmpresaLicenca)).BeginInit();
             this.gbxEmpresaLicenca.SuspendLayout();
@@ -179,7 +180,7 @@
             this.btnSair.ImageOptions.Image = global::SGS.Properties.Resources.Sair_22x22;
             this.btnSair.Location = new System.Drawing.Point(210, 361);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(75, 23);
+            this.btnSair.Size = new System.Drawing.Size(75, 30);
             this.btnSair.TabIndex = 3;
             this.btnSair.Text = "Sair";
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
@@ -189,16 +190,27 @@
             this.btnLogin.ImageOptions.Image = global::SGS.Properties.Resources.LoginSenha24x24;
             this.btnLogin.Location = new System.Drawing.Point(129, 361);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLogin.Size = new System.Drawing.Size(75, 30);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Login";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // lblEsqueceuSenha
+            // 
+            this.lblEsqueceuSenha.AutoSize = true;
+            this.lblEsqueceuSenha.Location = new System.Drawing.Point(9, 358);
+            this.lblEsqueceuSenha.Name = "lblEsqueceuSenha";
+            this.lblEsqueceuSenha.Size = new System.Drawing.Size(99, 13);
+            this.lblEsqueceuSenha.TabIndex = 0;
+            this.lblEsqueceuSenha.Text = "Esqueceu a senha?";
+            this.lblEsqueceuSenha.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblEsqueceuSenha_LinkClicked);
             // 
             // v_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(297, 395);
+            this.Controls.Add(this.lblEsqueceuSenha);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.gbxDadosAcesso);
@@ -225,6 +237,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSenha.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUsuario.Properties)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -245,5 +258,6 @@
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
         private DevExpress.XtraEditors.CheckEdit cbxLembrarAcesso;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.LinkLabel lblEsqueceuSenha;
     }
 }

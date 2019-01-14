@@ -78,6 +78,7 @@ namespace SGS.Visao
                     {
                         rbtInativo.Checked = true;
                     }
+                    txtEmailPessoal.Text = (string)gdvUsuarios.GetRowCellValue(gdvUsuarios.GetSelectedRows()[0], gdvUsuarios.Columns[6]);
                     gbxNovoUsuario.Enabled = true;
 
                     tabFormControl1.SelectedPage = tabFormPageNovoUsuario;
@@ -93,7 +94,7 @@ namespace SGS.Visao
                     m_usuario.nome = txtNome.Text;
                     m_usuario.login = txtLogin.Text;
                     m_usuario.senha = txtSenha.Text;
-
+                    m_usuario.emailpessoal = txtEmailPessoal.Text;
                     //Ativo = 1 Inativo = 0;
                     if (rbtAtivo.Checked == true)
                     {
@@ -227,7 +228,7 @@ namespace SGS.Visao
         {
             if (txtSenha.Text == txtConfirmaSenha.Text && txtSenha.Text != string.Empty)
             {
-                if (txtNome.Text != string.Empty && txtLogin.Text != string.Empty && lookUpEditPermissao.Text != string.Empty)
+                if (txtNome.Text != string.Empty && txtLogin.Text != string.Empty && lookUpEditPermissao.Text != string.Empty && txtEmailPessoal.Text != string.Empty)
                 {
                     if (_alterarCad == false)
                     {

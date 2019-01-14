@@ -26,7 +26,7 @@ namespace SGS.Controle
         {
             MySqlConnection conexao = c_ConexaoMySql.GetConexao();
             MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
-            comando.CommandText = "SELECT usuario.idusuario,usuario.nome,usuario.login,usuario.senha,usuario.`status`,usuario.fk_permissao_usuario,permissao.idpermissao,permissao.nome,permissao.nivel FROM usuario INNER JOIN permissao ON usuario.fk_permissao_usuario = permissao.idpermissao;";
+            comando.CommandText = "SELECT usuario.idusuario,usuario.nome,usuario.login,usuario.senha,usuario.`status`,usuario.emailpessoal,usuario.fk_permissao_usuario,permissao.idpermissao,permissao.nome,permissao.nivel FROM usuario INNER JOIN permissao ON usuario.fk_permissao_usuario = permissao.idpermissao;";
             comando.CommandType = CommandType.Text;
             MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
             DataTable dataTable = new DataTable();
@@ -59,17 +59,41 @@ namespace SGS.Controle
             }
 
         }
+        public bool AutenticarUsuarioEmail(string login, string email)
+        {
+            bool resultado;
+
+            MySqlConnection conexao = c_ConexaoMySql.GetConexao();
+            MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
+            comando.CommandText =
+                "select * from usuario where login = '"+login+"' and emailpessoal = '"+email+"' and status = 1;";
+            
+            comando.CommandType = CommandType.Text;
+            MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
+
+            resultado = reader.HasRows;
+            if (resultado == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
         public void NovoUsuario(m_Usuario m_usuario)
         {
             MySqlConnection conexao = c_ConexaoMySql.GetConexao();
             MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
             comando.CommandType = System.Data.CommandType.Text;
             comando.CommandText =
-                "insert into usuario(nome,login,senha,status,fk_permissao_usuario) values(@nome,@login,MD5(@senha),@status,@fk_permissao_usuario);";
+                "insert into usuario(nome,login,senha,status,emailpessoal,fk_permissao_usuario) values(@nome,@login,MD5(@senha),@status,@emailpessoal,@fk_permissao_usuario);";
             comando.Parameters.Add(new MySqlParameter("@nome", m_usuario.nome));
             comando.Parameters.Add(new MySqlParameter("@login", m_usuario.login));
             comando.Parameters.Add(new MySqlParameter("@senha", m_usuario.senha));
             comando.Parameters.Add(new MySqlParameter("@status", m_usuario.status));
+            comando.Parameters.Add(new MySqlParameter("@emailpessoal", m_usuario.emailpessoal));
             comando.Parameters.Add(new MySqlParameter("@fk_permissao_usuario", m_usuario.fk_permissao_usuario));
             comando.ExecuteNonQuery();
             conexao.Clone();
@@ -93,17 +117,31 @@ namespace SGS.Controle
             MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
             comando.CommandType = System.Data.CommandType.Text;
             comando.CommandText =
-                "update usuario set nome = @nome,login = @login,senha = md5(@senha), status = @status,fk_permissao_usuario = @fk_permissao_usuario where idusuario = @idusuario;";
+                "update usuario set nome = @nome,login = @login,senha = md5(@senha), status = @status,emailpessoal = @emailpessoal,fk_permissao_usuario = @fk_permissao_usuario where idusuario = @idusuario;";
             comando.Parameters.Add(new MySqlParameter("@idusuario", m_usuario.idusuario));
             comando.Parameters.Add(new MySqlParameter("@nome", m_usuario.nome));
             comando.Parameters.Add(new MySqlParameter("@login", m_usuario.login));
             comando.Parameters.Add(new MySqlParameter("@senha", m_usuario.senha));
             comando.Parameters.Add(new MySqlParameter("@status", m_usuario.status));
+            comando.Parameters.Add(new MySqlParameter("@emailpessoal", m_usuario.emailpessoal));
             comando.Parameters.Add(new MySqlParameter("@fk_permissao_usuario", m_usuario.fk_permissao_usuario));
             comando.ExecuteNonQuery();
             conexao.Clone();
         }
-        
+        public void AlterarSenhaUsuario(m_Usuario m_usuario)
+        {
+            MySqlConnection conexao = c_ConexaoMySql.GetConexao();
+            MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
+            comando.CommandType = System.Data.CommandType.Text;
+            comando.CommandText =
+                "update usuario set senha = md5(@senha) where login = @login and emailpessoal = @emailpessoal;";
+            comando.Parameters.Add(new MySqlParameter("@login", m_usuario.login));
+            comando.Parameters.Add(new MySqlParameter("@emailpessoal", m_usuario.emailpessoal));
+            comando.Parameters.Add(new MySqlParameter("@senha", m_usuario.senha));
+            comando.ExecuteNonQuery();
+            conexao.Clone();
+        }
+
 
     }
 }

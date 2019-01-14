@@ -31,10 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnPauseSlider = new DevExpress.XtraEditors.SimpleButton();
             this.btnProximoCorretorDaVez = new DevExpress.XtraEditors.SimpleButton();
             this.btnVoltarCorretorDaVez = new DevExpress.XtraEditors.SimpleButton();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnPauseSlider = new DevExpress.XtraEditors.SimpleButton();
             this.btnVoltar = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -55,26 +55,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Corretor da vez:";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.btnPauseSlider);
-            this.groupBox2.Location = new System.Drawing.Point(12, 93);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(174, 75);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Slider";
-            // 
-            // btnPauseSlider
-            // 
-            this.btnPauseSlider.ImageOptions.Image = global::SGS.Properties.Resources.Pausar30x30;
-            this.btnPauseSlider.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnPauseSlider.Location = new System.Drawing.Point(47, 20);
-            this.btnPauseSlider.Name = "btnPauseSlider";
-            this.btnPauseSlider.Size = new System.Drawing.Size(75, 44);
-            this.btnPauseSlider.TabIndex = 2;
-            this.btnPauseSlider.Click += new System.EventHandler(this.btnPauseSlider_Click);
-            // 
             // btnProximoCorretorDaVez
             // 
             this.btnProximoCorretorDaVez.ImageOptions.Image = global::SGS.Properties.Resources.Proximo30x30;
@@ -94,6 +74,26 @@
             this.btnVoltarCorretorDaVez.Size = new System.Drawing.Size(75, 44);
             this.btnVoltarCorretorDaVez.TabIndex = 1;
             this.btnVoltarCorretorDaVez.Click += new System.EventHandler(this.btnVoltarCorretorDaVez_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnPauseSlider);
+            this.groupBox2.Location = new System.Drawing.Point(12, 93);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(174, 75);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Slider";
+            // 
+            // btnPauseSlider
+            // 
+            this.btnPauseSlider.ImageOptions.Image = global::SGS.Properties.Resources.Pausar30x30;
+            this.btnPauseSlider.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnPauseSlider.Location = new System.Drawing.Point(47, 20);
+            this.btnPauseSlider.Name = "btnPauseSlider";
+            this.btnPauseSlider.Size = new System.Drawing.Size(75, 44);
+            this.btnPauseSlider.TabIndex = 3;
+            this.btnPauseSlider.Click += new System.EventHandler(this.btnPauseSlider_Click);
             // 
             // btnVoltar
             // 

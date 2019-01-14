@@ -205,6 +205,12 @@ namespace SGS.Visao
             //VerificarLembrarUsuario();
         }
 
+        private void lblEsqueceuSenha_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            v_RecuperarSenha RecuperarSenha = new v_RecuperarSenha();
+            RecuperarSenha.ShowDialog();
+        }
+    
         private void tabFormControl1_Click(object sender, EventArgs e)
         {
 

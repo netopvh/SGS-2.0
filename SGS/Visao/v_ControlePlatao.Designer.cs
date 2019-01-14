@@ -313,7 +313,7 @@
             this.btnExportar.Location = new System.Drawing.Point(3, 348);
             this.btnExportar.Name = "btnExportar";
             this.btnExportar.Size = new System.Drawing.Size(75, 44);
-            this.btnExportar.TabIndex = 4;
+            this.btnExportar.TabIndex = 1;
             this.btnExportar.Text = "Excel";
             // 
             // btnNovo
@@ -323,18 +323,19 @@
             this.btnNovo.Location = new System.Drawing.Point(560, 348);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(75, 44);
-            this.btnNovo.TabIndex = 3;
+            this.btnNovo.TabIndex = 2;
             this.btnNovo.Text = "Novo";
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // btnExcluir
             // 
             this.btnExcluir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExcluir.Enabled = false;
             this.btnExcluir.ImageOptions.Image = global::SGS.Properties.Resources.ExcluirRegistro24x24;
             this.btnExcluir.Location = new System.Drawing.Point(641, 348);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 44);
-            this.btnExcluir.TabIndex = 2;
+            this.btnExcluir.TabIndex = 3;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
@@ -345,7 +346,7 @@
             this.btnVoltar.Location = new System.Drawing.Point(722, 348);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(75, 44);
-            this.btnVoltar.TabIndex = 1;
+            this.btnVoltar.TabIndex = 4;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 

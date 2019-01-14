@@ -39,7 +39,6 @@
             this.gbxUsuarios = new DevExpress.XtraEditors.GroupControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gdvUsuarios = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
-            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumnIdusuario = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumnNome = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumnLogin = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -67,6 +66,10 @@
             this.txtNome = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.txtEmailPessoal = new DevExpress.XtraEditors.TextEdit();
+            this.GridColumnEmail = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             ((System.ComponentModel.ISupportInitialize)(this.tabFormControl1)).BeginInit();
             this.tabFormContentContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxUsuarios)).BeginInit();
@@ -85,6 +88,7 @@
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtLogin.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNome.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmailPessoal.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tabFormControl1
@@ -95,7 +99,7 @@
             this.tabFormControl1.Name = "tabFormControl1";
             this.tabFormControl1.Pages.Add(this.tabFormPageUsuarios);
             this.tabFormControl1.Pages.Add(this.tabFormPageNovoUsuario);
-            this.tabFormControl1.SelectedPage = this.tabFormPageUsuarios;
+            this.tabFormControl1.SelectedPage = this.tabFormPageNovoUsuario;
             this.tabFormControl1.ShowAddPageButton = false;
             this.tabFormControl1.ShowTabCloseButtons = false;
             this.tabFormControl1.Size = new System.Drawing.Size(510, 55);
@@ -195,7 +199,8 @@
             this.gridColumnLogin,
             this.gridColumnSenha,
             this.gridColumnStatus,
-            this.gridColumnPermissao});
+            this.gridColumnPermissao,
+            this.GridColumnEmail});
             this.gdvUsuarios.GridControl = this.gridControl1;
             this.gdvUsuarios.Name = "gdvUsuarios";
             this.gdvUsuarios.OptionsBehavior.Editable = false;
@@ -210,26 +215,13 @@
             this.gdvUsuarios.OptionsView.ShowFooter = true;
             this.gdvUsuarios.OptionsView.ShowGroupPanel = false;
             // 
-            // gridBand1
-            // 
-            this.gridBand1.Caption = "Todos os Usuários estão no Grid.";
-            this.gridBand1.Columns.Add(this.gridColumnIdusuario);
-            this.gridBand1.Columns.Add(this.gridColumnNome);
-            this.gridBand1.Columns.Add(this.gridColumnLogin);
-            this.gridBand1.Columns.Add(this.gridColumnSenha);
-            this.gridBand1.Columns.Add(this.gridColumnStatus);
-            this.gridBand1.Columns.Add(this.gridColumnPermissao);
-            this.gridBand1.Name = "gridBand1";
-            this.gridBand1.VisibleIndex = 0;
-            this.gridBand1.Width = 757;
-            // 
             // gridColumnIdusuario
             // 
             this.gridColumnIdusuario.Caption = "Código";
             this.gridColumnIdusuario.FieldName = "idusuario";
             this.gridColumnIdusuario.Name = "gridColumnIdusuario";
             this.gridColumnIdusuario.Visible = true;
-            this.gridColumnIdusuario.Width = 57;
+            this.gridColumnIdusuario.Width = 51;
             // 
             // gridColumnNome
             // 
@@ -237,7 +229,7 @@
             this.gridColumnNome.FieldName = "nome";
             this.gridColumnNome.Name = "gridColumnNome";
             this.gridColumnNome.Visible = true;
-            this.gridColumnNome.Width = 204;
+            this.gridColumnNome.Width = 113;
             // 
             // gridColumnLogin
             // 
@@ -245,7 +237,7 @@
             this.gridColumnLogin.FieldName = "login";
             this.gridColumnLogin.Name = "gridColumnLogin";
             this.gridColumnLogin.Visible = true;
-            this.gridColumnLogin.Width = 85;
+            this.gridColumnLogin.Width = 77;
             // 
             // gridColumnSenha
             // 
@@ -253,7 +245,7 @@
             this.gridColumnSenha.FieldName = "senha";
             this.gridColumnSenha.Name = "gridColumnSenha";
             this.gridColumnSenha.Visible = true;
-            this.gridColumnSenha.Width = 216;
+            this.gridColumnSenha.Width = 143;
             // 
             // gridColumnStatus
             // 
@@ -261,7 +253,7 @@
             this.gridColumnStatus.FieldName = "status";
             this.gridColumnStatus.Name = "gridColumnStatus";
             this.gridColumnStatus.Visible = true;
-            this.gridColumnStatus.Width = 77;
+            this.gridColumnStatus.Width = 69;
             // 
             // gridColumnPermissao
             // 
@@ -269,7 +261,7 @@
             this.gridColumnPermissao.FieldName = "nivel";
             this.gridColumnPermissao.Name = "gridColumnPermissao";
             this.gridColumnPermissao.Visible = true;
-            this.gridColumnPermissao.Width = 118;
+            this.gridColumnPermissao.Width = 107;
             // 
             // tabFormPageNovoUsuario
             // 
@@ -288,6 +280,8 @@
             // 
             // gbxNovoUsuario
             // 
+            this.gbxNovoUsuario.Controls.Add(this.txtEmailPessoal);
+            this.gbxNovoUsuario.Controls.Add(this.labelControl6);
             this.gbxNovoUsuario.Controls.Add(this.btnSalvar);
             this.gbxNovoUsuario.Controls.Add(this.groupControl2);
             this.gbxNovoUsuario.Controls.Add(this.btnCancelar);
@@ -309,7 +303,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(342, 220);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 44);
-            this.btnSalvar.TabIndex = 6;
+            this.btnSalvar.TabIndex = 7;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
@@ -339,7 +333,7 @@
             this.lookUpEditPermissao.Properties.NullText = "";
             this.lookUpEditPermissao.Properties.ValueMember = "idpermissao";
             this.lookUpEditPermissao.Size = new System.Drawing.Size(265, 20);
-            this.lookUpEditPermissao.TabIndex = 5;
+            this.lookUpEditPermissao.TabIndex = 6;
             // 
             // labelControl5
             // 
@@ -365,7 +359,7 @@
             this.txtConfirmaSenha.Name = "txtConfirmaSenha";
             this.txtConfirmaSenha.Properties.UseSystemPasswordChar = true;
             this.txtConfirmaSenha.Size = new System.Drawing.Size(265, 20);
-            this.txtConfirmaSenha.TabIndex = 4;
+            this.txtConfirmaSenha.TabIndex = 5;
             this.txtConfirmaSenha.Leave += new System.EventHandler(this.txtConfirmaSenha_Leave);
             // 
             // labelControl4
@@ -382,7 +376,7 @@
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Properties.UseSystemPasswordChar = true;
             this.txtSenha.Size = new System.Drawing.Size(265, 20);
-            this.txtSenha.TabIndex = 3;
+            this.txtSenha.TabIndex = 4;
             this.txtSenha.Leave += new System.EventHandler(this.txtSenha_Leave);
             // 
             // labelControl3
@@ -399,7 +393,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(423, 220);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 44);
-            this.btnCancelar.TabIndex = 7;
+            this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -409,14 +403,14 @@
             this.groupControl1.Controls.Add(this.rbtAtivo);
             this.groupControl1.Location = new System.Drawing.Point(12, 114);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(185, 100);
+            this.groupControl1.Size = new System.Drawing.Size(185, 55);
             this.groupControl1.TabIndex = 6;
             this.groupControl1.Text = "Status";
             // 
             // rbtInativo
             // 
             this.rbtInativo.AutoSize = true;
-            this.rbtInativo.Location = new System.Drawing.Point(5, 60);
+            this.rbtInativo.Location = new System.Drawing.Point(61, 24);
             this.rbtInativo.Name = "rbtInativo";
             this.rbtInativo.Size = new System.Drawing.Size(59, 17);
             this.rbtInativo.TabIndex = 0;
@@ -471,12 +465,56 @@
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2013";
             // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(12, 176);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(28, 13);
+            this.labelControl6.TabIndex = 8;
+            this.labelControl6.Text = "Email:";
+            // 
+            // txtEmailPessoal
+            // 
+            this.txtEmailPessoal.Location = new System.Drawing.Point(12, 194);
+            this.txtEmailPessoal.Name = "txtEmailPessoal";
+            this.txtEmailPessoal.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
+            this.txtEmailPessoal.Properties.Mask.EditMask = "((([0-9a-zA-Z_%-])+[.])+|([0-9a-zA-Z_%-])+)+@((([0-9a-zA-Z_-])+[.])+|([0-9a-zA-Z_" +
+    "-])+)+";
+            this.txtEmailPessoal.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtEmailPessoal.Size = new System.Drawing.Size(185, 20);
+            this.txtEmailPessoal.TabIndex = 3;
+            // 
+            // GridColumnEmail
+            // 
+            this.GridColumnEmail.AppearanceHeader.Options.UseTextOptions = true;
+            this.GridColumnEmail.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.GridColumnEmail.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.GridColumnEmail.Caption = "E-mail";
+            this.GridColumnEmail.FieldName = "emailpessoal";
+            this.GridColumnEmail.Name = "GridColumnEmail";
+            this.GridColumnEmail.Visible = true;
+            this.GridColumnEmail.Width = 195;
+            // 
+            // gridBand1
+            // 
+            this.gridBand1.Caption = "Todos os Usuários estão no Grid.";
+            this.gridBand1.Columns.Add(this.gridColumnIdusuario);
+            this.gridBand1.Columns.Add(this.gridColumnNome);
+            this.gridBand1.Columns.Add(this.gridColumnLogin);
+            this.gridBand1.Columns.Add(this.gridColumnSenha);
+            this.gridBand1.Columns.Add(this.gridColumnStatus);
+            this.gridBand1.Columns.Add(this.gridColumnPermissao);
+            this.gridBand1.Columns.Add(this.GridColumnEmail);
+            this.gridBand1.Name = "gridBand1";
+            this.gridBand1.VisibleIndex = 0;
+            this.gridBand1.Width = 755;
+            // 
             // v_Usuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(510, 328);
-            this.Controls.Add(this.tabFormContentContainer1);
+            this.Controls.Add(this.tabFormContentContainer2);
             this.Controls.Add(this.tabFormControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -508,6 +546,7 @@
             this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtLogin.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNome.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmailPessoal.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -545,7 +584,6 @@
         private DevExpress.XtraEditors.TextEdit txtNome;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView gdvUsuarios;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumnIdusuario;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumnNome;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumnLogin;
@@ -553,6 +591,9 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumnStatus;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumnPermissao;
         private DevExpress.XtraEditors.LookUpEdit lookUpEditPermissao;
-        
+        private DevExpress.XtraEditors.TextEdit txtEmailPessoal;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn GridColumnEmail;
     }
 }
