@@ -37,7 +37,7 @@ namespace SGS.Visao
         private void v_DistFolhaAvulso_Load(object sender, EventArgs e)
         {
             CancelButton = btnVoltar;
-            Permissao();
+            
             CarregarGrid();
             //BestFitBand(gridBand1);
             advBandedGridView1.BestFitColumns(true);
@@ -294,37 +294,7 @@ namespace SGS.Visao
                 if ((int)e.Value == 2) e.DisplayText = "2 - Devolvido";
             }
         }
-        private void Permissao()
-        {
-            switch (_Permissao)
-            {
-                case 1:
-                    btnExcluir.Enabled = false;
-                    btnNovo.Enabled = false;
-                    btnAlterar.Enabled = false;
-                    break;
-                case 2:
-                    btnExcluir.Enabled = false;
-                    btnNovo.Enabled = true;
-                    btnAlterar.Enabled = false;
-
-                    break;
-                case 3:
-                    btnExcluir.Enabled = false;
-                    btnNovo.Enabled = true;
-                    btnAlterar.Enabled = true;
-
-                    break;
-                case 4:
-                    btnExcluir.Enabled = false;
-                    btnNovo.Enabled = true;
-                    btnAlterar.Enabled = true;
-                    break;
-                default:
-                    break;
-            }
-
-        }
+        
 
         private void btnBaixar_Click(object sender, EventArgs e)
         {

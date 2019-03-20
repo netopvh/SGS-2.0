@@ -20,12 +20,15 @@ namespace SGS.Visao
 
         private void btnVoltarCorretorDaVez_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Em Breve sai essa função aguardem!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (MessageBox.Show("Tem certeza que deseja voltar a vez do atendimento para o corretor anterior da lista?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                VoltarVez();
+            }
         }
 
         private void btnProximoCorretorDaVez_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Tem certeza que deseja passar o atendimento para o próximo corretor da lista? isso não vai pode ser disfeito!","AVISO",MessageBoxButtons.YesNo,MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (MessageBox.Show("Tem certeza que deseja passar o atendimento para o próximo corretor da lista?","AVISO",MessageBoxButtons.YesNo,MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 PassarVez();
             }
@@ -39,6 +42,14 @@ namespace SGS.Visao
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        private void VoltarVez()
+        {
+            v_VisaoAtendimentoPlantao v = Application.OpenForms["v_VisaoAtendimentoPlantao"] as v_VisaoAtendimentoPlantao;
+            if (v != null)
+            {
+                v.VoltarVez();
+            }
         }
         private void PassarVez()
         {

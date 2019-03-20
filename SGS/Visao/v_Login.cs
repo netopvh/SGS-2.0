@@ -210,7 +210,14 @@ namespace SGS.Visao
             v_RecuperarSenha RecuperarSenha = new v_RecuperarSenha();
             RecuperarSenha.ShowDialog();
         }
-    
+
+        private void lblTrocarSenha_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            v_TrocarSenha FormTrocarSenha = new v_TrocarSenha();
+            FormTrocarSenha.ShowDialog();
+
+        }
+
         private void tabFormControl1_Click(object sender, EventArgs e)
         {
 

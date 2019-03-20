@@ -6,10 +6,52 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using SGS.Modelo;
+
+
 namespace SGS.Controle
 {
     public class c_Loteamento
     {
+        public string CarregarObra(m_Loteamento m_loteamento)
+        {
+            string resultado = "";
+
+            MySqlConnection conexao = c_ConexaoMySql.GetConexao();
+            MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
+            comando.CommandText =
+               "select obra from loteamento where idloteamento = @idloteamento;";
+            comando.CommandType = CommandType.Text;
+            comando.Parameters.Add(new MySqlParameter("@idloteamento", m_loteamento.idloteamento));
+            MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
+            while (reader.Read())
+            {
+                resultado = reader.GetString(0);
+
+            }
+            conexao.Clone();
+            return resultado;
+
+        }
+        public string CarregarEmpresa(m_Loteamento m_loteamento)
+        {
+            string resultado = "";
+
+            MySqlConnection conexao = c_ConexaoMySql.GetConexao();
+            MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
+            comando.CommandText =
+               "select empresa from loteamento where idloteamento = @idloteamento;";
+            comando.CommandType = CommandType.Text;
+            comando.Parameters.Add(new MySqlParameter("@idloteamento", m_loteamento.idloteamento));
+            MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
+            while (reader.Read())
+            {
+                resultado = reader.GetString(0);
+
+            }
+            conexao.Clone();
+            return resultado;
+
+        }
         public DataTable CarregarLoteamentos()
         {
             MySqlConnection conexao = c_ConexaoMySql.GetConexao();
@@ -29,6 +71,32 @@ namespace SGS.Controle
             MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
             comando.CommandType = CommandType.Text;
             comando.CommandText = "select idloteamento,nome from loteamento;";
+            MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
+            DataTable dataTable = new DataTable();
+            dataTable.Load(reader);
+            conexao.Clone();
+            return dataTable;
+
+        }
+        public DataTable CarregarLoteamentosAtivos()
+        {
+            MySqlConnection conexao = c_ConexaoMySql.GetConexao();
+            MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = "select idloteamento,nome,empresa,obra from loteamento where status = 1;";
+            MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
+            DataTable dataTable = new DataTable();
+            dataTable.Load(reader);
+            conexao.Clone();
+            return dataTable;
+
+        }
+        public DataTable CarregarLoteamentoEmpresaObraConcatenado()
+        {
+            MySqlConnection conexao = c_ConexaoMySql.GetConexao();
+            MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = "select concat(empresa,obra) AS EmpresaObra, nome from loteamento where status = 1;";
             MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
             DataTable dataTable = new DataTable();
             dataTable.Load(reader);

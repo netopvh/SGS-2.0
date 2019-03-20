@@ -58,13 +58,13 @@
             // 
             this.dtpDataPagamento.Location = new System.Drawing.Point(16, 125);
             this.dtpDataPagamento.Name = "dtpDataPagamento";
-            this.dtpDataPagamento.Size = new System.Drawing.Size(276, 21);
+            this.dtpDataPagamento.Size = new System.Drawing.Size(352, 21);
             this.dtpDataPagamento.TabIndex = 1;
             // 
             // btnReferenciarNF
             // 
             this.btnReferenciarNF.ImageOptions.Image = global::SGS.Properties.Resources.NF24x24;
-            this.btnReferenciarNF.Location = new System.Drawing.Point(16, 152);
+            this.btnReferenciarNF.Location = new System.Drawing.Point(91, 152);
             this.btnReferenciarNF.Name = "btnReferenciarNF";
             this.btnReferenciarNF.Size = new System.Drawing.Size(115, 44);
             this.btnReferenciarNF.TabIndex = 4;
@@ -74,7 +74,7 @@
             // btnPagar
             // 
             this.btnPagar.ImageOptions.Image = global::SGS.Properties.Resources.APagar24x24;
-            this.btnPagar.Location = new System.Drawing.Point(137, 152);
+            this.btnPagar.Location = new System.Drawing.Point(212, 152);
             this.btnPagar.Name = "btnPagar";
             this.btnPagar.Size = new System.Drawing.Size(75, 44);
             this.btnPagar.TabIndex = 3;
@@ -84,7 +84,7 @@
             // btnVoltar
             // 
             this.btnVoltar.ImageOptions.Image = global::SGS.Properties.Resources.VoltasOffice24x24;
-            this.btnVoltar.Location = new System.Drawing.Point(217, 152);
+            this.btnVoltar.Location = new System.Drawing.Point(293, 152);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(75, 44);
             this.btnVoltar.TabIndex = 2;
@@ -131,7 +131,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(310, 210);
+            this.ClientSize = new System.Drawing.Size(380, 210);
             this.Controls.Add(this.lblValorComissoParcela);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblCorretor);

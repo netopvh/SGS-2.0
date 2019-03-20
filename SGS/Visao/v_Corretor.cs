@@ -100,7 +100,7 @@ namespace SGS.Visao
                     {
                         rbtInativo.Checked = true;
                     }
-                    Permissao();
+                    
                     tabFormControl.SelectedPage = tabFormPageNovoCorretor;
                     break;
                 case "salvar":
@@ -220,42 +220,14 @@ namespace SGS.Visao
             
             
         }
-        private void Permissao()
-        {
-            switch (_permissao)
-            {
-                case 1:
-                    btnExcluir.Enabled = false;
-                    btnAlterar.Enabled = false;
-                    btnNovo.Enabled = false;
-                    break;
-                case 2:
-                    btnExcluir.Enabled = false;
-                    btnAlterar.Enabled = false;
-                    btnNovo.Enabled = false;
-                    break;
-                case 3:
-                    btnExcluir.Enabled = false;
-                    btnAlterar.Enabled = false;
-                    btnNovo.Enabled = false;
-                    break;
-                case 4:
-                    btnExcluir.Enabled = false;
-                    btnAlterar.Enabled = true;
-                    btnNovo.Enabled = true;
-                    break;
-                default:
-                    break;
-            }
-            
-        }
+        
         private void v_Corretor_Load(object sender, EventArgs e)
         {
             _alterarCad = false;
             CancelButton = btnVoltar;
             gbxNovoCorretor.Enabled = false;
             tabFormControl.SelectedPage = tabFormPageCorretores;
-            Permissao();
+            
             CarregarCorretores();
             gdvCorretores.BestFitColumns(true);
             

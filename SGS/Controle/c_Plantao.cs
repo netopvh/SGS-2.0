@@ -98,6 +98,22 @@ namespace SGS.Controle
             conexao.Clone();
             return resultado;
         }
+        public TimeSpan CarregarTempoInicialPlantao(m_Plantao m_plantao)
+        {
+            TimeSpan resultado = new TimeSpan(0, 0, 0);
+            MySqlConnection conexao = c_ConexaoMySql.GetConexao();
+            MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
+            comando.CommandText = "select horainicial from plantao where idplantao = @idplantao;";
+            comando.CommandType = CommandType.Text;
+            comando.Parameters.Add(new MySqlParameter("@idplantao", m_plantao.idplantao));
+            MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
+            while (reader.Read())
+            {
+                resultado = reader.GetTimeSpan(0);
+            }
+            conexao.Clone();
+            return resultado;
+        }
         public void NovoPlantao(m_Plantao m_plantao)
         {
             MySqlConnection conexao = c_ConexaoMySql.GetConexao();

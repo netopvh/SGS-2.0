@@ -62,65 +62,16 @@ namespace SGS.Visao
             switch (_permissao)
             {
                 case 1:
-                    bbiAPagar.Enabled = false;
-                    bbiAreceber.Enabled = false;
-                    bbiEmail.Enabled = false;
-                    bbiFechamentoCaixa.Enabled = false;
-                    bbiFluxoCaixa.Enabled = false;
-                    bbiFTP.Enabled = false;
                     bbiRestaurarBackup.Enabled = false;
-                    bbiUsuario.Enabled = false;
-                    bbiBaixarRecebimentos.Enabled = false;
-                    bbiControleGeral.Enabled = false;
-                    bbiEstruturasComissoes.Enabled = false;
-                    bbiInserirComissoes.Enabled = false;
-                    bbiControlePlantao.Enabled = false;
-                    
                     break;
                 case 2:
-                    bbiAPagar.Enabled = false;
-                    bbiAreceber.Enabled = false;
-                    bbiEmail.Enabled = false;
-                    bbiFechamentoCaixa.Enabled = false;
-                    bbiFluxoCaixa.Enabled = false;
-                    bbiFTP.Enabled = false;
                     bbiRestaurarBackup.Enabled = false;
-                    bbiUsuario.Enabled = false;
-                    bbiBaixarRecebimentos.Enabled = false;
-                    bbiControleGeral.Enabled = false;
-                    bbiEstruturasComissoes.Enabled = false;
-                    bbiInserirComissoes.Enabled = false;
-                    bbiControlePlantao.Enabled = false;
                     break;
                 case 3:
-                    bbiAPagar.Enabled = false;
-                    bbiAreceber.Enabled = false;
-                    bbiEmail.Enabled = true;
-                    bbiFechamentoCaixa.Enabled = false;
-                    bbiFluxoCaixa.Enabled = false;
-                    bbiFTP.Enabled = false;
                     bbiRestaurarBackup.Enabled = false;
-                    bbiUsuario.Enabled = false;
-                    bbiBaixarRecebimentos.Enabled = false;
-                    bbiControleGeral.Enabled = false;
-                    bbiEstruturasComissoes.Enabled = false;
-                    bbiInserirComissoes.Enabled = false;
-                    bbiControlePlantao.Enabled = false;
                     break;
                 case 4:
-                    bbiAPagar.Enabled = true;
-                    bbiAreceber.Enabled = true;
-                    bbiEmail.Enabled = true;
-                    bbiFechamentoCaixa.Enabled = true;
-                    bbiFluxoCaixa.Enabled = true;
-                    bbiFTP.Enabled = false;
-                    bbiRestaurarBackup.Enabled = false;
-                    bbiUsuario.Enabled = false;
-                    bbiBaixarRecebimentos.Enabled = true;
-                    bbiControleGeral.Enabled = true;
-                    bbiEstruturasComissoes.Enabled = true;
-                    bbiInserirComissoes.Enabled = true;
-                    bbiControlePlantao.Enabled = false;
+                    
                     break;
                     
                 default:

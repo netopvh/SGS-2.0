@@ -137,44 +137,7 @@ namespace SGS.Visao
                     break;
             }
         }
-        private void Permissao()
-        {
-            switch (_permissao)
-            {
-                case 1:
-                    btnExcluir.Enabled = false;
-                    btnNovo.Enabled = false;
-                    btnAlterar.Enabled = false;
-                    btnDevolver.Enabled = false;
-                    btnEntregarPendencia.Enabled = false;
-                    
-                    break;
-                case 2:
-                    btnExcluir.Enabled = false;
-                    btnNovo.Enabled = true;
-                    btnAlterar.Enabled = false;
-                    btnDevolver.Enabled = true;
-                    btnEntregarPendencia.Enabled = true;
-                    break;
-                case 3:
-                    btnExcluir.Enabled = false;
-                    btnNovo.Enabled = true;
-                    btnAlterar.Enabled = true;
-                    btnDevolver.Enabled = true;
-                    btnEntregarPendencia.Enabled = true;
-                    break;
-                case 4:
-                    btnExcluir.Enabled = false;
-                    btnNovo.Enabled = true;
-                    btnAlterar.Enabled = true;
-                    btnDevolver.Enabled = true;
-                    btnEntregarPendencia.Enabled = true;
-                    break;
-                default:
-                    break;
-            }
-
-        }
+        
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
@@ -241,7 +204,7 @@ namespace SGS.Visao
         {
             CancelButton = btnVoltar;
             tabFormControl1.SelectedPage = tabFormPagePendencias;
-            Permissao();
+            
             CarregarPendencias();
             gdvPendencias.BestFitColumns(true);
             

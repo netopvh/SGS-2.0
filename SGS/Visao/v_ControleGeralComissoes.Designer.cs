@@ -193,7 +193,7 @@
             this.cbxCorretor.Name = "cbxCorretor";
             this.cbxCorretor.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbxCorretor.Properties.NullText = "Selecione o Corretor";
+            this.cbxCorretor.Properties.NullText = "";
             this.cbxCorretor.Properties.View = this.gridView2;
             this.cbxCorretor.Size = new System.Drawing.Size(198, 20);
             this.cbxCorretor.TabIndex = 3;
@@ -221,7 +221,7 @@
             this.cbxEmpreendimento.Name = "cbxEmpreendimento";
             this.cbxEmpreendimento.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbxEmpreendimento.Properties.NullText = "Selecione o empreendimento";
+            this.cbxEmpreendimento.Properties.NullText = "";
             this.cbxEmpreendimento.Properties.View = this.gridLookUpEdit1View;
             this.cbxEmpreendimento.Size = new System.Drawing.Size(198, 20);
             this.cbxEmpreendimento.TabIndex = 1;
@@ -274,7 +274,6 @@
             "3 - Bloqueada",
             "4 - Cancelada",
             "Geral"});
-            this.cbxSituacao.Properties.NullText = "Selecione o tipo de situação";
             this.cbxSituacao.Properties.PopupSizeable = true;
             this.cbxSituacao.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cbxSituacao.Size = new System.Drawing.Size(198, 20);

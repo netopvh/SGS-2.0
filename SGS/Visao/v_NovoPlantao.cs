@@ -16,7 +16,8 @@ namespace SGS.Visao
 {
     public partial class v_NovoPlantao : DevExpress.XtraEditors.XtraForm
     {
-        
+
+        bool _EsperandoHoraInicial = false;
         c_Corretor c_corretor;
         m_Corretor m_corretor;
         m_Plantao m_plantao;
@@ -94,23 +95,25 @@ namespace SGS.Visao
         {
             advBandedGridView1.DeleteRow(advBandedGridView1.FocusedRowHandle);
         }
-        
-        private void btnIniciar_Click(object sender, EventArgs e)
+        private void NovoPlantao()
         {
-            
-
             if (cbxEquipe.Text != string.Empty && advBandedGridView1.DataSource != DBNull.Value)
             {
+                gbxCorretores.Enabled = false;
+                gbxTempo.Enabled = false;
+
                 m_plantao.equipe = cbxEquipe.Text;
                 m_plantao.dataplantao = DateTime.Now.Date;
                 m_plantao.horainicial = Convert.ToDateTime(tsePlantaoInicia.Text);
                 m_plantao.horafinal = Convert.ToDateTime(tsePlantaoTermina.Text);
                 m_plantao.tempoporpessoa = Convert.ToDateTime(tseTempoPorPessoa.Text);
                 m_plantao.usuariocad = _UsuarioCad;
-                
+
                 c_plantao.NovoPlantao(m_plantao);
                 int UltimoID = c_plantao.CarregarUltimaIDPlantao();
                 advBandedGridView1.ActiveFilter.Clear();
+                
+                gridBand1.Columns["ColumnPosicao"].SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
                 gridControl1.Enabled = false;
                 advBandedGridView1.FocusedRowHandle = 0;
                 for (int i = 0; i < advBandedGridView1.RowCount; i++)
@@ -122,13 +125,18 @@ namespace SGS.Visao
                     c_corretorPlantao.NovoCorretorPlantao(m_corretorPlantao);
                     advBandedGridView1.MoveNext();
                 }
-               
-                
+
+
                 v_VisaoAtendimentoPlantao visaoPlantao = new v_VisaoAtendimentoPlantao(UltimoID);
                 visaoPlantao.Show();
                 FecharFormControleDePlantao();
                 this.Close();
             }
+        }
+        private void btnIniciar_Click(object sender, EventArgs e)
+        {
+            _EsperandoHoraInicial = true;
+            btnIniciar.Enabled = false;
             
 
         }
@@ -139,6 +147,22 @@ namespace SGS.Visao
             {
                 v.Close();
             }
+        }
+
+        private void timerHoraCerta_Tick(object sender, EventArgs e)
+        {
+            lblHoraCerta.Text = DateTime.Now.ToLongTimeString();
+        }
+
+        private void lblHoraCerta_TextChanged(object sender, EventArgs e)
+        {
+            //00:00:00
+            
+            if (lblHoraCerta.Text.Substring(0,5) == tsePlantaoInicia.Text.Substring(0,5) && _EsperandoHoraInicial == true)
+            {
+                NovoPlantao();
+            }
+            
         }
     }
 }

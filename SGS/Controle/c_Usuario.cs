@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -137,6 +138,18 @@ namespace SGS.Controle
                 "update usuario set senha = md5(@senha) where login = @login and emailpessoal = @emailpessoal;";
             comando.Parameters.Add(new MySqlParameter("@login", m_usuario.login));
             comando.Parameters.Add(new MySqlParameter("@emailpessoal", m_usuario.emailpessoal));
+            comando.Parameters.Add(new MySqlParameter("@senha", m_usuario.senha));
+            comando.ExecuteNonQuery();
+            conexao.Clone();
+        }
+        public void AlterarSenhaUsuarioOld(m_Usuario m_usuario)
+        {
+            MySqlConnection conexao = c_ConexaoMySql.GetConexao();
+            MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
+            comando.CommandType = System.Data.CommandType.Text;
+            comando.CommandText =
+                "update usuario set senha = md5(@senha) where login = @login;";
+            comando.Parameters.Add(new MySqlParameter("@login", m_usuario.login));
             comando.Parameters.Add(new MySqlParameter("@senha", m_usuario.senha));
             comando.ExecuteNonQuery();
             conexao.Clone();

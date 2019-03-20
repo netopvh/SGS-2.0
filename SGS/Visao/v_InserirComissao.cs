@@ -58,6 +58,7 @@ namespace SGS.Visao
             if (advBandedGridView1.RowCount > 1)
             {
                 advBandedGridView1.FocusedRowHandle = 0;
+                advBandedGridView1.SelectRow(0);
                 advBandedGridView1.ActiveFilter.Clear();
                 gridControl1.Enabled = false;
                 for (int i = 0; i < advBandedGridView1.RowCount; i++)
@@ -81,6 +82,7 @@ namespace SGS.Visao
                     m_comissoes.vencimentoparcela = (DateTime)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[14]);
                     m_comissoes.valorparcela = Convert.ToDecimal(advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[15]));
                     m_comissoes.usuariocad = _UsuarioCad;
+                    m_comissoes.datacadcomissao = DateTime.Now;
                     m_comissoes.statuscomissao = (int)e_StatusComissao.Nao_Liberada;
                     c_comissoes.NovasComissoes(m_comissoes);
                     advBandedGridView1.MoveNext();

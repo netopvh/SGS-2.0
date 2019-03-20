@@ -34,6 +34,7 @@ namespace SGS.Modelo
         public DateTime datapagamentocomissao { get; set; }
         public string descricaocomissao { get; set; }
         public string usuariocad { get; set; }
+        public DateTime datacadcomissao { get; set; }
         public int fk_empresacorretor_comissoes { get; set; }
         public int fk_notafiscalcomissao_comissoes { get; set; }
 

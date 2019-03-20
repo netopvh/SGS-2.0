@@ -23,14 +23,26 @@ namespace SGS.Controle
             conexao.Clone();
             return dataTable;
         }
-        
+        public DataTable CarregarCorretores_pf()
+        {
+            MySqlConnection conexao = c_ConexaoMySql.GetConexao();
+            MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
+            comando.CommandText = "select distinct corretor_pf as Nome from comissoes;";
+            comando.CommandType = CommandType.Text;
+            MySqlDataReader reader = c_ConexaoMySql.GetDataReader(comando);
+            DataTable dataTable = new DataTable();
+            dataTable.Load(reader);
+            conexao.Clone();
+            return dataTable;
+        }
+
         public void NovasComissoes(m_Comissoes m_comissoes)
         {
             MySqlConnection conexao = c_ConexaoMySql.GetConexao();
             MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
             comando.CommandType = CommandType.Text;
-            comando.CommandText = "insert into comissoes(nomecliente,empresa,venda,obra,quadra,lote,datavenda,corretor_pf,datacadvenda,valorvenda,statusvenda,tipoparcela,parcelacomissao,totalparcelacomissao,vencimentoparcela,valorparcela,usuariocad)" +
-            "values(@nomecliente,@empresa,@venda,@obra,@quadra,@lote,@datavenda,@corretor_pf,@datacadvenda,@valorvenda,@statusvenda,@tipoparcela,@parcelacomissao,@totalparcelacomissao,@vencimentoparcela,@valorparcela,@usuariocad); ";
+            comando.CommandText = "insert into comissoes(nomecliente,empresa,venda,obra,quadra,lote,datavenda,corretor_pf,datacadvenda,valorvenda,statusvenda,tipoparcela,parcelacomissao,totalparcelacomissao,vencimentoparcela,valorparcela,usuariocad,datacadcomissao)" +
+            "values(@nomecliente,@empresa,@venda,@obra,@quadra,@lote,@datavenda,@corretor_pf,@datacadvenda,@valorvenda,@statusvenda,@tipoparcela,@parcelacomissao,@totalparcelacomissao,@vencimentoparcela,@valorparcela,@usuariocad,@datacadcomissao);";
             
             comando.Parameters.Add(new MySqlParameter("@nomecliente", m_comissoes.NomeCliente));
             comando.Parameters.Add(new MySqlParameter("@empresa", m_comissoes.empresa));
@@ -49,6 +61,7 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@vencimentoparcela", m_comissoes.vencimentoparcela));
             comando.Parameters.Add(new MySqlParameter("@valorparcela", m_comissoes.valorparcela));
             comando.Parameters.Add(new MySqlParameter("@usuariocad", m_comissoes.usuariocad));
+            comando.Parameters.Add(new MySqlParameter("@datacadcomissao", m_comissoes.datacadcomissao));
             comando.ExecuteNonQuery();
             conexao.Clone();
         }

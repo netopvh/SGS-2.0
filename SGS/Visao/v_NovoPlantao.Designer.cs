@@ -51,6 +51,9 @@
             this.tsePlantaoTermina = new DevExpress.XtraEditors.TimeSpanEdit();
             this.label2 = new System.Windows.Forms.Label();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.timerHoraCerta = new System.Windows.Forms.Timer(this.components);
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblHoraCerta = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gbxCorretores)).BeginInit();
             this.gbxCorretores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -99,10 +102,11 @@
             this.ColumnCorretor});
             this.advBandedGridView1.GridControl = this.gridControl1;
             this.advBandedGridView1.Name = "advBandedGridView1";
-            this.advBandedGridView1.OptionsBehavior.Editable = false;
             this.advBandedGridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.advBandedGridView1.OptionsView.EnableAppearanceEvenRow = true;
             this.advBandedGridView1.OptionsView.ShowGroupPanel = false;
+            this.advBandedGridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.ColumnPosicao, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // gridBand1
             // 
@@ -122,7 +126,11 @@
             this.ColumnPosicao.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ColumnPosicao.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.ColumnPosicao.Caption = "Posição";
+            this.ColumnPosicao.DisplayFormat.FormatString = "d";
+            this.ColumnPosicao.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.ColumnPosicao.FieldName = "posicao";
+            this.ColumnPosicao.GroupFormat.FormatString = "d";
+            this.ColumnPosicao.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.ColumnPosicao.Name = "ColumnPosicao";
             this.ColumnPosicao.Visible = true;
             this.ColumnPosicao.Width = 62;
@@ -326,11 +334,41 @@
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2013";
             // 
+            // timerHoraCerta
+            // 
+            this.timerHoraCerta.Enabled = true;
+            this.timerHoraCerta.Interval = 1000;
+            this.timerHoraCerta.Tick += new System.EventHandler(this.timerHoraCerta_Tick);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(12, 373);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(63, 23);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Hora:";
+            // 
+            // lblHoraCerta
+            // 
+            this.lblHoraCerta.AutoSize = true;
+            this.lblHoraCerta.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHoraCerta.ForeColor = System.Drawing.Color.Green;
+            this.lblHoraCerta.Location = new System.Drawing.Point(81, 373);
+            this.lblHoraCerta.Name = "lblHoraCerta";
+            this.lblHoraCerta.Size = new System.Drawing.Size(96, 23);
+            this.lblHoraCerta.TabIndex = 11;
+            this.lblHoraCerta.Text = "00:00:00";
+            this.lblHoraCerta.TextChanged += new System.EventHandler(this.lblHoraCerta_TextChanged);
+            // 
             // v_NovoPlantao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(550, 416);
+            this.Controls.Add(this.lblHoraCerta);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.gbxTempo);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.gbxCorretores);
@@ -353,6 +391,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tsePlantaoInicia.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tsePlantaoTermina.Properties)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -380,5 +419,8 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraEditors.ComboBoxEdit cbxEquipe;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Timer timerHoraCerta;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblHoraCerta;
     }
 }

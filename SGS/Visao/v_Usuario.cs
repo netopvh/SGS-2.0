@@ -66,10 +66,10 @@ namespace SGS.Visao
                 case "alterar":
                     _alterarCad = true;
                     m_usuario.idusuario = (int)gdvUsuarios.GetRowCellValue(gdvUsuarios.GetSelectedRows()[0], gdvUsuarios.Columns[0]);
-                    txtNome.Text = (string)gdvUsuarios.GetRowCellValue(gdvUsuarios.GetSelectedRows()[0], gdvUsuarios.Columns[1]);
-                    txtLogin.Text = (string)gdvUsuarios.GetRowCellValue(gdvUsuarios.GetSelectedRows()[0], gdvUsuarios.Columns[2]);
-                    txtSenha.Text = (string)gdvUsuarios.GetRowCellValue(gdvUsuarios.GetSelectedRows()[0], gdvUsuarios.Columns[3]);
-                    txtConfirmaSenha.Text = (string)gdvUsuarios.GetRowCellValue(gdvUsuarios.GetSelectedRows()[0], gdvUsuarios.Columns[3]);
+                    txtNome.Text = gdvUsuarios.GetRowCellValue(gdvUsuarios.GetSelectedRows()[0], gdvUsuarios.Columns[1]).ToString();
+                    txtLogin.Text = gdvUsuarios.GetRowCellValue(gdvUsuarios.GetSelectedRows()[0], gdvUsuarios.Columns[2]).ToString();
+                    txtSenha.Text = gdvUsuarios.GetRowCellValue(gdvUsuarios.GetSelectedRows()[0], gdvUsuarios.Columns[3]).ToString();
+                    txtConfirmaSenha.Text = gdvUsuarios.GetRowCellValue(gdvUsuarios.GetSelectedRows()[0], gdvUsuarios.Columns[3]).ToString();
                     if ((int)gdvUsuarios.GetRowCellValue(gdvUsuarios.GetSelectedRows()[0], gdvUsuarios.Columns[4]) == 1)
                     {
                         rbtAtivo.Checked = true;
@@ -78,7 +78,7 @@ namespace SGS.Visao
                     {
                         rbtInativo.Checked = true;
                     }
-                    txtEmailPessoal.Text = (string)gdvUsuarios.GetRowCellValue(gdvUsuarios.GetSelectedRows()[0], gdvUsuarios.Columns[6]);
+                    txtEmailPessoal.Text = gdvUsuarios.GetRowCellValue(gdvUsuarios.GetSelectedRows()[0], gdvUsuarios.Columns[6]).ToString();
                     gbxNovoUsuario.Enabled = true;
 
                     tabFormControl1.SelectedPage = tabFormPageNovoUsuario;
@@ -160,13 +160,13 @@ namespace SGS.Visao
                 case 3:
                     btnExcluir.Enabled = false;
                     btnNovo.Enabled = false;
-                    btnAlterar.Enabled = false;
+                    btnAlterar.Enabled = true;
                     break;
 
                 case 4:
                     btnExcluir.Enabled = false;
                     btnNovo.Enabled = false;
-                    btnAlterar.Enabled = false;
+                    btnAlterar.Enabled = true;
                     break;
                 default:
                     break;

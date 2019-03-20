@@ -115,6 +115,7 @@ namespace SGS.Visao
                             await smtp.SendMailAsync(mail);
                             MessageBox.Show("Um e-mail foi enviado para " + txtEmail.Text + " com uma nova senha!", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             splashScreenManagerR.CloseWaitForm();
+                            this.Close();
                         }
 
                     }

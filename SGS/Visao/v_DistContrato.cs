@@ -93,38 +93,7 @@ namespace SGS.Visao
                     break;
             }
         }
-        private void Permissao()
-        {
-            switch (_permissao)
-            {
-                case 1:
-                    btnExcluir.Enabled = false;
-                    btnNovo.Enabled = false;
-                    btnAlterar.Enabled = false;
-                    break;
-                case 2:
-                    btnExcluir.Enabled = false;
-                    btnNovo.Enabled = true;
-                    btnAlterar.Enabled = false;
-                    
-                    break;
-                case 3:
-                    btnExcluir.Enabled = false;
-                    btnNovo.Enabled = true;
-                    btnAlterar.Enabled = true;
-                    
-                    break;
-                case 4:
-                    btnExcluir.Enabled = false;
-                    btnNovo.Enabled = true;
-                    btnAlterar.Enabled = true;
-                    
-                    break;
-                default:
-                    break;
-            }
-
-        }
+        
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();

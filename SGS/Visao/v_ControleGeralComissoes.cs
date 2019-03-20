@@ -16,6 +16,7 @@ namespace SGS.Visao
     {
         string _usuarioCad;
         c_Loteamento c_empreendimento;
+        m_Loteamento m_empreendimento;
         c_Comissoes c_comissoes;
         c_Corretor c_corretor;
         m_Comissoes m_comissoes;
@@ -26,6 +27,7 @@ namespace SGS.Visao
             this.c_comissoes = new c_Comissoes();
             this.c_corretor = new c_Corretor();
             this.m_comissoes = new m_Comissoes();
+            this.m_empreendimento = new m_Loteamento();
         }
         public v_ControleGeralComissoes(string Usuario)
         {
@@ -35,6 +37,7 @@ namespace SGS.Visao
             this.c_comissoes = new c_Comissoes();
             this.c_corretor = new c_Corretor();
             this.m_comissoes = new m_Comissoes();
+            this.m_empreendimento = new m_Loteamento();
         }
 
         private void v_ControleGeralComissoes_Load(object sender, EventArgs e)
@@ -52,16 +55,16 @@ namespace SGS.Visao
         }
         private void CarregarEmpreendimentos()
         {
-            cbxEmpreendimento.Properties.DataSource = c_empreendimento.CarregarLoteamento();
+            cbxEmpreendimento.Properties.DataSource = c_empreendimento.CarregarLoteamentosAtivos();
             cbxEmpreendimento.Properties.DisplayMember = "nome";
             cbxEmpreendimento.Properties.ValueMember = "idloteamento";
 
         }
         private void CarregarCorretores()
         {
-            cbxCorretor.Properties.DataSource = c_corretor.CarregarCorretor();
-            cbxCorretor.Properties.DisplayMember = "nome";
-            cbxCorretor.Properties.ValueMember = "idcorretor";
+            cbxCorretor.Properties.DataSource = c_comissoes.CarregarCorretores_pf();
+            cbxCorretor.Properties.DisplayMember = "Nome";
+            cbxCorretor.Properties.ValueMember = "corretor_pf";
         }
         public void CarregarGrid()
         {
@@ -105,10 +108,30 @@ namespace SGS.Visao
             switch (funcao)
             {
                 case "novo":
-                    v_NovaComissao v_novaComissao = new v_NovaComissao();
+                    v_NovaComissao v_novaComissao = new v_NovaComissao(_usuarioCad);
                     v_novaComissao.ShowDialog();
                     break;
                 case "alterar":
+                    v_NovaComissao v_alteraComissao = new v_NovaComissao(
+                        Convert.ToInt32(advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[0])),
+                        _usuarioCad,
+                        advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[8]).ToString(),
+                        Convert.ToDateTime(advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[7])),
+                        Convert.ToDateTime(advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[9])),
+                        advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[5]).ToString(),
+                        advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[6]).ToString(),
+                        advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[1]).ToString(),
+                        advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[11]).ToString(),
+                        advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[12]).ToString(),
+                        Convert.ToDecimal(advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[10])),
+                        Convert.ToDecimal(advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[17])),
+                        advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[3]).ToString(),
+                        advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[2]).ToString(),
+                        advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[4]).ToString(),
+                        Convert.ToInt32(advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[13])),
+                        Convert.ToInt32(advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[14])),
+                        Convert.ToDateTime(advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[15])));
+                    v_alteraComissao.ShowDialog();
                     break;
                 case "excluir":
                     m_comissoes.idcomissoes =  Convert.ToInt32(advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[0]));
@@ -218,15 +241,70 @@ namespace SGS.Visao
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            m_empreendimento.idloteamento = Convert.ToInt32(cbxEmpreendimento.EditValue);
+            var Empresa = c_empreendimento.CarregarEmpresa(m_empreendimento);
+            var Obra = c_empreendimento.CarregarObra(m_empreendimento);
+            if (cbxCorretor.Text != string.Empty)
+            {
+                advBandedGridView1.ActiveFilterString = "[corretor_pf] = '" + cbxCorretor.Text + "'";
+            }
+            else if (cbxEmpreendimento.Text != string.Empty)
+            {
+                advBandedGridView1.ActiveFilterString = "[empresa] = '" + Empresa + "' and [obra] = '" + Obra + "'";
+            }
+            else if (cbxTipoPeriodo.Text != string.Empty)
+            {
+                /*
+                Data Recebimento
+                Data Vencimento
+                Data Venda
+                Data Cad. Venda
+                Data Cad.Comissão
+                Geral
+                */
+                var PeriodoTipo = cbxTipoPeriodo.EditValue;
+                switch (PeriodoTipo)
+                {
+                    case "Data Recebimento":
+                        break;
+                    case "Data Vencimento":
+                        break;
+                    case "Data Venda":
+                        break;
+                    case "Data Cad.Venda":
+                        break;
+                    case "Data Cad.Comissão":
+                        break;
+                    case "Geral":
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            
+            /*
+                    0 - Não Liberada
+                    1 - Liberada
+                    2 - Paga
+                    3 - Bloqueada
+                    4 - Cancelada
+                    Geral
+                    */
+
+
+            //advBandedGridView1.ActiveFilterString = "[empresa] = '"+Empresa+"' and [obra] = '"+Obra+"' and [corretor_pf] = '"+cbxCorretor.Text+"'";
 
         }
 
         private void btnAjustar_Click(object sender, EventArgs e)
         {
+
             if (advBandedGridView1.SelectedRowsCount == 1)
             {
                 Funcao("ajustar");
             }
+
         }
     }
 }

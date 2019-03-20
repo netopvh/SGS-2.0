@@ -17,7 +17,7 @@ namespace SGS.Visao
     public partial class v_VisaoAtendimentoPlantao : DevExpress.XtraEditors.XtraForm
     {
         bool _TelaCheia = false;
-        
+
         TimeSpan _TempoPorVez;
         int _TotalPosicoes;
         int _PosicaoAtual;
@@ -43,7 +43,7 @@ namespace SGS.Visao
             this.c_corretorPlantao = new c_CorretorPlantao();
             this.m_plantao = new m_Plantao();
             this.c_plantao = new c_Plantao();
-            
+
         }
         public v_VisaoAtendimentoPlantao(int CodigoPlantao)
         {
@@ -61,16 +61,25 @@ namespace SGS.Visao
         }
         private void CarregarImagemSlider()
         {
-            string s = @"C:\SGS\ImagensSlider\";
-            System.IO.DirectoryInfo d = new System.IO.DirectoryInfo(s);
-            int files;
-            files = d.GetFiles().Length;
-            if (ImagemNumero == files)
+            try
             {
-                ImagemNumero = 1;
+                string s = @"C:\SGS\ImagensSlider\";
+                System.IO.DirectoryInfo d = new System.IO.DirectoryInfo(s);
+                int files;
+                files = d.GetFiles().Length;
+                if (ImagemNumero == files)
+                {
+                    ImagemNumero = 1;
+                }
+                pictureBoxSlider.ImageLocation = string.Format(@"C:\SGS\ImagensSlider\{0}.jpg", ImagemNumero);
+                ImagemNumero++;
             }
-            pictureBoxSlider.ImageLocation = string.Format(@"C:\SGS\ImagensSlider\{0}.jpg", ImagemNumero);
-            ImagemNumero++;
+            catch (Exception)
+            {
+
+                
+            }
+            
         }
         public void StopSlider()
         {
@@ -78,7 +87,7 @@ namespace SGS.Visao
         }
         private void CarregarPlantao()
         {
-            
+
             advBandedGridView1.OptionsSelection.MultiSelect = false;
             advBandedGridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             advBandedGridView1.OptionsSelection.EnableAppearanceFocusedRow = false;
@@ -96,8 +105,17 @@ namespace SGS.Visao
         }
         private void MostrarCorretorDaVez()
         {
-            lblCorretorDaVez.Text = advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[2]).ToString();
-            PlaySimplesSound();
+            try
+            {
+                lblCorretorDaVez.Text = advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[2]).ToString();
+                PlaySimplesSound();
+            }
+            catch (Exception)
+            {
+
+                
+            }
+            
         }
 
         private void v_VisaoAtendimentoPlantao_Load(object sender, EventArgs e)
@@ -106,39 +124,100 @@ namespace SGS.Visao
         }
         private void timerHoraCerta_Tick(object sender, EventArgs e)
         {
-            lblDataDoDia.Text = DateTime.Now.ToShortDateString();
-            //lblHoraCerta.Text = DateTime.Now.Hour +":"+DateTime.Now.Minute+":"+DateTime.Now.Second;
-            lblHoraCerta.Text = DateTime.Now.ToLongTimeString();
+            try
+            {
+                lblDataDoDia.Text = DateTime.Now.ToShortDateString();
+                //lblHoraCerta.Text = DateTime.Now.Hour +":"+DateTime.Now.Minute+":"+DateTime.Now.Second;
+                lblHoraCerta.Text = DateTime.Now.ToLongTimeString();
+            }
+            catch (Exception)
+            {
+
+                
+            }
+            
         }
         private void timerTempoPorPessoa_Tick(object sender, EventArgs e)
         {
-            delta = DateTime.Now - start;
-            timeReaming = ts - delta;
-            lblTempoRestante.Text = timeReaming.ToString("hh\\:mm\\:ss");
+            try
+            {
+                delta = DateTime.Now - start;
+                timeReaming = ts - delta;
+                lblTempoRestante.Text = timeReaming.ToString("hh\\:mm\\:ss");
+            }
+            catch (Exception)
+            {
+
+               
+            }
+            
         }
         private void ResetTimer()
         {
-            timerTempoPorPessoa.Stop();
-            timeReaming = TimeSpan.Zero;
-            delta = TimeSpan.Zero;
-            start = DateTime.Now;
-            IniciarTempo();
+            try
+            {
+                timerTempoPorPessoa.Stop();
+                timeReaming = TimeSpan.Zero;
+                delta = TimeSpan.Zero;
+                start = DateTime.Now;
+                IniciarTempo();
+            }
+            catch (Exception)
+            {
+
+                
+            }
+            
         }
         private void IniciarTempo()
         {
-            //00:00:00
-            ts = new TimeSpan(_TempoPorVez.Hours,_TempoPorVez.Minutes,_TempoPorVez.Seconds);
-            timerTempoPorPessoa.Start();
+            try
+            {
+                //00:00:00
+                ts = new TimeSpan(_TempoPorVez.Hours, _TempoPorVez.Minutes, _TempoPorVez.Seconds);
+                timerTempoPorPessoa.Start();
+            }
+            catch (Exception)
+            {
+
+                
+            }
+            
         }
         private void SalvarTempoAtendimentoInicial()
         {
-            m_tempoAtendimento.atendimentohorainicial = DateTime.Now;
+            try
+            {
+                m_tempoAtendimento.atendimentohorainicial = DateTime.Now;
 
-            m_tempoAtendimento.fk_corretorplantao_tempoatendimento = Convert.ToInt32(advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[0]));
-            c_tempoAtendimento.NovoTempoAtendimento(m_tempoAtendimento);
+                m_tempoAtendimento.fk_corretorplantao_tempoatendimento = Convert.ToInt32(advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[0]));
+                c_tempoAtendimento.NovoTempoAtendimento(m_tempoAtendimento);
+            }
+            catch (Exception)
+            {
+
+                
+            }
+            
+        }
+        public void VoltarVez()
+        {
+            if (_PosicaoAtual > 1)
+            {
+                advBandedGridView1.MovePrev();
+                //advBandedGridView1.SelectRow(--);
+                SalvarTempoAtendimentoInicial();
+                MostrarCorretorDaVez();
+                ResetTimer();
+            }
+            else
+            {
+
+            }
         }
         public void PassarVez()
         {
+           
             if (_PosicaoAtual == _TotalPosicoes)
             {
 
@@ -154,10 +233,11 @@ namespace SGS.Visao
 
             MostrarCorretorDaVez();
             ResetTimer();
-            
+
         }
-        
-        
+
+
+
         private void lblSejaBemVindo_Click(object sender, EventArgs e)
         {
             if (_TelaCheia == false)
@@ -167,8 +247,8 @@ namespace SGS.Visao
                 this.WindowState = FormWindowState.Normal;
                 this.FormBorderStyle = FormBorderStyle.None;
                 this.WindowState = FormWindowState.Maximized;
-                
-                
+
+
             }
             else if (_TelaCheia == true)
             {
@@ -176,43 +256,79 @@ namespace SGS.Visao
                 this.TopMost = false;
                 this.FormBorderStyle = FormBorderStyle.FixedSingle;
                 this.WindowState = FormWindowState.Minimized;
-                
+
             }
         }
 
         private void lblTempoRestante_TextChanged(object sender, EventArgs e)
         {
-            _PosicaoAtual = (int)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[1]);
-            if (lblTempoRestante.Text == "00:00:00")
+            try
+            {
+                _PosicaoAtual = (int)advBandedGridView1.GetRowCellValue(advBandedGridView1.GetSelectedRows()[0], advBandedGridView1.Columns[1]);
+                if (lblTempoRestante.Text == "00:00:00")
+                {
+
+                    m_tempoAtendimento.idtempoatendimento = c_tempoAtendimento.CarregarUltimaID_Inserida();
+                    m_tempoAtendimento.atendimentohorafinal = DateTime.Now;
+                    c_tempoAtendimento.AlterarAtendimentoHoraFinal(m_tempoAtendimento);
+                    PassarVez();
+                }
+            }
+            catch (Exception)
             {
 
-                m_tempoAtendimento.idtempoatendimento = c_tempoAtendimento.CarregarUltimaID_Inserida();
-                m_tempoAtendimento.atendimentohorafinal = DateTime.Now;
-                c_tempoAtendimento.AlterarAtendimentoHoraFinal(m_tempoAtendimento);
-                PassarVez();
+                
             }
+            
         }
 
         private void lblDataHoraCerta_TextChanged(object sender, EventArgs e)
         {
-            //00:00:00
-            _PlantaoHorafinal = c_plantao.CarregarTempoFinalPlantao(m_plantao);
-            if (lblHoraCerta.Text.Substring(0,5) == _PlantaoHorafinal.ToString().Substring(0,5))
+            try
             {
-                //timerDataHoraCerta.Stop();
-                timerTempoPorPessoa.Stop();
-                lblTempoRestante.Text = "--:--:--";
+                //00:00:00
+                _PlantaoHorafinal = c_plantao.CarregarTempoFinalPlantao(m_plantao);
+                if (lblHoraCerta.Text.Substring(0, 5) == _PlantaoHorafinal.ToString().Substring(0, 5))
+                {
+                    //timerDataHoraCerta.Stop();
+                    timerTempoPorPessoa.Stop();
+                    lblTempoRestante.Text = "--:--:--";
+                }
             }
+            catch (Exception)
+            {
+
+                
+            }
+            
         }
         private void PlaySimplesSound()
         {
-            SoundPlayer simpleSound = new SoundPlayer(@"C:\SGS\Sons\alerta01.wav");
-            simpleSound.Play();
+            try
+            {
+                SoundPlayer simpleSound = new SoundPlayer(@"C:\SGS\Sons\alerta01.wav");
+                simpleSound.Play();
+            }
+            catch (Exception)
+            {
+
+                
+            }
+            
         }
 
         private void timerSliderImagens_Tick(object sender, EventArgs e)
         {
-            CarregarImagemSlider();
+            try
+            {
+                CarregarImagemSlider();
+            }
+            catch (Exception)
+            {
+
+                
+            }
+            
         }
 
         private void v_VisaoAtendimentoPlantao_FormClosing(object sender, FormClosingEventArgs e)

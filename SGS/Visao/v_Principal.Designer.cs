@@ -76,12 +76,6 @@
             this.rbpComissao = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup13 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rbpFinanceiro = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup14 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpSistema = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -142,8 +136,6 @@
             this.rbpCadastros,
             this.rbpContratos,
             this.rbpComissao,
-            this.ribbonPage1,
-            this.rbpFinanceiro,
             this.rbpSistema});
             this.ribbonControlPrincipal.ShowToolbarCustomizeItem = false;
             this.ribbonControlPrincipal.Size = new System.Drawing.Size(800, 147);
@@ -515,57 +507,6 @@
             this.ribbonPageGroup13.ShowCaptionButton = false;
             this.ribbonPageGroup13.Text = "Inserir/Baixar";
             // 
-            // ribbonPage1
-            // 
-            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup15});
-            this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "Estoque";
-            // 
-            // ribbonPageGroup15
-            // 
-            this.ribbonPageGroup15.AllowTextClipping = false;
-            this.ribbonPageGroup15.ItemLinks.Add(this.bbiEstoqueGeral);
-            this.ribbonPageGroup15.Name = "ribbonPageGroup15";
-            this.ribbonPageGroup15.ShowCaptionButton = false;
-            this.ribbonPageGroup15.Text = "Controle";
-            // 
-            // rbpFinanceiro
-            // 
-            this.rbpFinanceiro.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup3,
-            this.ribbonPageGroup4,
-            this.ribbonPageGroup14});
-            this.rbpFinanceiro.Name = "rbpFinanceiro";
-            this.rbpFinanceiro.Text = "Financeiro";
-            // 
-            // ribbonPageGroup3
-            // 
-            this.ribbonPageGroup3.AllowTextClipping = false;
-            this.ribbonPageGroup3.ItemLinks.Add(this.bbiFechamentoCaixa);
-            this.ribbonPageGroup3.ItemLinks.Add(this.bbiFluxoCaixa);
-            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
-            this.ribbonPageGroup3.ShowCaptionButton = false;
-            this.ribbonPageGroup3.Text = "Caixa";
-            // 
-            // ribbonPageGroup4
-            // 
-            this.ribbonPageGroup4.AllowTextClipping = false;
-            this.ribbonPageGroup4.ItemLinks.Add(this.bbiAreceber);
-            this.ribbonPageGroup4.ItemLinks.Add(this.bbiAPagar);
-            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
-            this.ribbonPageGroup4.ShowCaptionButton = false;
-            this.ribbonPageGroup4.Text = "Contas";
-            // 
-            // ribbonPageGroup14
-            // 
-            this.ribbonPageGroup14.AllowTextClipping = false;
-            this.ribbonPageGroup14.ItemLinks.Add(this.bbiCentroCusto);
-            this.ribbonPageGroup14.ItemLinks.Add(this.bbiContaCaixa);
-            this.ribbonPageGroup14.Name = "ribbonPageGroup14";
-            this.ribbonPageGroup14.ShowCaptionButton = false;
-            this.ribbonPageGroup14.Text = "Contas";
-            // 
             // rbpSistema
             // 
             this.rbpSistema.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -675,9 +616,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.BarButtonItem bbiContrato;
         private DevExpress.XtraBars.BarButtonItem bbiFolhaAvulso;
-        private DevExpress.XtraBars.Ribbon.RibbonPage rbpFinanceiro;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.BarButtonItem bbiCorretor;
         private DevExpress.XtraBars.BarButtonItem bbiUsuario;
         private DevExpress.XtraBars.BarButtonItem bbiFechamentoCaixa;
@@ -719,10 +657,7 @@
         private DevExpress.XtraBars.BarButtonItem bbiEstruturasComissoes;
         private DevExpress.XtraBars.BarButtonItem bbiCentroCusto;
         private DevExpress.XtraBars.BarButtonItem bbiContaCaixa;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup14;
         private DevExpress.XtraBars.BarButtonItem bbiControlePlantao;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup15;
         private DevExpress.XtraBars.BarButtonItem bbiEstoqueGeral;
         private DevExpress.XtraBars.BarButtonItem bbiTemas;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup16;

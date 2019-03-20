@@ -43,9 +43,9 @@
             this.gbxVideo = new System.Windows.Forms.GroupBox();
             this.pictureBoxSlider = new System.Windows.Forms.PictureBox();
             this.gbxTempoCorretor = new System.Windows.Forms.GroupBox();
+            this.lblTempo = new System.Windows.Forms.Label();
             this.lblCorretorDaVez = new System.Windows.Forms.Label();
             this.lblTempoRestante = new System.Windows.Forms.Label();
-            this.lblTempo = new System.Windows.Forms.Label();
             this.lblCorretor = new System.Windows.Forms.Label();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.timerDataHoraCerta = new System.Windows.Forms.Timer(this.components);
@@ -158,6 +158,8 @@
             this.advBandedGridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.advBandedGridView1.OptionsView.EnableAppearanceEvenRow = true;
             this.advBandedGridView1.OptionsView.ShowGroupPanel = false;
+            this.advBandedGridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.posicao, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // gridBand1
             // 
@@ -228,9 +230,9 @@
             this.gbxTempoCorretor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbxTempoCorretor.BackColor = System.Drawing.Color.White;
+            this.gbxTempoCorretor.Controls.Add(this.lblTempo);
             this.gbxTempoCorretor.Controls.Add(this.lblCorretorDaVez);
             this.gbxTempoCorretor.Controls.Add(this.lblTempoRestante);
-            this.gbxTempoCorretor.Controls.Add(this.lblTempo);
             this.gbxTempoCorretor.Controls.Add(this.lblCorretor);
             this.gbxTempoCorretor.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxTempoCorretor.Location = new System.Drawing.Point(12, 425);
@@ -239,6 +241,18 @@
             this.gbxTempoCorretor.TabIndex = 3;
             this.gbxTempoCorretor.TabStop = false;
             this.gbxTempoCorretor.Text = "Corretor da vez";
+            // 
+            // lblTempo
+            // 
+            this.lblTempo.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblTempo.AutoSize = true;
+            this.lblTempo.Font = new System.Drawing.Font("Tahoma", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTempo.ForeColor = System.Drawing.Color.Black;
+            this.lblTempo.Location = new System.Drawing.Point(885, 26);
+            this.lblTempo.Name = "lblTempo";
+            this.lblTempo.Size = new System.Drawing.Size(52, 42);
+            this.lblTempo.TabIndex = 4;
+            this.lblTempo.Text = "T:";
             // 
             // lblCorretorDaVez
             // 
@@ -260,22 +274,10 @@
             this.lblTempoRestante.ForeColor = System.Drawing.Color.Red;
             this.lblTempoRestante.Location = new System.Drawing.Point(943, 26);
             this.lblTempoRestante.Name = "lblTempoRestante";
-            this.lblTempoRestante.Size = new System.Drawing.Size(176, 42);
+            this.lblTempoRestante.Size = new System.Drawing.Size(134, 42);
             this.lblTempoRestante.TabIndex = 3;
-            this.lblTempoRestante.Text = "00:00:00";
+            this.lblTempoRestante.Text = "--:--:--";
             this.lblTempoRestante.TextChanged += new System.EventHandler(this.lblTempoRestante_TextChanged);
-            // 
-            // lblTempo
-            // 
-            this.lblTempo.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblTempo.AutoSize = true;
-            this.lblTempo.Font = new System.Drawing.Font("Tahoma", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTempo.ForeColor = System.Drawing.Color.Black;
-            this.lblTempo.Location = new System.Drawing.Point(795, 26);
-            this.lblTempo.Name = "lblTempo";
-            this.lblTempo.Size = new System.Drawing.Size(150, 42);
-            this.lblTempo.TabIndex = 4;
-            this.lblTempo.Text = "Tempo:";
             // 
             // lblCorretor
             // 
