@@ -186,6 +186,7 @@
     <Compile Include="Controle\c_Distribuicaocontratos.cs" />
     <Compile Include="Controle\c_DistribuicaoFolhasAvulsas.cs" />
     <Compile Include="Controle\c_EmailConfig.cs" />
+    <Compile Include="Controle\c_EmpresaCorretor.cs" />
     <Compile Include="Controle\c_EstruturaComissao.cs" />
     <Compile Include="Controle\c_Ftpconfig.cs" />
     <Compile Include="Controle\c_Loteamento.cs" />
@@ -212,6 +213,7 @@
     <Compile Include="Modelo\m_Distribuicaocontratos.cs" />
     <Compile Include="Modelo\m_DistribuicaoFolhasAvulsas.cs" />
     <Compile Include="Modelo\m_EmailConfig.cs" />
+    <Compile Include="Modelo\m_EmpresaCorretor.cs" />
     <Compile Include="Modelo\m_EmpresaLicenca.cs" />
     <Compile Include="Modelo\m_EstruturaComissao.cs" />
     <Compile Include="Modelo\m_Ftpconfig.cs" />
@@ -314,6 +316,12 @@
     <Compile Include="Visao\v_EmpresaLicenca.Designer.cs">
       <DependentUpon>v_EmpresaLicenca.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visao\v_EmpresasCorretores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\v_EmpresasCorretores.Designer.cs">
+      <DependentUpon>v_EmpresasCorretores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visao\v_EstruturasComissoes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -356,6 +364,12 @@
     <Compile Include="Visao\v_Loteamento.Designer.cs">
       <DependentUpon>v_Loteamento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visao\v_NotasFiscaisCorretores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\v_NotasFiscaisCorretores.Designer.cs">
+      <DependentUpon>v_NotasFiscaisCorretores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visao\v_NovaComissao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -373,6 +387,12 @@
     </Compile>
     <Compile Include="Visao\v_NovaDistribuicaoFolhaAvulso.Designer.cs">
       <DependentUpon>v_NovaDistribuicaoFolhaAvulso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\v_NovaEmpresaCorretor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\v_NovaEmpresaCorretor.Designer.cs">
+      <DependentUpon>v_NovaEmpresaCorretor.cs</DependentUpon>
     </Compile>
     <Compile Include="Visao\v_NovaEstruturaComissao.cs">
       <SubType>Form</SubType>
@@ -526,6 +546,9 @@
     <EmbeddedResource Include="Visao\v_EmpresaLicenca.resx">
       <DependentUpon>v_EmpresaLicenca.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Visao\v_EmpresasCorretores.resx">
+      <DependentUpon>v_EmpresasCorretores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_EstruturasComissoes.resx">
       <DependentUpon>v_EstruturasComissoes.cs</DependentUpon>
     </EmbeddedResource>
@@ -547,6 +570,9 @@
     <EmbeddedResource Include="Visao\v_Loteamento.resx">
       <DependentUpon>v_Loteamento.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Visao\v_NotasFiscaisCorretores.resx">
+      <DependentUpon>v_NotasFiscaisCorretores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_NovaComissao.resx">
       <DependentUpon>v_NovaComissao.cs</DependentUpon>
     </EmbeddedResource>
@@ -555,6 +581,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_NovaDistribuicaoFolhaAvulso.resx">
       <DependentUpon>v_NovaDistribuicaoFolhaAvulso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\v_NovaEmpresaCorretor.resx">
+      <DependentUpon>v_NovaEmpresaCorretor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\v_NovaEstruturaComissao.resx">
       <DependentUpon>v_NovaEstruturaComissao.cs</DependentUpon>
@@ -778,6 +807,7 @@
     <None Include="Resources\Anterior30x30.png" />
     <None Include="Resources\Pausar30x30.png" />
     <None Include="Resources\PlayMostrarTV48x48.png" />
+    <None Include="Resources\NF32x32.png" />
     <Content Include="Visao\LOGOSGS.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

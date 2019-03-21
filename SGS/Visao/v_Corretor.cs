@@ -17,6 +17,7 @@ namespace SGS.Visao
     {
         c_Corretor c_corretor;
         m_Corretor m_corretor;
+        c_EmpresaCorretor c_empresaCorretor;
         bool _alterarCad;
         string _usuariocad;
         int _permissao;
@@ -26,6 +27,7 @@ namespace SGS.Visao
 
             this.c_corretor = new c_Corretor();
             this.m_corretor = new m_Corretor();
+            this.c_empresaCorretor = new c_EmpresaCorretor();
         }
         public v_Corretor(string UsuarioCad,int Permissao)
         {
@@ -33,6 +35,7 @@ namespace SGS.Visao
 
             this.c_corretor = new c_Corretor();
             this.m_corretor = new m_Corretor();
+            this.c_empresaCorretor = new c_EmpresaCorretor();
             _usuariocad = UsuarioCad;
             _permissao = Permissao;
            
@@ -109,6 +112,7 @@ namespace SGS.Visao
                     m_corretor.email = txtEmail.Text;
                     m_corretor.telefone = txtTelefone.Text;
                     m_corretor.usuariocad = _usuariocad;
+                    m_corretor.fk_corretor_empresacorretor = Convert.ToInt32(cbxEmpresaCorretor.EditValue);
                     //status = 1 e ativo e status = 0 e inativo;
                     if (rbtAtivo.Checked == true)
                     {
@@ -220,14 +224,23 @@ namespace SGS.Visao
             
             
         }
-        
+        private void CarregarEmpresasCorretores()
+        {
+            cbxEmpresaCorretor.Properties.DataSource = c_empresaCorretor.CarregarEmpresaCorretor();
+            cbxEmpresaCorretor.Properties.DisplayMember = "nomeempresa";
+            cbxEmpresaCorretor.Properties.ValueMember = "idempresacorretor";
+            if (_alterarCad == false)
+            {
+                cbxEmpresaCorretor.ItemIndex = -1;
+            }
+        }
         private void v_Corretor_Load(object sender, EventArgs e)
         {
             _alterarCad = false;
             CancelButton = btnVoltar;
             gbxNovoCorretor.Enabled = false;
             tabFormControl.SelectedPage = tabFormPageCorretores;
-            
+            CarregarEmpresasCorretores();
             CarregarCorretores();
             gdvCorretores.BestFitColumns(true);
             
@@ -236,7 +249,7 @@ namespace SGS.Visao
         private void CarregarCorretores()
         {
             DataTable dtCorretores = new DataTable();
-            dtCorretores = c_corretor.CarregarCorretores();
+            dtCorretores = c_empresaCorretor.CarregarCorretorEmpresa();
             gdvCorretores.GridControl.DataSource = dtCorretores;
             gdvCorretores.RefreshData();
 
@@ -273,6 +286,11 @@ namespace SGS.Visao
                 c_ValidarEmail.ValidarEmail(txtEmail);
             }
             
+        }
+
+        private void cbxEmpresaCorretor_EditValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

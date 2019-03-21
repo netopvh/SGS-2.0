@@ -65,17 +65,21 @@
             this.bbiEstoqueGeral = new DevExpress.XtraBars.BarButtonItem();
             this.bbiTemas = new DevExpress.XtraBars.BarButtonItem();
             this.bbiControleRemotoPlantao = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiEmpresaCorretor = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiNotasFiscaisCorretores = new DevExpress.XtraBars.BarButtonItem();
             this.rbpAtendimento = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpCadastros = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpContratos = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpComissao = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup13 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpSistema = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -127,9 +131,11 @@
             this.bbiControlePlantao,
             this.bbiEstoqueGeral,
             this.bbiTemas,
-            this.bbiControleRemotoPlantao});
+            this.bbiControleRemotoPlantao,
+            this.bbiEmpresaCorretor,
+            this.bbiNotasFiscaisCorretores});
             this.ribbonControlPrincipal.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControlPrincipal.MaxItemId = 13;
+            this.ribbonControlPrincipal.MaxItemId = 22;
             this.ribbonControlPrincipal.Name = "ribbonControlPrincipal";
             this.ribbonControlPrincipal.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpAtendimento,
@@ -180,35 +186,23 @@
             // 
             // bbiFechamentoCaixa
             // 
-            this.bbiFechamentoCaixa.Caption = "Fechamento de Caixa";
-            this.bbiFechamentoCaixa.Id = 6;
-            this.bbiFechamentoCaixa.ImageOptions.LargeImage = global::SGS.Properties.Resources.CaixaRegistradora32x32;
+            this.bbiFechamentoCaixa.Id = 14;
             this.bbiFechamentoCaixa.Name = "bbiFechamentoCaixa";
-            this.bbiFechamentoCaixa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiFechamentoCaixa_ItemClick);
             // 
             // bbiFluxoCaixa
             // 
-            this.bbiFluxoCaixa.Caption = "Fluxo de Caixa";
-            this.bbiFluxoCaixa.Id = 7;
-            this.bbiFluxoCaixa.ImageOptions.LargeImage = global::SGS.Properties.Resources.FluxoCaixa32x32;
+            this.bbiFluxoCaixa.Id = 15;
             this.bbiFluxoCaixa.Name = "bbiFluxoCaixa";
-            this.bbiFluxoCaixa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiFluxoCaixa_ItemClick);
             // 
             // bbiAreceber
             // 
-            this.bbiAreceber.Caption = "A Receber";
-            this.bbiAreceber.Id = 8;
-            this.bbiAreceber.ImageOptions.LargeImage = global::SGS.Properties.Resources.AReceber32x32;
+            this.bbiAreceber.Id = 16;
             this.bbiAreceber.Name = "bbiAreceber";
-            this.bbiAreceber.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAreceber_ItemClick);
             // 
             // bbiAPagar
             // 
-            this.bbiAPagar.Caption = "A Pagar";
-            this.bbiAPagar.Id = 9;
-            this.bbiAPagar.ImageOptions.LargeImage = global::SGS.Properties.Resources.APagar32x32;
+            this.bbiAPagar.Id = 17;
             this.bbiAPagar.Name = "bbiAPagar";
-            this.bbiAPagar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAPagar_ItemClick);
             // 
             // bbiPendencias
             // 
@@ -369,19 +363,13 @@
             // 
             // bbiCentroCusto
             // 
-            this.bbiCentroCusto.Caption = "Centros de Custos";
-            this.bbiCentroCusto.Id = 7;
-            this.bbiCentroCusto.ImageOptions.LargeImage = global::SGS.Properties.Resources.Fluxograma32x32;
+            this.bbiCentroCusto.Id = 18;
             this.bbiCentroCusto.Name = "bbiCentroCusto";
-            this.bbiCentroCusto.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiCentroCusto_ItemClick);
             // 
             // bbiContaCaixa
             // 
-            this.bbiContaCaixa.Caption = "Contas Caixas";
-            this.bbiContaCaixa.Id = 8;
-            this.bbiContaCaixa.ImageOptions.LargeImage = global::SGS.Properties.Resources.Banco32x32;
+            this.bbiContaCaixa.Id = 19;
             this.bbiContaCaixa.Name = "bbiContaCaixa";
-            this.bbiContaCaixa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiContaCaixa_ItemClick);
             // 
             // bbiControlePlantao
             // 
@@ -393,11 +381,8 @@
             // 
             // bbiEstoqueGeral
             // 
-            this.bbiEstoqueGeral.Caption = "Estoque Geral";
-            this.bbiEstoqueGeral.Id = 10;
-            this.bbiEstoqueGeral.ImageOptions.LargeImage = global::SGS.Properties.Resources.Estoque32x32;
+            this.bbiEstoqueGeral.Id = 20;
             this.bbiEstoqueGeral.Name = "bbiEstoqueGeral";
-            this.bbiEstoqueGeral.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEstoqueGeral_ItemClick);
             // 
             // bbiTemas
             // 
@@ -405,7 +390,6 @@
             this.bbiTemas.Id = 11;
             this.bbiTemas.ImageOptions.LargeImage = global::SGS.Properties.Resources.Temas32x32;
             this.bbiTemas.Name = "bbiTemas";
-            this.bbiTemas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTemas_ItemClick);
             // 
             // bbiControleRemotoPlantao
             // 
@@ -414,6 +398,22 @@
             this.bbiControleRemotoPlantao.ImageOptions.LargeImage = global::SGS.Properties.Resources.PlayMostrarTV48x48;
             this.bbiControleRemotoPlantao.Name = "bbiControleRemotoPlantao";
             this.bbiControleRemotoPlantao.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiControleRemotoPlantao_ItemClick);
+            // 
+            // bbiEmpresaCorretor
+            // 
+            this.bbiEmpresaCorretor.Caption = "Empresa Corretor";
+            this.bbiEmpresaCorretor.Id = 13;
+            this.bbiEmpresaCorretor.ImageOptions.LargeImage = global::SGS.Properties.Resources.Corretores32x32;
+            this.bbiEmpresaCorretor.Name = "bbiEmpresaCorretor";
+            this.bbiEmpresaCorretor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEmpresaCorretor_ItemClick);
+            // 
+            // bbiNotasFiscaisCorretores
+            // 
+            this.bbiNotasFiscaisCorretores.Caption = "Notas Fiscais";
+            this.bbiNotasFiscaisCorretores.Id = 21;
+            this.bbiNotasFiscaisCorretores.ImageOptions.LargeImage = global::SGS.Properties.Resources.NF32x32;
+            this.bbiNotasFiscaisCorretores.Name = "bbiNotasFiscaisCorretores";
+            this.bbiNotasFiscaisCorretores.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiNotasFiscaisCorretores_ItemClick);
             // 
             // rbpAtendimento
             // 
@@ -436,7 +436,8 @@
             // 
             this.rbpCadastros.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
-            this.ribbonPageGroup9});
+            this.ribbonPageGroup9,
+            this.ribbonPageGroup3});
             this.rbpCadastros.Name = "rbpCadastros";
             this.rbpCadastros.Text = "Cadastros";
             // 
@@ -456,6 +457,14 @@
             this.ribbonPageGroup9.Name = "ribbonPageGroup9";
             this.ribbonPageGroup9.ShowCaptionButton = false;
             this.ribbonPageGroup9.Text = "Empreendimento";
+            // 
+            // ribbonPageGroup3
+            // 
+            this.ribbonPageGroup3.AllowTextClipping = false;
+            this.ribbonPageGroup3.ItemLinks.Add(this.bbiEmpresaCorretor);
+            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
+            this.ribbonPageGroup3.ShowCaptionButton = false;
+            this.ribbonPageGroup3.Text = "Empresa";
             // 
             // rbpContratos
             // 
@@ -486,9 +495,11 @@
             // 
             this.rbpComissao.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup11,
-            this.ribbonPageGroup13});
+            this.ribbonPageGroup13,
+            this.ribbonPageGroup4});
             this.rbpComissao.Name = "rbpComissao";
             this.rbpComissao.Text = "Comissão";
+            this.rbpComissao.Visible = false;
             // 
             // ribbonPageGroup11
             // 
@@ -506,6 +517,14 @@
             this.ribbonPageGroup13.Name = "ribbonPageGroup13";
             this.ribbonPageGroup13.ShowCaptionButton = false;
             this.ribbonPageGroup13.Text = "Inserir/Baixar";
+            // 
+            // ribbonPageGroup4
+            // 
+            this.ribbonPageGroup4.AllowTextClipping = false;
+            this.ribbonPageGroup4.ItemLinks.Add(this.bbiNotasFiscaisCorretores);
+            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
+            this.ribbonPageGroup4.ShowCaptionButton = false;
+            this.ribbonPageGroup4.Text = "NF Corretores";
             // 
             // rbpSistema
             // 
@@ -594,7 +613,7 @@
             this.Ribbon = this.ribbonControlPrincipal;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar1;
-            this.Text = "SGS 2.0";
+            this.Text = "SGS - Sistema Gerenciador de Stand  =p";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.v_Principal_FormClosed);
             this.Load += new System.EventHandler(this.v_Principal_Load);
@@ -663,5 +682,9 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup16;
         private DevExpress.XtraBars.ToastNotifications.ToastNotificationsManager toastNotificationsManager1;
         private DevExpress.XtraBars.BarButtonItem bbiControleRemotoPlantao;
+        private DevExpress.XtraBars.BarButtonItem bbiEmpresaCorretor;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
+        private DevExpress.XtraBars.BarButtonItem bbiNotasFiscaisCorretores;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
     }
 }

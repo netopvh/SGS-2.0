@@ -64,13 +64,14 @@ namespace SGS.Controle
             MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
             comando.CommandType = System.Data.CommandType.Text;
             comando.CommandText =
-                "insert into corretor(nome,cpf,email,telefone,status,usuariocad) values(@nome,@cpf,@email,@telefone,@status,@usuariocad);";
+                "insert into corretor(nome,cpf,email,telefone,status,usuariocad,fk_corretor_empresacorretor) values(@nome,@cpf,@email,@telefone,@status,@usuariocad,@fk_corretor_empresacorretor);";
             comando.Parameters.Add(new MySqlParameter("@nome", m_corretor.nome));
             comando.Parameters.Add(new MySqlParameter("@cpf", m_corretor.cpf));
             comando.Parameters.Add(new MySqlParameter("@email", m_corretor.email));
             comando.Parameters.Add(new MySqlParameter("@telefone", m_corretor.telefone));
             comando.Parameters.Add(new MySqlParameter("@status", m_corretor.status));
             comando.Parameters.Add(new MySqlParameter("@usuariocad", m_corretor.usuariocad));
+            comando.Parameters.Add(new MySqlParameter("@fk_corretor_empresacorretor", m_corretor.fk_corretor_empresacorretor));
             comando.ExecuteNonQuery();
             conexao.Clone();
         }
@@ -99,7 +100,7 @@ namespace SGS.Controle
             MySqlCommand comando = c_ConexaoMySql.GetComando(conexao);
             comando.CommandType = System.Data.CommandType.Text;
             comando.CommandText =
-                "update corretor set nome = @nome,cpf = @cpf,email = @email, telefone = @telefone, status = @status,usuariocad = @usuariocad where idcorretor = @idcorretor;";
+                "update corretor set nome = @nome,cpf = @cpf,email = @email, telefone = @telefone, status = @status,usuariocad = @usuariocad, fk_corretor_empresacorretor = @fk_corretor_empresacorretor where idcorretor = @idcorretor;";
             comando.Parameters.Add(new MySqlParameter("@idcorretor", m_corretor.idcorretor));
             comando.Parameters.Add(new MySqlParameter("@nome", m_corretor.nome));
             comando.Parameters.Add(new MySqlParameter("@cpf", m_corretor.cpf));
@@ -107,6 +108,7 @@ namespace SGS.Controle
             comando.Parameters.Add(new MySqlParameter("@telefone", m_corretor.telefone));
             comando.Parameters.Add(new MySqlParameter("@status", m_corretor.status));
             comando.Parameters.Add(new MySqlParameter("@usuariocad", m_corretor.usuariocad));
+            comando.Parameters.Add(new MySqlParameter("@fk_corretor_empresacorretor", m_corretor.fk_corretor_empresacorretor));
             comando.ExecuteNonQuery();
             conexao.Clone();
         }

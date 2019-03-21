@@ -124,17 +124,14 @@
   <data name="FTP24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FTP24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="APagar32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\APagar32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="teamviewer_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\teamviewer_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Cronometro32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Cronometro32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="anexo24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\anexo24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="BackgroundVisaoAtendimento" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BackgroundVisaoAtendimento.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Excel24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Excel24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,6 +160,9 @@
   <data name="Usuarios32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Usuarios32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="MostrarSenha24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MostrarSenha24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Pausar30x30" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Pausar30x30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -187,9 +187,6 @@
   <data name="AlterarStatusContrato24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AlterarStatusContrato24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="backup32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\backup32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="atualizacao48x48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\atualizacao48x48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -202,17 +199,14 @@
   <data name="FechaNegocio24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FechaNegocio24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LoginSenha24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LoginSenha24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="APagar32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\APagar32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DeletarPessoa24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DeletarPessoa24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="backup24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\backup24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="teamviewer_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\teamviewer_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="backup32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\backup32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ContratoPendente32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ContratoPendente32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -277,8 +271,8 @@
   <data name="Sair 22x22" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sair 22x22.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ConfigurarImpressora24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ConfigurarImpressora24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ContratoPendente24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ContratoPendente24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pesquisar24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Pesquisar24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -295,14 +289,14 @@
   <data name="Excel32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Excel32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ContratoPendente24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ContratoPendente24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="EnviarEmail24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EnviarEmail24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AjusteComissao32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AjusteComissao32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="backup24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\backup24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ExcluirRegistro24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ExcluirRegistro24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -310,8 +304,8 @@
   <data name="restaurarbackup24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\restaurarbackup24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="FolhaAvulso32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FolhaAvulso32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BackgroundVisaoAtendimento" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BackgroundVisaoAtendimento.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="FluxoCaixa32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FluxoCaixa32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -334,6 +328,9 @@
   <data name="Copiar24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Copiar24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="FolhaAvulso32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FolhaAvulso32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="CartaoVisitas16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CartaoVisitas16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -346,8 +343,14 @@
   <data name="NF24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NF24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MostrarSenha24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MostrarSenha24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LoginSenha24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LoginSenha24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ConfigurarImpressora24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ConfigurarImpressora24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PlayMostrarTV48x48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PlayMostrarTV48x48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Down24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Down24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -355,7 +358,7 @@
   <data name="Salvar24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Salvar24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PlayMostrarTV48x48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PlayMostrarTV48x48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="NF32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NF32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

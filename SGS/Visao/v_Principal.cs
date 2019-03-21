@@ -206,25 +206,7 @@ namespace SGS.Visao
             v_emailConfig.ShowDialog();
         }
 
-        private void bbiAreceber_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            MessageBox.Show("Em Desenvolvimento", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-        }
-
-        private void bbiAPagar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            MessageBox.Show("Em Desenvolvimento", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-        }
-
-        private void bbiFechamentoCaixa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            MessageBox.Show("Em Desenvolvimento", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-        }
-
-        private void bbiFluxoCaixa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            MessageBox.Show("Em Desenvolvimento", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-        }
+        
 
         private void bbiContato_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -262,10 +244,7 @@ namespace SGS.Visao
             v_estruturasComissoes.ShowDialog();
         }
 
-        private void bbiEstoqueGeral_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            MessageBox.Show("Em Desenvolvimento", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-        }
+        
 
         private void bbiControlePlantao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -273,25 +252,23 @@ namespace SGS.Visao
             v_controlePlatao.Show();
         }
 
-        private void bbiContaCaixa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            MessageBox.Show("Em Desenvolvimento", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-        }
-
-        private void bbiCentroCusto_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            MessageBox.Show("Em Desenvolvimento", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-        }
-
-        private void bbiTemas_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            MessageBox.Show("Em Desenvolvimento", "SGS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-        }
+        
 
         private void bbiControleRemotoPlantao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             v_ControleVisaoAtendimentoPlantao ControleRemoto = new v_ControleVisaoAtendimentoPlantao();
             ControleRemoto.Show();
+        }
+
+        private void bbiEmpresaCorretor_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            v_EmpresasCorretores FormEmpresasCorretores = new v_EmpresasCorretores(_usuario);
+            FormEmpresasCorretores.ShowDialog();
+        }
+
+        private void bbiNotasFiscaisCorretores_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
         }
     }
 }

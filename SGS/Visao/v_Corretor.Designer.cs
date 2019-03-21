@@ -39,7 +39,6 @@
             this.gbxCorretores = new DevExpress.XtraEditors.GroupControl();
             this.gcCorretores = new DevExpress.XtraGrid.GridControl();
             this.gdvCorretores = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
-            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumnCodigo = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumnNome = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumnCPF = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -64,6 +63,12 @@
             this.txtNome = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.ColunaEmpresaCorretor = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.ColunaCodigoEmpresaCorretor = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.cbxEmpresaCorretor = new DevExpress.XtraEditors.LookUpEdit();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.ColunaFK_corretor_empresacorretor = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             ((System.ComponentModel.ISupportInitialize)(this.tabFormControl)).BeginInit();
             this.tabFormContentContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxCorretores)).BeginInit();
@@ -79,6 +84,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCPF.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNome.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbxEmpresaCorretor.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tabFormControl
@@ -190,7 +196,10 @@
             this.gridColumnTelefone,
             this.gridColumnEmail,
             this.gridColumnStatus,
-            this.gridColumnUsuarioCad});
+            this.gridColumnUsuarioCad,
+            this.ColunaFK_corretor_empresacorretor,
+            this.ColunaCodigoEmpresaCorretor,
+            this.ColunaEmpresaCorretor});
             this.gdvCorretores.GridControl = this.gcCorretores;
             this.gdvCorretores.Name = "gdvCorretores";
             this.gdvCorretores.OptionsBehavior.Editable = false;
@@ -202,20 +211,6 @@
             this.gdvCorretores.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gdvCorretores.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
             this.gdvCorretores.OptionsView.EnableAppearanceEvenRow = true;
-            // 
-            // gridBand1
-            // 
-            this.gridBand1.Caption = "Todos os corretores estão no Grid.";
-            this.gridBand1.Columns.Add(this.gridColumnCodigo);
-            this.gridBand1.Columns.Add(this.gridColumnNome);
-            this.gridBand1.Columns.Add(this.gridColumnCPF);
-            this.gridBand1.Columns.Add(this.gridColumnTelefone);
-            this.gridBand1.Columns.Add(this.gridColumnEmail);
-            this.gridBand1.Columns.Add(this.gridColumnStatus);
-            this.gridBand1.Columns.Add(this.gridColumnUsuarioCad);
-            this.gridBand1.Name = "gridBand1";
-            this.gridBand1.VisibleIndex = 0;
-            this.gridBand1.Width = 866;
             // 
             // gridColumnCodigo
             // 
@@ -255,7 +250,7 @@
             this.gridColumnEmail.FieldName = "email";
             this.gridColumnEmail.Name = "gridColumnEmail";
             this.gridColumnEmail.Visible = true;
-            this.gridColumnEmail.Width = 215;
+            this.gridColumnEmail.Width = 146;
             // 
             // gridColumnStatus
             // 
@@ -263,7 +258,7 @@
             this.gridColumnStatus.FieldName = "status";
             this.gridColumnStatus.Name = "gridColumnStatus";
             this.gridColumnStatus.Visible = true;
-            this.gridColumnStatus.Width = 53;
+            this.gridColumnStatus.Width = 82;
             // 
             // gridColumnUsuarioCad
             // 
@@ -271,7 +266,7 @@
             this.gridColumnUsuarioCad.FieldName = "usuariocad";
             this.gridColumnUsuarioCad.Name = "gridColumnUsuarioCad";
             this.gridColumnUsuarioCad.Visible = true;
-            this.gridColumnUsuarioCad.Width = 82;
+            this.gridColumnUsuarioCad.Width = 77;
             // 
             // tabFormPageNovoCorretor
             // 
@@ -290,6 +285,8 @@
             // 
             // gbxNovoCorretor
             // 
+            this.gbxNovoCorretor.Controls.Add(this.labelControl5);
+            this.gbxNovoCorretor.Controls.Add(this.cbxEmpresaCorretor);
             this.gbxNovoCorretor.Controls.Add(this.btnSalvar);
             this.gbxNovoCorretor.Controls.Add(this.gbxStatus);
             this.gbxNovoCorretor.Controls.Add(this.txtTelefone);
@@ -314,7 +311,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(437, 246);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 44);
-            this.btnSalvar.TabIndex = 5;
+            this.btnSalvar.TabIndex = 6;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
@@ -366,7 +363,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(518, 246);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 44);
-            this.btnCancelar.TabIndex = 6;
+            this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -436,6 +433,73 @@
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2013";
             // 
+            // ColunaEmpresaCorretor
+            // 
+            this.ColunaEmpresaCorretor.AppearanceHeader.Options.UseTextOptions = true;
+            this.ColunaEmpresaCorretor.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.ColunaEmpresaCorretor.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.ColunaEmpresaCorretor.Caption = "Empresa Corretor";
+            this.ColunaEmpresaCorretor.FieldName = "nomeempresa";
+            this.ColunaEmpresaCorretor.Name = "ColunaEmpresaCorretor";
+            this.ColunaEmpresaCorretor.Visible = true;
+            this.ColunaEmpresaCorretor.Width = 196;
+            // 
+            // ColunaCodigoEmpresaCorretor
+            // 
+            this.ColunaCodigoEmpresaCorretor.AppearanceCell.Options.UseTextOptions = true;
+            this.ColunaCodigoEmpresaCorretor.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.ColunaCodigoEmpresaCorretor.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.ColunaCodigoEmpresaCorretor.AppearanceHeader.Options.UseTextOptions = true;
+            this.ColunaCodigoEmpresaCorretor.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.ColunaCodigoEmpresaCorretor.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.ColunaCodigoEmpresaCorretor.Caption = "Código Empresa";
+            this.ColunaCodigoEmpresaCorretor.FieldName = "idempresacorretor";
+            this.ColunaCodigoEmpresaCorretor.Name = "ColunaCodigoEmpresaCorretor";
+            this.ColunaCodigoEmpresaCorretor.Visible = true;
+            this.ColunaCodigoEmpresaCorretor.Width = 65;
+            // 
+            // cbxEmpresaCorretor
+            // 
+            this.cbxEmpresaCorretor.Location = new System.Drawing.Point(5, 222);
+            this.cbxEmpresaCorretor.Name = "cbxEmpresaCorretor";
+            this.cbxEmpresaCorretor.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbxEmpresaCorretor.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.cbxEmpresaCorretor.Properties.NullText = "";
+            this.cbxEmpresaCorretor.Size = new System.Drawing.Size(390, 20);
+            this.cbxEmpresaCorretor.TabIndex = 5;
+            this.cbxEmpresaCorretor.EditValueChanged += new System.EventHandler(this.cbxEmpresaCorretor_EditValueChanged);
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(5, 203);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(89, 13);
+            this.labelControl5.TabIndex = 10;
+            this.labelControl5.Text = "Empresa Corretor:";
+            // 
+            // ColunaFK_corretor_empresacorretor
+            // 
+            this.ColunaFK_corretor_empresacorretor.Caption = "fk_corretor_empresacorretor";
+            this.ColunaFK_corretor_empresacorretor.FieldName = "fk_corretor_empresacorretor";
+            this.ColunaFK_corretor_empresacorretor.Name = "ColunaFK_corretor_empresacorretor";
+            // 
+            // gridBand1
+            // 
+            this.gridBand1.Caption = "Todos os corretores estão no Grid.";
+            this.gridBand1.Columns.Add(this.gridColumnCodigo);
+            this.gridBand1.Columns.Add(this.gridColumnNome);
+            this.gridBand1.Columns.Add(this.gridColumnCPF);
+            this.gridBand1.Columns.Add(this.gridColumnTelefone);
+            this.gridBand1.Columns.Add(this.gridColumnEmail);
+            this.gridBand1.Columns.Add(this.gridColumnStatus);
+            this.gridBand1.Columns.Add(this.ColunaCodigoEmpresaCorretor);
+            this.gridBand1.Columns.Add(this.ColunaEmpresaCorretor);
+            this.gridBand1.Columns.Add(this.gridColumnUsuarioCad);
+            this.gridBand1.Name = "gridBand1";
+            this.gridBand1.VisibleIndex = 0;
+            this.gridBand1.Width = 1082;
+            // 
             // v_Corretor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -470,6 +534,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCPF.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNome.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbxEmpresaCorretor.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -503,7 +568,6 @@
         private System.Windows.Forms.RadioButton rbtAtivo;
         private DevExpress.XtraBars.TabFormControl tabFormControl;
         private DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView gdvCorretores;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumnCodigo;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumnNome;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumnCPF;
@@ -511,5 +575,11 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumnEmail;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumnStatus;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumnUsuarioCad;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn ColunaCodigoEmpresaCorretor;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn ColunaEmpresaCorretor;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.LookUpEdit cbxEmpresaCorretor;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn ColunaFK_corretor_empresacorretor;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
     }
 }

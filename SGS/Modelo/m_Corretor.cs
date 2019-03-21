@@ -16,9 +16,9 @@ namespace SGS.Modelo
         public string telefone { get; set; }
         public int status { get; set; }
         public string usuariocad { get; set; }
+        public int fk_corretor_empresacorretor { get; set; }
 
 
-        
 
     }
 }
